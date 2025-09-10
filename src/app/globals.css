@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Copoazú Labs Color Palette */
+:root {
+  --cascara-marron: #4B2E1E;
+  --pulpa-crema: #F5F1E7;
+  --verde-selva: #3E7C4A;
+  --amarillo-amazonico: #E6B450;
+  --rosa-tropical: #D88FA0;
+  --negro-suave: #1C1C1C;
+  --gris-ceniza: #9A9A9A;
+  --blanco: #FFFFFF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--pulpa-crema);
+  color: var(--negro-suave);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--pulpa-crema);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--verde-selva);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cascara-marron);
+}
+
+/* Selection Styling */
+::selection {
+  background-color: var(--amarillo-amazonico);
+  color: var(--negro-suave);
+}
+
+/* Focus Styling */
+:focus {
+  outline: 2px solid var(--verde-selva);
+  outline-offset: 2px;
+}
+
+/* Button Transitions */
+button {
+  transition: all 0.2s ease;
+}
+
+/* Link Transitions */
+a {
+  transition: color 0.2s ease;
+}
+
+/* Card Hover Effects */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
