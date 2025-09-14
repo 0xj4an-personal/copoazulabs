@@ -53,61 +53,42 @@ export default function CollectionsPage() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#F5F1E7', padding: '32px 16px' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+    <div className="min-h-screen bg-[#F5F1E7] dark:bg-[#1C1C1C] py-8 px-4 transition-colors duration-200">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div style={{ marginBottom: '32px' }}>
-          <h1 style={{ fontSize: '2.5rem', fontWeight: '700', color: '#1C1C1C', marginBottom: '16px' }}>
+        <div className="mb-8">
+          <h1 className="text-4xl font-bold text-[#1C1C1C] dark:text-[#F5F1E7] mb-4 transition-colors duration-200">
             {t('title')}
           </h1>
-          <p style={{ fontSize: '1.125rem', color: '#9A9A9A', marginBottom: '32px' }}>
+          <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 transition-colors duration-200">
             {t('subtitle')}
           </p>
         </div>
 
         {/* Filters and Search */}
-        <div style={{
-          backgroundColor: '#FFFFFF',
-          padding: '24px',
-          borderRadius: '16px',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-          marginBottom: '32px'
-        }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg mb-8 transition-colors duration-200">
+          <div className="flex flex-col gap-4">
             {/* Search Bar */}
-            <div style={{ position: 'relative' }}>
-              <Search style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#9A9A9A' }} size={20} />
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400" size={20} />
               <input
                 type="text"
                 placeholder={t('searchPlaceholder')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                style={{
-                  width: '100%',
-                  padding: '12px 12px 12px 48px',
-                  border: '2px solid #E5E5E5',
-                  borderRadius: '12px',
-                  fontSize: '1rem',
-                  backgroundColor: '#FFFFFF'
-                }}
+                className="w-full py-3 pl-12 pr-4 border-2 border-gray-300 dark:border-gray-600 rounded-xl text-base bg-white dark:bg-gray-700 text-[#1C1C1C] dark:text-[#F5F1E7] placeholder-gray-500 dark:placeholder-gray-400 focus:border-[#3E7C4A] focus:outline-none transition-colors duration-200"
               />
             </div>
 
             {/* Filters Row */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', alignItems: 'center' }}>
+            <div className="flex flex-wrap gap-4 items-center">
               {/* Sort Dropdown */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span style={{ color: '#9A9A9A', fontSize: '0.875rem' }}>{t('sortBy')}:</span>
+              <div className="flex items-center gap-2">
+                <span className="text-gray-500 dark:text-gray-400 text-sm">{t('sortBy')}:</span>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  style={{
-                    padding: '8px 12px',
-                    border: '2px solid #E5E5E5',
-                    borderRadius: '8px',
-                    backgroundColor: '#FFFFFF',
-                    fontSize: '0.875rem'
-                  }}
+                  className="py-2 px-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-sm text-[#1C1C1C] dark:text-[#F5F1E7] focus:border-[#3E7C4A] focus:outline-none transition-colors duration-200"
                 >
                   <option value="newest">{t('newest')}</option>
                   <option value="popular">{t('mostPopular')}</option>
@@ -117,41 +98,35 @@ export default function CollectionsPage() {
               </div>
 
               {/* Featured Only Toggle */}
-              <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
+              <label className="flex items-center gap-2 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={showFeaturedOnly}
                   onChange={(e) => setShowFeaturedOnly(e.target.checked)}
-                  style={{ margin: 0 }}
+                  className="m-0"
                 />
-                <span style={{ fontSize: '0.875rem', color: '#1C1C1C' }}>{t('featuredOnly')}</span>
+                <span className="text-sm text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">{t('featuredOnly')}</span>
               </label>
 
               {/* View Mode Toggle */}
-              <div style={{ display: 'flex', gap: '4px', marginLeft: 'auto' }}>
+              <div className="flex gap-1 ml-auto">
                 <button
                   onClick={() => setViewMode('grid')}
-                  style={{
-                    padding: '8px',
-                    border: viewMode === 'grid' ? '2px solid #22C55E' : '2px solid #E5E5E5',
-                    borderRadius: '8px',
-                    backgroundColor: viewMode === 'grid' ? '#22C55E' : '#FFFFFF',
-                    color: viewMode === 'grid' ? '#FFFFFF' : '#9A9A9A',
-                    cursor: 'pointer'
-                  }}
+                  className={`p-2 border-2 rounded-lg cursor-pointer transition-all duration-200 ${
+                    viewMode === 'grid' 
+                      ? 'border-[#3E7C4A] bg-[#3E7C4A] text-white' 
+                      : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-500 dark:text-gray-400'
+                  }`}
                 >
                   <Grid size={16} />
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
-                  style={{
-                    padding: '8px',
-                    border: viewMode === 'list' ? '2px solid #22C55E' : '2px solid #E5E5E5',
-                    borderRadius: '8px',
-                    backgroundColor: viewMode === 'list' ? '#22C55E' : '#FFFFFF',
-                    color: viewMode === 'list' ? '#FFFFFF' : '#9A9A9A',
-                    cursor: 'pointer'
-                  }}
+                  className={`p-2 border-2 rounded-lg cursor-pointer transition-all duration-200 ${
+                    viewMode === 'list' 
+                      ? 'border-[#3E7C4A] bg-[#3E7C4A] text-white' 
+                      : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-500 dark:text-gray-400'
+                  }`}
                 >
                   <List size={16} />
                 </button>
@@ -162,17 +137,11 @@ export default function CollectionsPage() {
 
         {/* Collections Grid/List */}
         {filteredCollections.length === 0 ? (
-          <div style={{
-            backgroundColor: '#FFFFFF',
-            padding: '48px',
-            borderRadius: '16px',
-            textAlign: 'center',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
-          }}>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#1C1C1C', marginBottom: '8px' }}>
+          <div className="bg-white dark:bg-gray-800 p-12 rounded-2xl text-center shadow-lg transition-colors duration-200">
+            <h3 className="text-xl font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-2 transition-colors duration-200">
               {t('noCollectionsFound')}
             </h3>
-            <p style={{ color: '#9A9A9A', marginBottom: '16px' }}>
+            <p className="text-gray-600 dark:text-gray-400 mb-4 transition-colors duration-200">
               {t('tryAdjustingFilters')}
             </p>
             <button
@@ -181,43 +150,21 @@ export default function CollectionsPage() {
                 setShowFeaturedOnly(false);
                 setSortBy('newest');
               }}
-              style={{
-                padding: '12px 24px',
-                backgroundColor: '#22C55E',
-                color: '#FFFFFF',
-                border: 'none',
-                borderRadius: '12px',
-                cursor: 'pointer',
-                fontSize: '0.875rem',
-                fontWeight: '600'
-              }}
+              className="py-3 px-6 bg-[#3E7C4A] text-white border-none rounded-xl cursor-pointer text-sm font-semibold hover:bg-[#2d5f3a] transition-all duration-200"
             >
               {t('clearFilters')}
             </button>
           </div>
         ) : (
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: viewMode === 'grid' ? 'repeat(auto-fit, minmax(320px, 1fr))' : '1fr',
-            gap: '24px'
-          }}>
+          <div className={`grid gap-6 ${
+            viewMode === 'grid' 
+              ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' 
+              : 'grid-cols-1'
+          }`}>
             {filteredCollections.map((collection) => (
               <div
                 key={collection.id}
-                style={{
-                  backgroundColor: '#FFFFFF',
-                  borderRadius: '16px',
-                  overflow: 'hidden',
-                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                  transition: 'transform 0.2s ease',
-                  cursor: 'pointer'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-4px)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                }}
+                className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg transition-all duration-200 cursor-pointer hover:transform hover:-translate-y-1 hover:shadow-xl"
               >
                 {/* Collection Image */}
                 <div style={{ position: 'relative', height: '200px', overflow: 'hidden' }}>
@@ -247,76 +194,57 @@ export default function CollectionsPage() {
                     }}
                   />
                   {collection.isFeatured && (
-                    <div style={{
-                      position: 'absolute',
-                      top: '12px',
-                      right: '12px',
-                      backgroundColor: '#22C55E',
-                      color: '#FFFFFF',
-                      padding: '4px 12px',
-                      borderRadius: '20px',
-                      fontSize: '0.75rem',
-                      fontWeight: '600'
-                    }}>
+                    <div className="absolute top-3 right-3 bg-[#3E7C4A] text-white px-3 py-1 rounded-full text-xs font-semibold">
                       {t('featuredOnly')}
                     </div>
                   )}
                 </div>
 
                 {/* Collection Info */}
-                <div style={{ padding: '24px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
-                    <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#1C1C1C', margin: 0 }}>
+                <div className="p-6">
+                  <div className="flex justify-between items-start mb-3">
+                    <h3 className="text-xl font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] m-0 transition-colors duration-200">
                       {t(`collectionItems.${collection.nameKey}.name`)}
                     </h3>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                      <Star size={16} style={{ color: '#FFD700', fill: '#FFD700' }} />
-                      <span style={{ fontSize: '0.875rem', color: '#9A9A9A' }}>
+                    <div className="flex items-center gap-1">
+                      <Star size={16} className="text-yellow-400 fill-yellow-400" />
+                      <span className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-200">
                         {collection.rating}
                       </span>
                     </div>
                   </div>
 
-                  <p style={{ color: '#9A9A9A', fontSize: '0.875rem', marginBottom: '16px', lineHeight: '1.5' }}>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed transition-colors duration-200">
                     {t(`collectionItems.${collection.descriptionKey}.description`)}
                   </p>
 
                   {/* Stats */}
-                  <div style={{ display: 'flex', gap: '16px', marginBottom: '16px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                      <span style={{ fontSize: '0.75rem', color: '#9A9A9A' }}>
+                  <div className="flex gap-4 mb-4">
+                    <div className="flex items-center gap-1">
+                      <span className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-200">
                         {collection.itemCount} {t('items')}
                       </span>
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                      <Users size={14} style={{ color: '#9A9A9A' }} />
-                      <span style={{ fontSize: '0.75rem', color: '#9A9A9A' }}>
+                    <div className="flex items-center gap-1">
+                      <Users size={14} className="text-gray-500 dark:text-gray-400" />
+                      <span className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-200">
                         {collection.followers} {t('followers')}
                       </span>
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                      <Calendar size={14} style={{ color: '#9A9A9A' }} />
-                      <span style={{ fontSize: '0.75rem', color: '#9A9A9A' }}>
+                    <div className="flex items-center gap-1">
+                      <Calendar size={14} className="text-gray-500 dark:text-gray-400" />
+                      <span className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-200">
                         {formatDate(collection.createdAt)}
                       </span>
                     </div>
                   </div>
 
                   {/* Creator */}
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontSize: '0.75rem', color: '#9A9A9A' }}>
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-200">
                       {t('createdBy')} {collection.creator}
                     </span>
-                    <button style={{
-                      padding: '8px 16px',
-                      backgroundColor: '#22C55E',
-                      color: '#FFFFFF',
-                      border: 'none',
-                      borderRadius: '8px',
-                      cursor: 'pointer',
-                      fontSize: '0.75rem',
-                      fontWeight: '600'
-                    }}>
+                    <button className="py-2 px-4 bg-[#3E7C4A] text-white border-none rounded-lg cursor-pointer text-xs font-semibold hover:bg-[#2d5f3a] transition-all duration-200">
                       {t('viewCollection')}
                     </button>
                   </div>

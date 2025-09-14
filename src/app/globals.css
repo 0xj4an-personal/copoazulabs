@@ -26,12 +26,18 @@ html {
 }
 
 body {
-  background-color: var(--pulpa-crema);
-  color: var(--negro-suave);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  background-color: var(--pulpa-crema);
+  color: var(--negro-suave);
+}
+
+.dark body {
+  background-color: var(--negro-suave);
+  color: var(--pulpa-crema);
 }
 
 /* Scrollbar Styling */
@@ -41,15 +47,25 @@ body {
 
 ::-webkit-scrollbar-track {
   background: var(--pulpa-crema);
+  transition: background-color 0.2s ease;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--negro-suave);
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--verde-selva);
   border-radius: 4px;
+  transition: background-color 0.2s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--cascara-marron);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--gris-ceniza);
 }
 
 /* Selection Styling */

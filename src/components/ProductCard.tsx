@@ -50,14 +50,7 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
 
   return (
     <div
-      style={{
-        position: 'relative',
-        backgroundColor: '#FFFFFF',
-        borderRadius: '16px',
-        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-        overflow: 'hidden',
-        transition: 'all 0.3s ease'
-      }}
+      className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -93,87 +86,34 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
 
         {/* Overlay Actions */}
         {isHovered && (
-          <div style={{
-            position: 'absolute',
-            top: '12px',
-            right: '12px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '8px'
-          }}>
+          <div className="absolute top-3 right-3 flex flex-col gap-2">
             <button
               onClick={handleToggleWishlist}
-              style={{
-                width: '40px',
-                height: '40px',
-                backgroundColor: '#FFFFFF',
-                border: 'none',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-                transition: 'all 0.2s ease'
-              }}
+              className="w-10 h-10 bg-white dark:bg-gray-700 border-none rounded-full flex items-center justify-center cursor-pointer shadow-md transition-all duration-200 hover:scale-110"
             >
               <Heart 
-                style={{ 
-                  width: '20px', 
-                  height: '20px', 
-                  color: isLiked ? '#D88FA0' : '#9A9A9A',
-                  fill: isLiked ? '#D88FA0' : 'transparent'
-                }} 
+                className={`w-5 h-5 ${
+                  isLiked 
+                    ? 'text-pink-400 fill-pink-400' 
+                    : 'text-gray-500 dark:text-gray-400'
+                }`}
               />
             </button>
-            <button style={{
-              width: '40px',
-              height: '40px',
-              backgroundColor: '#FFFFFF',
-              border: 'none',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer',
-              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-              transition: 'all 0.2s ease'
-            }}>
-              <Eye style={{ width: '20px', height: '20px', color: '#9A9A9A' }} />
+            <button className="w-10 h-10 bg-white dark:bg-gray-700 border-none rounded-full flex items-center justify-center cursor-pointer shadow-md transition-all duration-200 hover:scale-110">
+              <Eye className="w-5 h-5 text-gray-500 dark:text-gray-400" />
             </button>
           </div>
         )}
 
         {/* Badges */}
-        <div style={{
-          position: 'absolute',
-          top: '12px',
-          left: '12px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '8px'
-        }}>
+        <div className="absolute top-3 left-3 flex flex-col gap-2">
           {product.isNew && (
-            <span style={{
-              backgroundColor: '#3E7C4A',
-              color: '#FFFFFF',
-              padding: '4px 8px',
-              borderRadius: '12px',
-              fontSize: '0.75rem',
-              fontWeight: '500'
-            }}>
+            <span className="bg-[#3E7C4A] text-white px-2 py-1 rounded-xl text-xs font-medium">
               {t('new')}
             </span>
           )}
           {product.isBestSeller && (
-            <span style={{
-              backgroundColor: '#E6B450',
-              color: '#1C1C1C',
-              padding: '4px 8px',
-              borderRadius: '12px',
-              fontSize: '0.75rem',
-              fontWeight: '500'
-            }}>
+            <span className="bg-[#E6B450] text-[#1C1C1C] dark:text-[#1C1C1C] px-2 py-1 rounded-xl text-xs font-medium">
               {t('bestseller')}
             </span>
           )}
@@ -181,78 +121,49 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
       </div>
 
       {/* Product Info */}
-      <div style={{ padding: '24px' }}>
-        <div style={{ marginBottom: '8px' }}>
-          <span style={{ fontSize: '0.875rem', color: '#9A9A9A' }}>{t(`categories.${product.categoryKey}`)}</span>
+      <div className="p-6">
+        <div className="mb-2">
+          <span className="text-sm text-gray-500 dark:text-gray-400">{t(`categories.${product.categoryKey}`)}</span>
         </div>
         
-        <h3 style={{ 
-          fontSize: '1.125rem', 
-          fontWeight: '600', 
-          color: '#1C1C1C', 
-          marginBottom: '8px',
-          lineHeight: '1.4'
-        }}>
+        <h3 className="text-lg font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-2 leading-tight transition-colors duration-200">
           {t(`productItems.${product.nameKey}.name`)}
         </h3>
 
         {/* Rating */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
-          <div style={{ display: 'flex', gap: '2px' }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="flex gap-0.5">
             {renderStars(product.rating)}
           </div>
-          <span style={{ fontSize: '0.875rem', color: '#9A9A9A' }}>
+          <span className="text-sm text-gray-500 dark:text-gray-400">
             ({product.reviewCount})
           </span>
         </div>
 
         {/* Price */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
-          <span style={{ fontSize: '1.25rem', fontWeight: '700', color: '#1C1C1C' }}>
+        <div className="flex items-center gap-2 mb-4">
+          <span className="text-xl font-bold text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">
             {product.price.toLocaleString('es-CO')} cCOP
           </span>
           {product.originalPrice && (
-            <span style={{ 
-              fontSize: '1rem', 
-              color: '#9A9A9A', 
-              textDecoration: 'line-through' 
-            }}>
+            <span className="text-base text-gray-500 dark:text-gray-400 line-through transition-colors duration-200">
               {product.originalPrice.toLocaleString('es-CO')} cCOP
             </span>
           )}
         </div>
 
         {/* Product Description */}
-        <p style={{ 
-          fontSize: '0.875rem', 
-          color: '#9A9A9A', 
-          marginBottom: '16px',
-          lineHeight: '1.4'
-        }}>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 leading-relaxed transition-colors duration-200">
           {t(`productItems.${product.nameKey}.shortDescription`)}
         </p>
 
         {/* Add to Cart Button */}
         <button
           onClick={handleAddToCart}
-          style={{
-            width: '100%',
-            padding: '12px 16px',
-            backgroundColor: '#3E7C4A',
-            color: '#FFFFFF',
-            border: 'none',
-            borderRadius: '8px',
-            fontWeight: '500',
-            cursor: 'pointer',
-            transition: 'all 0.2s ease',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '8px'
-          }}
+          className="w-full py-3 px-4 bg-[#3E7C4A] text-white border-none rounded-lg font-medium cursor-pointer transition-all duration-200 flex items-center justify-center gap-2 hover:bg-[#2d5f3a] hover:shadow-lg"
         >
-          <ShoppingCart style={{ width: '16px', height: '16px' }} />
-{t('addToCart')}
+          <ShoppingCart className="w-4 h-4" />
+          {t('addToCart')}
         </button>
       </div>
     </div>

@@ -12,73 +12,46 @@ export default function LanguageSwitcher() {
 
   useEffect(() => {
     setMounted(true);
-    console.log(`🎯 [LANGUAGE_SWITCHER] Component mounted with locale: ${currentLocale}`);
-    console.log(`🌐 [LANGUAGE_SWITCHER] Current URL: ${typeof window !== 'undefined' ? window.location.href : 'server-side'}`);
     
-    // Log current cookie value
+    // Auto-correct if cookie differs from current locale
     if (typeof document !== 'undefined') {
       const cookieValue = document.cookie
         .split('; ')
         .find(row => row.startsWith('preferred-language='))
         ?.split('=')[1];
-      console.log(`🍪 [LANGUAGE_SWITCHER] Current cookie value: ${cookieValue || 'none'}`);
       
-      // Log localStorage value
-      const localStorageValue = localStorage.getItem('preferred-language');
-      console.log(`💾 [LANGUAGE_SWITCHER] Current localStorage value: ${localStorageValue || 'none'}`);
-      
-      // Check if there's a mismatch and auto-correct
       if (cookieValue && cookieValue !== currentLocale) {
-        console.warn(`⚠️ [LANGUAGE_SWITCHER] MISMATCH: Cookie says ${cookieValue} but component locale is ${currentLocale}`);
-        console.log(`🔄 [LANGUAGE_SWITCHER] Auto-correcting to cookie value: ${cookieValue}`);
+        // Update localStorage to match cookie
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('preferred-language', cookieValue);
+        }
         
-        // Get current path without locale
+        // Redirect to correct URL
         const currentPath = window.location.pathname;
         const pathWithoutLocale = currentPath.replace(/^\/[a-z]{2}(\/|$)/, '/');
         const newUrl = `/${cookieValue}${pathWithoutLocale === '/' ? '' : pathWithoutLocale}`;
         
-        console.log(`🛤️ [LANGUAGE_SWITCHER] Current path: ${currentPath}`);
-        console.log(`🛤️ [LANGUAGE_SWITCHER] Path without locale: ${pathWithoutLocale}`);
-        console.log(`🛤️ [LANGUAGE_SWITCHER] New URL: ${newUrl}`);
-        console.log(`🛤️ [LANGUAGE_SWITCHER] Should redirect: ${currentPath !== newUrl}`);
-        
-        // Only redirect if we're not already on the correct URL
         if (currentPath !== newUrl) {
-          console.log(`🚀 [LANGUAGE_SWITCHER] Redirecting to correct URL: ${newUrl}`);
           window.location.href = newUrl;
-        } else {
-          console.log(`✅ [LANGUAGE_SWITCHER] Already on correct URL, no redirect needed`);
         }
-      }
-      
-      if (localStorageValue && localStorageValue !== currentLocale) {
-        console.warn(`⚠️ [LANGUAGE_SWITCHER] MISMATCH: localStorage says ${localStorageValue} but component locale is ${currentLocale}`);
       }
     }
   }, [currentLocale]);
 
   const switchLanguage = (locale: string) => {
-    console.log(`🔄 [LANGUAGE_SWITCHER] Switching to: ${locale}`);
-    console.log(`📍 [LANGUAGE_SWITCHER] Current locale: ${currentLocale}`);
-    
     // Store preference in both localStorage and cookie
     if (typeof window !== 'undefined') {
       localStorage.setItem('preferred-language', locale);
-      console.log(`💾 [LANGUAGE_SWITCHER] Saved to localStorage: ${locale}`);
       
       // Set cookie for server-side access
       document.cookie = `preferred-language=${locale}; path=/; max-age=31536000`; // 1 year
-      console.log(`🍪 [LANGUAGE_SWITCHER] Set cookie: preferred-language=${locale}`);
       
       // Get current path without locale
       const currentPath = window.location.pathname;
       const pathWithoutLocale = currentPath.replace(/^\/[a-z]{2}(\/|$)/, '/');
-      console.log(`🛤️ [LANGUAGE_SWITCHER] Current path: ${currentPath}`);
-      console.log(`🛤️ [LANGUAGE_SWITCHER] Path without locale: ${pathWithoutLocale}`);
       
       // Navigate to new locale
       const newUrl = `/${locale}${pathWithoutLocale === '/' ? '' : pathWithoutLocale}`;
-      console.log(`🚀 [LANGUAGE_SWITCHER] Navigating to: ${newUrl}`);
       window.location.href = newUrl;
     }
   };
@@ -100,10 +73,8 @@ export default function LanguageSwitcher() {
       
       // If cookie or localStorage says different from currentLocale, use that
       if (cookieValue && cookieValue !== currentLocale && (cookieValue === 'en' || cookieValue === 'es')) {
-        console.log(`🔄 [LANGUAGE_SWITCHER] Using cookie value instead of locale: ${cookieValue}`);
         setActualLanguage(cookieValue as 'en' | 'es');
       } else if (localStorageValue && localStorageValue !== currentLocale && (localStorageValue === 'en' || localStorageValue === 'es')) {
-        console.log(`🔄 [LANGUAGE_SWITCHER] Using localStorage value instead of locale: ${localStorageValue}`);
         setActualLanguage(localStorageValue as 'en' | 'es');
       } else {
         setActualLanguage(currentLanguage);
@@ -163,17 +134,17 @@ export default function LanguageSwitcher() {
           e.currentTarget.style.borderColor = '#9A9A9A';
           e.currentTarget.style.backgroundColor = 'transparent';
         }}
-          >
-            <Globe style={{ width: '16px', height: '16px' }} />
-            <span>{localeFlags[actualLanguage as keyof typeof localeFlags]}</span>
-            <span>{localeNames[actualLanguage as keyof typeof localeNames]}</span>
-            <ChevronDown style={{ 
-              width: '14px', 
-              height: '14px',
-              transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-              transition: 'transform 0.2s ease'
-            }} />
-          </button>
+      >
+        <Globe style={{ width: '16px', height: '16px' }} />
+        <span>{localeFlags[actualLanguage as keyof typeof localeFlags]}</span>
+        <span>{localeNames[actualLanguage as keyof typeof localeNames]}</span>
+        <ChevronDown style={{ 
+          width: '14px', 
+          height: '14px',
+          transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+          transition: 'transform 0.2s ease'
+        }} />
+      </button>
 
       {isOpen && (
         <>

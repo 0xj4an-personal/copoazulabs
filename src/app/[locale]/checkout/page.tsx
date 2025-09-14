@@ -30,17 +30,17 @@ export default function CheckoutPage() {
 
   if (state.items.length === 0) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-[#F5F1E7] dark:bg-[#1C1C1C] flex items-center justify-center transition-colors duration-200">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">
+          <h1 className="text-2xl font-bold text-[#1C1C1C] dark:text-[#F5F1E7] mb-4 transition-colors duration-200">
             {t('emptyCart')}
           </h1>
-          <p className="text-gray-600 mb-8">
+          <p className="text-gray-600 dark:text-gray-400 mb-8 transition-colors duration-200">
             {t('emptyCartDescription')}
           </p>
           <Link
             href="/products"
-            className="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+            className="inline-flex items-center px-6 py-3 bg-[#3E7C4A] text-white rounded-lg hover:bg-[#2d5f3a] transition-colors duration-200"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             {t('continueShopping')}
@@ -51,33 +51,33 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-[#F5F1E7] dark:bg-[#1C1C1C] py-8 transition-colors duration-200">
       <div className="max-w-4xl mx-auto px-4">
         {/* Header */}
         <div className="mb-8">
           <Link
             href="/products"
-            className="inline-flex items-center text-green-600 hover:text-green-700 mb-4"
+            className="inline-flex items-center text-[#3E7C4A] hover:text-[#2d5f3a] mb-4 transition-colors duration-200"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             {t('backToProducts')}
           </Link>
-          <h1 className="text-3xl font-bold text-gray-900">
+          <h1 className="text-3xl font-bold text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">
             {t('title')}
           </h1>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Order Summary */}
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-xl font-semibold text-gray-900 mb-6">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 transition-colors duration-200">
+            <h2 className="text-xl font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-6 transition-colors duration-200">
               {t('orderSummary')}
             </h2>
             
             <div className="space-y-4">
               {state.items.map((item) => (
                 <div key={item.id} className="flex items-center space-x-4">
-                  <div className="w-16 h-16 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
+                  <div className="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden flex-shrink-0 transition-colors duration-200">
                     <img
                       src={item.image}
                       alt={item.name}
@@ -85,75 +85,53 @@ export default function CheckoutPage() {
                     />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-sm font-medium text-gray-900">
+                    <h3 className="text-sm font-medium text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">
                       {item.name}
                     </h3>
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-200">
                       {t('quantity')}: {item.quantity}
                     </p>
                   </div>
-                  <div className="text-sm font-medium text-gray-900">
+                  <div className="text-sm font-medium text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">
                     {formatPrice(item.price * item.quantity)}
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="border-t border-gray-200 mt-6 pt-6">
+            <div className="border-t border-gray-200 dark:border-gray-700 mt-6 pt-6 transition-colors duration-200">
               <div className="flex justify-between items-center text-lg font-semibold">
-                <span>{t('total')}</span>
-                <span>{formatPrice(state.totalPrice)}</span>
+                <span className="text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">{t('total')}</span>
+                <span className="text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">{formatPrice(state.totalPrice)}</span>
               </div>
             </div>
           </div>
 
           {/* Payment Methods */}
-          <div style={{ backgroundColor: '#FFFFFF', borderRadius: '8px', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', padding: '24px' }}>
-            <h2 style={{ fontSize: '20px', fontWeight: '600', color: '#111827', marginBottom: '24px' }}>
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 transition-colors duration-200">
+            <h2 className="text-xl font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-6 transition-colors duration-200">
               {t('paymentMethods')}
             </h2>
 
             {paymentError && (
-              <div style={{
-                backgroundColor: '#FEF2F2',
-                border: '1px solid #FECACA',
-                borderRadius: '6px',
-                padding: '12px',
-                marginBottom: '16px'
-              }}>
-                <p style={{ color: '#DC2626', fontSize: '14px', margin: 0 }}>
+              <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-3 mb-4">
+                <p className="text-red-600 dark:text-red-400 text-sm m-0">
                   {paymentError}
                 </p>
               </div>
             )}
 
             {/* Payment Method */}
-            <div style={{ marginBottom: '24px' }}>
-              <div style={{ 
-                border: '2px solid #10B981',
-                borderRadius: '8px',
-                padding: '16px',
-                backgroundColor: '#F0FDF4',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '12px'
-              }}>
-                <div style={{ 
-                  width: '40px', 
-                  height: '40px', 
-                  backgroundColor: '#DCFCE7', 
-                  borderRadius: '8px', 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'center' 
-                }}>
-                  <Wallet className="w-5 h-5 text-green-600" />
+            <div className="mb-6">
+              <div className="border-2 border-[#3E7C4A] rounded-lg p-4 bg-green-50 dark:bg-green-900/20 flex items-center gap-3">
+                <div className="w-10 h-10 bg-green-100 dark:bg-green-800 rounded-lg flex items-center justify-center">
+                  <Wallet className="w-5 h-5 text-[#3E7C4A]" />
                 </div>
                 <div>
-                  <h3 style={{ fontWeight: '600', color: '#111827', margin: '0 0 4px 0' }}>
+                  <h3 className="font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] m-0 mb-1 transition-colors duration-200">
                     cCOP on Celo Network
                   </h3>
-                  <p style={{ fontSize: '14px', color: '#6B7280', margin: 0 }}>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 m-0 transition-colors duration-200">
                     Pay with cCOP tokens on Celo network
                   </p>
                 </div>

@@ -14,112 +14,48 @@ export default function Home() {
   const t = useTranslations();
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#F5F1E7', color: '#1C1C1C' }}>
+    <div className="min-h-screen bg-[#F5F1E7] dark:bg-[#1C1C1C] text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">
       {/* Hero Section */}
-      <section style={{
-        position: 'relative',
-        background: 'linear-gradient(135deg, #F5F1E7 0%, #FFFFFF 50%, #F5F1E7 100%)',
-        overflow: 'hidden',
-        padding: '60px 0'
-      }}>
+      <section className="relative overflow-hidden py-15 bg-gradient-to-br from-[#F5F1E7] via-white to-[#F5F1E7] dark:from-[#1C1C1C] dark:via-gray-800 dark:to-[#1C1C1C] transition-colors duration-200">
         <div className="absolute inset-0 opacity-50" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233E7C4A' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
         }}></div>
         
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 16px', position: 'relative', zIndex: 10 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '32px', flexWrap: 'wrap' }}>
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <div className="flex items-center gap-8 flex-wrap">
             {/* Left Content */}
-            <div style={{ flex: '1', minWidth: '300px' }}>
-              <h1 style={{
-                fontSize: '3rem',
-                fontWeight: '800',
-                lineHeight: '1.1',
-                marginBottom: '20px',
-                background: 'linear-gradient(135deg, #1C1C1C 0%, #3E7C4A 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
-              }}>
+            <div className="flex-1 min-w-80">
+              <h1 className="text-5xl font-extrabold leading-tight mb-5 bg-gradient-to-br from-[#1C1C1C] to-[#3E7C4A] dark:from-[#F5F1E7] dark:to-[#3E7C4A] bg-clip-text text-transparent">
                 {t('hero.title')}
               </h1>
-              <p style={{
-                fontSize: '1.125rem',
-                color: '#9A9A9A',
-                marginBottom: '28px',
-                lineHeight: '1.6',
-                maxWidth: '480px'
-              }}>
+              <p className="text-lg text-gray-600 dark:text-gray-400 mb-7 leading-relaxed max-w-lg">
                 {t('hero.subtitle')}
               </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }} className="sm:flex-row">
+              <div className="flex flex-col gap-3 sm:flex-row">
                 <Link href="/products">
-                  <button style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    padding: '14px 28px',
-                    backgroundColor: '#3E7C4A',
-                    color: '#FFFFFF',
-                    fontWeight: '600',
-                    borderRadius: '10px',
-                    border: 'none',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                    fontSize: '1rem'
-                  }}>
+                  <button className="inline-flex items-center px-7 py-3.5 bg-[#3E7C4A] text-white font-semibold rounded-lg border-none cursor-pointer transition-all duration-300 shadow-lg hover:bg-[#2d5f3a] hover:shadow-xl text-base">
                     {t('hero.shopNow')}
-                    <ArrowRight style={{ marginLeft: '6px', width: '18px', height: '18px' }} />
+                    <ArrowRight className="ml-1.5 w-4.5 h-4.5" />
                   </button>
                 </Link>
-                <button style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  padding: '14px 28px',
-                  backgroundColor: 'transparent',
-                  color: '#1C1C1C',
-                  fontWeight: '600',
-                  borderRadius: '10px',
-                  border: '2px solid #1C1C1C',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  fontSize: '1rem'
-                }}>
-                  <Wallet style={{ marginRight: '6px', width: '18px', height: '18px' }} />
+                <button className="inline-flex items-center px-7 py-3.5 bg-transparent text-[#1C1C1C] dark:text-[#F5F1E7] font-semibold rounded-lg border-2 border-[#1C1C1C] dark:border-[#F5F1E7] cursor-pointer transition-all duration-300 hover:bg-[#1C1C1C] hover:text-[#F5F1E7] dark:hover:bg-[#F5F1E7] dark:hover:text-[#1C1C1C] text-base">
+                  <Wallet className="mr-1.5 w-4.5 h-4.5" />
                   {t('hero.connectWallet')}
                 </button>
               </div>
             </div>
             
             {/* Right Visual */}
-            <div style={{ flex: '0 0 320px', maxWidth: '320px' }}>
-              <div style={{
-                width: '100%',
-                height: '320px',
-                backgroundColor: '#FFFFFF',
-                borderRadius: '20px',
-                boxShadow: '0 15px 30px rgba(0, 0, 0, 0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233E7C4A' fill-opacity='0.1'%3E%3Cpath d='M50 50c0-27.614-22.386-50-50-50v100c27.614 0 50-22.386 50-50z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-              }}>
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{
-                    width: '80px',
-                    height: '80px',
-                    backgroundColor: '#3E7C4A',
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    margin: '0 auto 16px'
-                  }}>
-                    <ShoppingCart style={{ width: '40px', height: '40px', color: '#FFFFFF' }} />
+            <div className="flex-none w-80 max-w-80">
+              <div className="w-full h-80 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl flex items-center justify-center transition-colors duration-200">
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-[#3E7C4A] rounded-full flex items-center justify-center mx-auto mb-4">
+                    <ShoppingCart className="w-10 h-10 text-white" />
                   </div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#1C1C1C', marginBottom: '6px' }}>
+                  <h3 className="text-xl font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-1.5 transition-colors duration-200">
                     Web3 Merchandise
                   </h3>
-                  <p style={{ color: '#9A9A9A', fontSize: '0.9rem' }}>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm transition-colors duration-200">
                     Shop with crypto, own with pride
                   </p>
                 </div>
@@ -130,74 +66,38 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section style={{ padding: '80px 0', backgroundColor: '#FFFFFF' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 16px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '48px' }}>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{
-                fontSize: '3rem',
-                fontWeight: '800',
-                color: '#3E7C4A',
-                marginBottom: '8px'
-              }}>
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-200">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+            <div className="text-center">
+              <div className="text-5xl font-extrabold text-[#3E7C4A] mb-2">
                 10K+
               </div>
-              <div style={{
-                fontSize: '1.125rem',
-                color: '#9A9A9A',
-                fontWeight: '500'
-              }}>
+              <div className="text-lg text-gray-500 dark:text-gray-400 font-medium">
                 {t('stats.happyCustomers')}
               </div>
             </div>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{
-                fontSize: '3rem',
-                fontWeight: '800',
-                color: '#3E7C4A',
-                marginBottom: '8px'
-              }}>
+            <div className="text-center">
+              <div className="text-5xl font-extrabold text-[#3E7C4A] mb-2">
                 50K+
               </div>
-              <div style={{
-                fontSize: '1.125rem',
-                color: '#9A9A9A',
-                fontWeight: '500'
-              }}>
+              <div className="text-lg text-gray-500 dark:text-gray-400 font-medium">
                 {t('stats.productsSold')}
               </div>
             </div>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{
-                fontSize: '3rem',
-                fontWeight: '800',
-                color: '#3E7C4A',
-                marginBottom: '8px'
-              }}>
+            <div className="text-center">
+              <div className="text-5xl font-extrabold text-[#3E7C4A] mb-2">
                 25+
               </div>
-              <div style={{
-                fontSize: '1.125rem',
-                color: '#9A9A9A',
-                fontWeight: '500'
-              }}>
+              <div className="text-lg text-gray-500 dark:text-gray-400 font-medium">
                 {t('stats.countries')}
               </div>
             </div>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{
-                fontSize: '3rem',
-                fontWeight: '800',
-                color: '#3E7C4A',
-                marginBottom: '8px'
-              }}>
+            <div className="text-center">
+              <div className="text-5xl font-extrabold text-[#3E7C4A] mb-2">
                 3+
               </div>
-              <div style={{
-                fontSize: '1.125rem',
-                color: '#9A9A9A',
-                fontWeight: '500'
-              }}>
+              <div className="text-lg text-gray-500 dark:text-gray-400 font-medium">
                 {t('stats.yearsExperience')}
               </div>
             </div>
@@ -206,130 +106,48 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section style={{ padding: '80px 0', backgroundColor: '#F5F1E7' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 16px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '64px' }}>
-            <h2 style={{
-              fontSize: '2.5rem',
-              fontWeight: '700',
-              color: '#1C1C1C',
-              marginBottom: '16px'
-            }}>
+      <section className="py-20 bg-[#F5F1E7] dark:bg-[#1C1C1C] transition-colors duration-200">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-[#1C1C1C] dark:text-[#F5F1E7] mb-4 transition-colors duration-200">
               {t('features.title')}
             </h2>
-            <p style={{
-              fontSize: '1.25rem',
-              color: '#9A9A9A',
-              maxWidth: '600px',
-              margin: '0 auto'
-            }}>
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto transition-colors duration-200">
               {t('features.subtitle')}
             </p>
           </div>
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px' }}>
-            <div style={{
-              backgroundColor: '#FFFFFF',
-              padding: '32px',
-              borderRadius: '16px',
-              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-              textAlign: 'center',
-              transition: 'transform 0.3s ease'
-            }}>
-              <div style={{
-                width: '80px',
-                height: '80px',
-                backgroundColor: '#3E7C4A',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 24px'
-              }}>
-                <Zap style={{ width: '40px', height: '40px', color: '#FFFFFF' }} />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg text-center transition-all duration-300 hover:transform hover:scale-105">
+              <div className="w-20 h-20 bg-[#3E7C4A] rounded-full flex items-center justify-center mx-auto mb-6">
+                <Zap className="w-10 h-10 text-white" />
               </div>
-              <h3 style={{
-                fontSize: '1.5rem',
-                fontWeight: '600',
-                color: '#1C1C1C',
-                marginBottom: '16px'
-              }}>
+              <h3 className="text-2xl font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-4 transition-colors duration-200">
                 {t('features.lightningFast.title')}
               </h3>
-              <p style={{
-                color: '#9A9A9A',
-                lineHeight: '1.6'
-              }}>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-200">
                 {t('features.lightningFast.description')}
               </p>
             </div>
-            <div style={{
-              backgroundColor: '#FFFFFF',
-              padding: '32px',
-              borderRadius: '16px',
-              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-              textAlign: 'center',
-              transition: 'transform 0.3s ease'
-            }}>
-              <div style={{
-                width: '80px',
-                height: '80px',
-                backgroundColor: '#3E7C4A',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 24px'
-              }}>
-                <Shield style={{ width: '40px', height: '40px', color: '#FFFFFF' }} />
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg text-center transition-all duration-300 hover:transform hover:scale-105">
+              <div className="w-20 h-20 bg-[#3E7C4A] rounded-full flex items-center justify-center mx-auto mb-6">
+                <Shield className="w-10 h-10 text-white" />
               </div>
-              <h3 style={{
-                fontSize: '1.5rem',
-                fontWeight: '600',
-                color: '#1C1C1C',
-                marginBottom: '16px'
-              }}>
+              <h3 className="text-2xl font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-4 transition-colors duration-200">
                 {t('features.securePrivate.title')}
               </h3>
-              <p style={{
-                color: '#9A9A9A',
-                lineHeight: '1.6'
-              }}>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-200">
                 {t('features.securePrivate.description')}
               </p>
             </div>
-            <div style={{
-              backgroundColor: '#FFFFFF',
-              padding: '32px',
-              borderRadius: '16px',
-              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-              textAlign: 'center',
-              transition: 'transform 0.3s ease'
-            }}>
-              <div style={{
-                width: '80px',
-                height: '80px',
-                backgroundColor: '#3E7C4A',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 24px'
-              }}>
-                <Users style={{ width: '40px', height: '40px', color: '#FFFFFF' }} />
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg text-center transition-all duration-300 hover:transform hover:scale-105">
+              <div className="w-20 h-20 bg-[#3E7C4A] rounded-full flex items-center justify-center mx-auto mb-6">
+                <Users className="w-10 h-10 text-white" />
               </div>
-              <h3 style={{
-                fontSize: '1.5rem',
-                fontWeight: '600',
-                color: '#1C1C1C',
-                marginBottom: '16px'
-              }}>
+              <h3 className="text-2xl font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-4 transition-colors duration-200">
                 {t('features.communityDriven.title')}
               </h3>
-              <p style={{
-                color: '#9A9A9A',
-                lineHeight: '1.6'
-              }}>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-200">
                 {t('features.communityDriven.description')}
               </p>
             </div>
@@ -338,51 +156,24 @@ export default function Home() {
       </section>
 
       {/* Featured Products Section */}
-      <section style={{ padding: '80px 0', backgroundColor: '#FFFFFF' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 16px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '64px' }}>
-            <h2 style={{
-              fontSize: '2.5rem',
-              fontWeight: '700',
-              color: '#1C1C1C',
-              marginBottom: '16px'
-            }}>
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-200">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-[#1C1C1C] dark:text-[#F5F1E7] mb-4 transition-colors duration-200">
               {t('products.featuredTitle')}
             </h2>
-            <p style={{
-              fontSize: '1.25rem',
-              color: '#9A9A9A',
-              maxWidth: '600px',
-              margin: '0 auto 32px'
-            }}>
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8 transition-colors duration-200">
               {t('products.featuredSubtitle')}
             </p>
             <Link href="/products">
-              <button style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                padding: '12px 24px',
-                backgroundColor: 'transparent',
-                color: '#3E7C4A',
-                fontWeight: '600',
-                borderRadius: '8px',
-                border: '2px solid #3E7C4A',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                fontSize: '1rem'
-              }}>
-{t('products.viewAll')}
-                <ArrowRight style={{ marginLeft: '8px', width: '16px', height: '16px' }} />
+              <button className="inline-flex items-center px-6 py-3 bg-transparent text-[#3E7C4A] font-semibold rounded-lg border-2 border-[#3E7C4A] cursor-pointer transition-all duration-300 hover:bg-[#3E7C4A] hover:text-white text-base">
+                {t('products.viewAll')}
+                <ArrowRight className="ml-2 w-4 h-4" />
               </button>
             </Link>
           </div>
           
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '32px',
-            marginBottom: '48px'
-          }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-12">
             {featuredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
@@ -391,62 +182,24 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section style={{
-        padding: '80px 0',
-        background: 'linear-gradient(135deg, #3E7C4A 0%, #1C1C1C 100%)',
-        color: '#FFFFFF'
-      }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 16px', textAlign: 'center' }}>
-          <h2 style={{
-            fontSize: '2.5rem',
-            fontWeight: '700',
-            marginBottom: '16px'
-          }}>
-{t('cta.title')}
+      <section className="py-20 bg-gradient-to-br from-[#3E7C4A] to-[#1C1C1C] text-white">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold mb-4">
+            {t('cta.title')}
           </h2>
-          <p style={{
-            fontSize: '1.25rem',
-            color: '#F5F1E7',
-            marginBottom: '32px',
-            maxWidth: '600px',
-            margin: '0 auto 32px'
-          }}>
-{t('cta.subtitle')}
+          <p className="text-xl text-[#F5F1E7] mb-8 max-w-2xl mx-auto">
+            {t('cta.subtitle')}
           </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'center' }} className="sm:flex-row">
+          <div className="flex flex-col gap-4 items-center sm:flex-row sm:justify-center">
             <Link href="/products">
-              <button style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                padding: '16px 32px',
-                backgroundColor: '#E6B450',
-                color: '#1C1C1C',
-                fontWeight: '600',
-                borderRadius: '12px',
-                border: 'none',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                fontSize: '1.125rem'
-              }}>
-{t('cta.startShopping')}
-                <ArrowRight style={{ marginLeft: '8px', width: '20px', height: '20px' }} />
+              <button className="inline-flex items-center px-8 py-4 bg-[#E6B450] text-[#1C1C1C] font-semibold rounded-xl border-none cursor-pointer transition-all duration-300 hover:bg-[#d4a042] hover:shadow-lg text-lg">
+                {t('cta.startShopping')}
+                <ArrowRight className="ml-2 w-5 h-5" />
               </button>
             </Link>
             <Link href="/about">
-              <button style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                padding: '16px 32px',
-                backgroundColor: 'transparent',
-                color: '#FFFFFF',
-                fontWeight: '600',
-                borderRadius: '12px',
-                border: '2px solid #FFFFFF',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                fontSize: '1.125rem'
-              }}>
-{t('cta.learnMore')}
+              <button className="inline-flex items-center px-8 py-4 bg-transparent text-white font-semibold rounded-xl border-2 border-white cursor-pointer transition-all duration-300 hover:bg-white hover:text-[#1C1C1C] text-lg">
+                {t('cta.learnMore')}
               </button>
             </Link>
           </div>

@@ -43,30 +43,25 @@ export default function AboutPage() {
   ];
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#F5F1E7', padding: '32px 16px' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+    <div className="min-h-screen bg-[#F5F1E7] dark:bg-[#1C1C1C] py-8 px-4 transition-colors duration-200">
+      <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
-        <div style={{ textAlign: 'center', marginBottom: '80px' }}>
-          <h1 style={{ fontSize: '3rem', fontWeight: '700', color: '#1C1C1C', marginBottom: '16px' }}>
+        <div className="text-center mb-20">
+          <h1 className="text-5xl font-bold text-[#1C1C1C] dark:text-[#F5F1E7] mb-4 transition-colors duration-200">
             {t('title')}
           </h1>
-          <p style={{ fontSize: '1.25rem', color: '#9A9A9A', marginBottom: '48px', maxWidth: '600px', margin: '0 auto 48px' }}>
+          <p className="text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto transition-colors duration-200">
             {t('subtitle')}
           </p>
           
           {/* Stats */}
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
-            gap: '32px',
-            marginBottom: '48px'
-          }}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
             {stats.map((stat, index) => (
-              <div key={index} style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '2.5rem', fontWeight: '700', color: '#3E7C4A', marginBottom: '8px' }}>
+              <div key={index} className="text-center">
+                <div className="text-4xl font-bold text-[#3E7C4A] mb-2">
                   {stat.number}
                 </div>
-                <div style={{ fontSize: '1rem', color: '#9A9A9A' }}>
+                <div className="text-base text-gray-600 dark:text-gray-400 transition-colors duration-200">
                   {stat.label}
                 </div>
               </div>
@@ -75,144 +70,70 @@ export default function AboutPage() {
         </div>
 
         {/* Mission Section */}
-        <div style={{ 
-          backgroundColor: '#FFFFFF', 
-          padding: '64px', 
-          borderRadius: '16px', 
-          marginBottom: '80px',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '24px', marginBottom: '32px' }}>
-            <div style={{ 
-              width: '60px', 
-              height: '60px', 
-              backgroundColor: '#3E7C4A', 
-              borderRadius: '12px', 
-              display: 'flex', 
-              alignItems: 'center', 
-              justifyContent: 'center' 
-            }}>
-              <Target style={{ width: '30px', height: '30px', color: '#FFFFFF' }} />
+        <div className="bg-white dark:bg-gray-800 p-16 rounded-2xl mb-20 shadow-lg transition-colors duration-200">
+          <div className="flex items-center gap-6 mb-8">
+            <div className="w-15 h-15 bg-[#3E7C4A] rounded-xl flex items-center justify-center">
+              <Target className="w-8 h-8 text-white" />
             </div>
-            <h2 style={{ fontSize: '2rem', fontWeight: '600', color: '#1C1C1C', margin: 0 }}>
+            <h2 className="text-3xl font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] m-0 transition-colors duration-200">
               {t('mission.title')}
             </h2>
           </div>
-          <p style={{ fontSize: '1.125rem', color: '#9A9A9A', lineHeight: '1.6', margin: 0 }}>
+          <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed m-0 transition-colors duration-200">
             {t('mission.description')}
           </p>
         </div>
 
         {/* Values Section */}
-        <div style={{ marginBottom: '80px' }}>
-          <h2 style={{ fontSize: '2rem', fontWeight: '600', color: '#1C1C1C', textAlign: 'center', marginBottom: '48px' }}>
+        <div className="mb-20">
+          <h2 className="text-3xl font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] text-center mb-12 transition-colors duration-200">
             {t('values.title')}
           </h2>
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-            gap: '32px' 
-          }}>
-            <div style={{ 
-              backgroundColor: '#FFFFFF', 
-              padding: '32px', 
-              borderRadius: '16px',
-              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
-            }}>
-              <div style={{ 
-                width: '50px', 
-                height: '50px', 
-                backgroundColor: '#3E7C4A', 
-                borderRadius: '12px', 
-                display: 'flex', 
-                alignItems: 'center', 
-                justifyContent: 'center',
-                marginBottom: '16px'
-              }}>
-                <Zap style={{ width: '24px', height: '24px', color: '#FFFFFF' }} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg transition-colors duration-200">
+              <div className="w-12 h-12 bg-[#3E7C4A] rounded-xl flex items-center justify-center mb-4">
+                <Zap className="w-6 h-6 text-white" />
               </div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#1C1C1C', marginBottom: '12px' }}>
+              <h3 className="text-xl font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-3 transition-colors duration-200">
                 {t('values.innovation.title')}
               </h3>
-              <p style={{ color: '#9A9A9A', lineHeight: '1.6' }}>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-200">
                 {t('values.innovation.description')}
               </p>
             </div>
 
-            <div style={{ 
-              backgroundColor: '#FFFFFF', 
-              padding: '32px', 
-              borderRadius: '16px',
-              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
-            }}>
-              <div style={{ 
-                width: '50px', 
-                height: '50px', 
-                backgroundColor: '#3E7C4A', 
-                borderRadius: '12px', 
-                display: 'flex', 
-                alignItems: 'center', 
-                justifyContent: 'center',
-                marginBottom: '16px'
-              }}>
-                <Users style={{ width: '24px', height: '24px', color: '#FFFFFF' }} />
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg transition-colors duration-200">
+              <div className="w-12 h-12 bg-[#3E7C4A] rounded-xl flex items-center justify-center mb-4">
+                <Users className="w-6 h-6 text-white" />
               </div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#1C1C1C', marginBottom: '12px' }}>
+              <h3 className="text-xl font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-3 transition-colors duration-200">
                 {t('values.community.title')}
               </h3>
-              <p style={{ color: '#9A9A9A', lineHeight: '1.6' }}>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-200">
                 {t('values.community.description')}
               </p>
             </div>
 
-            <div style={{ 
-              backgroundColor: '#FFFFFF', 
-              padding: '32px', 
-              borderRadius: '16px',
-              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
-            }}>
-              <div style={{ 
-                width: '50px', 
-                height: '50px', 
-                backgroundColor: '#3E7C4A', 
-                borderRadius: '12px', 
-                display: 'flex', 
-                alignItems: 'center', 
-                justifyContent: 'center',
-                marginBottom: '16px'
-              }}>
-                <Heart style={{ width: '24px', height: '24px', color: '#FFFFFF' }} />
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg transition-colors duration-200">
+              <div className="w-12 h-12 bg-[#3E7C4A] rounded-xl flex items-center justify-center mb-4">
+                <Heart className="w-6 h-6 text-white" />
               </div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#1C1C1C', marginBottom: '12px' }}>
+              <h3 className="text-xl font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-3 transition-colors duration-200">
                 {t('values.sustainability.title')}
               </h3>
-              <p style={{ color: '#9A9A9A', lineHeight: '1.6' }}>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-200">
                 {t('values.sustainability.description')}
               </p>
             </div>
 
-            <div style={{ 
-              backgroundColor: '#FFFFFF', 
-              padding: '32px', 
-              borderRadius: '16px',
-              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
-            }}>
-              <div style={{ 
-                width: '50px', 
-                height: '50px', 
-                backgroundColor: '#3E7C4A', 
-                borderRadius: '12px', 
-                display: 'flex', 
-                alignItems: 'center', 
-                justifyContent: 'center',
-                marginBottom: '16px'
-              }}>
-                <Eye style={{ width: '24px', height: '24px', color: '#FFFFFF' }} />
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg transition-colors duration-200">
+              <div className="w-12 h-12 bg-[#3E7C4A] rounded-xl flex items-center justify-center mb-4">
+                <Eye className="w-6 h-6 text-white" />
               </div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#1C1C1C', marginBottom: '12px' }}>
+              <h3 className="text-xl font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-3 transition-colors duration-200">
                 {t('values.transparency.title')}
               </h3>
-              <p style={{ color: '#9A9A9A', lineHeight: '1.6' }}>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-200">
                 {t('values.transparency.description')}
               </p>
             </div>
@@ -220,45 +141,29 @@ export default function AboutPage() {
         </div>
 
         {/* Team Section */}
-        <div style={{ marginBottom: '80px' }}>
-          <h2 style={{ fontSize: '2rem', fontWeight: '600', color: '#1C1C1C', textAlign: 'center', marginBottom: '16px' }}>
+        <div className="mb-20">
+          <h2 className="text-3xl font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] text-center mb-4 transition-colors duration-200">
             {t('team.title')}
           </h2>
-          <p style={{ fontSize: '1.125rem', color: '#9A9A9A', textAlign: 'center', marginBottom: '48px' }}>
+          <p className="text-lg text-gray-600 dark:text-gray-400 text-center mb-12 transition-colors duration-200">
             {t('team.subtitle')}
           </p>
           
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
-            gap: '32px' 
-          }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamMembers.map((member, index) => (
-              <div key={index} style={{ 
-                backgroundColor: '#FFFFFF', 
-                padding: '32px', 
-                borderRadius: '16px',
-                textAlign: 'center',
-                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
-              }}>
+              <div key={index} className="bg-white dark:bg-gray-800 p-8 rounded-2xl text-center shadow-lg transition-colors duration-200">
                 <img 
                   src={member.image} 
                   alt={member.name}
-                  style={{ 
-                    width: '120px', 
-                    height: '120px', 
-                    borderRadius: '50%', 
-                    objectFit: 'cover',
-                    marginBottom: '24px'
-                  }}
+                  className="w-30 h-30 rounded-full object-cover mb-6 mx-auto"
                 />
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#1C1C1C', marginBottom: '8px' }}>
+                <h3 className="text-xl font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-2 transition-colors duration-200">
                   {member.name}
                 </h3>
-                <p style={{ fontSize: '1rem', color: '#3E7C4A', fontWeight: '500', marginBottom: '12px' }}>
+                <p className="text-base text-[#3E7C4A] font-medium mb-3">
                   {member.role}
                 </p>
-                <p style={{ color: '#9A9A9A', lineHeight: '1.6' }}>
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-200">
                   {member.bio}
                 </p>
               </div>
@@ -267,65 +172,23 @@ export default function AboutPage() {
         </div>
 
         {/* CTA Section */}
-        <div style={{ 
-          backgroundColor: '#3E7C4A', 
-          padding: '64px', 
-          borderRadius: '16px', 
-          textAlign: 'center',
-          color: '#FFFFFF'
-        }}>
-          <h2 style={{ fontSize: '2rem', fontWeight: '600', marginBottom: '16px' }}>
+        <div className="bg-[#3E7C4A] p-16 rounded-2xl text-center text-white">
+          <h2 className="text-3xl font-semibold mb-4">
             {t('cta.title')}
           </h2>
-          <p style={{ fontSize: '1.125rem', marginBottom: '32px', opacity: 0.9 }}>
+          <p className="text-lg mb-8 opacity-90">
             {t('cta.subtitle')}
           </p>
-          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <div className="flex gap-4 justify-center flex-wrap">
             <button 
               onClick={() => router.push('/products')}
-              style={{
-                padding: '16px 32px',
-                backgroundColor: '#FFFFFF',
-                color: '#3E7C4A',
-                border: 'none',
-                borderRadius: '8px',
-                fontSize: '1rem',
-                fontWeight: '600',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.15)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
+              className="py-4 px-8 bg-white text-[#3E7C4A] border-none rounded-lg text-base font-semibold cursor-pointer transition-all duration-200 hover:transform hover:-translate-y-0.5 hover:shadow-lg"
             >
               {t('cta.startShopping')}
             </button>
             <button 
               onClick={() => router.push('/collections')}
-              style={{
-                padding: '16px 32px',
-                backgroundColor: 'transparent',
-                color: '#FFFFFF',
-                border: '2px solid #FFFFFF',
-                borderRadius: '8px',
-                fontSize: '1rem',
-                fontWeight: '600',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#FFFFFF';
-                e.currentTarget.style.color = '#3E7C4A';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'transparent';
-                e.currentTarget.style.color = '#FFFFFF';
-              }}
+              className="py-4 px-8 bg-transparent text-white border-2 border-white rounded-lg text-base font-semibold cursor-pointer transition-all duration-200 hover:bg-white hover:text-[#3E7C4A]"
             >
               {t('cta.learnMore')}
             </button>

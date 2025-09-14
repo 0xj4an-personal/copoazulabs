@@ -2,42 +2,46 @@
 
 import { Sun, Moon } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
-import { useState, useEffect } from 'react';
+
+declare global {
+  interface Window {
+    toggleTheme: () => void;
+  }
+}
 
 export default function ThemeToggle() {
-  const [mounted, setMounted] = useState(false);
-  
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    // Return a placeholder during SSR to avoid hydration mismatch
-    return (
-      <button
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: '40px',
-          height: '40px',
-          borderRadius: '8px',
-          border: 'none',
-          backgroundColor: 'transparent',
-          cursor: 'pointer',
-        }}
-        aria-label="Theme toggle"
-      >
-        <Sun style={{ width: '20px', height: '20px', color: '#1C1C1C' }} />
-      </button>
-    );
+  // Try to get theme from React context, fallback to localStorage
+  let theme = 'light';
+  try {
+    const { theme: contextTheme } = useTheme();
+    theme = contextTheme;
+  } catch (error) {
+    // If React context is not available, get from localStorage
+    if (typeof window !== 'undefined') {
+      theme = localStorage.getItem('theme') || 'light';
+    }
   }
 
-  const { theme, toggleTheme } = useTheme();
+  const handleToggle = () => {
+    // Use global function if available, otherwise use direct DOM manipulation
+    if (typeof window !== 'undefined' && typeof window.toggleTheme === 'function') {
+      window.toggleTheme();
+    } else {
+      // Fallback: direct DOM manipulation
+      const isDark = document.documentElement.classList.contains('dark');
+      if (isDark) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+  };
 
   return (
     <button
-      onClick={toggleTheme}
+      onClick={handleToggle}
       style={{
         display: 'flex',
         alignItems: 'center',
@@ -53,6 +57,7 @@ export default function ThemeToggle() {
       }}
       className="hover:bg-gray-100 dark:hover:bg-gray-800"
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+      title={`Current theme: ${theme}`}
     >
       {theme === 'light' ? (
         <Moon style={{ width: '20px', height: '20px' }} />

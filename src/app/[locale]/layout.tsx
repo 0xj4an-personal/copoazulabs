@@ -85,7 +85,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className="min-h-screen bg-[#F5F1E7] dark:bg-[#1C1C1C] text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">
+      <body className="min-h-screen transition-colors duration-200">
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider>
             <CartProvider>
@@ -98,6 +98,38 @@ export default async function RootLayout({
             </CartProvider>
           </ThemeProvider>
         </NextIntlClientProvider>
+        
+        {/* Theme script */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Apply theme immediately to prevent flash
+              const savedTheme = localStorage.getItem('theme');
+              if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+              } else {
+                document.documentElement.classList.remove('dark');
+              }
+              
+              // Global theme toggle function
+              window.toggleTheme = function() {
+                const isDark = document.documentElement.classList.contains('dark');
+                if (isDark) {
+                  document.documentElement.classList.remove('dark');
+                  localStorage.setItem('theme', 'light');
+                } else {
+                  document.documentElement.classList.add('dark');
+                  localStorage.setItem('theme', 'dark');
+                }
+                
+                // Dispatch custom event to notify React components
+                window.dispatchEvent(new CustomEvent('themeChanged', {
+                  detail: { theme: isDark ? 'light' : 'dark' }
+                }));
+              };
+            `
+          }}
+        />
       </body>
     </html>
   );
