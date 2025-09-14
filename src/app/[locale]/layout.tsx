@@ -126,16 +126,16 @@ export default async function RootLayout({
       </head>
       <body className="min-h-screen transition-colors duration-200">
         <NextIntlClientProvider messages={messages}>
-          <ThemeProvider>
-            <CartProvider>
+          <CartProvider>
+            <ThemeProvider>
               <Header />
               <main className="min-h-screen">
                 {children}
               </main>
               <Footer />
               <CartDrawer />
-            </CartProvider>
-          </ThemeProvider>
+            </ThemeProvider>
+          </CartProvider>
         </NextIntlClientProvider>
       </body>
     </html>

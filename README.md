@@ -135,7 +135,7 @@ web3-clothing-page/
 ## 🌐 Web3 Features
 
 - **Wallet Connection**: Connect MetaMask and other Web3 wallets
-- **Crypto Payments**: Pay with ETH, BTC, USDC, and other cryptocurrencies
+- **Crypto Payments**: Pay with cCOP on the Celo network
 - **Blockchain Security**: Secure transactions using blockchain technology
 - **Decentralized Identity**: User ownership of data and transactions
 

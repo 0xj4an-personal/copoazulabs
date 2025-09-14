@@ -21,9 +21,7 @@ This document provides specific setup instructions for deploying Copoazú Labs o
 
 ### Celo Native Tokens
 - **CELO** - Native currency
-- **cUSD** - Celo Dollar (Stablecoin)
-- **cEUR** - Celo Euro (Stablecoin)
-- **cREAL** - Celo Real (Stablecoin)
+- **cCOP** - Celo Colombian Peso (Stablecoin)
 
 ## 🔐 Environment Variables for Celo
 
@@ -122,7 +120,7 @@ For Celo Sepolia testnet:
 2. Ensure you have testnet tokens
 3. Navigate to products page
 4. Add items to cart
-5. Test crypto payment with CELO, cUSD, cEUR, or cREAL
+5. Test crypto payment with cCOP
 
 ## 📱 Mobile Wallet Support
 
@@ -152,7 +150,7 @@ npm install -g @celo/celo-cli
 
 1. **Testnet vs Mainnet**: Always test on Celo Sepolia before deploying to mainnet
 2. **Gas Fees**: Celo has very low gas fees compared to Ethereum
-3. **Stablecoins**: cUSD, cEUR, cREAL are algorithmic stablecoins
+3. **Stablecoins**: cCOP is an algorithmic stablecoin
 4. **Security**: Never share private keys or seed phrases
 5. **Updates**: Keep wallet and dependencies updated
 6. **Fresh State**: Celo Sepolia starts with a clean slate, perfect for new projects

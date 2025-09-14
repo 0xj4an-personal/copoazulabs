@@ -155,35 +155,35 @@
     "tryAdjustingFilters": "Try adjusting your search or filter criteria",
     "clearFilters": "Clear Filters",
     "collectionItems": {
-      "web3Essentials": {
-        "name": "Web3 Essentials",
-        "description": "A curated collection of fundamental Web3 merchandise for the modern crypto enthusiast. This collection features our most popular items including hoodies, t-shirts, and accessories that represent the core values of decentralized technology. Perfect for beginners entering the Web3 space or seasoned veterans who want to showcase their passion.",
-        "shortDescription": "Core pieces for the modern crypto enthusiast"
+      "gamingCollection": {
+        "name": "Gaming Collection",
+        "description": "Dive into the world of blockchain gaming with this exclusive collection. Featuring designs inspired by play-to-earn games, NFT collectibles, and virtual worlds. Perfect for gamers who want to showcase their passion for Web3 gaming culture. From retro pixel art to futuristic gaming aesthetics, this collection bridges the gap between traditional and blockchain gaming.",
+        "shortDescription": "Gear up for the blockchain gaming revolution"
       },
-      "defiFashion": {
-        "name": "DeFi Fashion",
-        "description": "Celebrate the decentralized finance revolution with this exclusive collection. Featuring cutting-edge designs inspired by liquidity pools, yield farming, and decentralized exchanges. Each piece tells the story of financial freedom and innovation. Made with premium materials and sustainable practices.",
-        "shortDescription": "Decentralized fashion for the decentralized world"
+      "refiCollection": {
+        "name": "ReFi Collection",
+        "description": "Celebrate Regenerative Finance with sustainable fashion that makes a positive impact. This collection focuses on environmental consciousness and social responsibility in the crypto space. Each piece represents the commitment to building a better future through regenerative practices, carbon credits, and sustainable blockchain solutions.",
+        "shortDescription": "Sustainable fashion for a regenerative future"
       },
-      "nftCollectibles": {
-        "name": "NFT Collectibles",
-        "description": "Unique digital fashion pieces that bridge the gap between physical and virtual worlds. This collection features limited edition items with digital certificates of authenticity. Each piece is inspired by popular NFT art movements and comes with exclusive digital collectibles. A true fusion of art, technology, and fashion.",
-        "shortDescription": "Unique digital fashion pieces"
+      "defiCollection": {
+        "name": "DeFi Collection",
+        "description": "Embrace the decentralized finance revolution with cutting-edge designs inspired by liquidity pools, yield farming, and decentralized exchanges. This collection celebrates financial freedom and innovation in the crypto space. Perfect for DeFi enthusiasts who want to showcase their knowledge of protocols, AMMs, and yield strategies.",
+        "shortDescription": "Decentralized fashion for decentralized finance"
       },
-      "cryptoStreetwear": {
-        "name": "Crypto Streetwear",
-        "description": "Urban style meets blockchain technology in this dynamic collection. Inspired by the energy of crypto trading floors and blockchain conferences, these pieces combine street fashion with Web3 culture. Perfect for crypto meetups, blockchain events, or casual urban wear with a tech twist.",
-        "shortDescription": "Urban style meets blockchain technology"
+      "governanceCollection": {
+        "name": "Governance Collection",
+        "description": "Clothing that celebrates decentralized governance and community decision-making. This collection emphasizes transparency, collaboration, and collective intelligence in blockchain projects. Each piece reflects the democratic values of DAOs, governance tokens, and community-driven protocols. Perfect for governance participants and protocol contributors.",
+        "shortDescription": "Fashion for decentralized governance"
       },
-      "metaverseReady": {
-        "name": "Metaverse Ready",
-        "description": "Fashion designed for both virtual worlds and real life. This futuristic collection features items that work seamlessly in virtual reality environments while maintaining style in the physical world. With holographic elements and cutting-edge materials, these pieces prepare you for the metaverse era.",
-        "shortDescription": "Fashion for virtual worlds and real life"
+      "codingCollection": {
+        "name": "Coding Collection",
+        "description": "For developers, builders, and technical innovators in the Web3 space. This collection celebrates the art of coding with designs inspired by smart contracts, programming languages, and blockchain development. From Solidity to Rust, from debugging to deploying, this collection honors the builders who make Web3 possible.",
+        "shortDescription": "Code your way into Web3 fashion"
       },
-      "daoCommunity": {
-        "name": "DAO Community",
-        "description": "Clothing that celebrates decentralized autonomous organizations and community governance. This collection emphasizes collaboration, transparency, and collective decision-making. Each piece reflects the values of community-driven projects and features designs inspired by governance tokens and voting mechanisms.",
-        "shortDescription": "Clothing for decentralized communities"
+      "degenCollection": {
+        "name": "Degen Collection",
+        "description": "The ultimate collection for true crypto degenerates. Bold, edgy designs that capture the wild spirit of meme coins, high-risk trading, and the chaotic energy of crypto culture. This collection is for those who live on the edge, embrace volatility, and aren't afraid to go all-in on the next big thing in Web3.",
+        "shortDescription": "For the true crypto degenerates"
       }
     }
   },

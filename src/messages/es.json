@@ -154,35 +154,35 @@
     "tryAdjustingFilters": "Intenta ajustar tu búsqueda o criterios de filtro",
     "clearFilters": "Limpiar Filtros",
     "collectionItems": {
-      "web3Essentials": {
-        "name": "Esenciales Web3",
-        "description": "Una colección curada de mercancía Web3 fundamental para el entusiasta de cripto moderno. Esta colección incluye nuestros artículos más populares como sudaderas, camisetas y accesorios que representan los valores fundamentales de la tecnología descentralizada. Perfecta para principiantes que entran al espacio Web3 o veteranos experimentados que quieren mostrar su pasión.",
-        "shortDescription": "Piezas básicas para el entusiasta de cripto moderno"
+      "gamingCollection": {
+        "name": "Colección de Gaming",
+        "description": "Sumérgete en el mundo de los juegos blockchain con esta colección exclusiva. Incluye diseños inspirados en juegos play-to-earn, coleccionables NFT y mundos virtuales. Perfecta para gamers que quieren mostrar su pasión por la cultura de gaming Web3. Desde arte pixel retro hasta estéticas de gaming futuristas, esta colección conecta el gaming tradicional con el blockchain.",
+        "shortDescription": "Prepárate para la revolución del gaming blockchain"
       },
-      "defiFashion": {
-        "name": "Moda DeFi",
-        "description": "Celebra la revolución de las finanzas descentralizadas con esta colección exclusiva. Incluye diseños de vanguardia inspirados en pools de liquidez, yield farming y exchanges descentralizados. Cada pieza cuenta la historia de la libertad financiera y la innovación. Hecha con materiales premium y prácticas sostenibles.",
-        "shortDescription": "Moda descentralizada para el mundo descentralizado"
+      "refiCollection": {
+        "name": "Colección de ReFi",
+        "description": "Celebra las Finanzas Regenerativas con moda sostenible que genera un impacto positivo. Esta colección se enfoca en la conciencia ambiental y la responsabilidad social en el espacio crypto. Cada pieza representa el compromiso de construir un futuro mejor a través de prácticas regenerativas, créditos de carbono y soluciones blockchain sostenibles.",
+        "shortDescription": "Moda sostenible para un futuro regenerativo"
       },
-      "nftCollectibles": {
-        "name": "Coleccionables NFT",
-        "description": "Piezas de moda digital únicas que conectan el mundo físico con el virtual. Esta colección incluye artículos de edición limitada con certificados digitales de autenticidad. Cada pieza está inspirada en movimientos de arte NFT populares y viene con coleccionables digitales exclusivos. Una verdadera fusión de arte, tecnología y moda.",
-        "shortDescription": "Piezas de moda digital únicas"
+      "defiCollection": {
+        "name": "Colección de DeFi",
+        "description": "Abraza la revolución de las finanzas descentralizadas con diseños de vanguardia inspirados en pools de liquidez, yield farming y exchanges descentralizados. Esta colección celebra la libertad financiera y la innovación en el espacio crypto. Perfecta para entusiastas de DeFi que quieren mostrar su conocimiento de protocolos, AMMs y estrategias de yield.",
+        "shortDescription": "Moda descentralizada para finanzas descentralizadas"
       },
-      "cryptoStreetwear": {
-        "name": "Streetwear Crypto",
-        "description": "El estilo urbano se encuentra con la tecnología blockchain en esta colección dinámica. Inspirada en la energía de los pisos de trading de cripto y conferencias blockchain, estas piezas combinan la moda callejera con la cultura Web3. Perfecta para meetups de cripto, eventos blockchain o ropa urbana casual con un toque tecnológico.",
-        "shortDescription": "Estilo urbano se encuentra con tecnología blockchain"
+      "governanceCollection": {
+        "name": "Colección de Gobernanza",
+        "description": "Ropa que celebra la gobernanza descentralizada y la toma de decisiones comunitaria. Esta colección enfatiza la transparencia, colaboración e inteligencia colectiva en proyectos blockchain. Cada pieza refleja los valores democráticos de los DAOs, tokens de gobernanza y protocolos impulsados por la comunidad. Perfecta para participantes en gobernanza y contribuidores de protocolos.",
+        "shortDescription": "Moda para gobernanza descentralizada"
       },
-      "metaverseReady": {
-        "name": "Listo para Metaverso",
-        "description": "Moda diseñada tanto para mundos virtuales como para la vida real. Esta colección futurista incluye artículos que funcionan perfectamente en entornos de realidad virtual mientras mantienen el estilo en el mundo físico. Con elementos holográficos y materiales de vanguardia, estas piezas te preparan para la era del metaverso.",
-        "shortDescription": "Moda para mundos virtuales y vida real"
+      "codingCollection": {
+        "name": "Colección de Coding",
+        "description": "Para desarrolladores, constructores e innovadores técnicos en el espacio Web3. Esta colección celebra el arte de programar con diseños inspirados en smart contracts, lenguajes de programación y desarrollo blockchain. Desde Solidity hasta Rust, desde debugging hasta deployment, esta colección honra a los constructores que hacen posible Web3.",
+        "shortDescription": "Programa tu camino hacia la moda Web3"
       },
-      "daoCommunity": {
-        "name": "Comunidad DAO",
-        "description": "Ropa que celebra las organizaciones autónomas descentralizadas y la gobernanza comunitaria. Esta colección enfatiza la colaboración, transparencia y toma de decisiones colectiva. Cada pieza refleja los valores de proyectos impulsados por la comunidad e incluye diseños inspirados en tokens de gobernanza y mecanismos de votación.",
-        "shortDescription": "Ropa para comunidades descentralizadas"
+      "degenCollection": {
+        "name": "Colección Degen",
+        "description": "La colección definitiva para los verdaderos degenerados crypto. Diseños audaces y atrevidos que capturan el espíritu salvaje de los meme coins, trading de alto riesgo y la energía caótica de la cultura crypto. Esta colección es para aquellos que viven al límite, abrazan la volatilidad y no tienen miedo de apostar todo en la próxima gran cosa en Web3.",
+        "shortDescription": "Para los verdaderos degenerados crypto"
       }
     }
   },
