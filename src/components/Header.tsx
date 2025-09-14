@@ -94,7 +94,7 @@ export default function Header() {
           {/* Right Side - Desktop Actions + Language Switcher + Mobile Menu */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
             {/* Desktop Actions */}
-            <div style={{ display: 'none', alignItems: 'center', gap: '16px' }} className="md:flex">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
               <WalletConnect />
               <CartButton />
             </div>

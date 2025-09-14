@@ -5,21 +5,62 @@ import { useCart } from '@/contexts/CartContext';
 import { ShoppingCart } from 'lucide-react';
 
 interface CartButtonProps {
-  className?: string;
+  style?: React.CSSProperties;
 }
 
-export default function CartButton({ className = '' }: CartButtonProps) {
+export default function CartButton({ style = {} }: CartButtonProps) {
   const { state, toggleCart } = useCart();
 
   return (
     <button
       onClick={toggleCart}
-      className={`relative flex items-center justify-center p-2 rounded-lg transition-colors hover:bg-gray-100 ${className}`}
+      style={{
+        position: 'relative',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '8px',
+        borderRadius: '8px',
+        backgroundColor: 'transparent',
+        border: 'none',
+        cursor: 'pointer',
+        transition: 'background-color 0.2s ease',
+        ...style
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.backgroundColor = '#f3f4f6';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.backgroundColor = 'transparent';
+      }}
       aria-label={`Shopping cart with ${state.totalItems} items`}
     >
-      <ShoppingCart className="w-5 h-5 text-gray-700" />
+      <ShoppingCart 
+        style={{ 
+          width: '20px', 
+          height: '20px', 
+          color: '#374151' 
+        }} 
+      />
       {state.totalItems > 0 && (
-        <span className="absolute -top-1 -right-1 bg-green-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">
+        <span 
+          style={{
+            position: 'absolute',
+            top: '-4px',
+            right: '-4px',
+            backgroundColor: '#3E7C4A',
+            color: '#FFFFFF',
+            fontSize: '12px',
+            borderRadius: '50%',
+            height: '20px',
+            width: '20px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontWeight: '500',
+            minWidth: '20px'
+          }}
+        >
           {state.totalItems > 99 ? '99+' : state.totalItems}
         </span>
       )}
