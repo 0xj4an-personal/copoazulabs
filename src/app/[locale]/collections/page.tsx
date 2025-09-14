@@ -1,84 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import { Search, Filter, Grid, List, Star, Users, Calendar } from 'lucide-react';
+import { Search, Grid, List, Star, Users, Calendar } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { allCollections } from '@/data/collections';
 
-// Sample collections data
-const collections = [
-  {
-    id: '1',
-    name: 'Web3 Essentials',
-    description: 'Core pieces for the modern crypto enthusiast',
-    image: '/collections/placeholder.svg',
-    itemCount: 12,
-    rating: 4.8,
-    followers: 1250,
-    createdAt: '2024-01-15',
-    isFeatured: true,
-    creator: 'Copoazú Labs'
-  },
-  {
-    id: '2',
-    name: 'DeFi Collection',
-    description: 'Decentralized finance inspired designs',
-    image: '/collections/placeholder.svg',
-    itemCount: 8,
-    rating: 4.6,
-    followers: 890,
-    createdAt: '2024-02-01',
-    isFeatured: true,
-    creator: 'DeFi Designer'
-  },
-  {
-    id: '3',
-    name: 'NFT Artists',
-    description: 'Collaboration with top NFT creators',
-    image: '/collections/placeholder.svg',
-    itemCount: 15,
-    rating: 4.9,
-    followers: 2100,
-    createdAt: '2024-01-20',
-    isFeatured: false,
-    creator: 'NFT Collective'
-  },
-  {
-    id: '4',
-    name: 'Metaverse Ready',
-    description: 'Fashion for virtual worlds',
-    image: '/collections/placeholder.svg',
-    itemCount: 6,
-    rating: 4.4,
-    followers: 650,
-    createdAt: '2024-02-10',
-    isFeatured: false,
-    creator: 'Meta Fashion'
-  },
-  {
-    id: '5',
-    name: 'Crypto Winter',
-    description: 'Cozy pieces for the bear market',
-    image: '/collections/placeholder.svg',
-    itemCount: 10,
-    rating: 4.7,
-    followers: 980,
-    createdAt: '2024-01-25',
-    isFeatured: true,
-    creator: 'Winter Crypto'
-  },
-  {
-    id: '6',
-    name: 'DAO Governance',
-    description: 'Official DAO merchandise and apparel',
-    image: '/collections/placeholder.svg',
-    itemCount: 7,
-    rating: 4.5,
-    followers: 750,
-    createdAt: '2024-02-05',
-    isFeatured: false,
-    creator: 'DAO Council'
-  }
-];
+// Use centralized collections data
+const collections = allCollections;
 
 export default function CollectionsPage() {
   const t = useTranslations('collections');
