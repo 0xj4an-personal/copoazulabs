@@ -85,7 +85,55 @@
     "description": "Descripción",
     "specifications": "Especificaciones",
     "reviews": "Reseñas",
-    "relatedProducts": "Productos Relacionados"
+    "relatedProducts": "Productos Relacionados",
+    "productItems": {
+      "web3Hoodie": {
+        "name": "Sudadera con Capucha Web3",
+        "description": "Sudadera premium de algodón mezclado con nuestro logo Web3 característico. Perfecta para entusiastas de cripto que quieren mostrar su pasión por la tecnología descentralizada. Incluye ajuste cómodo, capucha con cordón ajustable y bolsillo canguro.",
+        "shortDescription": "Sudadera premium con marca Web3"
+      },
+      "blockchainTShirt": {
+        "name": "Camiseta Blockchain",
+        "description": "Camiseta de algodón suave y transpirable con un diseño innovador inspirado en blockchain. Hecha de 100% algodón orgánico, esta camiseta combina comodidad con estilo. Perfecta para desarrolladores, inversores y cualquiera apasionado por la tecnología blockchain.",
+        "shortDescription": "Camiseta cómoda con diseño blockchain"
+      },
+      "cryptoCap": {
+        "name": "Gorra Crypto",
+        "description": "Gorra ajustable de alta calidad con bordado temático de cripto. Hecha con materiales premium y cuenta con corona estructurada con visera plana. Ideal para actividades al aire libre, sesiones de trading o uso casual. Una talla para la mayoría.",
+        "shortDescription": "Gorra elegante para entusiastas de cripto"
+      },
+      "defiSweatshirt": {
+        "name": "Sudadera DeFi",
+        "description": "Sudadera acogedora de cuello redondo que celebra la revolución DeFi. Hecha de vellón de algodón premium con un ajuste moderno. Incluye gráficos sutiles temáticos de DeFi y nuestro logo de marca. Perfecta para usar en capas o sola en días más frescos.",
+        "shortDescription": "Sudadera cálida con tema DeFi"
+      },
+      "nftHoodieCollection": {
+        "name": "Colección Sudadera NFT",
+        "description": "Sudadera de edición limitada con arte único inspirado en NFT. Cada sudadera viene con un certificado digital de autenticidad. Hecha de materiales sostenibles con atención al detalle. Un verdadero artículo de colección para entusiastas de NFT.",
+        "shortDescription": "Sudadera de edición limitada inspirada en NFT"
+      },
+      "smartContractTShirt": {
+        "name": "Camiseta Contrato Inteligente",
+        "description": "Camiseta técnica diseñada para desarrolladores y entusiastas de contratos inteligentes. Incluye gráficos inspirados en código y terminología técnica. Hecha de tela que absorbe la humedad, perfecta para maratones de programación o reuniones técnicas casuales.",
+        "shortDescription": "Camiseta temática para desarrolladores"
+      },
+      "metaverseCap": {
+        "name": "Gorra Metaverso",
+        "description": "Gorra futurista diseñada para la era del metaverso. Incluye elementos holográficos y diseño inspirado en mundos virtuales. Hecha con materiales de vanguardia y cuenta con iluminación LED de acento. Perfecta para sesiones de realidad virtual o moda futurista.",
+        "shortDescription": "Gorra inspirada en mundos virtuales"
+      },
+      "daoSweatshirt": {
+        "name": "Sudadera DAO",
+        "description": "Sudadera enfocada en la comunidad que celebra las organizaciones autónomas descentralizadas. Incluye elementos de diseño colaborativo y símbolos de gobernanza DAO. Hecha de materiales ecológicos, reflejando los valores sostenibles de la comunidad DAO.",
+        "shortDescription": "Sudadera temática de organización descentralizada"
+      }
+    },
+    "categories": {
+      "hoodies": "Sudaderas con Capucha",
+      "tshirts": "Camisetas",
+      "accessories": "Accesorios",
+      "sweatshirts": "Sudaderas"
+    }
   },
   "collections": {
     "title": "Colecciones",
@@ -105,7 +153,39 @@
     "followers": "seguidores",
     "noCollectionsFound": "No se encontraron colecciones",
     "tryAdjustingFilters": "Intenta ajustar tu búsqueda o criterios de filtro",
-    "clearFilters": "Limpiar Filtros"
+    "clearFilters": "Limpiar Filtros",
+    "collectionItems": {
+      "web3Essentials": {
+        "name": "Esenciales Web3",
+        "description": "Una colección curada de mercancía Web3 fundamental para el entusiasta de cripto moderno. Esta colección incluye nuestros artículos más populares como sudaderas, camisetas y accesorios que representan los valores fundamentales de la tecnología descentralizada. Perfecta para principiantes que entran al espacio Web3 o veteranos experimentados que quieren mostrar su pasión.",
+        "shortDescription": "Piezas básicas para el entusiasta de cripto moderno"
+      },
+      "defiFashion": {
+        "name": "Moda DeFi",
+        "description": "Celebra la revolución de las finanzas descentralizadas con esta colección exclusiva. Incluye diseños de vanguardia inspirados en pools de liquidez, yield farming y exchanges descentralizados. Cada pieza cuenta la historia de la libertad financiera y la innovación. Hecha con materiales premium y prácticas sostenibles.",
+        "shortDescription": "Moda descentralizada para el mundo descentralizado"
+      },
+      "nftCollectibles": {
+        "name": "Coleccionables NFT",
+        "description": "Piezas de moda digital únicas que conectan el mundo físico con el virtual. Esta colección incluye artículos de edición limitada con certificados digitales de autenticidad. Cada pieza está inspirada en movimientos de arte NFT populares y viene con coleccionables digitales exclusivos. Una verdadera fusión de arte, tecnología y moda.",
+        "shortDescription": "Piezas de moda digital únicas"
+      },
+      "cryptoStreetwear": {
+        "name": "Streetwear Crypto",
+        "description": "El estilo urbano se encuentra con la tecnología blockchain en esta colección dinámica. Inspirada en la energía de los pisos de trading de cripto y conferencias blockchain, estas piezas combinan la moda callejera con la cultura Web3. Perfecta para meetups de cripto, eventos blockchain o ropa urbana casual con un toque tecnológico.",
+        "shortDescription": "Estilo urbano se encuentra con tecnología blockchain"
+      },
+      "metaverseReady": {
+        "name": "Listo para Metaverso",
+        "description": "Moda diseñada tanto para mundos virtuales como para la vida real. Esta colección futurista incluye artículos que funcionan perfectamente en entornos de realidad virtual mientras mantienen el estilo en el mundo físico. Con elementos holográficos y materiales de vanguardia, estas piezas te preparan para la era del metaverso.",
+        "shortDescription": "Moda para mundos virtuales y vida real"
+      },
+      "daoCommunity": {
+        "name": "Comunidad DAO",
+        "description": "Ropa que celebra las organizaciones autónomas descentralizadas y la gobernanza comunitaria. Esta colección enfatiza la colaboración, transparencia y toma de decisiones colectiva. Cada pieza refleja los valores de proyectos impulsados por la comunidad e incluye diseños inspirados en tokens de gobernanza y mecanismos de votación.",
+        "shortDescription": "Ropa para comunidades descentralizadas"
+      }
+    }
   },
   "about": {
     "title": "Acerca de Copoazú Labs",

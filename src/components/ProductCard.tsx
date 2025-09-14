@@ -6,13 +6,13 @@ import { useTranslations } from 'next-intl';
 
 interface Product {
   id: string;
-  name: string;
+  nameKey: string; // Key for translation
   price: number;
   originalPrice?: number;
   rating: number;
   reviewCount: number;
   image: string;
-  category: string;
+  categoryKey: string; // Key for translation
   isNew?: boolean;
   isBestSeller?: boolean;
 }
@@ -68,7 +68,7 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
       <div style={{ position: 'relative', aspectRatio: '3/4', overflow: 'hidden' }}>
         <img
           src={product.image}
-          alt={product.name}
+          alt={t(`productItems.${product.nameKey}.name`)}
           style={{
             width: '100%',
             height: '100%',
@@ -84,9 +84,9 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
                 <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #F5F1E7 0%, #E5E5E5 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #9A9A9A; font-family: Arial, sans-serif;">
                   <div style="text-align: center;">
                     <div style="width: 80px; height: 80px; background-color: #3E7C4A; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-                      <span style="font-size: 1.5rem; font-weight: bold; color: #FFFFFF;">${product.name.charAt(0)}</span>
+                      <span style="font-size: 1.5rem; font-weight: bold; color: #FFFFFF;">${t(`productItems.${product.nameKey}.name`).charAt(0)}</span>
                     </div>
-                    <p style="font-size: 0.875rem; color: #9A9A9A; margin: 0;">${product.category}</p>
+                    <p style="font-size: 0.875rem; color: #9A9A9A; margin: 0;">${t(`categories.${product.categoryKey}`)}</p>
                   </div>
                 </div>
               `;
@@ -165,7 +165,7 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
               fontSize: '0.75rem',
               fontWeight: '500'
             }}>
-              New
+              {t('new')}
             </span>
           )}
           {product.isBestSeller && (
@@ -177,7 +177,7 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
               fontSize: '0.75rem',
               fontWeight: '500'
             }}>
-              Best Seller
+              {t('bestseller')}
             </span>
           )}
         </div>
@@ -186,7 +186,7 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
       {/* Product Info */}
       <div style={{ padding: '24px' }}>
         <div style={{ marginBottom: '8px' }}>
-          <span style={{ fontSize: '0.875rem', color: '#9A9A9A' }}>{product.category}</span>
+          <span style={{ fontSize: '0.875rem', color: '#9A9A9A' }}>{t(`categories.${product.categoryKey}`)}</span>
         </div>
         
         <h3 style={{ 
@@ -196,7 +196,7 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
           marginBottom: '8px',
           lineHeight: '1.4'
         }}>
-          {product.name}
+          {t(`productItems.${product.nameKey}.name`)}
         </h3>
 
         {/* Rating */}
@@ -224,6 +224,16 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
             </span>
           )}
         </div>
+
+        {/* Product Description */}
+        <p style={{ 
+          fontSize: '0.875rem', 
+          color: '#9A9A9A', 
+          marginBottom: '16px',
+          lineHeight: '1.4'
+        }}>
+          {t(`productItems.${product.nameKey}.shortDescription`)}
+        </p>
 
         {/* Add to Cart Button */}
         <button

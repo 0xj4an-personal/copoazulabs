@@ -15,12 +15,18 @@ export default function CollectionsPage() {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [showFeaturedOnly, setShowFeaturedOnly] = useState(false);
 
+  // Helper function to get translated text for filtering
+  const getTranslatedText = (collection: any) => {
+    const name = t(`collectionItems.${collection.nameKey}.name`);
+    const description = t(`collectionItems.${collection.descriptionKey}.description`);
+    return `${name} ${description} ${collection.creator}`.toLowerCase();
+  };
+
   // Filter and sort collections
   const filteredCollections = collections
     .filter(collection => {
-      const matchesSearch = collection.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                           collection.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                           collection.creator.toLowerCase().includes(searchQuery.toLowerCase());
+      const translatedText = getTranslatedText(collection);
+      const matchesSearch = translatedText.includes(searchQuery.toLowerCase());
       const matchesFeatured = !showFeaturedOnly || collection.isFeatured;
       return matchesSearch && matchesFeatured;
     })
@@ -217,7 +223,7 @@ export default function CollectionsPage() {
                 <div style={{ position: 'relative', height: '200px', overflow: 'hidden' }}>
                   <img
                     src={collection.image}
-                    alt={collection.name}
+                    alt={t(`collectionItems.${collection.nameKey}.name`)}
                     style={{
                       width: '100%',
                       height: '100%',
@@ -252,7 +258,7 @@ export default function CollectionsPage() {
                       fontSize: '0.75rem',
                       fontWeight: '600'
                     }}>
-                      Featured
+                      {t('featuredOnly')}
                     </div>
                   )}
                 </div>
@@ -261,7 +267,7 @@ export default function CollectionsPage() {
                 <div style={{ padding: '24px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
                     <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#1C1C1C', margin: 0 }}>
-                      {collection.name}
+                      {t(`collectionItems.${collection.nameKey}.name`)}
                     </h3>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                       <Star size={16} style={{ color: '#FFD700', fill: '#FFD700' }} />
@@ -272,7 +278,7 @@ export default function CollectionsPage() {
                   </div>
 
                   <p style={{ color: '#9A9A9A', fontSize: '0.875rem', marginBottom: '16px', lineHeight: '1.5' }}>
-                    {collection.description}
+                    {t(`collectionItems.${collection.descriptionKey}.description`)}
                   </p>
 
                   {/* Stats */}

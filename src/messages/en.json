@@ -85,7 +85,55 @@
     "description": "Description",
     "specifications": "Specifications",
     "reviews": "Reviews",
-    "relatedProducts": "Related Products"
+    "relatedProducts": "Related Products",
+    "productItems": {
+      "web3Hoodie": {
+        "name": "Web3 Hoodie",
+        "description": "Premium cotton-blend hoodie featuring our signature Web3 logo. Perfect for crypto enthusiasts who want to showcase their passion for decentralized technology. Features a comfortable fit, adjustable drawstring hood, and kangaroo pocket.",
+        "shortDescription": "Premium hoodie with Web3 branding"
+      },
+      "blockchainTShirt": {
+        "name": "Blockchain T-Shirt",
+        "description": "Soft, breathable cotton t-shirt with an innovative blockchain-inspired design. Made from 100% organic cotton, this shirt combines comfort with style. Perfect for developers, investors, and anyone passionate about blockchain technology.",
+        "shortDescription": "Comfortable t-shirt with blockchain design"
+      },
+      "cryptoCap": {
+        "name": "Crypto Cap",
+        "description": "High-quality adjustable cap featuring crypto-themed embroidery. Made with premium materials and featuring a structured crown with flat visor. Ideal for outdoor activities, trading sessions, or casual wear. One size fits most.",
+        "shortDescription": "Stylish cap for crypto enthusiasts"
+      },
+      "defiSweatshirt": {
+        "name": "DeFi Sweatshirt",
+        "description": "Cozy crewneck sweatshirt celebrating the DeFi revolution. Made from premium cotton fleece with a modern fit. Features subtle DeFi-themed graphics and our brand logo. Perfect for layering or wearing alone on cooler days.",
+        "shortDescription": "Warm sweatshirt with DeFi theme"
+      },
+      "nftHoodieCollection": {
+        "name": "NFT Hoodie Collection",
+        "description": "Limited edition hoodie featuring unique NFT-inspired artwork. Each hoodie comes with a digital certificate of authenticity. Made from sustainable materials with attention to detail. A true collector's item for NFT enthusiasts.",
+        "shortDescription": "Limited edition NFT-inspired hoodie"
+      },
+      "smartContractTShirt": {
+        "name": "Smart Contract T-Shirt",
+        "description": "Technical t-shirt designed for developers and smart contract enthusiasts. Features code-inspired graphics and technical terminology. Made from moisture-wicking fabric perfect for coding marathons or casual tech meetups.",
+        "shortDescription": "Tech-themed t-shirt for developers"
+      },
+      "metaverseCap": {
+        "name": "Metaverse Cap",
+        "description": "Futuristic cap designed for the metaverse era. Features holographic elements and virtual world-inspired design. Made with cutting-edge materials and featuring LED accent lighting. Perfect for virtual reality sessions or futuristic fashion.",
+        "shortDescription": "Virtual world inspired cap"
+      },
+      "daoSweatshirt": {
+        "name": "DAO Sweatshirt",
+        "description": "Community-focused sweatshirt celebrating decentralized autonomous organizations. Features collaborative design elements and DAO governance symbols. Made from eco-friendly materials, reflecting the sustainable values of the DAO community.",
+        "shortDescription": "Decentralized organization themed sweatshirt"
+      }
+    },
+    "categories": {
+      "hoodies": "Hoodies",
+      "tshirts": "T-Shirts",
+      "accessories": "Accessories",
+      "sweatshirts": "Sweatshirts"
+    }
   },
   "collections": {
     "title": "Collections",
@@ -105,7 +153,39 @@
     "followers": "followers",
     "noCollectionsFound": "No collections found",
     "tryAdjustingFilters": "Try adjusting your search or filter criteria",
-    "clearFilters": "Clear Filters"
+    "clearFilters": "Clear Filters",
+    "collectionItems": {
+      "web3Essentials": {
+        "name": "Web3 Essentials",
+        "description": "A curated collection of fundamental Web3 merchandise for the modern crypto enthusiast. This collection features our most popular items including hoodies, t-shirts, and accessories that represent the core values of decentralized technology. Perfect for beginners entering the Web3 space or seasoned veterans who want to showcase their passion.",
+        "shortDescription": "Core pieces for the modern crypto enthusiast"
+      },
+      "defiFashion": {
+        "name": "DeFi Fashion",
+        "description": "Celebrate the decentralized finance revolution with this exclusive collection. Featuring cutting-edge designs inspired by liquidity pools, yield farming, and decentralized exchanges. Each piece tells the story of financial freedom and innovation. Made with premium materials and sustainable practices.",
+        "shortDescription": "Decentralized fashion for the decentralized world"
+      },
+      "nftCollectibles": {
+        "name": "NFT Collectibles",
+        "description": "Unique digital fashion pieces that bridge the gap between physical and virtual worlds. This collection features limited edition items with digital certificates of authenticity. Each piece is inspired by popular NFT art movements and comes with exclusive digital collectibles. A true fusion of art, technology, and fashion.",
+        "shortDescription": "Unique digital fashion pieces"
+      },
+      "cryptoStreetwear": {
+        "name": "Crypto Streetwear",
+        "description": "Urban style meets blockchain technology in this dynamic collection. Inspired by the energy of crypto trading floors and blockchain conferences, these pieces combine street fashion with Web3 culture. Perfect for crypto meetups, blockchain events, or casual urban wear with a tech twist.",
+        "shortDescription": "Urban style meets blockchain technology"
+      },
+      "metaverseReady": {
+        "name": "Metaverse Ready",
+        "description": "Fashion designed for both virtual worlds and real life. This futuristic collection features items that work seamlessly in virtual reality environments while maintaining style in the physical world. With holographic elements and cutting-edge materials, these pieces prepare you for the metaverse era.",
+        "shortDescription": "Fashion for virtual worlds and real life"
+      },
+      "daoCommunity": {
+        "name": "DAO Community",
+        "description": "Clothing that celebrates decentralized autonomous organizations and community governance. This collection emphasizes collaboration, transparency, and collective decision-making. Each piece reflects the values of community-driven projects and features designs inspired by governance tokens and voting mechanisms.",
+        "shortDescription": "Clothing for decentralized communities"
+      }
+    }
   },
   "about": {
     "title": "About Copoazú Labs",
