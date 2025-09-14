@@ -209,7 +209,7 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
         {/* Price */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
           <span style={{ fontSize: '1.25rem', fontWeight: '700', color: '#1C1C1C' }}>
-            ${product.price}
+            {product.price.toLocaleString('es-CO')} cCOP
           </span>
           {product.originalPrice && (
             <span style={{ 
@@ -217,7 +217,7 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
               color: '#9A9A9A', 
               textDecoration: 'line-through' 
             }}>
-              ${product.originalPrice}
+              {product.originalPrice.toLocaleString('es-CO')} cCOP
             </span>
           )}
         </div>

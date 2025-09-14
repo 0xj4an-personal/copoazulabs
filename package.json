@@ -9,7 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@celo/connect": "^7.0.0",
+    "@celo/contractkit": "^10.0.1",
+    "@celo/wallet-base": "^8.0.1",
     "@vercel/edge": "^1.2.2",
+    "ethers": "^6.15.0",
     "lucide-react": "^0.263.1",
     "next": "15.5.2",
     "next-intl": "^4.3.8",

@@ -233,10 +233,12 @@
   },
   "wallet": {
     "connect": "Conectar Billetera",
+    "connecting": "Conectando...",
     "connected": "Conectado",
     "disconnect": "Desconectar",
     "copyAddress": "Copiar Dirección",
     "viewExplorer": "Ver en Explorador",
+    "switchToCelo": "Cambiar a Celo",
     "network": "Red",
     "balance": "Saldo",
     "switchNetwork": "Cambiar Red",
@@ -298,20 +300,25 @@
     "itemAdded": "Producto agregado al carrito",
     "itemRemoved": "Producto eliminado del carrito"
   },
-  "checkout": {
-    "title": "Finalizar Compra",
-    "emptyCart": "Tu carrito está vacío",
-    "emptyCartDescription": "Necesitas agregar productos al carrito antes de finalizar la compra",
-    "continueShopping": "Continuar Comprando",
-    "backToProducts": "Volver a Productos",
-    "orderSummary": "Resumen del Pedido",
-    "quantity": "Cantidad",
-    "total": "Total",
-    "paymentMethods": "Métodos de Pago",
-    "cryptoPayment": "Pago con Cripto",
-    "cryptoPaymentDescription": "Pagar con criptomonedas usando tu billetera",
-    "traditionalPayment": "Pago Tradicional",
-    "traditionalPaymentDescription": "Pagar con tarjeta de crédito u otros métodos tradicionales",
-    "completeOrder": "Completar Pedido"
-  }
+       "checkout": {
+         "title": "Finalizar Compra",
+         "emptyCart": "Tu carrito está vacío",
+         "emptyCartDescription": "Necesitas agregar productos al carrito antes de finalizar la compra",
+         "continueShopping": "Continuar Comprando",
+         "backToProducts": "Volver a Productos",
+         "orderSummary": "Resumen del Pedido",
+         "quantity": "Cantidad",
+         "total": "Total",
+         "paymentMethods": "Pago",
+        "cryptoPayment": "cCOP en Red Celo",
+        "cryptoPaymentDescription": "Pagar con tokens cCOP en la red Celo",
+         "completeOrder": "Completar Pedido",
+         "celoNetwork": "Red Celo",
+         "coopToken": "cCOP (Peso Colombiano Celo)",
+         "walletAddress": "Dirección de Billetera",
+         "processingPayment": "Procesando pago...",
+         "paymentSuccessful": "¡Pago exitoso!",
+         "paymentFailed": "Pago fallido",
+         "viewOnExplorer": "Ver en Celo Explorer"
+       }
 }

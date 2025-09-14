@@ -11,10 +11,7 @@ export default function CartDrawer() {
   const { state, updateQuantity, removeItem, clearCart, closeCart } = useCart();
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-    }).format(price);
+    return `${price.toLocaleString('es-CO')} cCOP`;
   };
 
   return (

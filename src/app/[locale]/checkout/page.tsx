@@ -1,20 +1,31 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useCart } from '@/contexts/CartContext';
 import Link from 'next/link';
 import { ArrowLeft, CreditCard, Wallet } from 'lucide-react';
+import CeloPayment from '@/components/CeloPayment';
 
 export default function CheckoutPage() {
   const t = useTranslations('checkout');
   const { state } = useCart();
+  const [selectedPaymentMethod] = useState<'celo'>('celo');
+  const [paymentSuccess, setPaymentSuccess] = useState(false);
+  const [paymentError, setPaymentError] = useState<string>('');
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-    }).format(price);
+    return `${price.toLocaleString('es-CO')} cCOP`;
+  };
+
+  const handlePaymentSuccess = () => {
+    setPaymentSuccess(true);
+    setPaymentError('');
+  };
+
+  const handlePaymentError = (error: string) => {
+    setPaymentError(error);
+    setPaymentSuccess(false);
   };
 
   if (state.items.length === 0) {
@@ -97,50 +108,64 @@ export default function CheckoutPage() {
           </div>
 
           {/* Payment Methods */}
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-xl font-semibold text-gray-900 mb-6">
+          <div style={{ backgroundColor: '#FFFFFF', borderRadius: '8px', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', padding: '24px' }}>
+            <h2 style={{ fontSize: '20px', fontWeight: '600', color: '#111827', marginBottom: '24px' }}>
               {t('paymentMethods')}
             </h2>
 
-            <div className="space-y-4">
-              {/* Crypto Payment */}
-              <div className="border border-gray-200 rounded-lg p-4 hover:border-green-500 cursor-pointer transition-colors">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                    <Wallet className="w-5 h-5 text-green-600" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-medium text-gray-900">
-                      {t('cryptoPayment')}
-                    </h3>
-                    <p className="text-sm text-gray-500">
-                      {t('cryptoPaymentDescription')}
-                    </p>
-                  </div>
-                </div>
+            {paymentError && (
+              <div style={{
+                backgroundColor: '#FEF2F2',
+                border: '1px solid #FECACA',
+                borderRadius: '6px',
+                padding: '12px',
+                marginBottom: '16px'
+              }}>
+                <p style={{ color: '#DC2626', fontSize: '14px', margin: 0 }}>
+                  {paymentError}
+                </p>
               </div>
+            )}
 
-              {/* Traditional Payment */}
-              <div className="border border-gray-200 rounded-lg p-4 hover:border-green-500 cursor-pointer transition-colors">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <CreditCard className="w-5 h-5 text-blue-600" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-medium text-gray-900">
-                      {t('traditionalPayment')}
-                    </h3>
-                    <p className="text-sm text-gray-500">
-                      {t('traditionalPaymentDescription')}
-                    </p>
-                  </div>
+            {/* Payment Method */}
+            <div style={{ marginBottom: '24px' }}>
+              <div style={{ 
+                border: '2px solid #10B981',
+                borderRadius: '8px',
+                padding: '16px',
+                backgroundColor: '#F0FDF4',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '12px'
+              }}>
+                <div style={{ 
+                  width: '40px', 
+                  height: '40px', 
+                  backgroundColor: '#DCFCE7', 
+                  borderRadius: '8px', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center' 
+                }}>
+                  <Wallet className="w-5 h-5 text-green-600" />
+                </div>
+                <div>
+                  <h3 style={{ fontWeight: '600', color: '#111827', margin: '0 0 4px 0' }}>
+                    cCOP on Celo Network
+                  </h3>
+                  <p style={{ fontSize: '14px', color: '#6B7280', margin: 0 }}>
+                    Pay with cCOP tokens on Celo network
+                  </p>
                 </div>
               </div>
             </div>
 
-            <button className="w-full mt-6 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium">
-              {t('completeOrder')}
-            </button>
+            {/* Payment Component */}
+            <CeloPayment
+              totalPrice={state.totalPrice}
+              onPaymentSuccess={handlePaymentSuccess}
+              onPaymentError={handlePaymentError}
+            />
           </div>
         </div>
       </div>

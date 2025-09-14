@@ -16,7 +16,7 @@ export default function CryptoPayment({ amount, onPaymentComplete }: CryptoPayme
   const celoConfig = getCeloConfig();
   
   const paymentMethods = [
-    { id: 'celo', name: 'CELO', symbol: 'CELO', rate: 2.5, network: 'Celo' },
+    { id: 'ccop', name: 'cCOP', symbol: 'cCOP', rate: 1, network: 'Celo' },
     { id: 'cusd', name: 'Celo Dollar', symbol: 'cUSD', rate: 1, network: 'Celo' },
     { id: 'ceur', name: 'Celo Euro', symbol: 'cEUR', rate: 0.92, network: 'Celo' },
     { id: 'creal', name: 'Celo Real', symbol: 'cREAL', rate: 5.2, network: 'Celo' },
