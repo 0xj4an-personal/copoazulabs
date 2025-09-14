@@ -85,23 +85,9 @@ export default function LanguageSwitcher() {
   // Show loading state during hydration
   if (!mounted) {
     return (
-      <div style={{ position: 'relative', display: 'inline-block' }}>
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            padding: '8px 12px',
-            backgroundColor: 'transparent',
-            border: '1px solid #9A9A9A',
-            borderRadius: '8px',
-            fontSize: '0.875rem',
-            color: '#1C1C1C',
-            minWidth: '120px',
-            height: '36px'
-          }}
-        >
-          <Globe style={{ width: '16px', height: '16px' }} />
+      <div className="relative inline-block">
+        <div className="flex items-center gap-2 px-3 py-2 bg-transparent border border-[#9A9A9A] dark:border-gray-600 rounded-lg text-sm text-[#1C1C1C] dark:text-gray-100 min-w-[120px] h-9">
+          <Globe className="w-4 h-4" />
           <span>{localeFlags[actualLanguage as keyof typeof localeFlags]}</span>
           <span>{localeNames[actualLanguage as keyof typeof localeNames]}</span>
         </div>
@@ -110,73 +96,29 @@ export default function LanguageSwitcher() {
   }
 
   return (
-    <div style={{ position: 'relative', display: 'inline-block' }}>
+    <div className="relative inline-block">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '8px',
-          padding: '8px 12px',
-          backgroundColor: 'transparent',
-          border: '1px solid #9A9A9A',
-          borderRadius: '8px',
-          cursor: 'pointer',
-          transition: 'all 0.2s ease',
-          fontSize: '0.875rem',
-          color: '#1C1C1C'
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.borderColor = '#3E7C4A';
-          e.currentTarget.style.backgroundColor = '#F5F1E7';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = '#9A9A9A';
-          e.currentTarget.style.backgroundColor = 'transparent';
-        }}
+        className="flex items-center gap-2 px-3 py-2 bg-transparent border border-[#9A9A9A] dark:border-gray-600 rounded-lg cursor-pointer transition-all duration-200 text-sm text-[#1C1C1C] dark:text-gray-100 hover:border-[#3E7C4A] hover:bg-[#F5F1E7] dark:hover:bg-gray-800"
       >
-        <Globe style={{ width: '16px', height: '16px' }} />
+        <Globe className="w-4 h-4" />
         <span>{localeFlags[actualLanguage as keyof typeof localeFlags]}</span>
         <span>{localeNames[actualLanguage as keyof typeof localeNames]}</span>
-        <ChevronDown style={{ 
-          width: '14px', 
-          height: '14px',
-          transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-          transition: 'transform 0.2s ease'
-        }} />
+        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${
+          isOpen ? 'rotate-180' : 'rotate-0'
+        }`} />
       </button>
 
       {isOpen && (
         <>
           {/* Backdrop */}
           <div
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              zIndex: 10
-            }}
+            className="fixed inset-0 z-10"
             onClick={() => setIsOpen(false)}
           />
           
           {/* Dropdown */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '100%',
-              right: 0,
-              marginTop: '4px',
-              backgroundColor: '#FFFFFF',
-              border: '1px solid #9A9A9A',
-              borderRadius: '8px',
-              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-              zIndex: 20,
-              minWidth: '160px',
-              overflow: 'hidden'
-            }}
-          >
+          <div className="absolute top-full right-0 mt-1 bg-white dark:bg-gray-900 border border-[#9A9A9A] dark:border-gray-600 rounded-lg shadow-lg min-w-[160px] overflow-hidden z-20">
             {locales.map((locale) => (
               <button
                 key={locale}
@@ -184,41 +126,18 @@ export default function LanguageSwitcher() {
                   switchLanguage(locale);
                   setIsOpen(false);
                 }}
-                style={{
-                  width: '100%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  padding: '12px 16px',
-                  backgroundColor: locale === actualLanguage ? '#F5F1E7' : 'transparent',
-                  border: 'none',
-                  cursor: 'pointer',
-                  transition: 'background-color 0.2s ease',
-                  fontSize: '0.875rem',
-                  color: '#1C1C1C',
-                  textAlign: 'left'
-                }}
-                onMouseEnter={(e) => {
-                  if (locale !== actualLanguage) {
-                    e.currentTarget.style.backgroundColor = '#F5F1E7';
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (locale !== actualLanguage) {
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                  }
-                }}
+                className={`w-full flex items-center gap-3 px-4 py-3 border-none cursor-pointer transition-colors duration-200 text-sm text-[#1C1C1C] dark:text-gray-100 text-left ${
+                  locale === actualLanguage 
+                    ? 'bg-[#F5F1E7] dark:bg-gray-800' 
+                    : 'bg-transparent hover:bg-[#F5F1E7] dark:hover:bg-gray-800'
+                }`}
               >
-                <span style={{ fontSize: '1rem' }}>
+                <span className="text-base">
                   {localeFlags[locale as keyof typeof localeFlags]}
                 </span>
                 <span>{localeNames[locale as keyof typeof localeNames]}</span>
                 {locale === actualLanguage && (
-                  <span style={{ 
-                    marginLeft: 'auto', 
-                    color: '#3E7C4A',
-                    fontWeight: '500'
-                  }}>
+                  <span className="ml-auto text-[#3E7C4A] dark:text-green-400 font-medium">
                     ✓
                   </span>
                 )}

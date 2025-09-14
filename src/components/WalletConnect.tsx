@@ -149,45 +149,23 @@ export default function WalletConnect({ onConnect, onDisconnect }: WalletConnect
 
   if (!isConnected) {
     return (
-      <div>
+      <div className="relative">
         <button
           onClick={handleConnect}
           disabled={isConnecting}
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            padding: '8px 16px',
-            backgroundColor: isConnecting ? '#9CA3AF' : '#3E7C4A',
-            color: '#FFFFFF',
-            fontWeight: '500',
-            borderRadius: '8px',
-            border: 'none',
-            cursor: isConnecting ? 'not-allowed' : 'pointer',
-            transition: 'all 0.2s ease',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-            opacity: isConnecting ? 0.7 : 1
-          }}
+          className={`inline-flex items-center px-4 py-2 text-white font-medium rounded-lg border-none cursor-pointer transition-all duration-200 shadow-lg ${
+            isConnecting 
+              ? 'bg-gray-400 cursor-not-allowed opacity-70' 
+              : 'bg-green-600 hover:bg-green-700'
+          }`}
         >
-          <Wallet style={{ width: '16px', height: '16px', marginRight: '8px' }} />
+          <Wallet className="w-4 h-4 mr-2" />
           {isConnecting ? t('connecting') : t('connect')}
         </button>
         {error && (
-          <div style={{
-            position: 'absolute',
-            top: '100%',
-            right: 0,
-            marginTop: '8px',
-            padding: '8px 12px',
-            backgroundColor: '#FEF2F2',
-            border: '1px solid #FECACA',
-            borderRadius: '6px',
-            color: '#DC2626',
-            fontSize: '0.75rem',
-            maxWidth: '250px',
-            zIndex: 50
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-              <AlertCircle style={{ width: '12px', height: '12px' }} />
+          <div className="absolute top-full right-0 mt-2 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md text-red-600 dark:text-red-400 text-xs max-w-xs z-50">
+            <div className="flex items-center gap-1">
+              <AlertCircle className="w-3 h-3" />
               {error}
             </div>
           </div>
@@ -197,118 +175,52 @@ export default function WalletConnect({ onConnect, onDisconnect }: WalletConnect
   }
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div className="relative">
       <button
         onClick={() => setShowDropdown(!showDropdown)}
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          padding: '8px 16px',
-          backgroundColor: '#F5F1E7',
-          color: '#1C1C1C',
-          fontWeight: '500',
-          borderRadius: '8px',
-          border: '1px solid #9A9A9A',
-          cursor: 'pointer',
-          transition: 'all 0.2s ease'
-        }}
+        className="inline-flex items-center px-4 py-2 bg-[#F5F1E7] dark:bg-gray-800 text-[#1C1C1C] dark:text-gray-100 font-medium rounded-lg border border-[#9A9A9A] dark:border-gray-600 cursor-pointer transition-all duration-200"
       >
-        <Wallet style={{ width: '16px', height: '16px', marginRight: '8px' }} />
+        <Wallet className="w-4 h-4 mr-2" />
         {formatAddress(address)}
-        <ChevronDown style={{ width: '16px', height: '16px', marginLeft: '8px' }} />
+        <ChevronDown className="w-4 h-4 ml-2" />
       </button>
 
       {showDropdown && (
-        <div style={{
-          position: 'absolute',
-          top: '100%',
-          right: 0,
-          marginTop: '8px',
-          backgroundColor: '#FFFFFF',
-          border: '1px solid #9A9A9A',
-          borderRadius: '8px',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-          minWidth: '200px',
-          zIndex: 50
-        }}>
-          <div style={{ padding: '12px 16px', borderBottom: '1px solid #9A9A9A' }}>
-            <p style={{ fontSize: '0.875rem', color: '#9A9A9A', margin: 0 }}>{t('connected')}</p>
-            <p style={{ fontSize: '0.875rem', color: '#1C1C1C', margin: '4px 0 0 0', fontFamily: 'monospace' }}>
+        <div className="absolute top-full right-0 mt-2 bg-white dark:bg-gray-900 border border-[#9A9A9A] dark:border-gray-600 rounded-lg shadow-lg min-w-[200px] z-50">
+          <div className="p-3 border-b border-[#9A9A9A] dark:border-gray-600">
+            <p className="text-sm text-[#9A9A9A] dark:text-gray-400 m-0">{t('connected')}</p>
+            <p className="text-sm text-[#1C1C1C] dark:text-gray-100 mt-1 m-0 font-mono">
               {address}
             </p>
-            <p style={{ fontSize: '0.75rem', color: '#6B7280', margin: '4px 0 0 0' }}>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 m-0">
               Balance: {formatBalance(balance)} CELO
             </p>
           </div>
-          <div style={{ padding: '8px 0' }}>
+          <div className="py-2">
             <button
               onClick={copyAddress}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                width: '100%',
-                padding: '8px 16px',
-                backgroundColor: 'transparent',
-                border: 'none',
-                cursor: 'pointer',
-                fontSize: '0.875rem',
-                color: '#1C1C1C',
-                transition: 'background-color 0.2s ease'
-              }}
+              className="flex items-center w-full px-4 py-2 bg-transparent border-none cursor-pointer text-sm text-[#1C1C1C] dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
             >
-              <Copy style={{ width: '16px', height: '16px', marginRight: '8px' }} />
+              <Copy className="w-4 h-4 mr-2" />
               {t('copyAddress')}
             </button>
             <button
               onClick={openExplorer}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                width: '100%',
-                padding: '8px 16px',
-                backgroundColor: 'transparent',
-                border: 'none',
-                cursor: 'pointer',
-                fontSize: '0.875rem',
-                color: '#1C1C1C',
-                transition: 'background-color 0.2s ease'
-              }}
+              className="flex items-center w-full px-4 py-2 bg-transparent border-none cursor-pointer text-sm text-[#1C1C1C] dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
             >
-              <ExternalLink style={{ width: '16px', height: '16px', marginRight: '8px' }} />
+              <ExternalLink className="w-4 h-4 mr-2" />
               {t('viewExplorer')}
             </button>
             <button
               onClick={switchToCeloNetwork}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                width: '100%',
-                padding: '8px 16px',
-                backgroundColor: 'transparent',
-                border: 'none',
-                cursor: 'pointer',
-                fontSize: '0.875rem',
-                color: '#1C1C1C',
-                transition: 'background-color 0.2s ease'
-              }}
+              className="flex items-center w-full px-4 py-2 bg-transparent border-none cursor-pointer text-sm text-[#1C1C1C] dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
             >
-              <Wallet style={{ width: '16px', height: '16px', marginRight: '8px' }} />
+              <Wallet className="w-4 h-4 mr-2" />
               {t('switchToCelo')}
             </button>
             <button
               onClick={handleDisconnect}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                width: '100%',
-                padding: '8px 16px',
-                backgroundColor: 'transparent',
-                border: 'none',
-                cursor: 'pointer',
-                fontSize: '0.875rem',
-                color: '#D88FA0',
-                transition: 'background-color 0.2s ease'
-              }}
+              className="flex items-center w-full px-4 py-2 bg-transparent border-none cursor-pointer text-sm text-red-500 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors duration-200"
             >
               {t('disconnect')}
             </button>

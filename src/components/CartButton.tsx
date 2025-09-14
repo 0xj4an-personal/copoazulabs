@@ -14,53 +14,13 @@ export default function CartButton({ style = {} }: CartButtonProps) {
   return (
     <button
       onClick={toggleCart}
-      style={{
-        position: 'relative',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '8px',
-        borderRadius: '8px',
-        backgroundColor: 'transparent',
-        border: 'none',
-        cursor: 'pointer',
-        transition: 'background-color 0.2s ease',
-        ...style
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.backgroundColor = '#f3f4f6';
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.backgroundColor = 'transparent';
-      }}
+      className="relative flex items-center justify-center p-2 rounded-lg bg-transparent border-none cursor-pointer transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-800"
+      style={style}
       aria-label={`Shopping cart with ${state.totalItems} items`}
     >
-      <ShoppingCart 
-        style={{ 
-          width: '20px', 
-          height: '20px', 
-          color: '#374151' 
-        }} 
-      />
+      <ShoppingCart className="w-5 h-5 text-gray-700 dark:text-gray-300" />
       {state.totalItems > 0 && (
-        <span 
-          style={{
-            position: 'absolute',
-            top: '-4px',
-            right: '-4px',
-            backgroundColor: '#3E7C4A',
-            color: '#FFFFFF',
-            fontSize: '12px',
-            borderRadius: '50%',
-            height: '20px',
-            width: '20px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontWeight: '500',
-            minWidth: '20px'
-          }}
-        >
+        <span className="absolute -top-1 -right-1 bg-green-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium min-w-[20px]">
           {state.totalItems > 99 ? '99+' : state.totalItems}
         </span>
       )}

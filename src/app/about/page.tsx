@@ -42,7 +42,7 @@ const values = [
 
 export default function About() {
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#F5F1E7' }}>
+    <div className="min-h-screen bg-[#F5F1E7] dark:bg-gray-900">
       {/* Hero Section */}
       <section style={{
         padding: '120px 0 80px',

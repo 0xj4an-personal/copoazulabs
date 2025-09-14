@@ -19,7 +19,10 @@ const nextConfig: NextConfig = {
   },
   
   // Build optimizations
-  output: 'standalone'
+  output: 'standalone',
+  
+  // Fix workspace root warning
+  outputFileTracingRoot: process.cwd()
 };
 
 export default withNextIntl(nextConfig);
