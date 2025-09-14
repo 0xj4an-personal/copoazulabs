@@ -62,6 +62,8 @@
   "products": {
     "title": "Our Products",
     "subtitle": "Explore our exclusive collection of Web3 branded clothing and accessories",
+    "featuredTitle": "Featured Products",
+    "featuredSubtitle": "Discover our most popular Web3 merchandise",
     "comingSoon": "Coming Soon",
     "underDevelopment": "Our products page is under development. Stay tuned for amazing Web3 merchandise!",
     "viewAll": "View All Products",
@@ -73,6 +75,8 @@
     "quickView": "Quick View",
     "new": "New",
     "bestseller": "Bestseller",
+    "moreComingSoon": "More Products Coming Soon",
+    "moreProductsDescription": "We're constantly adding new Web3 merchandise to our collection. Stay tuned for more amazing products!",
     "sale": "Sale",
     "outOfStock": "Out of Stock",
     "inStock": "In Stock",

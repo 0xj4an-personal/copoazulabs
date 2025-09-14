@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Heart, ShoppingCart, Star, Eye } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface Product {
   id: string;
@@ -25,6 +26,7 @@ interface ProductCardProps {
 export default function ProductCard({ product, onAddToCart, onToggleWishlist }: ProductCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
+  const t = useTranslations('products');
 
   const handleAddToCart = () => {
     onAddToCart?.(product);
@@ -64,32 +66,33 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
     >
       {/* Product Image */}
       <div style={{ position: 'relative', aspectRatio: '3/4', overflow: 'hidden' }}>
-        <div style={{
-          width: '100%',
-          height: '100%',
-          backgroundColor: '#F5F1E7',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233E7C4A' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }}>
-          <div style={{
-            width: '80px',
-            height: '80px',
-            backgroundColor: '#3E7C4A',
-            borderRadius: '50%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginBottom: '16px'
-          }}>
-            <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#FFFFFF' }}>
-              {product.name.charAt(0)}
-            </span>
-          </div>
-          <p style={{ fontSize: '0.875rem', color: '#9A9A9A', margin: 0 }}>{product.category}</p>
-        </div>
+        <img
+          src={product.image}
+          alt={product.name}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover'
+          }}
+          onError={(e) => {
+            // Fallback to a simple colored div if image fails to load
+            const target = e.target as HTMLImageElement;
+            target.style.display = 'none';
+            const parent = target.parentElement;
+            if (parent) {
+              parent.innerHTML = `
+                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #F5F1E7 0%, #E5E5E5 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #9A9A9A; font-family: Arial, sans-serif;">
+                  <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; background-color: #3E7C4A; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                      <span style="font-size: 1.5rem; font-weight: bold; color: #FFFFFF;">${product.name.charAt(0)}</span>
+                    </div>
+                    <p style="font-size: 0.875rem; color: #9A9A9A; margin: 0;">${product.category}</p>
+                  </div>
+                </div>
+              `;
+            }
+          }}
+        />
 
         {/* Overlay Actions */}
         {isHovered && (
@@ -242,7 +245,7 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
           }}
         >
           <ShoppingCart style={{ width: '16px', height: '16px' }} />
-          Add to Cart
+{t('addToCart')}
         </button>
       </div>
     </div>

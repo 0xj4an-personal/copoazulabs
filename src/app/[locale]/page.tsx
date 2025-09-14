@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight, Zap, Shield, Users, Star, ShoppingCart, Wallet } from 'lucide-react';
+import { ArrowRight, Zap, Shield, Users, ShoppingCart, Wallet } from 'lucide-react';
 import Link from 'next/link';
 import ProductCard from '@/components/ProductCard';
 import { useTranslations } from 'next-intl';
@@ -14,7 +14,7 @@ const featuredProducts = [
     originalPrice: 119.99,
     rating: 4.8,
     reviewCount: 124,
-    image: '/products/hoodie.jpg',
+    image: '/products/placeholder.svg',
     category: 'Hoodies',
     isNew: true,
     isBestSeller: true
@@ -25,7 +25,7 @@ const featuredProducts = [
     price: 29.99,
     rating: 4.6,
     reviewCount: 89,
-    image: '/products/tshirt.jpg',
+    image: '/products/placeholder.svg',
     category: 'T-Shirts',
     isNew: true
   },
@@ -35,7 +35,7 @@ const featuredProducts = [
     price: 24.99,
     rating: 4.7,
     reviewCount: 67,
-    image: '/products/cap.jpg',
+    image: '/products/placeholder.svg',
     category: 'Accessories',
     isBestSeller: true
   },
@@ -46,36 +46,54 @@ const featuredProducts = [
     originalPrice: 89.99,
     rating: 4.9,
     reviewCount: 156,
-    image: '/products/sweatshirt.jpg',
+    image: '/products/placeholder.svg',
+    category: 'Sweatshirts',
+    isNew: true
+  },
+  {
+    id: '5',
+    name: 'NFT Hoodie Collection',
+    price: 99.99,
+    originalPrice: 129.99,
+    rating: 4.9,
+    reviewCount: 203,
+    image: '/products/placeholder.svg',
+    category: 'Hoodies',
+    isBestSeller: true
+  },
+  {
+    id: '6',
+    name: 'Smart Contract T-Shirt',
+    price: 34.99,
+    rating: 4.7,
+    reviewCount: 142,
+    image: '/products/placeholder.svg',
+    category: 'T-Shirts',
+    isNew: true
+  },
+  {
+    id: '7',
+    name: 'Metaverse Cap',
+    price: 29.99,
+    rating: 4.8,
+    reviewCount: 98,
+    image: '/products/placeholder.svg',
+    category: 'Accessories',
+    isBestSeller: true
+  },
+  {
+    id: '8',
+    name: 'DAO Sweatshirt',
+    price: 79.99,
+    originalPrice: 99.99,
+    rating: 4.8,
+    reviewCount: 167,
+    image: '/products/placeholder.svg',
     category: 'Sweatshirts',
     isNew: true
   }
 ];
 
-const stats = [
-  { label: 'Happy Customers', value: '10K+' },
-  { label: 'Products Sold', value: '50K+' },
-  { label: 'Countries', value: '25+' },
-  { label: 'Years Experience', value: '3+' }
-];
-
-const features = [
-  {
-    icon: Zap,
-    title: 'Lightning Fast',
-    description: 'Instant transactions with blockchain technology'
-  },
-  {
-    icon: Shield,
-    title: 'Secure & Private',
-    description: 'Your data stays safe with decentralized security'
-  },
-  {
-    icon: Users,
-    title: 'Community Driven',
-    description: 'Join thousands of Web3 enthusiasts worldwide'
-  }
-];
 
 export default function Home() {
   const t = useTranslations();
@@ -200,25 +218,74 @@ export default function Home() {
       <section style={{ padding: '80px 0', backgroundColor: '#FFFFFF' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 16px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '48px' }}>
-            {stats.map((stat, index) => (
-              <div key={index} style={{ textAlign: 'center' }}>
-                <div style={{
-                  fontSize: '3rem',
-                  fontWeight: '800',
-                  color: '#3E7C4A',
-                  marginBottom: '8px'
-                }}>
-                  {stat.value}
-                </div>
-                <div style={{
-                  fontSize: '1.125rem',
-                  color: '#9A9A9A',
-                  fontWeight: '500'
-                }}>
-                  {stat.label}
-                </div>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{
+                fontSize: '3rem',
+                fontWeight: '800',
+                color: '#3E7C4A',
+                marginBottom: '8px'
+              }}>
+                10K+
               </div>
-            ))}
+              <div style={{
+                fontSize: '1.125rem',
+                color: '#9A9A9A',
+                fontWeight: '500'
+              }}>
+                {t('stats.happyCustomers')}
+              </div>
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{
+                fontSize: '3rem',
+                fontWeight: '800',
+                color: '#3E7C4A',
+                marginBottom: '8px'
+              }}>
+                50K+
+              </div>
+              <div style={{
+                fontSize: '1.125rem',
+                color: '#9A9A9A',
+                fontWeight: '500'
+              }}>
+                {t('stats.productsSold')}
+              </div>
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{
+                fontSize: '3rem',
+                fontWeight: '800',
+                color: '#3E7C4A',
+                marginBottom: '8px'
+              }}>
+                25+
+              </div>
+              <div style={{
+                fontSize: '1.125rem',
+                color: '#9A9A9A',
+                fontWeight: '500'
+              }}>
+                {t('stats.countries')}
+              </div>
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{
+                fontSize: '3rem',
+                fontWeight: '800',
+                color: '#3E7C4A',
+                marginBottom: '8px'
+              }}>
+                3+
+              </div>
+              <div style={{
+                fontSize: '1.125rem',
+                color: '#9A9A9A',
+                fontWeight: '500'
+              }}>
+                {t('stats.yearsExperience')}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -233,7 +300,7 @@ export default function Home() {
               color: '#1C1C1C',
               marginBottom: '16px'
             }}>
-              Why Choose Copoazú Labs?
+              {t('features.title')}
             </h2>
             <p style={{
               fontSize: '1.25rem',
@@ -241,48 +308,116 @@ export default function Home() {
               maxWidth: '600px',
               margin: '0 auto'
             }}>
-              Experience the future of fashion with cutting-edge Web3 technology
+              {t('features.subtitle')}
             </p>
           </div>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px' }}>
-            {features.map((feature, index) => (
-              <div key={index} style={{
-                backgroundColor: '#FFFFFF',
-                padding: '32px',
-                borderRadius: '16px',
-                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                textAlign: 'center',
-                transition: 'transform 0.3s ease'
+            <div style={{
+              backgroundColor: '#FFFFFF',
+              padding: '32px',
+              borderRadius: '16px',
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+              textAlign: 'center',
+              transition: 'transform 0.3s ease'
+            }}>
+              <div style={{
+                width: '80px',
+                height: '80px',
+                backgroundColor: '#3E7C4A',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 24px'
               }}>
-                <div style={{
-                  width: '80px',
-                  height: '80px',
-                  backgroundColor: '#3E7C4A',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  margin: '0 auto 24px'
-                }}>
-                  <feature.icon style={{ width: '40px', height: '40px', color: '#FFFFFF' }} />
-                </div>
-                <h3 style={{
-                  fontSize: '1.5rem',
-                  fontWeight: '600',
-                  color: '#1C1C1C',
-                  marginBottom: '16px'
-                }}>
-                  {feature.title}
-                </h3>
-                <p style={{
-                  color: '#9A9A9A',
-                  lineHeight: '1.6'
-                }}>
-                  {feature.description}
-                </p>
+                <Zap style={{ width: '40px', height: '40px', color: '#FFFFFF' }} />
               </div>
-            ))}
+              <h3 style={{
+                fontSize: '1.5rem',
+                fontWeight: '600',
+                color: '#1C1C1C',
+                marginBottom: '16px'
+              }}>
+                {t('features.lightningFast.title')}
+              </h3>
+              <p style={{
+                color: '#9A9A9A',
+                lineHeight: '1.6'
+              }}>
+                {t('features.lightningFast.description')}
+              </p>
+            </div>
+            <div style={{
+              backgroundColor: '#FFFFFF',
+              padding: '32px',
+              borderRadius: '16px',
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+              textAlign: 'center',
+              transition: 'transform 0.3s ease'
+            }}>
+              <div style={{
+                width: '80px',
+                height: '80px',
+                backgroundColor: '#3E7C4A',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 24px'
+              }}>
+                <Shield style={{ width: '40px', height: '40px', color: '#FFFFFF' }} />
+              </div>
+              <h3 style={{
+                fontSize: '1.5rem',
+                fontWeight: '600',
+                color: '#1C1C1C',
+                marginBottom: '16px'
+              }}>
+                {t('features.securePrivate.title')}
+              </h3>
+              <p style={{
+                color: '#9A9A9A',
+                lineHeight: '1.6'
+              }}>
+                {t('features.securePrivate.description')}
+              </p>
+            </div>
+            <div style={{
+              backgroundColor: '#FFFFFF',
+              padding: '32px',
+              borderRadius: '16px',
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+              textAlign: 'center',
+              transition: 'transform 0.3s ease'
+            }}>
+              <div style={{
+                width: '80px',
+                height: '80px',
+                backgroundColor: '#3E7C4A',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 24px'
+              }}>
+                <Users style={{ width: '40px', height: '40px', color: '#FFFFFF' }} />
+              </div>
+              <h3 style={{
+                fontSize: '1.5rem',
+                fontWeight: '600',
+                color: '#1C1C1C',
+                marginBottom: '16px'
+              }}>
+                {t('features.communityDriven.title')}
+              </h3>
+              <p style={{
+                color: '#9A9A9A',
+                lineHeight: '1.6'
+              }}>
+                {t('features.communityDriven.description')}
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -297,7 +432,7 @@ export default function Home() {
               color: '#1C1C1C',
               marginBottom: '16px'
             }}>
-              Featured Products
+              {t('products.featuredTitle')}
             </h2>
             <p style={{
               fontSize: '1.25rem',
@@ -305,7 +440,7 @@ export default function Home() {
               maxWidth: '600px',
               margin: '0 auto 32px'
             }}>
-              Discover our most popular Web3 merchandise
+              {t('products.featuredSubtitle')}
             </p>
             <Link href="/products">
               <button style={{
@@ -321,7 +456,7 @@ export default function Home() {
                 transition: 'all 0.3s ease',
                 fontSize: '1rem'
               }}>
-                View All Products
+{t('products.viewAll')}
                 <ArrowRight style={{ marginLeft: '8px', width: '16px', height: '16px' }} />
               </button>
             </Link>
@@ -352,7 +487,7 @@ export default function Home() {
             fontWeight: '700',
             marginBottom: '16px'
           }}>
-            Ready to Join the Revolution?
+{t('cta.title')}
           </h2>
           <p style={{
             fontSize: '1.25rem',
@@ -361,7 +496,7 @@ export default function Home() {
             maxWidth: '600px',
             margin: '0 auto 32px'
           }}>
-            Connect your wallet and start shopping with crypto today
+{t('cta.subtitle')}
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'center' }} className="sm:flex-row">
             <Link href="/products">
@@ -378,7 +513,7 @@ export default function Home() {
                 transition: 'all 0.3s ease',
                 fontSize: '1.125rem'
               }}>
-                Start Shopping
+{t('cta.startShopping')}
                 <ArrowRight style={{ marginLeft: '8px', width: '20px', height: '20px' }} />
               </button>
             </Link>
@@ -396,7 +531,7 @@ export default function Home() {
                 transition: 'all 0.3s ease',
                 fontSize: '1.125rem'
               }}>
-                Learn More
+{t('cta.learnMore')}
               </button>
             </Link>
           </div>

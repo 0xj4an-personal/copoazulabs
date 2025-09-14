@@ -62,6 +62,8 @@
   "products": {
     "title": "Nuestros Productos",
     "subtitle": "Explora nuestra colección exclusiva de ropa y accesorios de marca Web3",
+    "featuredTitle": "Productos Destacados",
+    "featuredSubtitle": "Descubre nuestra mercancía Web3 más popular",
     "comingSoon": "Próximamente",
     "underDevelopment": "Nuestra página de productos está en desarrollo. ¡Mantente atento para increíbles mercancías Web3!",
     "viewAll": "Ver Todos los Productos",
@@ -73,6 +75,8 @@
     "quickView": "Vista Rápida",
     "new": "Nuevo",
     "bestseller": "Más Vendido",
+    "moreComingSoon": "Más Productos Próximamente",
+    "moreProductsDescription": "Estamos agregando constantemente nueva mercancía Web3 a nuestra colección. ¡Mantente atento para más productos increíbles!",
     "sale": "Oferta",
     "outOfStock": "Agotado",
     "inStock": "Disponible",
