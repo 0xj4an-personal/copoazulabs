@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
 import { CartProvider } from "@/contexts/CartContext";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 import { locales } from '@/i18n/config';
 
 export const metadata: Metadata = {
@@ -84,16 +85,18 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body style={{ minHeight: '100vh', backgroundColor: '#F5F1E7', color: '#1C1C1C' }}>
+      <body className="min-h-screen bg-[#F5F1E7] dark:bg-[#1C1C1C] text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">
         <NextIntlClientProvider messages={messages}>
-          <CartProvider>
-            <Header />
-            <main style={{ minHeight: '100vh' }}>
-              {children}
-            </main>
-            <Footer />
-            <CartDrawer />
-          </CartProvider>
+          <ThemeProvider>
+            <CartProvider>
+              <Header />
+              <main className="min-h-screen">
+                {children}
+              </main>
+              <Footer />
+              <CartDrawer />
+            </CartProvider>
+          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>

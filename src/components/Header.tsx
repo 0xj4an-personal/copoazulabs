@@ -6,6 +6,7 @@ import { Menu, X, ShoppingCart, Wallet } from 'lucide-react';
 import WalletConnect from './WalletConnect';
 import LanguageSwitcher from './LanguageSwitcher';
 import CartButton from './CartButton';
+import ThemeToggle from './ThemeToggle';
 import { env } from '../../env.config';
 import { useTranslations } from 'next-intl';
 
@@ -14,90 +15,55 @@ export default function Header() {
   const t = useTranslations('navigation');
 
   return (
-    <header style={{
-      backgroundColor: '#FFFFFF',
-      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-      position: 'sticky',
-      top: 0,
-      zIndex: 50
-    }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 16px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '64px' }}>
+    <header className="bg-white dark:bg-gray-900 shadow-lg sticky top-0 z-50 transition-colors duration-200">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
-            <div style={{
-              width: '40px',
-              height: '40px',
-              backgroundColor: '#3E7C4A',
-              borderRadius: '8px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}>
-              <span style={{ color: '#FFFFFF', fontWeight: 'bold', fontSize: '1.25rem' }}>C</span>
+          <Link href="/" className="flex items-center gap-2 no-underline">
+            <div className="w-10 h-10 bg-[#3E7C4A] rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-xl">C</span>
             </div>
-            <span style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#1C1C1C' }}>{env.APP_NAME}</span>
+            <span className="text-xl font-bold text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">{env.APP_NAME}</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav style={{ display: 'none', alignItems: 'center', gap: '32px' }} className="md:flex">
+          <nav className="hidden md:flex items-center gap-8">
             <Link 
               href="/" 
-              style={{ 
-                color: '#1C1C1C', 
-                textDecoration: 'none', 
-                transition: 'color 0.2s ease',
-                fontSize: '1rem',
-                fontWeight: '500'
-              }}
+              className="text-[#1C1C1C] dark:text-[#F5F1E7] no-underline transition-colors duration-200 text-base font-medium hover:text-[#3E7C4A] dark:hover:text-[#3E7C4A]"
             >
               {t('home')}
             </Link>
             <Link 
               href="/products" 
-              style={{ 
-                color: '#1C1C1C', 
-                textDecoration: 'none', 
-                transition: 'color 0.2s ease',
-                fontSize: '1rem',
-                fontWeight: '500'
-              }}
+              className="text-[#1C1C1C] dark:text-[#F5F1E7] no-underline transition-colors duration-200 text-base font-medium hover:text-[#3E7C4A] dark:hover:text-[#3E7C4A]"
             >
               {t('products')}
             </Link>
             <Link 
               href="/collections" 
-              style={{ 
-                color: '#1C1C1C', 
-                textDecoration: 'none', 
-                transition: 'color 0.2s ease',
-                fontSize: '1rem',
-                fontWeight: '500'
-              }}
+              className="text-[#1C1C1C] dark:text-[#F5F1E7] no-underline transition-colors duration-200 text-base font-medium hover:text-[#3E7C4A] dark:hover:text-[#3E7C4A]"
             >
               {t('collections')}
             </Link>
             <Link 
               href="/about" 
-              style={{ 
-                color: '#1C1C1C', 
-                textDecoration: 'none', 
-                transition: 'color 0.2s ease',
-                fontSize: '1rem',
-                fontWeight: '500'
-              }}
+              className="text-[#1C1C1C] dark:text-[#F5F1E7] no-underline transition-colors duration-200 text-base font-medium hover:text-[#3E7C4A] dark:hover:text-[#3E7C4A]"
             >
               {t('about')}
             </Link>
           </nav>
 
-          {/* Right Side - Desktop Actions + Language Switcher + Mobile Menu */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          {/* Right Side - Desktop Actions + Language Switcher + Theme Toggle + Mobile Menu */}
+          <div className="flex items-center gap-4">
             {/* Desktop Actions */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <div className="flex items-center gap-4">
               <WalletConnect />
               <CartButton />
             </div>
+            
+            {/* Theme Toggle */}
+            <ThemeToggle />
             
             {/* Language Switcher - Always Visible */}
             <LanguageSwitcher />
@@ -105,22 +71,12 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                padding: '8px',
-                backgroundColor: 'transparent',
-                border: 'none',
-                cursor: 'pointer',
-                borderRadius: '8px',
-                transition: 'background-color 0.2s ease'
-              }}
-              className="md:hidden"
+              className="flex items-center p-2 bg-transparent border-none cursor-pointer rounded-lg transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-800 md:hidden"
             >
               {isMenuOpen ? (
-                <X style={{ width: '24px', height: '24px', color: '#1C1C1C' }} />
+                <X className="w-6 h-6 text-[#1C1C1C] dark:text-[#F5F1E7]" />
               ) : (
-                <Menu style={{ width: '24px', height: '24px', color: '#1C1C1C' }} />
+                <Menu className="w-6 h-6 text-[#1C1C1C] dark:text-[#F5F1E7]" />
               )}
             </button>
           </div>
@@ -128,69 +84,41 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div style={{ 
-            display: 'block', 
-            borderTop: '1px solid #9A9A9A', 
-            backgroundColor: '#FFFFFF' 
-          }} className="md:hidden">
-            <div style={{ padding: '16px 0' }}>
+          <div className="block border-t border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 md:hidden">
+            <div className="py-4">
               <Link 
                 href="/" 
-                style={{ 
-                  display: 'block', 
-                  padding: '12px 0', 
-                  color: '#1C1C1C', 
-                  textDecoration: 'none',
-                  fontSize: '1rem',
-                  fontWeight: '500'
-                }}
+                className="block py-3 text-[#1C1C1C] dark:text-[#F5F1E7] no-underline text-base font-medium transition-colors duration-200 hover:text-[#3E7C4A] dark:hover:text-[#3E7C4A]"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('home')}
               </Link>
               <Link 
                 href="/products" 
-                style={{ 
-                  display: 'block', 
-                  padding: '12px 0', 
-                  color: '#1C1C1C', 
-                  textDecoration: 'none',
-                  fontSize: '1rem',
-                  fontWeight: '500'
-                }}
+                className="block py-3 text-[#1C1C1C] dark:text-[#F5F1E7] no-underline text-base font-medium transition-colors duration-200 hover:text-[#3E7C4A] dark:hover:text-[#3E7C4A]"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('products')}
               </Link>
               <Link 
                 href="/collections" 
-                style={{ 
-                  display: 'block', 
-                  padding: '12px 0', 
-                  color: '#1C1C1C', 
-                  textDecoration: 'none',
-                  fontSize: '1rem',
-                  fontWeight: '500'
-                }}
+                className="block py-3 text-[#1C1C1C] dark:text-[#F5F1E7] no-underline text-base font-medium transition-colors duration-200 hover:text-[#3E7C4A] dark:hover:text-[#3E7C4A]"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('collections')}
               </Link>
               <Link 
                 href="/about" 
-                style={{ 
-                  display: 'block', 
-                  padding: '12px 0', 
-                  color: '#1C1C1C', 
-                  textDecoration: 'none',
-                  fontSize: '1rem',
-                  fontWeight: '500'
-                }}
+                className="block py-3 text-[#1C1C1C] dark:text-[#F5F1E7] no-underline text-base font-medium transition-colors duration-200 hover:text-[#3E7C4A] dark:hover:text-[#3E7C4A]"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('about')}
               </Link>
-              <div style={{ padding: '12px 0', borderTop: '1px solid #9A9A9A', marginTop: '12px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <div className="pt-3 border-t border-gray-300 dark:border-gray-700 mt-3 flex flex-col gap-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-600 dark:text-gray-400">Theme:</span>
+                  <ThemeToggle />
+                </div>
                 <WalletConnect />
                 <CartButton />
               </div>

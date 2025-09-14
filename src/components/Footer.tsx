@@ -5,8 +5,8 @@ import { env } from '../../env.config';
 
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: '#4B2E1E', color: '#F5F1E7' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '32px 16px' }}>
+    <footer className="bg-[#4B2E1E] dark:bg-gray-800 text-[#F5F1E7] transition-colors duration-200">
+      <div className="max-w-7xl mx-auto px-4 py-8">
         <div style={{ 
           display: 'grid', 
           gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
