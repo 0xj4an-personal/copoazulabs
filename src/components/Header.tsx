@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { Menu, X, ShoppingCart, Wallet } from 'lucide-react';
 import WalletConnect from './WalletConnect';
+import { env } from '../../env.config';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,7 +32,7 @@ export default function Header() {
             }}>
               <span style={{ color: '#FFFFFF', fontWeight: 'bold', fontSize: '1.25rem' }}>C</span>
             </div>
-            <span style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#1C1C1C' }}>Copoazú Labs</span>
+            <span style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#1C1C1C' }}>{env.APP_NAME}</span>
           </Link>
 
           {/* Desktop Navigation */}

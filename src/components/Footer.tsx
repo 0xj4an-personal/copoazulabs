@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Twitter, MessageCircle, Github, Mail } from 'lucide-react';
+import { env } from '../../env.config';
 
 export default function Footer() {
   return (
@@ -20,7 +21,7 @@ export default function Footer() {
               }}>
                 <span style={{ color: '#FFFFFF', fontWeight: 'bold', fontSize: '1.25rem' }}>C</span>
               </div>
-              <span style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>Copoazú Labs</span>
+              <span style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>{env.APP_NAME}</span>
             </div>
             <p style={{ 
               color: '#9A9A9A', 
@@ -28,12 +29,11 @@ export default function Footer() {
               lineHeight: '1.6',
               maxWidth: '400px'
             }}>
-              Pioneering the future of fashion through Web3 technology. 
-              Discover exclusive Web3 branded clothing and merchandise.
+              {env.APP_DESCRIPTION}
             </p>
             <div style={{ display: 'flex', gap: '16px' }}>
               <a 
-                href="https://twitter.com" 
+                href={env.TWITTER_URL} 
                 style={{ 
                   display: 'flex', 
                   alignItems: 'center', 
@@ -50,7 +50,7 @@ export default function Footer() {
                 <Twitter style={{ width: '20px', height: '20px' }} />
               </a>
               <a 
-                href="https://discord.com" 
+                href={env.DISCORD_URL} 
                 style={{ 
                   display: 'flex', 
                   alignItems: 'center', 
@@ -67,7 +67,7 @@ export default function Footer() {
                 <MessageCircle style={{ width: '20px', height: '20px' }} />
               </a>
               <a 
-                href="https://github.com" 
+                href={env.GITHUB_URL} 
                 style={{ 
                   display: 'flex', 
                   alignItems: 'center', 
