@@ -55,14 +55,14 @@ export default function Header() {
           </nav>
 
           {/* Right Side - Desktop Actions + Language Switcher + Theme Toggle + Mobile Menu */}
-          <div className="flex items-center gap-4">
-            {/* Desktop Actions */}
-            <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 md:gap-4">
+            {/* Desktop Actions - Hidden on Mobile */}
+            <div className="hidden md:flex items-center gap-4">
               <WalletConnect />
               <CartButton />
             </div>
             
-            {/* Theme Toggle */}
+            {/* Theme Toggle - Always Visible */}
             <ThemeToggle />
             
             {/* Language Switcher - Always Visible */}
@@ -71,7 +71,8 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="flex items-center p-2 bg-transparent border-none cursor-pointer rounded-lg transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-800 md:hidden"
+              className="flex items-center p-2 bg-transparent border-none cursor-pointer rounded-lg transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-800 active:bg-gray-200 dark:active:bg-gray-700 md:hidden touch-manipulation"
+              style={{ minWidth: '44px', minHeight: '44px' }}
             >
               {isMenuOpen ? (
                 <X className="w-6 h-6 text-[#1C1C1C] dark:text-[#F5F1E7]" />
@@ -88,39 +89,53 @@ export default function Header() {
             <div className="py-4">
               <Link 
                 href="/" 
-                className="block py-3 text-[#1C1C1C] dark:text-[#F5F1E7] no-underline text-base font-medium transition-colors duration-200 hover:text-[#3E7C4A] dark:hover:text-[#3E7C4A]"
+                className="block py-4 px-4 text-[#1C1C1C] dark:text-[#F5F1E7] no-underline text-base font-medium transition-colors duration-200 hover:text-[#3E7C4A] dark:hover:text-[#3E7C4A] hover:bg-gray-50 dark:hover:bg-gray-800 touch-manipulation"
                 onClick={() => setIsMenuOpen(false)}
+                style={{ minHeight: '44px' }}
               >
                 {t('home')}
               </Link>
               <Link 
                 href="/products" 
-                className="block py-3 text-[#1C1C1C] dark:text-[#F5F1E7] no-underline text-base font-medium transition-colors duration-200 hover:text-[#3E7C4A] dark:hover:text-[#3E7C4A]"
+                className="block py-4 px-4 text-[#1C1C1C] dark:text-[#F5F1E7] no-underline text-base font-medium transition-colors duration-200 hover:text-[#3E7C4A] dark:hover:text-[#3E7C4A] hover:bg-gray-50 dark:hover:bg-gray-800 touch-manipulation"
                 onClick={() => setIsMenuOpen(false)}
+                style={{ minHeight: '44px' }}
               >
                 {t('products')}
               </Link>
               <Link 
                 href="/collections" 
-                className="block py-3 text-[#1C1C1C] dark:text-[#F5F1E7] no-underline text-base font-medium transition-colors duration-200 hover:text-[#3E7C4A] dark:hover:text-[#3E7C4A]"
+                className="block py-4 px-4 text-[#1C1C1C] dark:text-[#F5F1E7] no-underline text-base font-medium transition-colors duration-200 hover:text-[#3E7C4A] dark:hover:text-[#3E7C4A] hover:bg-gray-50 dark:hover:bg-gray-800 touch-manipulation"
                 onClick={() => setIsMenuOpen(false)}
+                style={{ minHeight: '44px' }}
               >
                 {t('collections')}
               </Link>
               <Link 
                 href="/about" 
-                className="block py-3 text-[#1C1C1C] dark:text-[#F5F1E7] no-underline text-base font-medium transition-colors duration-200 hover:text-[#3E7C4A] dark:hover:text-[#3E7C4A]"
+                className="block py-4 px-4 text-[#1C1C1C] dark:text-[#F5F1E7] no-underline text-base font-medium transition-colors duration-200 hover:text-[#3E7C4A] dark:hover:text-[#3E7C4A] hover:bg-gray-50 dark:hover:bg-gray-800 touch-manipulation"
                 onClick={() => setIsMenuOpen(false)}
+                style={{ minHeight: '44px' }}
               >
                 {t('about')}
               </Link>
-              <div className="pt-3 border-t border-gray-300 dark:border-gray-700 mt-3 flex flex-col gap-3">
+              <div className="pt-3 border-t border-gray-300 dark:border-gray-700 mt-3 flex flex-col gap-4 px-4">
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-600 dark:text-gray-400">Theme:</span>
                   <ThemeToggle />
                 </div>
-                <WalletConnect />
-                <CartButton />
+                
+                {/* Mobile Actions */}
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600 dark:text-gray-400">Wallet:</span>
+                    <WalletConnect />
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600 dark:text-gray-400">Cart:</span>
+                    <CartButton />
+                  </div>
+                </div>
               </div>
             </div>
           </div>

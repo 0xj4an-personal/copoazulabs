@@ -29,6 +29,7 @@ export default function CartDrawer() {
         className={`fixed top-0 right-0 h-full w-full max-w-md bg-white dark:bg-gray-900 shadow-xl transform transition-transform duration-300 ease-in-out z-50 ${
           state.isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
+        style={{ touchAction: 'pan-y' }}
       >
         <div className="flex flex-col h-full">
           {/* Header */}
@@ -38,7 +39,8 @@ export default function CartDrawer() {
             </h2>
             <button
               onClick={closeCart}
-              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors"
+              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 active:bg-gray-200 dark:active:bg-gray-700 rounded-full transition-colors touch-manipulation"
+              style={{ minWidth: '44px', minHeight: '44px' }}
             >
               <X className="w-5 h-5 text-gray-900 dark:text-gray-100" />
             </button>

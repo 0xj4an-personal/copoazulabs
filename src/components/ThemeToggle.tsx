@@ -46,8 +46,8 @@ export default function ThemeToggle() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        width: '40px',
-        height: '40px',
+        width: '44px',
+        height: '44px',
         borderRadius: '8px',
         border: 'none',
         backgroundColor: 'transparent',
@@ -55,7 +55,7 @@ export default function ThemeToggle() {
         transition: 'all 0.2s ease',
         color: theme === 'dark' ? '#F5F1E7' : '#1C1C1C',
       }}
-      className="hover:bg-gray-100 dark:hover:bg-gray-800"
+      className="hover:bg-gray-100 dark:hover:bg-gray-800 active:bg-gray-200 dark:active:bg-gray-700 touch-manipulation"
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
       title={`Current theme: ${theme}`}
     >

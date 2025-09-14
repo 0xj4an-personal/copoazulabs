@@ -153,11 +153,12 @@ export default function WalletConnect({ onConnect, onDisconnect }: WalletConnect
         <button
           onClick={handleConnect}
           disabled={isConnecting}
-          className={`inline-flex items-center px-4 py-2 text-white font-medium rounded-lg border-none cursor-pointer transition-all duration-200 shadow-lg ${
+          className={`inline-flex items-center px-4 py-2 text-white font-medium rounded-lg border-none cursor-pointer transition-all duration-200 shadow-lg active:scale-95 touch-manipulation ${
             isConnecting 
               ? 'bg-gray-400 cursor-not-allowed opacity-70' 
               : 'bg-green-600 hover:bg-green-700'
           }`}
+          style={{ minWidth: '44px', minHeight: '44px' }}
         >
           <Wallet className="w-4 h-4 mr-2" />
           {isConnecting ? t('connecting') : t('connect')}
@@ -178,7 +179,8 @@ export default function WalletConnect({ onConnect, onDisconnect }: WalletConnect
     <div className="relative">
       <button
         onClick={() => setShowDropdown(!showDropdown)}
-        className="inline-flex items-center px-4 py-2 bg-[#F5F1E7] dark:bg-gray-800 text-[#1C1C1C] dark:text-gray-100 font-medium rounded-lg border border-[#9A9A9A] dark:border-gray-600 cursor-pointer transition-all duration-200"
+        className="inline-flex items-center px-4 py-2 bg-[#F5F1E7] dark:bg-gray-800 text-[#1C1C1C] dark:text-gray-100 font-medium rounded-lg border border-[#9A9A9A] dark:border-gray-600 cursor-pointer transition-all duration-200 active:scale-95 touch-manipulation"
+        style={{ minWidth: '44px', minHeight: '44px' }}
       >
         <Wallet className="w-4 h-4 mr-2" />
         {formatAddress(address)}

@@ -14,8 +14,8 @@ export default function CartButton({ style = {} }: CartButtonProps) {
   return (
     <button
       onClick={toggleCart}
-      className="relative flex items-center justify-center p-2 rounded-lg bg-transparent border-none cursor-pointer transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-800"
-      style={style}
+      className="relative flex items-center justify-center p-2 rounded-lg bg-transparent border-none cursor-pointer transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-800 active:bg-gray-200 dark:active:bg-gray-700 touch-manipulation"
+      style={{ ...style, minWidth: '44px', minHeight: '44px' }}
       aria-label={`Shopping cart with ${state.totalItems} items`}
     >
       <ShoppingCart className="w-5 h-5 text-gray-700 dark:text-gray-300" />
