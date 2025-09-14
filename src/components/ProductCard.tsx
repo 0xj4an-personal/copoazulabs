@@ -3,19 +3,8 @@
 import { useState } from 'react';
 import { Heart, ShoppingCart, Star, Eye } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-
-interface Product {
-  id: string;
-  nameKey: string; // Key for translation
-  price: number;
-  originalPrice?: number;
-  rating: number;
-  reviewCount: number;
-  image: string;
-  categoryKey: string; // Key for translation
-  isNew?: boolean;
-  isBestSeller?: boolean;
-}
+import { useCart } from '@/contexts/CartContext';
+import { Product } from '@/data/products';
 
 interface ProductCardProps {
   product: Product;
@@ -27,8 +16,16 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
   const [isHovered, setIsHovered] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   const t = useTranslations('products');
+  const { addItem } = useCart();
 
   const handleAddToCart = () => {
+    addItem({
+      id: product.id,
+      name: t(`productItems.${product.nameKey}.name`),
+      price: product.price,
+      originalPrice: product.originalPrice,
+      image: product.image,
+    });
     onAddToCart?.(product);
   };
 

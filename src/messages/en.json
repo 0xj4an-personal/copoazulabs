@@ -284,5 +284,35 @@
     "title": "Page Not Found",
     "description": "The page you're looking for doesn't exist or has been moved.",
     "goHome": "Go Home"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "empty": "Your cart is empty",
+    "emptyDescription": "Add some items to get started",
+    "continueShopping": "Continue Shopping",
+    "total": "Total",
+    "clearCart": "Clear Cart",
+    "checkout": "Proceed to Checkout",
+    "addToCart": "Add to Cart",
+    "removeItem": "Remove Item",
+    "updateQuantity": "Update Quantity",
+    "itemAdded": "Item added to cart",
+    "itemRemoved": "Item removed from cart"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "emptyCart": "Your cart is empty",
+    "emptyCartDescription": "You need to add items to your cart before checkout",
+    "continueShopping": "Continue Shopping",
+    "backToProducts": "Back to Products",
+    "orderSummary": "Order Summary",
+    "quantity": "Quantity",
+    "total": "Total",
+    "paymentMethods": "Payment Methods",
+    "cryptoPayment": "Crypto Payment",
+    "cryptoPaymentDescription": "Pay with cryptocurrency using your wallet",
+    "traditionalPayment": "Traditional Payment",
+    "traditionalPaymentDescription": "Pay with credit card or other traditional methods",
+    "completeOrder": "Complete Order"
   }
 }

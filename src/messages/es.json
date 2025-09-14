@@ -283,5 +283,35 @@
     "title": "Página No Encontrada",
     "description": "La página que buscas no existe o ha sido movida.",
     "goHome": "Ir al Inicio"
+  },
+  "cart": {
+    "title": "Carrito de Compras",
+    "empty": "Tu carrito está vacío",
+    "emptyDescription": "Agrega algunos productos para comenzar",
+    "continueShopping": "Continuar Comprando",
+    "total": "Total",
+    "clearCart": "Vaciar Carrito",
+    "checkout": "Proceder al Pago",
+    "addToCart": "Agregar al Carrito",
+    "removeItem": "Eliminar Producto",
+    "updateQuantity": "Actualizar Cantidad",
+    "itemAdded": "Producto agregado al carrito",
+    "itemRemoved": "Producto eliminado del carrito"
+  },
+  "checkout": {
+    "title": "Finalizar Compra",
+    "emptyCart": "Tu carrito está vacío",
+    "emptyCartDescription": "Necesitas agregar productos al carrito antes de finalizar la compra",
+    "continueShopping": "Continuar Comprando",
+    "backToProducts": "Volver a Productos",
+    "orderSummary": "Resumen del Pedido",
+    "quantity": "Cantidad",
+    "total": "Total",
+    "paymentMethods": "Métodos de Pago",
+    "cryptoPayment": "Pago con Cripto",
+    "cryptoPaymentDescription": "Pagar con criptomonedas usando tu billetera",
+    "traditionalPayment": "Pago Tradicional",
+    "traditionalPaymentDescription": "Pagar con tarjeta de crédito u otros métodos tradicionales",
+    "completeOrder": "Completar Pedido"
   }
 }

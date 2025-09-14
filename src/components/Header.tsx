@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Menu, X, ShoppingCart, Wallet } from 'lucide-react';
 import WalletConnect from './WalletConnect';
 import LanguageSwitcher from './LanguageSwitcher';
+import CartButton from './CartButton';
 import { env } from '../../env.config';
 import { useTranslations } from 'next-intl';
 
@@ -95,18 +96,7 @@ export default function Header() {
             {/* Desktop Actions */}
             <div style={{ display: 'none', alignItems: 'center', gap: '16px' }} className="md:flex">
               <WalletConnect />
-              <button style={{
-                display: 'flex',
-                alignItems: 'center',
-                padding: '8px',
-                backgroundColor: 'transparent',
-                border: 'none',
-                cursor: 'pointer',
-                borderRadius: '8px',
-                transition: 'background-color 0.2s ease'
-              }}>
-                <ShoppingCart style={{ width: '20px', height: '20px', color: '#1C1C1C' }} />
-              </button>
+              <CartButton />
             </div>
             
             {/* Language Switcher - Always Visible */}
