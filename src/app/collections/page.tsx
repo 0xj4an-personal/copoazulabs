@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Search, Filter, Grid, List, Plus, Star, Users, Calendar } from 'lucide-react';
+import { Search, Filter, Grid, List, Star, Users, Calendar } from 'lucide-react';
 import Link from 'next/link';
 
 // Sample collections data
@@ -452,57 +452,6 @@ export default function Collections() {
           </div>
         )}
 
-        {/* Create Collection CTA */}
-        <div style={{
-          textAlign: 'center',
-          marginTop: '64px',
-          padding: '48px 24px',
-          backgroundColor: '#FFFFFF',
-          borderRadius: '16px',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
-        }}>
-          <div style={{
-            width: '80px',
-            height: '80px',
-            backgroundColor: '#3E7C4A',
-            borderRadius: '50%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            margin: '0 auto 24px'
-          }}>
-            <Plus style={{ width: '40px', height: '40px', color: '#FFFFFF' }} />
-          </div>
-          <h3 style={{
-            fontSize: '1.5rem',
-            fontWeight: '600',
-            color: '#1C1C1C',
-            marginBottom: '12px'
-          }}>
-            Create Your Collection
-          </h3>
-          <p style={{
-            color: '#9A9A9A',
-            marginBottom: '24px',
-            maxWidth: '400px',
-            margin: '0 auto 24px'
-          }}>
-            Showcase your Web3 merchandise in a curated collection
-          </p>
-          <button style={{
-            padding: '16px 32px',
-            backgroundColor: '#3E7C4A',
-            color: '#FFFFFF',
-            border: 'none',
-            borderRadius: '12px',
-            cursor: 'pointer',
-            fontSize: '1.125rem',
-            fontWeight: '600',
-            transition: 'all 0.3s ease'
-          }}>
-            Start Creating
-          </button>
-        </div>
       </div>
     </div>
   );
