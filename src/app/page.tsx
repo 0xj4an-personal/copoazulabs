@@ -84,20 +84,21 @@ export default function Home() {
         position: 'relative',
         background: 'linear-gradient(135deg, #F5F1E7 0%, #FFFFFF 50%, #F5F1E7 100%)',
         overflow: 'hidden',
-        padding: '80px 0'
+        padding: '60px 0'
       }}>
         <div className="absolute inset-0 opacity-50" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233E7C4A' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
         }}></div>
         
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 16px', position: 'relative', zIndex: 10 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '48px', alignItems: 'center' }} className="lg:grid-cols-2">
-            <div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '32px', flexWrap: 'wrap' }}>
+            {/* Left Content */}
+            <div style={{ flex: '1', minWidth: '300px' }}>
               <h1 style={{
-                fontSize: '3.5rem',
+                fontSize: '3rem',
                 fontWeight: '800',
                 lineHeight: '1.1',
-                marginBottom: '24px',
+                marginBottom: '20px',
                 background: 'linear-gradient(135deg, #1C1C1C 0%, #3E7C4A 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
@@ -106,61 +107,62 @@ export default function Home() {
                 Web3 Fashion Revolution
               </h1>
               <p style={{
-                fontSize: '1.25rem',
+                fontSize: '1.125rem',
                 color: '#9A9A9A',
-                marginBottom: '32px',
+                marginBottom: '28px',
                 lineHeight: '1.6',
-                maxWidth: '500px'
+                maxWidth: '480px'
               }}>
                 Discover exclusive Web3 branded clothing and merchandise. 
                 Connect your wallet, shop with crypto, and join the decentralized fashion revolution.
               </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }} className="sm:flex-row">
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }} className="sm:flex-row">
                 <Link href="/products">
                   <button style={{
                     display: 'inline-flex',
                     alignItems: 'center',
-                    padding: '16px 32px',
+                    padding: '14px 28px',
                     backgroundColor: '#3E7C4A',
                     color: '#FFFFFF',
                     fontWeight: '600',
-                    borderRadius: '12px',
+                    borderRadius: '10px',
                     border: 'none',
                     cursor: 'pointer',
                     transition: 'all 0.3s ease',
                     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                    fontSize: '1.125rem'
+                    fontSize: '1rem'
                   }}>
                     Shop Now
-                    <ArrowRight style={{ marginLeft: '8px', width: '20px', height: '20px' }} />
+                    <ArrowRight style={{ marginLeft: '6px', width: '18px', height: '18px' }} />
                   </button>
                 </Link>
                 <button style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  padding: '16px 32px',
+                  padding: '14px 28px',
                   backgroundColor: 'transparent',
                   color: '#1C1C1C',
                   fontWeight: '600',
-                  borderRadius: '12px',
+                  borderRadius: '10px',
                   border: '2px solid #1C1C1C',
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
-                  fontSize: '1.125rem'
+                  fontSize: '1rem'
                 }}>
-                  <Wallet style={{ marginRight: '8px', width: '20px', height: '20px' }} />
+                  <Wallet style={{ marginRight: '6px', width: '18px', height: '18px' }} />
                   Connect Wallet
                 </button>
               </div>
             </div>
             
-            <div style={{ position: 'relative' }}>
+            {/* Right Visual */}
+            <div style={{ flex: '0 0 320px', maxWidth: '320px' }}>
               <div style={{
                 width: '100%',
-                height: '500px',
+                height: '320px',
                 backgroundColor: '#FFFFFF',
-                borderRadius: '24px',
-                boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)',
+                borderRadius: '20px',
+                boxShadow: '0 15px 30px rgba(0, 0, 0, 0.1)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -168,21 +170,21 @@ export default function Home() {
               }}>
                 <div style={{ textAlign: 'center' }}>
                   <div style={{
-                    width: '120px',
-                    height: '120px',
+                    width: '80px',
+                    height: '80px',
                     backgroundColor: '#3E7C4A',
                     borderRadius: '50%',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    margin: '0 auto 24px'
+                    margin: '0 auto 16px'
                   }}>
-                    <ShoppingCart style={{ width: '60px', height: '60px', color: '#FFFFFF' }} />
+                    <ShoppingCart style={{ width: '40px', height: '40px', color: '#FFFFFF' }} />
                   </div>
-                  <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#1C1C1C', marginBottom: '8px' }}>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#1C1C1C', marginBottom: '6px' }}>
                     Web3 Merchandise
                   </h3>
-                  <p style={{ color: '#9A9A9A', fontSize: '1rem' }}>
+                  <p style={{ color: '#9A9A9A', fontSize: '0.9rem' }}>
                     Shop with crypto, own with pride
                   </p>
                 </div>
