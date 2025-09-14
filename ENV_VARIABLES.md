@@ -29,12 +29,22 @@ This document describes all environment variables used in the Copoazú Labs Web3
 | `NEXT_PUBLIC_APP_URL` | Application URL | "http://localhost:3000" | Yes |
 | `NEXT_PUBLIC_APP_VERSION` | Application version | "0.1.0" | No |
 
-### Web3 Configuration
+### Web3 Configuration - Celo Network
 | Variable | Description | Default | Required |
 |----------|-------------|---------|----------|
-| `NEXT_PUBLIC_CHAIN_ID` | Blockchain chain ID | "1" (Ethereum) | No |
-| `NEXT_PUBLIC_RPC_URL` | RPC endpoint URL | "https://mainnet.infura.io/v3/YOUR_INFURA_KEY" | Yes |
+| `NEXT_PUBLIC_CHAIN_ID` | Blockchain chain ID | "42220" (Celo Mainnet) | No |
+| `NEXT_PUBLIC_RPC_URL` | RPC endpoint URL | "https://rpc.celocolombia.org" | Yes |
 | `NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID` | WalletConnect project ID | "" | Yes |
+
+#### Celo Network Details:
+- **Mainnet Chain ID**: 42220
+- **Testnet Chain ID**: 11142220 (Celo Sepolia)
+- **Mainnet RPC URL**: https://rpc.celocolombia.org
+- **Testnet RPC URL**: https://sepolia-forno.celo-testnet.org
+- **Mainnet Explorer**: https://explorer.celo.org
+- **Testnet Explorer**: https://sepolia-blockscout.celo-testnet.org
+
+**Note**: Celo Sepolia is the current developer testnet built on Ethereum Sepolia, perfect for new projects. See [official documentation](https://docs.celo.org/network/celo-sepolia).
 
 ### API Configuration
 | Variable | Description | Default | Required |
@@ -80,12 +90,22 @@ When deploying to Vercel, add these environment variables in your Vercel dashboa
 3. Add each variable with the appropriate value
 4. Set the environment (Production, Preview, Development)
 
-### Required for Production:
+### Required for Production (Celo Mainnet):
 ```bash
 NEXT_PUBLIC_APP_URL=https://your-app.vercel.app
-NEXT_PUBLIC_RPC_URL=https://mainnet.infura.io/v3/YOUR_INFURA_KEY
+NEXT_PUBLIC_CHAIN_ID=42220
+NEXT_PUBLIC_RPC_URL=https://rpc.celocolombia.org
 NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=your_wallet_connect_project_id
 NODE_ENV=production
+```
+
+### For Development (Celo Sepolia Testnet):
+```bash
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+NEXT_PUBLIC_CHAIN_ID=11142220
+NEXT_PUBLIC_RPC_URL=https://sepolia-forno.celo-testnet.org
+NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=your_wallet_connect_project_id
+NODE_ENV=development
 ```
 
 ## 🔒 Security Notes

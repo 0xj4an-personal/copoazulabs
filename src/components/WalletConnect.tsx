@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Wallet, ChevronDown, Copy, ExternalLink } from 'lucide-react';
-import { env } from '../../env.config';
+import { env, getCeloConfig } from '../../env.config';
 
 interface WalletConnectProps {
   onConnect?: () => void;
@@ -38,9 +38,8 @@ export default function WalletConnect({ onConnect, onDisconnect }: WalletConnect
   };
 
   const openExplorer = () => {
-    const explorerUrl = env.CHAIN_ID === '1' 
-      ? `https://etherscan.io/address/${walletAddress}`
-      : `https://explorer.celo.org/address/${walletAddress}`;
+    const celoConfig = getCeloConfig();
+    const explorerUrl = `${celoConfig.explorerUrl}/address/${walletAddress}`;
     window.open(explorerUrl, '_blank');
   };
 

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Coins, ArrowRight, Check } from 'lucide-react';
+import { getCeloConfig } from '../../env.config';
 
 interface CryptoPaymentProps {
   amount: number;
@@ -12,11 +13,16 @@ export default function CryptoPayment({ amount, onPaymentComplete }: CryptoPayme
   const [selectedMethod, setSelectedMethod] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
 
+  const celoConfig = getCeloConfig();
+  
   const paymentMethods = [
-    { id: 'eth', name: 'Ethereum', symbol: 'ETH', rate: 0.0004 },
-    { id: 'btc', name: 'Bitcoin', symbol: 'BTC', rate: 0.00001 },
-    { id: 'usdc', name: 'USDC', symbol: 'USDC', rate: 1 },
-    { id: 'usdt', name: 'USDT', symbol: 'USDT', rate: 1 },
+    { id: 'celo', name: 'CELO', symbol: 'CELO', rate: 2.5, network: 'Celo' },
+    { id: 'cusd', name: 'Celo Dollar', symbol: 'cUSD', rate: 1, network: 'Celo' },
+    { id: 'ceur', name: 'Celo Euro', symbol: 'cEUR', rate: 0.92, network: 'Celo' },
+    { id: 'creal', name: 'Celo Real', symbol: 'cREAL', rate: 5.2, network: 'Celo' },
+    // Fallback to other networks if needed
+    { id: 'usdc', name: 'USDC', symbol: 'USDC', rate: 1, network: 'Ethereum' },
+    { id: 'usdt', name: 'USDT', symbol: 'USDT', rate: 1, network: 'Ethereum' },
   ];
 
   const handlePayment = async (method: string) => {
