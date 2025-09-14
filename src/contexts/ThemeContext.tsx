@@ -4,6 +4,13 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 
 type Theme = 'light' | 'dark';
 
+// Extend Window interface for global theme function
+declare global {
+  interface Window {
+    toggleTheme?: () => void;
+  }
+}
+
 interface ThemeContextType {
   theme: Theme;
   toggleTheme: () => void;
@@ -13,19 +20,16 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>('light');
-
-  // Load theme from localStorage on mount
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') as Theme;
-    
-    if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
-      setThemeState(savedTheme);
-    } else {
-      setThemeState('light');
+  const [theme, setThemeState] = useState<Theme>(() => {
+    // Initialize theme based on current DOM state to avoid hydration mismatch
+    if (typeof window !== 'undefined') {
+      return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
     }
-    
-    // Listen for theme changes from global function
+    return 'light';
+  });
+
+  // Listen for theme changes from global function
+  useEffect(() => {
     const handleThemeChange = (event: CustomEvent) => {
       setThemeState(event.detail.theme);
     };
@@ -37,26 +41,26 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     };
   }, []);
 
-  // Apply theme to document whenever theme changes
-  useEffect(() => {
-    const root = document.documentElement;
-    
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-    
-    // Save to localStorage
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
   const toggleTheme = () => {
-    setThemeState(prev => prev === 'light' ? 'dark' : 'light');
+    // Use global function to avoid conflicts
+    if (typeof window !== 'undefined' && window.toggleTheme) {
+      window.toggleTheme();
+    }
   };
 
   const setTheme = (newTheme: Theme) => {
-    setThemeState(newTheme);
+    if (typeof window !== 'undefined') {
+      const root = document.documentElement;
+      
+      if (newTheme === 'dark') {
+        root.classList.add('dark');
+      } else {
+        root.classList.remove('dark');
+      }
+      
+      localStorage.setItem('theme', newTheme);
+      setThemeState(newTheme);
+    }
   };
 
   return (

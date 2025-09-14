@@ -1,26 +1,17 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { Sun, Moon } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
-declare global {
-  interface Window {
-    toggleTheme: () => void;
-  }
-}
-
 export default function ThemeToggle() {
-  // Try to get theme from React context, fallback to localStorage
-  let theme = 'light';
-  try {
-    const { theme: contextTheme } = useTheme();
-    theme = contextTheme;
-  } catch (error) {
-    // If React context is not available, get from localStorage
-    if (typeof window !== 'undefined') {
-      theme = localStorage.getItem('theme') || 'light';
-    }
-  }
+  const [isClient, setIsClient] = useState(false);
+  const { theme } = useTheme();
+
+  // Ensure component only renders theme-dependent content on client
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const handleToggle = () => {
     // Use global function if available, otherwise use direct DOM manipulation
@@ -39,6 +30,10 @@ export default function ThemeToggle() {
     }
   };
 
+  // Render consistent content on server, theme-aware content on client
+  const currentTheme = isClient ? theme : 'light';
+  const isLight = currentTheme === 'light';
+
   return (
     <button
       onClick={handleToggle}
@@ -53,13 +48,13 @@ export default function ThemeToggle() {
         backgroundColor: 'transparent',
         cursor: 'pointer',
         transition: 'all 0.2s ease',
-        color: theme === 'dark' ? '#F5F1E7' : '#1C1C1C',
+        color: isLight ? '#1C1C1C' : '#F5F1E7',
       }}
       className="hover:bg-gray-100 dark:hover:bg-gray-800 active:bg-gray-200 dark:active:bg-gray-700 touch-manipulation"
-      aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-      title={`Current theme: ${theme}`}
+      aria-label={`Switch to ${isLight ? 'dark' : 'light'} mode`}
+      title={`Current theme: ${currentTheme}`}
     >
-      {theme === 'light' ? (
+      {isLight ? (
         <Moon style={{ width: '20px', height: '20px' }} />
       ) : (
         <Sun style={{ width: '20px', height: '20px' }} />

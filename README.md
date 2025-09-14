@@ -5,13 +5,17 @@ A modern, responsive e-commerce platform for Web3 branded clothing and merchandi
 ## ✨ Features
 
 - **🎨 Beautiful Design**: Custom Copoazú Labs color palette with modern UI/UX
-- **🔗 Web3 Integration**: Wallet connection and crypto payment options
+- **🔗 Web3 Integration**: Wallet connection and crypto payment with cCOP tokens
 - **📱 Responsive**: Mobile-first design that works on all devices
 - **🛍️ E-commerce**: Product catalog, search, filtering, and shopping cart
-- **⚡ Fast**: Built with Next.js 15 and optimized for performance
+- **⚡ Fast**: Built with Next.js 15 with server-side rendering and optimized performance
 - **🎯 TypeScript**: Full type safety and better developer experience
 - **🎨 Inline Styling**: Consistent styling using inline CSS for reliability
 - **🌐 Multi-page**: Complete website with Home, About, Products, and Collections pages
+- **🏷️ Collections System**: 6 themed collections (Gaming, ReFi, DeFi, Governance, Coding, Degen)
+- **🔄 Server-Side Filtering**: Instant product filtering without client-side delays
+- **🌙 Dark Mode**: Seamless theme switching with proper hydration handling
+- **🌍 Internationalization**: Multi-language support (English/Spanish)
 
 ## 🎨 Color Palette
 
@@ -138,6 +142,22 @@ web3-clothing-page/
 - **Crypto Payments**: Pay with cCOP on the Celo network
 - **Blockchain Security**: Secure transactions using blockchain technology
 - **Decentralized Identity**: User ownership of data and transactions
+
+## 🆕 Recent Updates
+
+### Collections & Product System
+- **6 Themed Collections**: Gaming, ReFi, DeFi, Governance, Coding, and Degen collections
+- **18 Products**: 3 products per collection (Cap, T-Shirt, Hoodie)
+- **Unique ID System**: Robust product and collection identification
+- **Server-Side Filtering**: Instant filtering without client-side delays
+- **Collection Navigation**: Click collections to filter products instantly
+
+### Technical Improvements
+- **Hydration Fixes**: Resolved React hydration errors with proper server/client rendering
+- **Theme System**: Enhanced dark/light mode with consistent rendering
+- **Layout Optimization**: Fixed HTML nesting issues and improved structure
+- **Performance**: Eliminated vendor chunk errors and cache conflicts
+- **Translation Updates**: Added missing translation keys for all UI elements
 
 ## 📱 Responsive Design
 

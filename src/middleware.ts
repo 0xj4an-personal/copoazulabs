@@ -84,8 +84,9 @@ export default function middleware(request: NextRequest) {
       detectedLocale = 'en';
     }
 
-    // Redirect to detected locale
+    // Redirect to detected locale (preserve search parameters)
     const newUrl = new URL(`/${detectedLocale}${pathname}`, request.url);
+    newUrl.search = request.nextUrl.search; // Preserve search parameters
     return Response.redirect(newUrl, 302);
   }
 
@@ -94,8 +95,9 @@ export default function middleware(request: NextRequest) {
     return intlMiddleware(request);
   }
 
-  // Invalid locale, redirect to default
+  // Invalid locale, redirect to default (preserve search parameters)
   const newUrl = new URL(`/en${pathname}`, request.url);
+  newUrl.search = request.nextUrl.search; // Preserve search parameters
   return Response.redirect(newUrl, 302);
 }
 

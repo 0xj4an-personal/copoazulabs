@@ -77,6 +77,7 @@
     "bestseller": "Bestseller",
     "moreComingSoon": "More Products Coming Soon",
     "moreProductsDescription": "We're constantly adding new Web3 merchandise to our collection. Stay tuned for more amazing products!",
+    "searchPlaceholder": "Search products...",
     "sale": "Sale",
     "outOfStock": "Out of Stock",
     "inStock": "In Stock",
@@ -86,53 +87,114 @@
     "specifications": "Specifications",
     "reviews": "Reviews",
     "relatedProducts": "Related Products",
+    "collections": "Collections",
+    "allCollections": "All Collections",
+    "allCategories": "All Categories",
+    "clearFilters": "Clear Filters",
+    "noProductsFound": "No products found",
+    "tryAdjustingFilters": "Try adjusting your search or filter criteria",
+    "showingResults": "Showing {count} of {total} products",
+    "sortBy": "Sort By",
+    "newest": "Newest",
+    "priceLowToHigh": "Price: Low to High",
+    "priceHighToLow": "Price: High to Low",
+    "highestRated": "Highest Rated",
     "productItems": {
-      "web3Hoodie": {
-        "name": "Web3 Hoodie",
-        "description": "Premium cotton-blend hoodie featuring our signature Web3 logo. Perfect for crypto enthusiasts who want to showcase their passion for decentralized technology. Features a comfortable fit, adjustable drawstring hood, and kangaroo pocket.",
-        "shortDescription": "Premium hoodie with Web3 branding"
+      "gamingCap": {
+        "name": "Gaming Cap",
+        "description": "High-performance gaming cap designed for esports enthusiasts. Features breathable mesh panels and moisture-wicking technology. Perfect for long gaming sessions, tournaments, or casual gaming meetups.",
+        "shortDescription": "Performance cap for gaming champions"
       },
-      "blockchainTShirt": {
-        "name": "Blockchain T-Shirt",
-        "description": "Soft, breathable cotton t-shirt with an innovative blockchain-inspired design. Made from 100% organic cotton, this shirt combines comfort with style. Perfect for developers, investors, and anyone passionate about blockchain technology.",
-        "shortDescription": "Comfortable t-shirt with blockchain design"
+      "gamingTShirt": {
+        "name": "Gaming T-Shirt",
+        "description": "Comfortable gaming t-shirt made from premium cotton blend. Features gaming-inspired graphics and comfortable fit for extended wear. Perfect for gaming events, LAN parties, or casual gaming lifestyle.",
+        "shortDescription": "Comfortable t-shirt for gaming culture"
       },
-      "cryptoCap": {
-        "name": "Crypto Cap",
-        "description": "High-quality adjustable cap featuring crypto-themed embroidery. Made with premium materials and featuring a structured crown with flat visor. Ideal for outdoor activities, trading sessions, or casual wear. One size fits most.",
-        "shortDescription": "Stylish cap for crypto enthusiasts"
+      "gamingHoodie": {
+        "name": "Gaming Hoodie",
+        "description": "Premium gaming hoodie with gamer-focused design elements. Features thumbhole cuffs, kangaroo pocket, and adjustable hood. Made from soft fleece blend perfect for streaming sessions or gaming marathons.",
+        "shortDescription": "Ultimate comfort hoodie for gamers"
       },
-      "defiSweatshirt": {
-        "name": "DeFi Sweatshirt",
-        "description": "Cozy crewneck sweatshirt celebrating the DeFi revolution. Made from premium cotton fleece with a modern fit. Features subtle DeFi-themed graphics and our brand logo. Perfect for layering or wearing alone on cooler days.",
-        "shortDescription": "Warm sweatshirt with DeFi theme"
+      "refiCap": {
+        "name": "ReFi Cap",
+        "description": "Sustainable cap made from recycled materials supporting regenerative finance. Features eco-friendly construction and ReFi-themed design. Perfect for climate-conscious crypto enthusiasts.",
+        "shortDescription": "Sustainable cap for ReFi advocates"
       },
-      "nftHoodieCollection": {
-        "name": "NFT Hoodie Collection",
-        "description": "Limited edition hoodie featuring unique NFT-inspired artwork. Each hoodie comes with a digital certificate of authenticity. Made from sustainable materials with attention to detail. A true collector's item for NFT enthusiasts.",
-        "shortDescription": "Limited edition NFT-inspired hoodie"
+      "refiTShirt": {
+        "name": "ReFi T-Shirt",
+        "description": "Organic cotton t-shirt celebrating regenerative finance. Made from sustainable materials with environmental consciousness in mind. Features ReFi graphics and comfortable fit for everyday wear.",
+        "shortDescription": "Eco-friendly t-shirt for ReFi community"
       },
-      "smartContractTShirt": {
-        "name": "Smart Contract T-Shirt",
-        "description": "Technical t-shirt designed for developers and smart contract enthusiasts. Features code-inspired graphics and technical terminology. Made from moisture-wicking fabric perfect for coding marathons or casual tech meetups.",
-        "shortDescription": "Tech-themed t-shirt for developers"
+      "refiHoodie": {
+        "name": "ReFi Hoodie",
+        "description": "Sustainable hoodie supporting regenerative finance movement. Made from organic cotton with recycled elements. Features ReFi branding and comfortable fit for climate-conscious individuals.",
+        "shortDescription": "Sustainable hoodie for ReFi supporters"
       },
-      "metaverseCap": {
-        "name": "Metaverse Cap",
-        "description": "Futuristic cap designed for the metaverse era. Features holographic elements and virtual world-inspired design. Made with cutting-edge materials and featuring LED accent lighting. Perfect for virtual reality sessions or futuristic fashion.",
-        "shortDescription": "Virtual world inspired cap"
+      "defiCap": {
+        "name": "DeFi Cap",
+        "description": "Premium cap celebrating decentralized finance. Features DeFi-inspired design elements and high-quality materials. Perfect for DeFi enthusiasts and protocol contributors.",
+        "shortDescription": "Stylish cap for DeFi pioneers"
       },
-      "daoSweatshirt": {
-        "name": "DAO Sweatshirt",
-        "description": "Community-focused sweatshirt celebrating decentralized autonomous organizations. Features collaborative design elements and DAO governance symbols. Made from eco-friendly materials, reflecting the sustainable values of the DAO community.",
-        "shortDescription": "Decentralized organization themed sweatshirt"
+      "defiTShirt": {
+        "name": "DeFi T-Shirt",
+        "description": "Technical t-shirt for DeFi enthusiasts and protocol users. Features DeFi-themed graphics and comfortable cotton blend. Perfect for DeFi conferences, meetups, or casual DeFi lifestyle.",
+        "shortDescription": "Technical t-shirt for DeFi community"
+      },
+      "defiHoodie": {
+        "name": "DeFi Hoodie",
+        "description": "Premium hoodie celebrating the DeFi revolution. Features DeFi-inspired design, comfortable fleece blend, and practical pockets. Ideal for DeFi developers and protocol contributors.",
+        "shortDescription": "Premium hoodie for DeFi builders"
+      },
+      "governanceCap": {
+        "name": "Governance Cap",
+        "description": "Professional cap for governance participants and DAO members. Features clean design and high-quality materials. Perfect for governance meetings and DAO events.",
+        "shortDescription": "Professional cap for governance"
+      },
+      "governanceTShirt": {
+        "name": "Governance T-Shirt",
+        "description": "Clean t-shirt celebrating decentralized governance. Features governance-themed elements and comfortable fit. Perfect for DAO members and governance participants.",
+        "shortDescription": "Clean t-shirt for DAO governance"
+      },
+      "governanceHoodie": {
+        "name": "Governance Hoodie",
+        "description": "Comfortable hoodie for governance enthusiasts and DAO contributors. Features governance-inspired design and premium materials. Perfect for long governance sessions and DAO events.",
+        "shortDescription": "Comfortable hoodie for DAO members"
+      },
+      "codingCap": {
+        "name": "Coding Cap",
+        "description": "Developer-focused cap with coding-inspired design elements. Features breathable materials and comfortable fit. Perfect for coding sessions, hackathons, or developer meetups.",
+        "shortDescription": "Developer cap for coding sessions"
+      },
+      "codingTShirt": {
+        "name": "Coding T-Shirt",
+        "description": "Technical t-shirt for developers and coding enthusiasts. Features code-inspired graphics and comfortable cotton blend. Perfect for coding marathons, hackathons, or tech conferences.",
+        "shortDescription": "Technical t-shirt for developers"
+      },
+      "codingHoodie": {
+        "name": "Coding Hoodie",
+        "description": "Ultimate comfort hoodie for developers and coding enthusiasts. Features code-themed design, thumbhole cuffs, and premium fleece. Perfect for long coding sessions and developer meetups.",
+        "shortDescription": "Ultimate comfort hoodie for coders"
+      },
+      "degenCap": {
+        "name": "Degen Cap",
+        "description": "Bold cap for true crypto degenerates. Features edgy design elements and high-quality construction. Perfect for high-risk traders and meme coin enthusiasts.",
+        "shortDescription": "Bold cap for crypto degenerates"
+      },
+      "degenTShirt": {
+        "name": "Degen T-Shirt",
+        "description": "Edgy t-shirt celebrating the wild side of crypto culture. Features bold graphics and comfortable fit. Perfect for degen traders and meme coin enthusiasts.",
+        "shortDescription": "Edgy t-shirt for degen culture"
+      },
+      "degenHoodie": {
+        "name": "Degen Hoodie",
+        "description": "Bold hoodie for crypto degenerates and high-risk traders. Features edgy design, comfortable fleece, and practical pockets. Perfect for degen trading sessions and meme coin events.",
+        "shortDescription": "Bold hoodie for degen traders"
       }
     },
     "categories": {
-      "hoodies": "Hoodies",
-      "tshirts": "T-Shirts",
-      "accessories": "Accessories",
-      "sweatshirts": "Sweatshirts"
+      "cap": "Caps",
+      "tshirt": "T-Shirts",
+      "hoodie": "Hoodies"
     }
   },
   "collections": {

@@ -5,6 +5,7 @@ import { Heart, ShoppingCart, Star, Eye } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useCart } from '@/contexts/CartContext';
 import { Product } from '@/data/products';
+import { getCollectionById } from '@/data/collections';
 
 interface ProductCardProps {
   product: Product;
@@ -17,6 +18,7 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
   const [isLiked, setIsLiked] = useState(false);
   const [showActions, setShowActions] = useState(false);
   const t = useTranslations('products');
+  const tCollections = useTranslations('collections');
   const { addItem } = useCart();
 
   const handleAddToCart = () => {
@@ -135,12 +137,18 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
 
       {/* Product Info */}
       <div className="p-6">
-        <div className="mb-2">
+        <div className="mb-2 flex justify-between items-center">
           <span className="text-sm text-gray-500 dark:text-gray-400">{t(`categories.${product.categoryKey}`)}</span>
+          <span className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-2 py-1 rounded-full">
+            {(() => {
+              const collection = getCollectionById(product.collectionId);
+              return collection ? tCollections(`collectionItems.${collection.nameKey}.name`) : 'Unknown Collection';
+            })()}
+          </span>
         </div>
         
         <h3 className="text-lg font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-2 leading-tight transition-colors duration-200">
-          {t(`productItems.${product.nameKey}.name`)}
+          {product.nameKey}
         </h3>
 
         {/* Rating */}

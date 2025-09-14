@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Search, Grid, List, Star, Users, Calendar } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import { allCollections } from '@/data/collections';
 
 // Use centralized collections data
@@ -10,10 +11,16 @@ const collections = allCollections;
 
 export default function CollectionsPage() {
   const t = useTranslations('collections');
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('newest');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [showFeaturedOnly, setShowFeaturedOnly] = useState(false);
+
+  const handleCollectionClick = (collectionId: string) => {
+    // Navigate to products page with collection filter
+    router.push(`/products?collection=${collectionId}`);
+  };
 
   // Helper function to get translated text for filtering
   const getTranslatedText = (collection: any) => {
@@ -164,6 +171,7 @@ export default function CollectionsPage() {
             {filteredCollections.map((collection) => (
               <div
                 key={collection.id}
+                onClick={() => handleCollectionClick(collection.id)}
                 className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg transition-all duration-200 cursor-pointer hover:transform hover:-translate-y-1 hover:shadow-xl"
               >
                 {/* Collection Image */}
@@ -244,7 +252,13 @@ export default function CollectionsPage() {
                     <span className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-200">
                       {t('createdBy')} {collection.creator}
                     </span>
-                    <button className="py-2 px-4 bg-[#3E7C4A] text-white border-none rounded-lg cursor-pointer text-xs font-semibold hover:bg-[#2d5f3a] transition-all duration-200">
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleCollectionClick(collection.id);
+                      }}
+                      className="py-2 px-4 bg-[#3E7C4A] text-white border-none rounded-lg cursor-pointer text-xs font-semibold hover:bg-[#2d5f3a] transition-all duration-200"
+                    >
                       {t('viewCollection')}
                     </button>
                   </div>

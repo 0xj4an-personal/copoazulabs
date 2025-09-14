@@ -76,6 +76,7 @@
     "bestseller": "Más Vendido",
     "moreComingSoon": "Más Productos Próximamente",
     "moreProductsDescription": "Estamos agregando constantemente nueva mercancía Web3 a nuestra colección. ¡Mantente atento para más productos increíbles!",
+    "searchPlaceholder": "Buscar productos...",
     "sale": "Oferta",
     "outOfStock": "Agotado",
     "inStock": "Disponible",
@@ -85,53 +86,114 @@
     "specifications": "Especificaciones",
     "reviews": "Reseñas",
     "relatedProducts": "Productos Relacionados",
+    "collections": "Colecciones",
+    "allCollections": "Todas las Colecciones",
+    "allCategories": "Todas las Categorías",
+    "clearFilters": "Limpiar Filtros",
+    "noProductsFound": "No se encontraron productos",
+    "tryAdjustingFilters": "Intenta ajustar tu búsqueda o criterios de filtro",
+    "showingResults": "Mostrando {count} de {total} productos",
+    "sortBy": "Ordenar Por",
+    "newest": "Más Recientes",
+    "priceLowToHigh": "Precio: Menor a Mayor",
+    "priceHighToLow": "Precio: Mayor a Menor",
+    "highestRated": "Mejor Valorados",
     "productItems": {
-      "web3Hoodie": {
-        "name": "Sudadera con Capucha Web3",
-        "description": "Sudadera premium de algodón mezclado con nuestro logo Web3 característico. Perfecta para entusiastas de cripto que quieren mostrar su pasión por la tecnología descentralizada. Incluye ajuste cómodo, capucha con cordón ajustable y bolsillo canguro.",
-        "shortDescription": "Sudadera premium con marca Web3"
+      "gamingCap": {
+        "name": "Gorra Gaming",
+        "description": "Gorra de alto rendimiento diseñada para entusiastas de esports. Incluye paneles de malla transpirable y tecnología que absorbe la humedad. Perfecta para sesiones largas de gaming, torneos o reuniones casuales de gaming.",
+        "shortDescription": "Gorra de rendimiento para campeones gaming"
       },
-      "blockchainTShirt": {
-        "name": "Camiseta Blockchain",
-        "description": "Camiseta de algodón suave y transpirable con un diseño innovador inspirado en blockchain. Hecha de 100% algodón orgánico, esta camiseta combina comodidad con estilo. Perfecta para desarrolladores, inversores y cualquiera apasionado por la tecnología blockchain.",
-        "shortDescription": "Camiseta cómoda con diseño blockchain"
+      "gamingTShirt": {
+        "name": "Camiseta Gaming",
+        "description": "Camiseta gaming cómoda hecha de mezcla premium de algodón. Incluye gráficos inspirados en gaming y ajuste cómodo para uso prolongado. Perfecta para eventos gaming, fiestas LAN o estilo de vida gaming casual.",
+        "shortDescription": "Camiseta cómoda para cultura gaming"
       },
-      "cryptoCap": {
-        "name": "Gorra Crypto",
-        "description": "Gorra ajustable de alta calidad con bordado temático de cripto. Hecha con materiales premium y cuenta con corona estructurada con visera plana. Ideal para actividades al aire libre, sesiones de trading o uso casual. Una talla para la mayoría.",
-        "shortDescription": "Gorra elegante para entusiastas de cripto"
+      "gamingHoodie": {
+        "name": "Sudadera Gaming",
+        "description": "Sudadera gaming premium con elementos de diseño enfocados en gamers. Incluye puños con orificios para pulgares, bolsillo canguro y capucha ajustable. Hecha de mezcla de vellón suave perfecta para sesiones de streaming o maratones gaming.",
+        "shortDescription": "Sudadera de máxima comodidad para gamers"
       },
-      "defiSweatshirt": {
+      "refiCap": {
+        "name": "Gorra ReFi",
+        "description": "Gorra sostenible hecha de materiales reciclados que apoya las finanzas regenerativas. Incluye construcción ecológica y diseño temático ReFi. Perfecta para entusiastas de cripto conscientes del clima.",
+        "shortDescription": "Gorra sostenible para defensores ReFi"
+      },
+      "refiTShirt": {
+        "name": "Camiseta ReFi",
+        "description": "Camiseta de algodón orgánico que celebra las finanzas regenerativas. Hecha de materiales sostenibles con conciencia ambiental en mente. Incluye gráficos ReFi y ajuste cómodo para uso diario.",
+        "shortDescription": "Camiseta ecológica para comunidad ReFi"
+      },
+      "refiHoodie": {
+        "name": "Sudadera ReFi",
+        "description": "Sudadera sostenible que apoya el movimiento de finanzas regenerativas. Hecha de algodón orgánico con elementos reciclados. Incluye marca ReFi y ajuste cómodo para individuos conscientes del clima.",
+        "shortDescription": "Sudadera sostenible para seguidores ReFi"
+      },
+      "defiCap": {
+        "name": "Gorra DeFi",
+        "description": "Gorra premium que celebra las finanzas descentralizadas. Incluye elementos de diseño inspirados en DeFi y materiales de alta calidad. Perfecta para entusiastas DeFi y contribuidores de protocolos.",
+        "shortDescription": "Gorra elegante para pioneros DeFi"
+      },
+      "defiTShirt": {
+        "name": "Camiseta DeFi",
+        "description": "Camiseta técnica para entusiastas DeFi y usuarios de protocolos. Incluye gráficos temáticos DeFi y mezcla cómoda de algodón. Perfecta para conferencias DeFi, reuniones o estilo de vida DeFi casual.",
+        "shortDescription": "Camiseta técnica para comunidad DeFi"
+      },
+      "defiHoodie": {
         "name": "Sudadera DeFi",
-        "description": "Sudadera acogedora de cuello redondo que celebra la revolución DeFi. Hecha de vellón de algodón premium con un ajuste moderno. Incluye gráficos sutiles temáticos de DeFi y nuestro logo de marca. Perfecta para usar en capas o sola en días más frescos.",
-        "shortDescription": "Sudadera cálida con tema DeFi"
+        "description": "Sudadera premium que celebra la revolución DeFi. Incluye diseño inspirado en DeFi, mezcla cómoda de vellón y bolsillos prácticos. Ideal para desarrolladores DeFi y contribuidores de protocolos.",
+        "shortDescription": "Sudadera premium para constructores DeFi"
       },
-      "nftHoodieCollection": {
-        "name": "Colección Sudadera NFT",
-        "description": "Sudadera de edición limitada con arte único inspirado en NFT. Cada sudadera viene con un certificado digital de autenticidad. Hecha de materiales sostenibles con atención al detalle. Un verdadero artículo de colección para entusiastas de NFT.",
-        "shortDescription": "Sudadera de edición limitada inspirada en NFT"
+      "governanceCap": {
+        "name": "Gorra Gobernanza",
+        "description": "Gorra profesional para participantes de gobernanza y miembros DAO. Incluye diseño limpio y materiales de alta calidad. Perfecta para reuniones de gobernanza y eventos DAO.",
+        "shortDescription": "Gorra profesional para gobernanza"
       },
-      "smartContractTShirt": {
-        "name": "Camiseta Contrato Inteligente",
-        "description": "Camiseta técnica diseñada para desarrolladores y entusiastas de contratos inteligentes. Incluye gráficos inspirados en código y terminología técnica. Hecha de tela que absorbe la humedad, perfecta para maratones de programación o reuniones técnicas casuales.",
-        "shortDescription": "Camiseta temática para desarrolladores"
+      "governanceTShirt": {
+        "name": "Camiseta Gobernanza",
+        "description": "Camiseta limpia que celebra la gobernanza descentralizada. Incluye elementos temáticos de gobernanza y ajuste cómodo. Perfecta para miembros DAO y participantes de gobernanza.",
+        "shortDescription": "Camiseta limpia para gobernanza DAO"
       },
-      "metaverseCap": {
-        "name": "Gorra Metaverso",
-        "description": "Gorra futurista diseñada para la era del metaverso. Incluye elementos holográficos y diseño inspirado en mundos virtuales. Hecha con materiales de vanguardia y cuenta con iluminación LED de acento. Perfecta para sesiones de realidad virtual o moda futurista.",
-        "shortDescription": "Gorra inspirada en mundos virtuales"
+      "governanceHoodie": {
+        "name": "Sudadera Gobernanza",
+        "description": "Sudadera cómoda para entusiastas de gobernanza y contribuidores DAO. Incluye diseño inspirado en gobernanza y materiales premium. Perfecta para sesiones largas de gobernanza y eventos DAO.",
+        "shortDescription": "Sudadera cómoda para miembros DAO"
       },
-      "daoSweatshirt": {
-        "name": "Sudadera DAO",
-        "description": "Sudadera enfocada en la comunidad que celebra las organizaciones autónomas descentralizadas. Incluye elementos de diseño colaborativo y símbolos de gobernanza DAO. Hecha de materiales ecológicos, reflejando los valores sostenibles de la comunidad DAO.",
-        "shortDescription": "Sudadera temática de organización descentralizada"
+      "codingCap": {
+        "name": "Gorra Coding",
+        "description": "Gorra enfocada en desarrolladores con elementos de diseño inspirados en programación. Incluye materiales transpirables y ajuste cómodo. Perfecta para sesiones de programación, hackathones o reuniones de desarrolladores.",
+        "shortDescription": "Gorra para desarrolladores en sesiones de código"
+      },
+      "codingTShirt": {
+        "name": "Camiseta Coding",
+        "description": "Camiseta técnica para desarrolladores y entusiastas de programación. Incluye gráficos inspirados en código y mezcla cómoda de algodón. Perfecta para maratones de programación, hackathones o conferencias técnicas.",
+        "shortDescription": "Camiseta técnica para desarrolladores"
+      },
+      "codingHoodie": {
+        "name": "Sudadera Coding",
+        "description": "Sudadera de máxima comodidad para desarrolladores y entusiastas de programación. Incluye diseño temático de código, puños con orificios para pulgares y vellón premium. Perfecta para sesiones largas de programación y reuniones de desarrolladores.",
+        "shortDescription": "Sudadera de máxima comodidad para programadores"
+      },
+      "degenCap": {
+        "name": "Gorra Degen",
+        "description": "Gorra audaz para verdaderos degenerados crypto. Incluye elementos de diseño atrevidos y construcción de alta calidad. Perfecta para traders de alto riesgo y entusiastas de meme coins.",
+        "shortDescription": "Gorra audaz para degenerados crypto"
+      },
+      "degenTShirt": {
+        "name": "Camiseta Degen",
+        "description": "Camiseta atrevida que celebra el lado salvaje de la cultura crypto. Incluye gráficos audaces y ajuste cómodo. Perfecta para traders degen y entusiastas de meme coins.",
+        "shortDescription": "Camiseta atrevida para cultura degen"
+      },
+      "degenHoodie": {
+        "name": "Sudadera Degen",
+        "description": "Sudadera audaz para degenerados crypto y traders de alto riesgo. Incluye diseño atrevido, vellón cómodo y bolsillos prácticos. Perfecta para sesiones de trading degen y eventos de meme coins.",
+        "shortDescription": "Sudadera audaz para traders degen"
       }
     },
     "categories": {
-      "hoodies": "Sudaderas con Capucha",
-      "tshirts": "Camisetas",
-      "accessories": "Accesorios",
-      "sweatshirts": "Sudaderas"
+      "cap": "Gorras",
+      "tshirt": "Camisetas",
+      "hoodie": "Sudaderas con Capucha"
     }
   },
   "collections": {
