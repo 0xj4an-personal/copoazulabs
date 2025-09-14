@@ -192,6 +192,7 @@ export default function Header() {
               </Link>
               <div style={{ padding: '12px 0', borderTop: '1px solid #9A9A9A', marginTop: '12px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <WalletConnect />
+                <CartButton />
               </div>
             </div>
           </div>

@@ -2,9 +2,11 @@
 
 import { useTranslations } from 'next-intl';
 import { Users, Target, Heart, Eye, Zap, Shield, Globe } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 export default function AboutPage() {
   const t = useTranslations('about');
+  const router = useRouter();
 
   const teamMembers = [
     {
@@ -279,30 +281,52 @@ export default function AboutPage() {
             {t('cta.subtitle')}
           </p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <button style={{
-              padding: '16px 32px',
-              backgroundColor: '#FFFFFF',
-              color: '#3E7C4A',
-              border: 'none',
-              borderRadius: '8px',
-              fontSize: '1rem',
-              fontWeight: '600',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease'
-            }}>
+            <button 
+              onClick={() => router.push('/products')}
+              style={{
+                padding: '16px 32px',
+                backgroundColor: '#FFFFFF',
+                color: '#3E7C4A',
+                border: 'none',
+                borderRadius: '8px',
+                fontSize: '1rem',
+                fontWeight: '600',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.15)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
               {t('cta.startShopping')}
             </button>
-            <button style={{
-              padding: '16px 32px',
-              backgroundColor: 'transparent',
-              color: '#FFFFFF',
-              border: '2px solid #FFFFFF',
-              borderRadius: '8px',
-              fontSize: '1rem',
-              fontWeight: '600',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease'
-            }}>
+            <button 
+              onClick={() => router.push('/collections')}
+              style={{
+                padding: '16px 32px',
+                backgroundColor: 'transparent',
+                color: '#FFFFFF',
+                border: '2px solid #FFFFFF',
+                borderRadius: '8px',
+                fontSize: '1rem',
+                fontWeight: '600',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#FFFFFF';
+                e.currentTarget.style.color = '#3E7C4A';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'transparent';
+                e.currentTarget.style.color = '#FFFFFF';
+              }}
+            >
               {t('cta.learnMore')}
             </button>
           </div>
