@@ -104,8 +104,8 @@ export const getFeaturedProducts = (): Product[] => {
   return allProducts.filter(product => product.isBestSeller || product.isNew).slice(0, 6);
 };
 
-export const getProductsByCategory = (category: string): Product[] => {
-  return allProducts.filter(product => product.category === category);
+export const getProductsByCategory = (categoryKey: string): Product[] => {
+  return allProducts.filter(product => product.categoryKey === categoryKey);
 };
 
 export const getProductById = (id: string): Product | undefined => {

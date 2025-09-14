@@ -224,6 +224,12 @@
       "productsSold": "Products Sold",
       "countries": "Countries Served",
       "yearsExperience": "Years of Experience"
+    },
+    "cta": {
+      "title": "Ready to Join the Revolution?",
+      "subtitle": "Connect your wallet and start shopping with crypto today",
+      "startShopping": "Start Shopping",
+      "learnMore": "Learn More"
     }
   },
   "wallet": {
@@ -273,5 +279,10 @@
     "subtitle": "Connect your wallet and start shopping with crypto today",
     "startShopping": "Start Shopping",
     "learnMore": "Learn More"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "goHome": "Go Home"
   }
 }

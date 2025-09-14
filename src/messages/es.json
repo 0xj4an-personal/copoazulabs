@@ -223,6 +223,12 @@
       "productsSold": "Productos Vendidos",
       "countries": "Países Servidos",
       "yearsExperience": "Años de Experiencia"
+    },
+    "cta": {
+      "title": "¿Listo para Unirte a la Revolución?",
+      "subtitle": "Conecta tu billetera y comienza a comprar con cripto hoy",
+      "startShopping": "Comenzar a Comprar",
+      "learnMore": "Saber Más"
     }
   },
   "wallet": {
@@ -272,5 +278,10 @@
     "subtitle": "Conecta tu billetera y comienza a comprar con cripto hoy",
     "startShopping": "Comenzar a Comprar",
     "learnMore": "Saber Más"
+  },
+  "notFound": {
+    "title": "Página No Encontrada",
+    "description": "La página que buscas no existe o ha sido movida.",
+    "goHome": "Ir al Inicio"
   }
 }
