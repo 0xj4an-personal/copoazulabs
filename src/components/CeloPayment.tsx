@@ -19,7 +19,7 @@ export default function CeloPayment({ totalPrice, onPaymentSuccess, onPaymentErr
   // Wallet address where payments will be sent
   const RECEIVER_ADDRESS = '0x06C000F406AdD41462E4899Ff3A22312d7AACF46';
   
-  // cCOP token contract address on Celo (Celo Dollar - stablecoin)
+  // cCOP token contract address on Celo (Celo Colombian Peso)  // NOTE: This is a placeholder address. In production, use the actual cCOP contract address
   const CCOP_TOKEN_ADDRESS = '0x765DE816845861e75A25fCA122bb6898B8B1282a';
   
   // Celo network configuration
@@ -58,16 +58,49 @@ export default function CeloPayment({ totalPrice, onPaymentSuccess, onPaymentErr
       // Switch to Celo network if not already connected
       await switchToCeloNetwork();
 
-      // Send cCOP tokens (ERC-20 token on Celo network)
-      // In a real implementation, you would interact with the cCOP token contract
-      const amountInWei = (totalPrice * 1e18).toString(16); // Convert to wei (cCOP has 18 decimals)
+      // Check cCOP balance before proceeding
+      const balanceData = '0x70a08231' + userAddress.slice(2).padStart(64, '0');
+      const balanceResponse = await window.ethereum.request({
+        method: 'eth_call',
+        params: [
+          {
+            to: CCOP_TOKEN_ADDRESS,
+            data: balanceData,
+          },
+          'latest',
+        ],
+      });
+      
+      const userBalance = parseInt(balanceResponse, 16);
+      const requiredAmount = Math.floor(totalPrice * 1e18);
+      
+      if (userBalance < requiredAmount) {
+        throw new Error(`Insufficient cCOP balance. Required: ${totalPrice.toLocaleString('es-CO')} cCOP, Available: ${(userBalance / 1e18).toLocaleString('es-CO')} cCOP`);
+      }
 
-      // Create transaction
+      // Send cCOP tokens (ERC-20 token on Celo network)
+      // Interact with the cCOP token contract using ERC-20 transfer function
+      const amountInWei = (totalPrice * 1e18).toString(16); // Convert to wei (cCOP has 18 decimals)
+      
+      // ERC-20 transfer function signature: transfer(address,uint256)
+      const transferFunctionSignature = '0xa9059cbb';
+      
+      // Encode the receiver address (remove 0x prefix and pad to 32 bytes)
+      const receiverAddress = RECEIVER_ADDRESS.slice(2).padStart(64, '0');
+      
+      // Encode the amount (pad to 32 bytes)
+      const encodedAmount = amountInWei.padStart(64, '0');
+      
+      // Combine function signature + receiver address + amount
+      const data = transferFunctionSignature + receiverAddress + encodedAmount;
+
+      // Create transaction to cCOP token contract
       const transaction = {
         from: userAddress,
-        to: RECEIVER_ADDRESS,
-        value: '0x' + amountInWei,
-        gas: '0x5208', // 21000 gas limit for simple transfer
+        to: CCOP_TOKEN_ADDRESS, // Send to cCOP token contract, not receiver address
+        value: '0x0', // No CELO being sent, only cCOP tokens
+        data: '0x' + data, // ERC-20 transfer function call
+        gas: '0x7530', // 30000 gas limit for ERC-20 transfer
       };
 
       // Send transaction
