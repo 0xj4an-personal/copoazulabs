@@ -70,7 +70,6 @@
     "price": "Precio",
     "originalPrice": "Precio Original",
     "rating": "Calificación",
-    "reviews": "reseñas",
     "addToCart": "Agregar al Carrito",
     "quickView": "Vista Rápida",
     "new": "Nuevo",
@@ -189,35 +188,41 @@
   },
   "about": {
     "title": "Acerca de Copoazú Labs",
-    "subtitle": "Liderando la revolución de la moda Web3",
+    "subtitle": "Liderando la revolución de la moda Web3 con tecnología blockchain innovadora y prácticas sostenibles",
     "comingSoon": "Próximamente",
     "underDevelopment": "Nuestra página acerca de está en desarrollo. ¡Pronto aprenderás más sobre Copoazú Labs y nuestra misión!",
     "mission": {
       "title": "Nuestra Misión",
-      "description": "Cerrar la brecha entre la moda tradicional y el futuro descentralizado, creando mercancía exclusiva que empodere a la comunidad Web3."
+      "description": "Conectar la moda tradicional con el futuro descentralizado, creando mercancía exclusiva que empodere a la comunidad Web3. Creemos en democratizar la moda a través de la tecnología blockchain mientras mantenemos los más altos estándares de sostenibilidad y calidad."
     },
     "values": {
       "title": "Nuestros Valores",
       "innovation": {
         "title": "Innovación",
-        "description": "Empujando límites con tecnología blockchain de vanguardia"
+        "description": "Empujando límites con tecnología blockchain de vanguardia y prácticas de moda sostenibles que establecen nuevos estándares de la industria."
       },
       "community": {
         "title": "Comunidad",
-        "description": "Construyendo una red global de entusiastas de Web3"
+        "description": "Construyendo una red global de entusiastas Web3 que comparten nuestra visión de moda descentralizada e inclusiva."
       },
       "sustainability": {
         "title": "Sostenibilidad",
-        "description": "Comprometidos con prácticas ecológicas y éticas"
+        "description": "Comprometidos con prácticas ecológicas y éticas en toda nuestra cadena de suministro, desde el diseño hasta la entrega."
       },
       "transparency": {
         "title": "Transparencia",
-        "description": "Abiertos y honestos en todas nuestras operaciones"
+        "description": "Abiertos y honestos en todas nuestras operaciones, proporcionando visibilidad completa de nuestros procesos e impacto."
       }
     },
     "team": {
       "title": "Conoce a Nuestro Equipo",
       "subtitle": "Los visionarios detrás de la revolución de la moda Web3"
+    },
+    "stats": {
+      "happyCustomers": "Clientes Felices",
+      "productsSold": "Productos Vendidos",
+      "countries": "Países Servidos",
+      "yearsExperience": "Años de Experiencia"
     }
   },
   "wallet": {

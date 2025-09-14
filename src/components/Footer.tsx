@@ -1,14 +1,19 @@
 import Link from 'next/link';
-import { Twitter, MessageCircle, Github, Mail } from 'lucide-react';
+import Image from 'next/image';
+import { Twitter, Instagram, Mail } from 'lucide-react';
 import { env } from '../../env.config';
 
 export default function Footer() {
   return (
     <footer style={{ backgroundColor: '#4B2E1E', color: '#F5F1E7' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '48px 16px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '32px' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '32px 16px' }}>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
+          gap: '32px'
+        }}>
           {/* Brand Section */}
-          <div style={{ gridColumn: 'span 2' }}>
+          <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
               <div style={{
                 width: '40px',
@@ -33,6 +38,23 @@ export default function Footer() {
             </p>
             <div style={{ display: 'flex', gap: '16px' }}>
               <a 
+                href="https://instagram.com/copoazulabs" 
+                style={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center',
+                  width: '40px',
+                  height: '40px',
+                  backgroundColor: '#3E7C4A',
+                  borderRadius: '8px',
+                  color: '#FFFFFF',
+                  textDecoration: 'none',
+                  transition: 'background-color 0.2s ease'
+                }}
+              >
+                <Instagram style={{ width: '20px', height: '20px' }} />
+              </a>
+              <a 
                 href={env.TWITTER_URL} 
                 style={{ 
                   display: 'flex', 
@@ -50,7 +72,7 @@ export default function Footer() {
                 <Twitter style={{ width: '20px', height: '20px' }} />
               </a>
               <a 
-                href={env.DISCORD_URL} 
+                href="https://warpcast.com/copoazulabs" 
                 style={{ 
                   display: 'flex', 
                   alignItems: 'center', 
@@ -64,27 +86,16 @@ export default function Footer() {
                   transition: 'background-color 0.2s ease'
                 }}
               >
-                <MessageCircle style={{ width: '20px', height: '20px' }} />
+                <Image 
+                  src="/farcaster-icon.svg" 
+                  alt="Farcaster" 
+                  width="20" 
+                  height="20"
+                  style={{ width: '20px', height: '20px', filter: 'brightness(0) invert(1)' }}
+                />
               </a>
               <a 
-                href={env.GITHUB_URL} 
-                style={{ 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'center',
-                  width: '40px',
-                  height: '40px',
-                  backgroundColor: '#3E7C4A',
-                  borderRadius: '8px',
-                  color: '#FFFFFF',
-                  textDecoration: 'none',
-                  transition: 'background-color 0.2s ease'
-                }}
-              >
-                <Github style={{ width: '20px', height: '20px' }} />
-              </a>
-              <a 
-                href="mailto:contact@copoazulabs.com" 
+                href="mailto:copoazulabs@gmail.com" 
                 style={{ 
                   display: 'flex', 
                   alignItems: 'center', 
@@ -120,11 +131,6 @@ export default function Footer() {
               <li style={{ marginBottom: '8px' }}>
                 <Link href="/about" style={{ color: '#9A9A9A', textDecoration: 'none', transition: 'color 0.2s ease' }}>
                   About Us
-                </Link>
-              </li>
-              <li style={{ marginBottom: '8px' }}>
-                <Link href="/contact" style={{ color: '#9A9A9A', textDecoration: 'none', transition: 'color 0.2s ease' }}>
-                  Contact
                 </Link>
               </li>
             </ul>

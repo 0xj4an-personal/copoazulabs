@@ -189,35 +189,41 @@
   },
   "about": {
     "title": "About Copoazú Labs",
-    "subtitle": "Leading the Web3 fashion revolution",
+    "subtitle": "Leading the Web3 fashion revolution with innovative blockchain technology and sustainable practices",
     "comingSoon": "Coming Soon",
     "underDevelopment": "Our about page is under development. Learn more about Copoazú Labs and our mission soon!",
     "mission": {
       "title": "Our Mission",
-      "description": "To bridge the gap between traditional fashion and the decentralized future, creating exclusive merchandise that empowers the Web3 community."
+      "description": "To bridge the gap between traditional fashion and the decentralized future, creating exclusive merchandise that empowers the Web3 community. We believe in democratizing fashion through blockchain technology while maintaining the highest standards of sustainability and quality."
     },
     "values": {
       "title": "Our Values",
       "innovation": {
         "title": "Innovation",
-        "description": "Pushing boundaries with cutting-edge blockchain technology"
+        "description": "Pushing boundaries with cutting-edge blockchain technology and sustainable fashion practices that set new industry standards."
       },
       "community": {
         "title": "Community",
-        "description": "Building a global network of Web3 enthusiasts"
+        "description": "Building a global network of Web3 enthusiasts who share our vision of decentralized, inclusive fashion."
       },
       "sustainability": {
         "title": "Sustainability",
-        "description": "Committed to eco-friendly and ethical practices"
+        "description": "Committed to eco-friendly and ethical practices throughout our entire supply chain, from design to delivery."
       },
       "transparency": {
         "title": "Transparency",
-        "description": "Open and honest in all our operations"
+        "description": "Open and honest in all our operations, providing full visibility into our processes and impact."
       }
     },
     "team": {
       "title": "Meet Our Team",
       "subtitle": "The visionaries behind the Web3 fashion revolution"
+    },
+    "stats": {
+      "happyCustomers": "Happy Customers",
+      "productsSold": "Products Sold",
+      "countries": "Countries Served",
+      "yearsExperience": "Years of Experience"
     }
   },
   "wallet": {
