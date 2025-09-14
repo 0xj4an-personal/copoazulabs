@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { Wallet, ChevronDown, Copy, ExternalLink } from 'lucide-react';
-import { env, getCeloConfig } from '../../env.config';
+import { getCeloConfig } from '../../env.config';
+import { useTranslations } from 'next-intl';
 
 interface WalletConnectProps {
   onConnect?: () => void;
@@ -13,6 +14,7 @@ export default function WalletConnect({ onConnect, onDisconnect }: WalletConnect
   const [isConnected, setIsConnected] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [walletAddress, setWalletAddress] = useState('');
+  const t = useTranslations('wallet');
 
   const handleConnect = async () => {
     try {
@@ -62,7 +64,7 @@ export default function WalletConnect({ onConnect, onDisconnect }: WalletConnect
         }}
       >
         <Wallet style={{ width: '16px', height: '16px', marginRight: '8px' }} />
-        Connect Wallet
+        {t('connect')}
       </button>
     );
   }
@@ -103,7 +105,7 @@ export default function WalletConnect({ onConnect, onDisconnect }: WalletConnect
           zIndex: 50
         }}>
           <div style={{ padding: '12px 16px', borderBottom: '1px solid #9A9A9A' }}>
-            <p style={{ fontSize: '0.875rem', color: '#9A9A9A', margin: 0 }}>Connected Wallet</p>
+            <p style={{ fontSize: '0.875rem', color: '#9A9A9A', margin: 0 }}>{t('connected')}</p>
             <p style={{ fontSize: '0.875rem', color: '#1C1C1C', margin: '4px 0 0 0', fontFamily: 'monospace' }}>
               {walletAddress}
             </p>
@@ -125,7 +127,7 @@ export default function WalletConnect({ onConnect, onDisconnect }: WalletConnect
               }}
             >
               <Copy style={{ width: '16px', height: '16px', marginRight: '8px' }} />
-              Copy Address
+              {t('copyAddress')}
             </button>
             <button
               onClick={openExplorer}
@@ -143,7 +145,7 @@ export default function WalletConnect({ onConnect, onDisconnect }: WalletConnect
               }}
             >
               <ExternalLink style={{ width: '16px', height: '16px', marginRight: '8px' }} />
-              View on Explorer
+              {t('viewExplorer')}
             </button>
             <button
               onClick={handleDisconnect}
@@ -160,7 +162,7 @@ export default function WalletConnect({ onConnect, onDisconnect }: WalletConnect
                 transition: 'background-color 0.2s ease'
               }}
             >
-              Disconnect
+              {t('disconnect')}
             </button>
           </div>
         </div>
