@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+import { notFound } from 'next/navigation';
+import "../globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { locales } from '@/i18n/config';
 
 export const metadata: Metadata = {
   title: "Copoazú Labs - Web3 Fashion & Merchandise",
@@ -55,15 +61,35 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
+export default async function RootLayout({
   children,
+  params
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }>) {
+  const { locale } = await params;
+  
+  // Validate that the incoming `locale` parameter is valid
+  if (!locales.includes(locale as any)) notFound();
+
+  // Providing all messages to the client side
+  const messages = await getMessages({ locale });
+
   return (
-    <html lang="en">
+    <html lang={locale} suppressHydrationWarning>
       <body style={{ minHeight: '100vh', backgroundColor: '#F5F1E7', color: '#1C1C1C' }}>
-        {children}
+        <NextIntlClientProvider messages={messages}>
+          <Header />
+          <main style={{ minHeight: '100vh' }}>
+            {children}
+          </main>
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

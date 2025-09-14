@@ -1,0 +1,187 @@
+{
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "retry": "Reintentar",
+    "close": "Cerrar",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "save": "Guardar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "sort": "Ordenar",
+    "view": "Ver",
+    "share": "Compartir",
+    "copy": "Copiar",
+    "copied": "¡Copiado!"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "products": "Productos",
+    "collections": "Colecciones",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "cart": "Carrito",
+    "account": "Cuenta",
+    "login": "Iniciar Sesión",
+    "logout": "Cerrar Sesión",
+    "signup": "Registrarse"
+  },
+  "hero": {
+    "title": "Revolución de la Moda Web3",
+    "subtitle": "Descubre ropa y mercancía exclusiva con marca Web3. Conecta tu billetera, compra con cripto y únete a la revolución de la moda descentralizada.",
+    "shopNow": "Comprar Ahora",
+    "connectWallet": "Conectar Billetera",
+    "merchandise": "Mercancía Web3",
+    "tagline": "Compra con cripto, posee con orgullo"
+  },
+  "stats": {
+    "happyCustomers": "Clientes Felices",
+    "productsSold": "Productos Vendidos",
+    "countries": "Países",
+    "yearsExperience": "Años de Experiencia"
+  },
+  "features": {
+    "title": "¿Por qué elegir Copoazú Labs?",
+    "subtitle": "Experimenta el futuro de la moda con tecnología Web3 de vanguardia",
+    "lightningFast": {
+      "title": "Súper Rápido",
+      "description": "Transacciones instantáneas con tecnología blockchain"
+    },
+    "securePrivate": {
+      "title": "Seguro y Privado",
+      "description": "Tus datos se mantienen seguros con seguridad descentralizada"
+    },
+    "communityDriven": {
+      "title": "Impulsado por la Comunidad",
+      "description": "Únete a miles de entusiastas de Web3 en todo el mundo"
+    }
+  },
+  "products": {
+    "title": "Nuestros Productos",
+    "subtitle": "Explora nuestra colección exclusiva de ropa y accesorios de marca Web3",
+    "comingSoon": "Próximamente",
+    "underDevelopment": "Nuestra página de productos está en desarrollo. ¡Mantente atento para increíbles mercancías Web3!",
+    "viewAll": "Ver Todos los Productos",
+    "price": "Precio",
+    "originalPrice": "Precio Original",
+    "rating": "Calificación",
+    "reviews": "reseñas",
+    "addToCart": "Agregar al Carrito",
+    "quickView": "Vista Rápida",
+    "new": "Nuevo",
+    "bestseller": "Más Vendido",
+    "sale": "Oferta",
+    "outOfStock": "Agotado",
+    "inStock": "Disponible",
+    "category": "Categoría",
+    "tags": "Etiquetas",
+    "description": "Descripción",
+    "specifications": "Especificaciones",
+    "reviews": "Reseñas",
+    "relatedProducts": "Productos Relacionados"
+  },
+  "collections": {
+    "title": "Colecciones",
+    "subtitle": "Descubre colecciones curadas de mercancía Web3 de los mejores creadores",
+    "comingSoon": "Próximamente",
+    "underDevelopment": "Nuestra página de colecciones está en desarrollo. ¡Mantente atento para colecciones curadas de mercancía Web3!",
+    "searchPlaceholder": "Buscar colecciones...",
+    "sortBy": "Ordenar Por",
+    "newest": "Más Recientes",
+    "mostPopular": "Más Populares",
+    "highestRated": "Mejor Calificadas",
+    "mostItems": "Más Elementos",
+    "featuredOnly": "Solo Destacadas",
+    "viewCollection": "Ver Colección",
+    "createdBy": "Creado por",
+    "items": "elementos",
+    "followers": "seguidores",
+    "noCollectionsFound": "No se encontraron colecciones",
+    "tryAdjustingFilters": "Intenta ajustar tu búsqueda o criterios de filtro",
+    "clearFilters": "Limpiar Filtros"
+  },
+  "about": {
+    "title": "Acerca de Copoazú Labs",
+    "subtitle": "Liderando la revolución de la moda Web3",
+    "comingSoon": "Próximamente",
+    "underDevelopment": "Nuestra página acerca de está en desarrollo. ¡Pronto aprenderás más sobre Copoazú Labs y nuestra misión!",
+    "mission": {
+      "title": "Nuestra Misión",
+      "description": "Cerrar la brecha entre la moda tradicional y el futuro descentralizado, creando mercancía exclusiva que empodere a la comunidad Web3."
+    },
+    "values": {
+      "title": "Nuestros Valores",
+      "innovation": {
+        "title": "Innovación",
+        "description": "Empujando límites con tecnología blockchain de vanguardia"
+      },
+      "community": {
+        "title": "Comunidad",
+        "description": "Construyendo una red global de entusiastas de Web3"
+      },
+      "sustainability": {
+        "title": "Sostenibilidad",
+        "description": "Comprometidos con prácticas ecológicas y éticas"
+      },
+      "transparency": {
+        "title": "Transparencia",
+        "description": "Abiertos y honestos en todas nuestras operaciones"
+      }
+    },
+    "team": {
+      "title": "Conoce a Nuestro Equipo",
+      "subtitle": "Los visionarios detrás de la revolución de la moda Web3"
+    }
+  },
+  "wallet": {
+    "connect": "Conectar Billetera",
+    "connected": "Conectado",
+    "disconnect": "Desconectar",
+    "copyAddress": "Copiar Dirección",
+    "viewExplorer": "Ver en Explorador",
+    "network": "Red",
+    "balance": "Saldo",
+    "switchNetwork": "Cambiar Red",
+    "wrongNetwork": "Red Incorrecta",
+    "pleaseSwitch": "Por favor cambia a la red correcta para continuar"
+  },
+  "payment": {
+    "title": "Métodos de Pago",
+    "cryptoPayment": "Pago con Cripto",
+    "traditionalPayment": "Pago Tradicional",
+    "selectMethod": "Seleccionar Método de Pago",
+    "amount": "Cantidad",
+    "currency": "Moneda",
+    "rate": "Tasa",
+    "network": "Red",
+    "processing": "Procesando...",
+    "success": "Pago Exitoso",
+    "failed": "Pago Fallido",
+    "confirmPayment": "Confirmar Pago"
+  },
+  "footer": {
+    "description": "Liderando la revolución de la moda Web3 con mercancía exclusiva y tecnología blockchain.",
+    "quickLinks": "Enlaces Rápidos",
+    "support": "Soporte",
+    "legal": "Legal",
+    "privacyPolicy": "Política de Privacidad",
+    "termsOfService": "Términos de Servicio",
+    "shippingInfo": "Información de Envío",
+    "returns": "Devoluciones y Cambios",
+    "contactUs": "Contáctanos",
+    "followUs": "Síguenos",
+    "newsletter": "Boletín",
+    "subscribe": "Suscribirse",
+    "emailPlaceholder": "Ingresa tu email",
+    "copyright": "© 2024 Copoazú Labs. Todos los derechos reservados."
+  },
+  "cta": {
+    "title": "¿Listo para Unirte a la Revolución?",
+    "subtitle": "Conecta tu billetera y comienza a comprar con cripto hoy",
+    "startShopping": "Comenzar a Comprar",
+    "learnMore": "Saber Más"
+  }
+}

@@ -4,10 +4,13 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { Menu, X, ShoppingCart, Wallet } from 'lucide-react';
 import WalletConnect from './WalletConnect';
+import LanguageSwitcher from './LanguageSwitcher';
 import { env } from '../../env.config';
+import { useTranslations } from 'next-intl';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const t = useTranslations('navigation');
 
   return (
     <header style={{
@@ -47,7 +50,7 @@ export default function Header() {
                 fontWeight: '500'
               }}
             >
-              Home
+              {t('home')}
             </Link>
             <Link 
               href="/products" 
@@ -59,7 +62,7 @@ export default function Header() {
                 fontWeight: '500'
               }}
             >
-              Products
+              {t('products')}
             </Link>
             <Link 
               href="/collections" 
@@ -71,7 +74,7 @@ export default function Header() {
                 fontWeight: '500'
               }}
             >
-              Collections
+              {t('collections')}
             </Link>
             <Link 
               href="/about" 
@@ -83,48 +86,54 @@ export default function Header() {
                 fontWeight: '500'
               }}
             >
-              About
+              {t('about')}
             </Link>
           </nav>
 
-          {/* Desktop Actions */}
-          <div style={{ display: 'none', alignItems: 'center', gap: '16px' }} className="md:flex">
-            <WalletConnect />
-            <button style={{
-              display: 'flex',
-              alignItems: 'center',
-              padding: '8px',
-              backgroundColor: 'transparent',
-              border: 'none',
-              cursor: 'pointer',
-              borderRadius: '8px',
-              transition: 'background-color 0.2s ease'
-            }}>
-              <ShoppingCart style={{ width: '20px', height: '20px', color: '#1C1C1C' }} />
+          {/* Right Side - Desktop Actions + Language Switcher + Mobile Menu */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            {/* Desktop Actions */}
+            <div style={{ display: 'none', alignItems: 'center', gap: '16px' }} className="md:flex">
+              <WalletConnect />
+              <button style={{
+                display: 'flex',
+                alignItems: 'center',
+                padding: '8px',
+                backgroundColor: 'transparent',
+                border: 'none',
+                cursor: 'pointer',
+                borderRadius: '8px',
+                transition: 'background-color 0.2s ease'
+              }}>
+                <ShoppingCart style={{ width: '20px', height: '20px', color: '#1C1C1C' }} />
+              </button>
+            </div>
+            
+            {/* Language Switcher - Always Visible */}
+            <LanguageSwitcher />
+            
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                padding: '8px',
+                backgroundColor: 'transparent',
+                border: 'none',
+                cursor: 'pointer',
+                borderRadius: '8px',
+                transition: 'background-color 0.2s ease'
+              }}
+              className="md:hidden"
+            >
+              {isMenuOpen ? (
+                <X style={{ width: '24px', height: '24px', color: '#1C1C1C' }} />
+              ) : (
+                <Menu style={{ width: '24px', height: '24px', color: '#1C1C1C' }} />
+              )}
             </button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              padding: '8px',
-              backgroundColor: 'transparent',
-              border: 'none',
-              cursor: 'pointer',
-              borderRadius: '8px',
-              transition: 'background-color 0.2s ease'
-            }}
-            className="md:hidden"
-          >
-            {isMenuOpen ? (
-              <X style={{ width: '24px', height: '24px', color: '#1C1C1C' }} />
-            ) : (
-              <Menu style={{ width: '24px', height: '24px', color: '#1C1C1C' }} />
-            )}
-          </button>
         </div>
 
         {/* Mobile Navigation */}
@@ -147,7 +156,7 @@ export default function Header() {
                 }}
                 onClick={() => setIsMenuOpen(false)}
               >
-                Home
+                {t('home')}
               </Link>
               <Link 
                 href="/products" 
@@ -161,7 +170,7 @@ export default function Header() {
                 }}
                 onClick={() => setIsMenuOpen(false)}
               >
-                Products
+                {t('products')}
               </Link>
               <Link 
                 href="/collections" 
@@ -175,7 +184,7 @@ export default function Header() {
                 }}
                 onClick={() => setIsMenuOpen(false)}
               >
-                Collections
+                {t('collections')}
               </Link>
               <Link 
                 href="/about" 
@@ -189,9 +198,9 @@ export default function Header() {
                 }}
                 onClick={() => setIsMenuOpen(false)}
               >
-                About
+                {t('about')}
               </Link>
-              <div style={{ padding: '12px 0', borderTop: '1px solid #9A9A9A', marginTop: '12px' }}>
+              <div style={{ padding: '12px 0', borderTop: '1px solid #9A9A9A', marginTop: '12px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <WalletConnect />
               </div>
             </div>
