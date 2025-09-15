@@ -25,9 +25,20 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 no-underline">
-            <div className="w-10 h-10 bg-[#3E7C4A] rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">C</span>
+          <Link href="/" className="flex items-center gap-3 no-underline">
+            <div className="relative">
+              {/* Logo for light mode */}
+              <img 
+                src="/assets/logogr.jpeg" 
+                alt="Copoazú Labs Logo" 
+                className="w-10 h-10 rounded-lg dark:hidden"
+              />
+              {/* Logo for dark mode */}
+              <img 
+                src="/assets/logowh.jpeg" 
+                alt="Copoazú Labs Logo" 
+                className="w-10 h-10 rounded-lg hidden dark:block"
+              />
             </div>
             <span className="text-xl font-bold text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">{env.APP_NAME}</span>
           </Link>

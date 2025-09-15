@@ -21,6 +21,19 @@ export default function AboutPage() {
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <div className="text-center mb-16">
+          {/* Logo */}
+          <div className="mb-6">
+            <img 
+              src="/assets/logogr.jpeg" 
+              alt="Copoazú Labs Logo" 
+              className="w-20 h-20 rounded-xl mx-auto dark:hidden"
+            />
+            <img 
+              src="/assets/logowh.jpeg" 
+              alt="Copoazú Labs Logo" 
+              className="w-20 h-20 rounded-xl mx-auto hidden dark:block"
+            />
+          </div>
           <h1 className="text-4xl font-bold text-[#1C1C1C] dark:text-[#F5F1E7] mb-3 transition-colors duration-200">
             {t('title')}
           </h1>

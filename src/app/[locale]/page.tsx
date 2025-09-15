@@ -84,8 +84,18 @@ export default function Home() {
             <div className="flex-none w-72 max-w-72">
               <div className="w-full h-64 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl flex items-center justify-center transition-colors duration-200">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-[#3E7C4A] rounded-full flex items-center justify-center mx-auto mb-3">
-                    <ShoppingCart className="w-8 h-8 text-white" />
+                  {/* Logo */}
+                  <div className="mb-4">
+                    <img 
+                      src="/assets/logogr.jpeg" 
+                      alt="Copoazú Labs Logo" 
+                      className="w-20 h-20 rounded-xl mx-auto dark:hidden"
+                    />
+                    <img 
+                      src="/assets/logowh.jpeg" 
+                      alt="Copoazú Labs Logo" 
+                      className="w-20 h-20 rounded-xl mx-auto hidden dark:block"
+                    />
                   </div>
                   <h3 className="text-lg font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-1 transition-colors duration-200">
                     Web3 Merchandise
@@ -219,6 +229,14 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-br from-[#3E7C4A] to-[#1C1C1C] text-white">
         <div className="max-w-7xl mx-auto px-4 text-center">
+          {/* Logo */}
+          <div className="mb-6">
+            <img 
+              src="/assets/logowh.jpeg" 
+              alt="Copoazú Labs Logo" 
+              className="w-16 h-16 rounded-xl mx-auto"
+            />
+          </div>
           <h2 className="text-3xl font-bold mb-3">
             {t('cta.title')}
           </h2>
