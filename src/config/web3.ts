@@ -30,7 +30,17 @@ if (!projectId) {
   throw new Error('Project ID is not defined')
 }
 
-export const networks = [celoMainnet]
+// Convert to AppKitNetwork format
+export const networks = [
+  {
+    id: celoMainnet.id,
+    name: celoMainnet.name,
+    rpcUrl: celoMainnet.rpcUrls.default.http[0],
+    blockExplorerUrl: celoMainnet.blockExplorers.default.url,
+    nativeCurrency: celoMainnet.nativeCurrency,
+    chainId: celoMainnet.id,
+  }
+] as any
 
 // Wagmi adapter configuration with proper SSR support
 export const wagmiAdapter = new WagmiAdapter({
@@ -39,7 +49,7 @@ export const wagmiAdapter = new WagmiAdapter({
   }),
   ssr: true,
   projectId,
-  networks
+  networks: [celoMainnet]
 })
 
 export const config = wagmiAdapter.wagmiConfig
