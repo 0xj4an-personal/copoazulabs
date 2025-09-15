@@ -63,17 +63,17 @@ export default function CollectionsPage() {
     <div className="min-h-screen bg-[#F5F1E7] dark:bg-[#1C1C1C] py-8 px-4 transition-colors duration-200">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-[#1C1C1C] dark:text-[#F5F1E7] mb-4 transition-colors duration-200">
+        <div className="mb-6">
+          <h1 className="text-3xl font-bold text-[#1C1C1C] dark:text-[#F5F1E7] mb-3 transition-colors duration-200">
             {t('title')}
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 transition-colors duration-200">
+          <p className="text-base text-gray-600 dark:text-gray-400 mb-6 transition-colors duration-200">
             {t('subtitle')}
           </p>
         </div>
 
         {/* Filters and Search */}
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg mb-8 transition-colors duration-200">
+        <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl shadow-lg mb-6 transition-colors duration-200">
           <div className="flex flex-col gap-4">
             {/* Search Bar */}
             <div className="relative">
@@ -83,7 +83,7 @@ export default function CollectionsPage() {
                 placeholder={t('searchPlaceholder')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full py-3 pl-12 pr-4 border-2 border-gray-300 dark:border-gray-600 rounded-xl text-base bg-white dark:bg-gray-700 text-[#1C1C1C] dark:text-[#F5F1E7] placeholder-gray-500 dark:placeholder-gray-400 focus:border-[#3E7C4A] focus:outline-none transition-colors duration-200"
+                className="w-full py-2.5 pl-12 pr-4 border-2 border-gray-300 dark:border-gray-600 rounded-xl text-sm bg-white dark:bg-gray-700 text-[#1C1C1C] dark:text-[#F5F1E7] placeholder-gray-500 dark:placeholder-gray-400 focus:border-[#3E7C4A] focus:outline-none transition-colors duration-200"
               />
             </div>
 
@@ -95,7 +95,7 @@ export default function CollectionsPage() {
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="py-2 px-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-sm text-[#1C1C1C] dark:text-[#F5F1E7] focus:border-[#3E7C4A] focus:outline-none transition-colors duration-200"
+                  className="py-1.5 px-2.5 border-2 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-xs text-[#1C1C1C] dark:text-[#F5F1E7] focus:border-[#3E7C4A] focus:outline-none transition-colors duration-200"
                 >
                   <option value="newest">{t('newest')}</option>
                   <option value="popular">{t('mostPopular')}</option>
@@ -112,30 +112,30 @@ export default function CollectionsPage() {
                   onChange={(e) => setShowFeaturedOnly(e.target.checked)}
                   className="m-0"
                 />
-                <span className="text-sm text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">{t('featuredOnly')}</span>
+                <span className="text-xs text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">{t('featuredOnly')}</span>
               </label>
 
               {/* View Mode Toggle */}
               <div className="flex gap-1 ml-auto">
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-2 border-2 rounded-lg cursor-pointer transition-all duration-200 ${
+                  className={`p-1.5 border-2 rounded-lg cursor-pointer transition-all duration-200 ${
                     viewMode === 'grid' 
                       ? 'border-[#3E7C4A] bg-[#3E7C4A] text-white' 
                       : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-500 dark:text-gray-400'
                   }`}
                 >
-                  <Grid size={16} />
+                  <Grid size={14} />
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`p-2 border-2 rounded-lg cursor-pointer transition-all duration-200 ${
+                  className={`p-1.5 border-2 rounded-lg cursor-pointer transition-all duration-200 ${
                     viewMode === 'list' 
                       ? 'border-[#3E7C4A] bg-[#3E7C4A] text-white' 
                       : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-500 dark:text-gray-400'
                   }`}
                 >
-                  <List size={16} />
+                  <List size={14} />
                 </button>
               </div>
             </div>
@@ -144,11 +144,11 @@ export default function CollectionsPage() {
 
         {/* Collections Grid/List */}
         {filteredCollections.length === 0 ? (
-          <div className="bg-white dark:bg-gray-800 p-12 rounded-2xl text-center shadow-lg transition-colors duration-200">
-            <h3 className="text-xl font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-2 transition-colors duration-200">
+          <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl text-center shadow-lg transition-colors duration-200">
+            <h3 className="text-lg font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-2 transition-colors duration-200">
               {t('noCollectionsFound')}
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 mb-4 transition-colors duration-200">
+            <p className="text-gray-600 dark:text-gray-400 mb-3 transition-colors duration-200">
               {t('tryAdjustingFilters')}
             </p>
             <button
@@ -157,7 +157,7 @@ export default function CollectionsPage() {
                 setShowFeaturedOnly(false);
                 setSortBy('newest');
               }}
-              className="py-3 px-6 bg-[#3E7C4A] text-white border-none rounded-xl cursor-pointer text-sm font-semibold hover:bg-[#2d5f3a] transition-all duration-200"
+              className="py-2.5 px-5 bg-[#3E7C4A] text-white border-none rounded-xl cursor-pointer text-xs font-semibold hover:bg-[#2d5f3a] transition-all duration-200"
             >
               {t('clearFilters')}
             </button>
@@ -175,7 +175,7 @@ export default function CollectionsPage() {
                 className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg transition-all duration-200 cursor-pointer hover:transform hover:-translate-y-1 hover:shadow-xl"
               >
                 {/* Collection Image */}
-                <div style={{ position: 'relative', height: '200px', overflow: 'hidden' }}>
+                <div style={{ position: 'relative', height: '160px', overflow: 'hidden' }}>
                   <img
                     src={collection.image}
                     alt={t(`collectionItems.${collection.nameKey}.name`)}
@@ -209,9 +209,9 @@ export default function CollectionsPage() {
                 </div>
 
                 {/* Collection Info */}
-                <div className="p-6">
+                <div className="p-4">
                   <div className="flex justify-between items-start mb-3">
-                    <h3 className="text-xl font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] m-0 transition-colors duration-200">
+                    <h3 className="text-lg font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] m-0 transition-colors duration-200">
                       {t(`collectionItems.${collection.nameKey}.name`)}
                     </h3>
                     <div className="flex items-center gap-1">
@@ -222,12 +222,12 @@ export default function CollectionsPage() {
                     </div>
                   </div>
 
-                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed transition-colors duration-200">
+                  <p className="text-gray-600 dark:text-gray-400 text-xs mb-3 leading-relaxed transition-colors duration-200">
                     {t(`collectionItems.${collection.descriptionKey}.description`)}
                   </p>
 
                   {/* Stats */}
-                  <div className="flex gap-4 mb-4">
+                  <div className="flex gap-3 mb-3">
                     <div className="flex items-center gap-1">
                       <span className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-200">
                         {collection.itemCount} {t('items')}
@@ -257,7 +257,7 @@ export default function CollectionsPage() {
                         e.stopPropagation();
                         handleCollectionClick(collection.id);
                       }}
-                      className="py-2 px-4 bg-[#3E7C4A] text-white border-none rounded-lg cursor-pointer text-xs font-semibold hover:bg-[#2d5f3a] transition-all duration-200"
+                      className="py-1.5 px-3 bg-[#3E7C4A] text-white border-none rounded-lg cursor-pointer text-xs font-semibold hover:bg-[#2d5f3a] transition-all duration-200"
                     >
                       {t('viewCollection')}
                     </button>

@@ -65,7 +65,7 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Product Image */}
-      <div style={{ position: 'relative', aspectRatio: '3/4', overflow: 'hidden' }}>
+      <div style={{ position: 'relative', aspectRatio: '4/5', overflow: 'hidden' }}>
         <img
           src={product.image}
           alt={t(`productItems.${product.nameKey}.name`)}
@@ -143,7 +143,7 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
       </div>
 
       {/* Product Info */}
-      <div className="p-6">
+      <div className="p-4">
         <div className="mb-2 flex justify-between items-center">
           <span className="text-sm text-gray-500 dark:text-gray-400">{t(`categories.${product.categoryKey}`)}</span>
           <span className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-2 py-1 rounded-full">
@@ -154,7 +154,7 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
           </span>
         </div>
         
-        <h3 className="text-lg font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-2 leading-tight transition-colors duration-200">
+        <h3 className="text-base font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-2 leading-tight transition-colors duration-200">
           {product.nameKey}
         </h3>
 
@@ -170,7 +170,7 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
 
         {/* Price */}
         <div className="flex items-center gap-2 mb-4">
-          <span className="text-xl font-bold text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">
+          <span className="text-lg font-bold text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">
             {discountedPrice.toLocaleString('es-CO')} cCOP
           </span>
           {isVerified && (
@@ -198,7 +198,7 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
         {/* Add to Cart Button */}
         <button
           onClick={handleAddToCart}
-          className="w-full py-3 px-4 bg-[#3E7C4A] text-white border-none rounded-lg font-medium cursor-pointer transition-all duration-200 flex items-center justify-center gap-2 hover:bg-[#2d5f3a] hover:shadow-lg"
+          className="w-full py-2.5 px-3 bg-[#3E7C4A] text-white border-none rounded-lg font-medium cursor-pointer transition-all duration-200 flex items-center justify-center gap-2 hover:bg-[#2d5f3a] hover:shadow-lg"
         >
           <ShoppingCart className="w-4 h-4" />
           {t('addToCart')}
