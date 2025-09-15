@@ -16,7 +16,7 @@ export const env = {
   // Web3 Configuration - Celo Network
   CHAIN_ID: process.env.NEXT_PUBLIC_CHAIN_ID || '42220', // Celo Mainnet
   RPC_URL: process.env.NEXT_PUBLIC_RPC_URL || 'https://rpc.celocolombia.org',
-  WALLET_CONNECT_PROJECT_ID: process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID || '',
+  WALLET_CONNECT_PROJECT_ID: process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID || 'b728b33130cc37e157fde632ddb4cee5',
   
   // Celo Network Details
   CELO_CHAIN_ID: '42220',

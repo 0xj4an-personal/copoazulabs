@@ -1,8 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslations } from 'next-intl';
 import { Wallet, ExternalLink, CheckCircle, AlertCircle } from 'lucide-react';
+import { usePayment } from '@/hooks/usePayment';
+import { useWallet } from '@/hooks/useWallet';
+import { PAYMENT_CONFIG } from '@/config/web3';
 
 interface CeloPaymentProps {
   totalPrice: number;
@@ -12,152 +15,30 @@ interface CeloPaymentProps {
 
 export default function CeloPayment({ totalPrice, onPaymentSuccess, onPaymentError }: CeloPaymentProps) {
   const t = useTranslations('checkout');
-  const [isProcessing, setIsProcessing] = useState(false);
-  const [paymentStatus, setPaymentStatus] = useState<'idle' | 'pending' | 'success' | 'error'>('idle');
-  const [txHash, setTxHash] = useState<string>('');
-
-  // Wallet address where payments will be sent
-  const RECEIVER_ADDRESS = '0x06C000F406AdD41462E4899Ff3A22312d7AACF46';
-  
-  // cCOP token contract address on Celo (Celo Colombian Peso)  // NOTE: This is a placeholder address. In production, use the actual cCOP contract address
-  const CCOP_TOKEN_ADDRESS = '0x765DE816845861e75A25fCA122bb6898B8B1282a';
-  
-  // Celo network configuration
-  const CELO_CONFIG = {
-    rpcUrl: 'https://rpc.celocolombia.org',
-    chainId: 42220, // Mainnet Celo
-    chainName: 'Celo Mainnet',
-    nativeCurrency: {
-      name: 'CELO',
-      symbol: 'CELO',
-      decimals: 18,
-    },
-  };
+  const { isConnected, connect, ccopBalance } = useWallet();
+  const {
+    isProcessing,
+    paymentStatus,
+    txHash,
+    error,
+    isConfirming,
+    payWithCCOP,
+    getExplorerUrl,
+    formatAmount,
+  } = usePayment();
 
   const handleCeloPayment = async () => {
     try {
-      setIsProcessing(true);
-      setPaymentStatus('pending');
-
-      // Check if wallet is connected
-      if (!window.ethereum) {
-        throw new Error('Please install MetaMask or a compatible wallet');
+      if (!isConnected) {
+        await connect();
+        return;
       }
 
-      // Request account access
-      const accounts = await window.ethereum.request({
-        method: 'eth_requestAccounts',
-      });
-
-      if (accounts.length === 0) {
-        throw new Error('No accounts found');
-      }
-
-      const userAddress = accounts[0];
-
-      // Switch to Celo network if not already connected
-      await switchToCeloNetwork();
-
-      // Check cCOP balance before proceeding
-      const balanceData = '0x70a08231' + userAddress.slice(2).padStart(64, '0');
-      const balanceResponse = await window.ethereum.request({
-        method: 'eth_call',
-        params: [
-          {
-            to: CCOP_TOKEN_ADDRESS,
-            data: balanceData,
-          },
-          'latest',
-        ],
-      });
-      
-      const userBalance = parseInt(balanceResponse, 16);
-      const requiredAmount = Math.floor(totalPrice * 1e18);
-      
-      if (userBalance < requiredAmount) {
-        throw new Error(`Insufficient cCOP balance. Required: ${totalPrice.toLocaleString('es-CO')} cCOP, Available: ${(userBalance / 1e18).toLocaleString('es-CO')} cCOP`);
-      }
-
-      // Send cCOP tokens (ERC-20 token on Celo network)
-      // Interact with the cCOP token contract using ERC-20 transfer function
-      const amountInWei = (totalPrice * 1e18).toString(16); // Convert to wei (cCOP has 18 decimals)
-      
-      // ERC-20 transfer function signature: transfer(address,uint256)
-      const transferFunctionSignature = '0xa9059cbb';
-      
-      // Encode the receiver address (remove 0x prefix and pad to 32 bytes)
-      const receiverAddress = RECEIVER_ADDRESS.slice(2).padStart(64, '0');
-      
-      // Encode the amount (pad to 32 bytes)
-      const encodedAmount = amountInWei.padStart(64, '0');
-      
-      // Combine function signature + receiver address + amount
-      const data = transferFunctionSignature + receiverAddress + encodedAmount;
-
-      // Create transaction to cCOP token contract
-      const transaction = {
-        from: userAddress,
-        to: CCOP_TOKEN_ADDRESS, // Send to cCOP token contract, not receiver address
-        value: '0x0', // No CELO being sent, only cCOP tokens
-        data: '0x' + data, // ERC-20 transfer function call
-        gas: '0x7530', // 30000 gas limit for ERC-20 transfer
-      };
-
-      // Send transaction
-      const txHash = await window.ethereum.request({
-        method: 'eth_sendTransaction',
-        params: [transaction],
-      });
-
-      setTxHash(txHash);
-      setPaymentStatus('success');
+      await payWithCCOP(totalPrice);
       onPaymentSuccess();
-
     } catch (error: any) {
       console.error('Payment error:', error);
-      setPaymentStatus('error');
       onPaymentError(error.message || 'Payment failed');
-    } finally {
-      setIsProcessing(false);
-    }
-  };
-
-  const switchToCeloNetwork = async () => {
-    if (!window.ethereum) {
-      throw new Error('Wallet not found');
-    }
-
-    try {
-      await window.ethereum.request({
-        method: 'wallet_switchEthereumChain',
-        params: [{ chainId: '0xa4ec' }], // Celo mainnet chain ID in hex
-      });
-    } catch (switchError: any) {
-      // This error code indicates that the chain has not been added to MetaMask
-      if (switchError.code === 4902) {
-        try {
-          await window.ethereum.request({
-            method: 'wallet_addEthereumChain',
-            params: [
-              {
-                chainId: '0xa4ec',
-                chainName: 'Celo Mainnet',
-                rpcUrls: ['https://rpc.celocolombia.org'],
-                nativeCurrency: {
-                  name: 'CELO',
-                  symbol: 'CELO',
-                  decimals: 18,
-                },
-                blockExplorerUrls: ['https://explorer.celo.org'],
-              },
-            ],
-          });
-        } catch (addError) {
-          throw new Error('Failed to add Celo network to wallet');
-        }
-      } else {
-        throw new Error('Failed to switch to Celo network');
-      }
     }
   };
 
@@ -173,6 +54,8 @@ export default function CeloPayment({ totalPrice, onPaymentSuccess, onPaymentErr
   };
 
   const getStatusText = () => {
+    if (isConfirming) return 'Confirming transaction...';
+
     switch (paymentStatus) {
       case 'pending':
         return 'Processing payment...';
@@ -181,7 +64,7 @@ export default function CeloPayment({ totalPrice, onPaymentSuccess, onPaymentErr
       case 'error':
         return 'Payment failed';
       default:
-        return 'Pay with cCOP';
+        return isConnected ? 'Pay with cCOP' : 'Connect wallet to pay';
     }
   };
 
@@ -221,21 +104,29 @@ export default function CeloPayment({ totalPrice, onPaymentSuccess, onPaymentErr
         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
           <span style={{ fontSize: '14px', color: '#6B7280' }}>Amount:</span>
           <span style={{ fontWeight: '600', color: '#111827' }}>
-            {totalPrice.toLocaleString('es-CO')} cCOP
+            {formatAmount(totalPrice)} cCOP
           </span>
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
           <span style={{ fontSize: '14px', color: '#6B7280' }}>Network:</span>
-          <span style={{ fontWeight: '600', color: '#111827' }}>Celo</span>
+          <span style={{ fontWeight: '600', color: '#111827' }}>
+            {PAYMENT_CONFIG.network.name}
+          </span>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+          <span style={{ fontSize: '14px', color: '#6B7280' }}>Your cCOP:</span>
+          <span style={{ fontWeight: '600', color: '#111827' }}>
+            {ccopBalance}
+          </span>
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <span style={{ fontSize: '14px', color: '#6B7280' }}>Wallet:</span>
-          <span style={{ 
-            fontSize: '12px', 
+          <span style={{ fontSize: '14px', color: '#6B7280' }}>Recipient:</span>
+          <span style={{
+            fontSize: '12px',
             fontFamily: 'monospace',
             color: '#6B7280'
           }}>
-            {RECEIVER_ADDRESS.slice(0, 6)}...{RECEIVER_ADDRESS.slice(-4)}
+            {PAYMENT_CONFIG.receiverAddress.slice(0, 6)}...{PAYMENT_CONFIG.receiverAddress.slice(-4)}
           </span>
         </div>
       </div>
@@ -255,7 +146,7 @@ export default function CeloPayment({ totalPrice, onPaymentSuccess, onPaymentErr
             </span>
           </div>
           <a
-            href={`https://explorer.celo.org/tx/${txHash}`}
+            href={getExplorerUrl(txHash)}
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -273,24 +164,41 @@ export default function CeloPayment({ totalPrice, onPaymentSuccess, onPaymentErr
         </div>
       )}
 
+      {error && (
+        <div style={{
+          backgroundColor: '#FEF2F2',
+          border: '1px solid #FCA5A5',
+          borderRadius: '6px',
+          padding: '12px',
+          marginBottom: '16px'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <AlertCircle className="w-4 h-4 text-red-600" />
+            <span style={{ fontSize: '14px', color: '#DC2626' }}>
+              {error}
+            </span>
+          </div>
+        </div>
+      )}
+
       <button
         onClick={handleCeloPayment}
-        disabled={isProcessing || paymentStatus === 'success'}
+        disabled={isProcessing || isConfirming || paymentStatus === 'success'}
         style={{
           width: '100%',
           padding: '12px 24px',
-          backgroundColor: paymentStatus === 'success' ? '#10B981' : '#059669',
+          backgroundColor: paymentStatus === 'success' ? '#10B981' : isConnected ? '#059669' : '#6B7280',
           color: '#FFFFFF',
           border: 'none',
           borderRadius: '8px',
           fontSize: '16px',
           fontWeight: '600',
-          cursor: isProcessing || paymentStatus === 'success' ? 'not-allowed' : 'pointer',
-          opacity: isProcessing || paymentStatus === 'success' ? 0.7 : 1,
+          cursor: isProcessing || isConfirming || paymentStatus === 'success' ? 'not-allowed' : 'pointer',
+          opacity: isProcessing || isConfirming || paymentStatus === 'success' ? 0.7 : 1,
           transition: 'all 0.2s ease'
         }}
       >
-        {isProcessing ? 'Processing...' : paymentStatus === 'success' ? 'Payment Complete' : 'Pay with cCOP'}
+        {getStatusText()}
       </button>
     </div>
   );

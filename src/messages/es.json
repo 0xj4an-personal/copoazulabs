@@ -299,13 +299,14 @@
     "connected": "Conectado",
     "disconnect": "Desconectar",
     "copyAddress": "Copiar Dirección",
-    "viewExplorer": "Ver en Explorador",
+    "viewExplorer": "Ver en Celoscan",
     "switchToCelo": "Cambiar a Celo",
     "network": "Red",
     "balance": "Saldo",
     "switchNetwork": "Cambiar Red",
     "wrongNetwork": "Red Incorrecta",
-    "pleaseSwitch": "Por favor cambia a la red correcta para continuar"
+    "pleaseSwitch": "Por favor cambia a la red correcta para continuar",
+    "clickToCopy": "Haz clic para copiar"
   },
   "payment": {
     "title": "Métodos de Pago",
@@ -415,6 +416,6 @@
          "processingPayment": "Procesando pago...",
          "paymentSuccessful": "¡Pago exitoso!",
          "paymentFailed": "Pago fallido",
-         "viewOnExplorer": "Ver en Celo Explorer"
+         "viewOnExplorer": "Ver en Celoscan"
        }
 }

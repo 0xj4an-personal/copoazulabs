@@ -7,6 +7,7 @@ import CartDrawer from "@/components/CartDrawer";
 import { CartProvider } from "@/contexts/CartContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { VerificationProvider } from "@/contexts/VerificationContext";
+import { Web3Provider } from "@/contexts/Web3Context";
 import { locales } from '@/i18n/config';
 
 export function generateStaticParams() {
@@ -71,18 +72,20 @@ export default async function LocaleLayout({
         }}
       />
       <NextIntlClientProvider messages={messages}>
-        <ThemeProvider>
-          <VerificationProvider>
-            <CartProvider>
-              <Header />
-              <main className="min-h-screen">
-                {children}
-              </main>
-              <Footer />
-              <CartDrawer />
-            </CartProvider>
-          </VerificationProvider>
-        </ThemeProvider>
+        <Web3Provider>
+          <ThemeProvider>
+            <VerificationProvider>
+              <CartProvider>
+                <Header />
+                <main className="min-h-screen">
+                  {children}
+                </main>
+                <Footer />
+                <CartDrawer />
+              </CartProvider>
+            </VerificationProvider>
+          </ThemeProvider>
+        </Web3Provider>
       </NextIntlClientProvider>
     </>
   );

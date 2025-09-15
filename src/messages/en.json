@@ -70,7 +70,7 @@
     "price": "Price",
     "originalPrice": "Original Price",
     "rating": "Rating",
-    "reviews": "reviews",
+    "reviews": "Reviews",
     "addToCart": "Add to Cart",
     "quickView": "Quick View",
     "new": "New",
@@ -85,7 +85,6 @@
     "tags": "Tags",
     "description": "Description",
     "specifications": "Specifications",
-    "reviews": "Reviews",
     "relatedProducts": "Related Products",
     "collections": "Collections",
     "allCollections": "All Collections",
@@ -300,13 +299,14 @@
     "connected": "Connected",
     "disconnect": "Disconnect",
     "copyAddress": "Copy Address",
-    "viewExplorer": "View on Explorer",
+    "viewExplorer": "View on Celoscan",
     "switchToCelo": "Switch to Celo",
     "network": "Network",
     "balance": "Balance",
     "switchNetwork": "Switch Network",
     "wrongNetwork": "Wrong Network",
-    "pleaseSwitch": "Please switch to the correct network to continue"
+    "pleaseSwitch": "Please switch to the correct network to continue",
+    "clickToCopy": "Click to copy"
   },
   "payment": {
     "title": "Payment Methods",
@@ -416,6 +416,6 @@
          "processingPayment": "Processing payment...",
          "paymentSuccessful": "Payment successful!",
          "paymentFailed": "Payment failed",
-         "viewOnExplorer": "View on Celo Explorer"
+         "viewOnExplorer": "View on Celoscan"
        }
 }
