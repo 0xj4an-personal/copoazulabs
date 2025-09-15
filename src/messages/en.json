@@ -33,7 +33,7 @@
     "title": "Web3 Fashion Revolution",
     "subtitle": "Discover exclusive Web3 branded clothing and merchandise. Connect your wallet, shop with crypto, and join the decentralized fashion revolution.",
     "shopNow": "Shop Now",
-    "connectWallet": "Connect Wallet",
+    "exploreCollections": "Explore Collections",
     "merchandise": "Web3 Merchandise",
     "tagline": "Shop with crypto, own with pride"
   },
@@ -337,6 +337,40 @@
     "subscribe": "Subscribe",
     "emailPlaceholder": "Enter your email",
     "copyright": "© 2024 Copoazú Labs. All rights reserved."
+  },
+  "verification": {
+    "title": "Get 10% Discount!",
+    "subtitle": "Verify your identity with Self and enjoy exclusive discounts on all our products.",
+    "benefits": {
+      "discount": "10% discount on all products",
+      "secure": "Quick and secure verification",
+      "exclusive": "Access to exclusive offers"
+    },
+    "buttons": {
+      "verify": "Verify with Self",
+      "maybeLater": "Maybe later",
+      "startShopping": "Great! Start shopping",
+      "tryAgain": "Try again",
+      "continueWithout": "Continue without verification"
+    },
+    "process": {
+      "verifying": "Verifying your identity...",
+      "verifyingSubtitle": "This will only take a few seconds. Please keep your device steady.",
+      "success": "Verification Successful!",
+      "successSubtitle": "Your identity has been verified. You can now enjoy 10% discount on all our products.",
+      "error": "Verification Failed",
+      "errorSubtitle": "We couldn't verify your identity at this time. Please try again."
+    },
+    "privacy": "Your information is protected and only used for verification.",
+    "status": {
+      "verified": "Verified with Self",
+      "discountActive": "10% discount active"
+    },
+    "checkout": {
+      "title": "💰 Save 10% with Self!",
+      "subtitle": "Verify your identity with Self and get a 10% discount on your order.",
+      "verifyButton": "Verify with Self - Get 10% discount!"
+    }
   },
   "cta": {
     "title": "Ready to Join the Revolution?",

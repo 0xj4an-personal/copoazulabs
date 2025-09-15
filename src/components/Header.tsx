@@ -2,17 +2,23 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Menu, X, ShoppingCart, Wallet } from 'lucide-react';
+import { Menu, X, ShoppingCart, Wallet, Shield } from 'lucide-react';
 import WalletConnect from './WalletConnect';
 import LanguageSwitcher from './LanguageSwitcher';
 import CartButton from './CartButton';
 import ThemeToggle from './ThemeToggle';
+import VerificationStatus from './VerificationStatus';
+import VerificationButton from './VerificationButton';
+import VerificationPopup from './VerificationPopup';
+import { useVerification } from '@/contexts/VerificationContext';
 import { env } from '../../env.config';
 import { useTranslations } from 'next-intl';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showVerificationPopup, setShowVerificationPopup] = useState(false);
   const t = useTranslations('navigation');
+  const { isVerified, setVerified } = useVerification();
 
   return (
     <header className="bg-white dark:bg-gray-900 shadow-lg sticky top-0 z-50 transition-colors duration-200">
@@ -58,6 +64,11 @@ export default function Header() {
           <div className="flex items-center gap-2 md:gap-4">
             {/* Desktop Actions - Hidden on Mobile */}
             <div className="hidden md:flex items-center gap-4">
+              {isVerified ? (
+                <VerificationStatus />
+              ) : (
+                <VerificationButton onClick={() => setShowVerificationPopup(true)} />
+              )}
               <WalletConnect />
               <CartButton />
             </div>
@@ -135,12 +146,30 @@ export default function Header() {
                     <span className="text-sm text-gray-600 dark:text-gray-400">Cart:</span>
                     <CartButton />
                   </div>
+                  {!isVerified && (
+                    <div className="pt-4">
+                      <VerificationButton 
+                        onClick={() => setShowVerificationPopup(true)} 
+                        variant="header"
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
           </div>
         )}
       </div>
+
+      {/* Verification Popup */}
+      <VerificationPopup
+        isOpen={showVerificationPopup}
+        onClose={() => setShowVerificationPopup(false)}
+        onVerificationComplete={(verified) => {
+          setVerified(verified);
+          setShowVerificationPopup(false);
+        }}
+      />
     </header>
   );
 }

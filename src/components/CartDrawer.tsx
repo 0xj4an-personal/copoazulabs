@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 export default function CartDrawer() {
   const t = useTranslations('cart');
-  const { state, updateQuantity, removeItem, clearCart, closeCart } = useCart();
+  const { state, updateQuantity, removeItem, clearCart, closeCart, finalPrice, discountAmount, discountPercentage } = useCart();
 
   const formatPrice = (price: number) => {
     return `${price.toLocaleString('es-CO')} cCOP`;
@@ -127,9 +127,23 @@ export default function CartDrawer() {
           {state.items.length > 0 && (
             <div className="border-t border-gray-200 dark:border-gray-700 p-6 space-y-4">
               {/* Total */}
-              <div className="flex justify-between items-center text-lg font-semibold text-gray-900 dark:text-gray-100">
-                <span>{t('total')}</span>
-                <span>{formatPrice(state.totalPrice)}</span>
+              <div className="space-y-2">
+                {discountAmount > 0 && (
+                  <div className="flex justify-between items-center text-sm text-gray-600 dark:text-gray-400">
+                    <span>Subtotal:</span>
+                    <span>{formatPrice(state.totalPrice)}</span>
+                  </div>
+                )}
+                {discountAmount > 0 && (
+                  <div className="flex justify-between items-center text-sm text-green-600 dark:text-green-400">
+                    <span>Descuento ({discountPercentage}%):</span>
+                    <span>-{formatPrice(discountAmount)}</span>
+                  </div>
+                )}
+                <div className="flex justify-between items-center text-lg font-semibold text-gray-900 dark:text-gray-100 border-t pt-2">
+                  <span>{t('total')}</span>
+                  <span>{formatPrice(finalPrice)}</span>
+                </div>
               </div>
 
               {/* Actions */}

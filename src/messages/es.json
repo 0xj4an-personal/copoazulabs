@@ -33,7 +33,7 @@
     "title": "Revolución de la Moda Web3",
     "subtitle": "Descubre ropa y mercancía exclusiva con marca Web3. Conecta tu billetera, compra con cripto y únete a la revolución de la moda descentralizada.",
     "shopNow": "Comprar Ahora",
-    "connectWallet": "Conectar Billetera",
+    "exploreCollections": "Explorar Colecciones",
     "merchandise": "Mercancía Web3",
     "tagline": "Compra con cripto, posee con orgullo"
   },
@@ -336,6 +336,40 @@
     "subscribe": "Suscribirse",
     "emailPlaceholder": "Ingresa tu email",
     "copyright": "© 2024 Copoazú Labs. Todos los derechos reservados."
+  },
+  "verification": {
+    "title": "¡Obtén 10% de Descuento!",
+    "subtitle": "Verifica tu identidad con Self y disfruta de descuentos exclusivos en todos nuestros productos.",
+    "benefits": {
+      "discount": "10% de descuento en todos los productos",
+      "secure": "Verificación rápida y segura",
+      "exclusive": "Acceso a ofertas exclusivas"
+    },
+    "buttons": {
+      "verify": "Verificar con Self",
+      "maybeLater": "Tal vez más tarde",
+      "startShopping": "¡Genial! Comenzar a comprar",
+      "tryAgain": "Intentar de nuevo",
+      "continueWithout": "Continuar sin verificación"
+    },
+    "process": {
+      "verifying": "Verificando tu identidad...",
+      "verifyingSubtitle": "Esto solo tomará unos segundos. Por favor, mantén tu dispositivo estable.",
+      "success": "¡Verificación Exitosa!",
+      "successSubtitle": "Tu identidad ha sido verificada. Ya puedes disfrutar del 10% de descuento en todos nuestros productos.",
+      "error": "Verificación Fallida",
+      "errorSubtitle": "No pudimos verificar tu identidad en este momento. Por favor, inténtalo de nuevo."
+    },
+    "privacy": "Tu información está protegida y solo se usa para la verificación.",
+    "status": {
+      "verified": "Verificado con Self",
+      "discountActive": "10% descuento activo"
+    },
+    "checkout": {
+      "title": "💰 ¡Ahorra 10% con Self!",
+      "subtitle": "Verifica tu identidad con Self y obtén un descuento del 10% en tu pedido.",
+      "verifyButton": "Verificar con Self - ¡Obtén 10% de descuento!"
+    }
   },
   "cta": {
     "title": "¿Listo para Unirte a la Revolución?",

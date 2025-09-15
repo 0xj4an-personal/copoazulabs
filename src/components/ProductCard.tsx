@@ -1,9 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { Heart, ShoppingCart, Star, Eye } from 'lucide-react';
+import { Heart, ShoppingCart, Star, Eye, Shield } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useCart } from '@/contexts/CartContext';
+import { useVerification } from '@/contexts/VerificationContext';
 import { Product } from '@/data/products';
 import { getCollectionById } from '@/data/collections';
 
@@ -20,6 +21,12 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
   const t = useTranslations('products');
   const tCollections = useTranslations('collections');
   const { addItem } = useCart();
+  const { isVerified } = useVerification();
+
+  // Calculate pricing with discount
+  const discountPercentage = 10;
+  const originalPrice = product.price;
+  const discountedPrice = isVerified ? Math.round(originalPrice * (1 - discountPercentage / 100)) : originalPrice;
 
   const handleAddToCart = () => {
     addItem({
@@ -164,11 +171,21 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
         {/* Price */}
         <div className="flex items-center gap-2 mb-4">
           <span className="text-xl font-bold text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">
-            {product.price.toLocaleString('es-CO')} cCOP
+            {discountedPrice.toLocaleString('es-CO')} cCOP
           </span>
-          {product.originalPrice && (
+          {isVerified && (
+            <span className="text-base text-gray-500 dark:text-gray-400 line-through transition-colors duration-200">
+              {originalPrice.toLocaleString('es-CO')} cCOP
+            </span>
+          )}
+          {product.originalPrice && !isVerified && (
             <span className="text-base text-gray-500 dark:text-gray-400 line-through transition-colors duration-200">
               {product.originalPrice.toLocaleString('es-CO')} cCOP
+            </span>
+          )}
+          {isVerified && (
+            <span className="text-xs bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-300 px-2 py-1 rounded-full font-medium">
+              -{discountPercentage}%
             </span>
           )}
         </div>

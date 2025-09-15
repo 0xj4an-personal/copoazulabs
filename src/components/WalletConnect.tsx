@@ -17,12 +17,20 @@ export default function WalletConnect({ onConnect, onDisconnect }: WalletConnect
   const [balance, setBalance] = useState('');
   const [isConnecting, setIsConnecting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [manuallyDisconnected, setManuallyDisconnected] = useState(false);
   const t = useTranslations('wallet');
 
-  // Check if wallet is already connected on mount
+  // Check if wallet is already connected on mount (only if not manually disconnected)
   useEffect(() => {
-    if (typeof window !== 'undefined' && window.ethereum) {
-      checkConnection();
+    if (typeof window !== 'undefined') {
+      // Check if user manually disconnected
+      const wasManuallyDisconnected = localStorage.getItem('wallet-manually-disconnected') === 'true';
+      setManuallyDisconnected(wasManuallyDisconnected);
+      
+      // Only check connection if not manually disconnected
+      if (window.ethereum && !wasManuallyDisconnected) {
+        checkConnection();
+      }
     }
   }, []);
 
@@ -30,15 +38,26 @@ export default function WalletConnect({ onConnect, onDisconnect }: WalletConnect
     try {
       if (typeof window === 'undefined' || !window.ethereum) return;
       
+      // Only check for already connected accounts, don't request new authorization
       const accounts = await window.ethereum.request({ method: 'eth_accounts' });
       if (accounts.length > 0) {
-        const balance = await window.ethereum.request({
-          method: 'eth_getBalance',
-          params: [accounts[0], 'latest']
-        });
-        setAddress(accounts[0]);
-        setBalance(balance);
-        setIsConnected(true);
+        // Check if we have a saved connection preference
+        const wasConnected = localStorage.getItem('wallet-was-connected') === 'true';
+        
+        if (wasConnected) {
+          // User previously connected and we should restore the connection
+          const balance = await window.ethereum.request({
+            method: 'eth_getBalance',
+            params: [accounts[0], 'latest']
+          });
+          setAddress(accounts[0]);
+          setBalance(balance);
+          setIsConnected(true);
+          setManuallyDisconnected(false);
+        } else {
+          // User hasn't explicitly connected yet, don't auto-connect
+          console.log('Wallet detected but not previously connected by user');
+        }
       }
     } catch (error) {
       console.error('Error checking wallet connection:', error);
@@ -63,6 +82,14 @@ export default function WalletConnect({ onConnect, onDisconnect }: WalletConnect
         setAddress(accounts[0]);
         setBalance(balance);
         setIsConnected(true);
+        setManuallyDisconnected(false);
+        
+        // Save connection state and clear disconnect state
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('wallet-was-connected', 'true');
+          localStorage.removeItem('wallet-manually-disconnected');
+        }
+        
         onConnect?.();
       }
     } catch (error: any) {
@@ -79,6 +106,14 @@ export default function WalletConnect({ onConnect, onDisconnect }: WalletConnect
     setBalance('');
     setShowDropdown(false);
     setError(null);
+    setManuallyDisconnected(true);
+    
+    // Save disconnect state and clear connection state
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('wallet-manually-disconnected', 'true');
+      localStorage.removeItem('wallet-was-connected');
+    }
+    
     onDisconnect?.();
   };
 
@@ -156,12 +191,14 @@ export default function WalletConnect({ onConnect, onDisconnect }: WalletConnect
           className={`inline-flex items-center px-4 py-2 text-white font-medium rounded-lg border-none cursor-pointer transition-all duration-200 shadow-lg active:scale-95 touch-manipulation ${
             isConnecting 
               ? 'bg-gray-400 cursor-not-allowed opacity-70' 
-              : 'bg-green-600 hover:bg-green-700'
+              : manuallyDisconnected 
+                ? 'bg-blue-600 hover:bg-blue-700'
+                : 'bg-green-600 hover:bg-green-700'
           }`}
           style={{ minWidth: '44px', minHeight: '44px' }}
         >
           <Wallet className="w-4 h-4 mr-2" />
-          {isConnecting ? t('connecting') : t('connect')}
+          {isConnecting ? t('connecting') : manuallyDisconnected ? 'Reconectar' : t('connect')}
         </button>
         {error && (
           <div className="absolute top-full right-0 mt-2 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md text-red-600 dark:text-red-400 text-xs max-w-xs z-50">

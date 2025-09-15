@@ -2,8 +2,12 @@
 
 import { ArrowRight, Zap, Shield, Users, ShoppingCart, Wallet } from 'lucide-react';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import ProductCard from '@/components/ProductCard';
+import VerificationPopup from '@/components/VerificationPopup';
+import WalletConnect from '@/components/WalletConnect';
 import { useTranslations } from 'next-intl';
+import { useVerification } from '@/contexts/VerificationContext';
 import { getFeaturedProducts } from '@/data/products';
 
 // Get featured products from centralized data
@@ -12,6 +16,35 @@ const featuredProducts = getFeaturedProducts();
 
 export default function Home() {
   const t = useTranslations();
+  const { isVerified, setVerified } = useVerification();
+  const [showVerificationPopup, setShowVerificationPopup] = useState(false);
+
+  // Show verification popup after 3 seconds if user is not verified
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!isVerified && typeof window !== 'undefined') {
+        const hasSeenPopup = localStorage.getItem('hasSeenVerificationPopup');
+        if (!hasSeenPopup) {
+          setShowVerificationPopup(true);
+        }
+      }
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [isVerified]);
+
+  const handleVerificationComplete = (verified: boolean) => {
+    setVerified(verified);
+    setShowVerificationPopup(false);
+    if (verified) {
+      localStorage.setItem('hasSeenVerificationPopup', 'true');
+    }
+  };
+
+  const handleClosePopup = () => {
+    setShowVerificationPopup(false);
+    localStorage.setItem('hasSeenVerificationPopup', 'true');
+  };
 
   return (
     <div className="min-h-screen bg-[#F5F1E7] dark:bg-[#1C1C1C] text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">
@@ -38,10 +71,12 @@ export default function Home() {
                     <ArrowRight className="ml-1.5 w-4.5 h-4.5" />
                   </button>
                 </Link>
-                <button className="inline-flex items-center px-7 py-3.5 bg-transparent text-[#1C1C1C] dark:text-[#F5F1E7] font-semibold rounded-lg border-2 border-[#1C1C1C] dark:border-[#F5F1E7] cursor-pointer transition-all duration-300 hover:bg-[#1C1C1C] hover:text-[#F5F1E7] dark:hover:bg-[#F5F1E7] dark:hover:text-[#1C1C1C] text-base">
-                  <Wallet className="mr-1.5 w-4.5 h-4.5" />
-                  {t('hero.connectWallet')}
-                </button>
+                <Link href="/collections">
+                  <button className="inline-flex items-center px-7 py-3.5 bg-transparent text-[#1C1C1C] dark:text-[#F5F1E7] font-semibold rounded-lg border-2 border-[#1C1C1C] dark:border-[#F5F1E7] cursor-pointer transition-all duration-300 hover:bg-[#1C1C1C] hover:text-[#F5F1E7] dark:hover:bg-[#F5F1E7] dark:hover:text-[#1C1C1C] text-base">
+                    <Users className="mr-1.5 w-4.5 h-4.5" />
+                    {t('hero.exploreCollections')}
+                  </button>
+                </Link>
               </div>
             </div>
             
@@ -205,6 +240,13 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Verification Popup */}
+      <VerificationPopup
+        isOpen={showVerificationPopup}
+        onClose={handleClosePopup}
+        onVerificationComplete={handleVerificationComplete}
+      />
     </div>
   );
 }

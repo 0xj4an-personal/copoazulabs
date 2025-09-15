@@ -3,16 +3,22 @@
 import React, { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useCart } from '@/contexts/CartContext';
+import { useVerification } from '@/contexts/VerificationContext';
 import Link from 'next/link';
 import { ArrowLeft, CreditCard, Wallet } from 'lucide-react';
 import CeloPayment from '@/components/CeloPayment';
+import VerificationButton from '@/components/VerificationButton';
+import VerificationPopup from '@/components/VerificationPopup';
 
 export default function CheckoutPage() {
   const t = useTranslations('checkout');
-  const { state } = useCart();
+  const tVerification = useTranslations('verification');
+  const { state, finalPrice, discountAmount, discountPercentage } = useCart();
+  const { isVerified, setVerified } = useVerification();
   const [selectedPaymentMethod] = useState<'celo'>('celo');
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [paymentError, setPaymentError] = useState<string>('');
+  const [showVerificationPopup, setShowVerificationPopup] = useState(false);
 
   const formatPrice = (price: number) => {
     return `${price.toLocaleString('es-CO')} cCOP`;
@@ -99,10 +105,43 @@ export default function CheckoutPage() {
               ))}
             </div>
 
+            {/* Verification Section */}
+            {!isVerified && (
+              <div className="border-t border-gray-200 dark:border-gray-700 mt-6 pt-6 transition-colors duration-200">
+                <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-lg p-4 mb-4">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                    {tVerification('checkout.title')}
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                    {tVerification('checkout.subtitle')}
+                  </p>
+                  <VerificationButton 
+                    onClick={() => setShowVerificationPopup(true)} 
+                    variant="checkout"
+                  />
+                </div>
+              </div>
+            )}
+
+            {/* Order Summary */}
             <div className="border-t border-gray-200 dark:border-gray-700 mt-6 pt-6 transition-colors duration-200">
-              <div className="flex justify-between items-center text-lg font-semibold">
-                <span className="text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">{t('total')}</span>
-                <span className="text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">{formatPrice(state.totalPrice)}</span>
+              <div className="space-y-2">
+                {discountAmount > 0 && (
+                  <>
+                    <div className="flex justify-between items-center text-sm text-gray-600 dark:text-gray-400">
+                      <span>Subtotal:</span>
+                      <span>{formatPrice(state.totalPrice)}</span>
+                    </div>
+                    <div className="flex justify-between items-center text-sm text-green-600 dark:text-green-400">
+                      <span>Descuento ({discountPercentage}%):</span>
+                      <span>-{formatPrice(discountAmount)}</span>
+                    </div>
+                  </>
+                )}
+                <div className="flex justify-between items-center text-lg font-semibold border-t pt-2">
+                  <span className="text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">{t('total')}</span>
+                  <span className="text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">{formatPrice(finalPrice)}</span>
+                </div>
               </div>
             </div>
           </div>
@@ -140,13 +179,23 @@ export default function CheckoutPage() {
 
             {/* Payment Component */}
             <CeloPayment
-              totalPrice={state.totalPrice}
+              totalPrice={finalPrice}
               onPaymentSuccess={handlePaymentSuccess}
               onPaymentError={handlePaymentError}
             />
           </div>
         </div>
       </div>
+
+      {/* Verification Popup */}
+      <VerificationPopup
+        isOpen={showVerificationPopup}
+        onClose={() => setShowVerificationPopup(false)}
+        onVerificationComplete={(verified) => {
+          setVerified(verified);
+          setShowVerificationPopup(false);
+        }}
+      />
     </div>
   );
 }
