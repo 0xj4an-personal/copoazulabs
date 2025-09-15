@@ -22,7 +22,13 @@ const nextConfig: NextConfig = {
   output: 'standalone',
   
   // Fix workspace root warning
-  outputFileTracingRoot: process.cwd()
+  outputFileTracingRoot: process.cwd(),
+  
+  // Webpack configuration for Reown AppKit
+  webpack: (config) => {
+    config.externals.push("pino-pretty", "lokijs", "encoding");
+    return config;
+  },
 };
 
 export default withNextIntl(nextConfig);

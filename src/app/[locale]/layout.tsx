@@ -1,6 +1,7 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { headers } from 'next/headers';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
@@ -25,6 +26,10 @@ export default async function LocaleLayout({
   
   // Validate that the incoming `locale` parameter is valid
   if (!locales.includes(locale as any)) notFound();
+
+  // Get cookies for SSR
+  const headersObj = await headers();
+  const cookies = headersObj.get('cookie');
 
   // Providing all messages to the client side
   const messages = await getMessages({ locale });
@@ -72,7 +77,7 @@ export default async function LocaleLayout({
         }}
       />
       <NextIntlClientProvider messages={messages}>
-        <Web3Provider>
+        <Web3Provider cookies={cookies}>
           <ThemeProvider>
             <VerificationProvider>
               <CartProvider>

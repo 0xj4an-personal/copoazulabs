@@ -1,12 +1,8 @@
 // Web3 Configuration with Reown AppKit
-import { createAppKit } from '@reown/appkit/react'
+import { createStorage, cookieStorage, http } from '@wagmi/core'
 import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
 import { celo } from 'viem/chains'
-import { QueryClient } from '@tanstack/react-query'
 import { env } from '../../env.config'
-
-// Query client for React Query
-export const queryClient = new QueryClient()
 
 // Celo network configuration optimized for Colombia
 const celoMainnet = {
@@ -28,53 +24,33 @@ const celoMainnet = {
 }
 
 // Project ID - This should be set in environment variables
-const projectId = env.WALLET_CONNECT_PROJECT_ID || 'demo-project-id'
+export const projectId = env.WALLET_CONNECT_PROJECT_ID || 'demo-project-id'
 
-if (!env.WALLET_CONNECT_PROJECT_ID) {
-  console.warn('WALLET_CONNECT_PROJECT_ID not set. Using demo project ID.')
+if (!projectId) {
+  throw new Error('Project ID is not defined')
 }
 
-// Wagmi adapter configuration
+export const networks = [celoMainnet]
+
+// Wagmi adapter configuration with proper SSR support
 export const wagmiAdapter = new WagmiAdapter({
-  networks: [celoMainnet],
-  projectId,
+  storage: createStorage({
+    storage: cookieStorage
+  }),
   ssr: true,
+  projectId,
+  networks
 })
 
-// Reown AppKit configuration
-export const appKit = createAppKit({
-  adapters: [wagmiAdapter],
-  networks: [celoMainnet],
-  projectId,
-  metadata: {
-    name: 'Copoazú Labs',
-    description: 'Web3 Fashion & Merchandise Marketplace - Colombian Crypto Fashion',
-    url: env.APP_URL,
-    icons: [`${env.APP_URL}/favicon.ico`],
-  },
-  // Enhanced features for e-commerce
-  features: {
-    email: true,        // Social login with email
-    socials: ['google', 'apple', 'github'], // Social login options
-    onramp: true,       // Buy crypto directly
-    swaps: true,        // Token swaps
-    smartSessions: true, // Smart accounts with session keys
-  },
-  // Theme customization to match Copoazú branding
-  themeMode: 'light',
-  themeVariables: {
-    '--w3m-color-mix': '#8B4513', // Brown (matching your coffee theme)
-    '--w3m-color-mix-strength': 20,
-    '--w3m-accent': '#8B4513',
-    '--w3m-border-radius-master': '8px',
-  },
-  // Custom wallet ordering for Colombian users
-  featuredWalletIds: [
-    'c57ca95b47569778a828d19178114f4db188b89b763c899ba0be274e97267d96', // MetaMask
-    '4622a2b2d6af1c9844944291e5e7351a6aa24cd7b23099efac1b2fd875da31a0', // Trust Wallet
-    '19177a98252e07ddfc9af2083ba8e07ef627cb6103467ffebb3f8f4205fd7927', // Ledger Live
-  ],
-})
+export const config = wagmiAdapter.wagmiConfig
+
+// Set up metadata
+export const metadata = {
+  name: 'Copoazú Labs',
+  description: 'Web3 Fashion & Merchandise Marketplace - Colombian Crypto Fashion',
+  url: env.APP_URL,
+  icons: [`${env.APP_URL}/favicon.ico`]
+}
 
 // Export configuration types
 export type { AppKit } from '@reown/appkit/react'
