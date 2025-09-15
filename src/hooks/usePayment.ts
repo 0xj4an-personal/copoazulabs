@@ -5,6 +5,7 @@ import { useWriteContract, useWaitForTransactionReceipt } from 'wagmi';
 import { parseUnits, encodeFunctionData, erc20Abi } from 'viem';
 import { PAYMENT_CONFIG } from '@/config/web3';
 import { useWallet } from './useWallet';
+import { useDivvi } from './useDivvi';
 
 export function usePayment() {
   const [isProcessing, setIsProcessing] = useState(false);
@@ -13,6 +14,7 @@ export function usePayment() {
   const [error, setError] = useState<string | null>(null);
 
   const { hasEnoughCCOP, ccopBalanceRaw } = useWallet();
+  const { addReferralToTransaction, submitReferralTransaction } = useDivvi();
   const { writeContract } = useWriteContract();
 
   // Watch for transaction confirmation
@@ -40,16 +42,35 @@ export function usePayment() {
       // Convert amount to wei (cCOP has 18 decimals)
       const amountInWei = parseUnits(amount.toString(), PAYMENT_CONFIG.token.decimals);
 
-      // Execute the transfer using wagmi
+      // Encode the transfer function call
+      const transferData = encodeFunctionData({
+        abi: erc20Abi,
+        functionName: 'transfer',
+        args: [PAYMENT_CONFIG.receiverAddress, amountInWei],
+      });
+
+      // Add Divvi referral tag to the transaction data
+      const dataWithReferral = addReferralToTransaction(transferData);
+
+      // Execute the transfer using wagmi with referral tag
       writeContract({
         address: PAYMENT_CONFIG.token.address,
         abi: erc20Abi,
         functionName: 'transfer',
         args: [PAYMENT_CONFIG.receiverAddress, amountInWei],
+        data: dataWithReferral,
       }, {
-        onSuccess: (hash) => {
+        onSuccess: async (hash) => {
           setTxHash(hash);
           setPaymentStatus('success');
+          
+          // Submit referral to Divvi after successful transaction
+          try {
+            await submitReferralTransaction(hash);
+          } catch (referralError) {
+            console.error('Failed to submit referral to Divvi:', referralError);
+            // Don't fail the payment if referral submission fails
+          }
         },
         onError: (error) => {
           throw error;

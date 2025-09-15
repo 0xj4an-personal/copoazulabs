@@ -308,6 +308,12 @@
     "pleaseSwitch": "Por favor cambia a la red correcta para continuar",
     "clickToCopy": "Haz clic para copiar"
   },
+  "divvi": {
+    "referralTracking": "Seguimiento de Referidos Divvi",
+    "earnRewards": "Gana recompensas por tus transacciones",
+    "settingUp": "Configurando seguimiento de referidos...",
+    "viewOnCeloscan": "Ver en Celoscan"
+  },
   "payment": {
     "title": "Métodos de Pago",
     "cryptoPayment": "Pago con Cripto",

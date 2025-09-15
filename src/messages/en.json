@@ -308,6 +308,12 @@
     "pleaseSwitch": "Please switch to the correct network to continue",
     "clickToCopy": "Click to copy"
   },
+  "divvi": {
+    "referralTracking": "Divvi Referral Tracking",
+    "earnRewards": "Earn rewards for your transactions",
+    "settingUp": "Setting up referral tracking...",
+    "viewOnCeloscan": "View on Celoscan"
+  },
   "payment": {
     "title": "Payment Methods",
     "cryptoPayment": "Crypto Payment",

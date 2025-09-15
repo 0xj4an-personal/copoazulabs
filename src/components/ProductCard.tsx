@@ -155,7 +155,7 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
         </div>
         
         <h3 className="text-base font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-2 leading-tight transition-colors duration-200">
-          {product.nameKey}
+          {t(`productItems.${product.nameKey}.name`)}
         </h3>
 
         {/* Rating */}
