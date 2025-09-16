@@ -13,18 +13,6 @@ export interface Collection {
 
 export const allCollections: Collection[] = [
   {
-    id: '1',
-    nameKey: 'gamingCollection',
-    descriptionKey: 'gamingCollection',
-    image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop&crop=center',
-    itemCount: 18,
-    rating: 4.9,
-    followers: 2450,
-    createdAt: '2024-01-15',
-    isFeatured: true,
-    creator: 'Copoazú Labs'
-  },
-  {
     id: '2',
     nameKey: 'refiCollection',
     descriptionKey: 'refiCollection',

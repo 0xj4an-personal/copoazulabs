@@ -13,46 +13,9 @@ export interface Product {
 }
 
 export const allProducts: Product[] = [
-  // Gaming Collection
-  {
-    id: '1',
-    nameKey: 'gamingCap',
-    price: 100000,
-    rating: 4.8,
-    reviewCount: 124,
-    image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&h=500&fit=crop&crop=center',
-    categoryKey: 'cap',
-    collectionId: '1',
-    isNew: true,
-    isBestSeller: true
-  },
-  {
-    id: '2',
-    nameKey: 'gamingTShirt',
-    price: 120000,
-    rating: 4.6,
-    reviewCount: 89,
-    image: 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400&h=500&fit=crop&crop=center',
-    categoryKey: 'tshirt',
-    collectionId: '1',
-    isNew: true
-  },
-  {
-    id: '3',
-    nameKey: 'gamingHoodie',
-    price: 320000,
-    originalPrice: 400000,
-    rating: 4.9,
-    reviewCount: 203,
-    image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=500&fit=crop&crop=center',
-    categoryKey: 'hoodie',
-    collectionId: '1',
-    isBestSeller: true
-  },
-
   // ReFi Collection
   {
-    id: '4',
+    id: '1',
     nameKey: 'refiCap',
     price: 112000,
     rating: 4.7,
@@ -63,7 +26,7 @@ export const allProducts: Product[] = [
     isBestSeller: true
   },
   {
-    id: '5',
+    id: '2',
     nameKey: 'refiTShirt',
     price: 140000,
     rating: 4.8,
@@ -74,7 +37,7 @@ export const allProducts: Product[] = [
     isNew: true
   },
   {
-    id: '6',
+    id: '3',
     nameKey: 'refiHoodie',
     price: 280000,
     originalPrice: 360000,
@@ -88,7 +51,7 @@ export const allProducts: Product[] = [
 
   // DeFi Collection
   {
-    id: '7',
+    id: '4',
     nameKey: 'defiCap',
     price: 108000,
     rating: 4.6,
@@ -99,7 +62,7 @@ export const allProducts: Product[] = [
     isNew: true
   },
   {
-    id: '8',
+    id: '5',
     nameKey: 'defiTShirt',
     price: 132000,
     rating: 4.7,
@@ -110,7 +73,7 @@ export const allProducts: Product[] = [
     isNew: true
   },
   {
-    id: '9',
+    id: '6',
     nameKey: 'defiHoodie',
     price: 340000,
     originalPrice: 420000,
@@ -124,7 +87,7 @@ export const allProducts: Product[] = [
 
   // Governance Collection
   {
-    id: '10',
+    id: '7',
     nameKey: 'governanceCap',
     price: 104000,
     rating: 4.5,
@@ -135,7 +98,7 @@ export const allProducts: Product[] = [
     isBestSeller: true
   },
   {
-    id: '11',
+    id: '8',
     nameKey: 'governanceTShirt',
     price: 128000,
     rating: 4.6,
@@ -146,7 +109,7 @@ export const allProducts: Product[] = [
     isNew: true
   },
   {
-    id: '12',
+    id: '9',
     nameKey: 'governanceHoodie',
     price: 300000,
     originalPrice: 380000,
@@ -160,7 +123,7 @@ export const allProducts: Product[] = [
 
   // Coding Collection
   {
-    id: '13',
+    id: '10',
     nameKey: 'codingCap',
     price: 116000,
     rating: 4.9,
@@ -171,7 +134,7 @@ export const allProducts: Product[] = [
     isNew: true
   },
   {
-    id: '14',
+    id: '11',
     nameKey: 'codingTShirt',
     price: 136000,
     rating: 4.8,
@@ -182,7 +145,7 @@ export const allProducts: Product[] = [
     isBestSeller: true
   },
   {
-    id: '15',
+    id: '12',
     nameKey: 'codingHoodie',
     price: 360000,
     originalPrice: 440000,
@@ -196,7 +159,7 @@ export const allProducts: Product[] = [
 
   // Degen Collection
   {
-    id: '16',
+    id: '13',
     nameKey: 'degenCap',
     price: 96000,
     rating: 4.4,
@@ -207,7 +170,7 @@ export const allProducts: Product[] = [
     isNew: true
   },
   {
-    id: '17',
+    id: '14',
     nameKey: 'degenTShirt',
     price: 124000,
     rating: 4.5,
@@ -218,7 +181,7 @@ export const allProducts: Product[] = [
     isNew: true
   },
   {
-    id: '18',
+    id: '15',
     nameKey: 'degenHoodie',
     price: 280000,
     originalPrice: 360000,

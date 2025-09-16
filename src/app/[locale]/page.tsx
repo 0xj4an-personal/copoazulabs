@@ -4,6 +4,7 @@ import { ArrowRight, Zap, Shield, Users, ShoppingCart, Wallet } from 'lucide-rea
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import ProductCard from '@/components/ProductCard';
+import Logo from '@/components/Logo';
 import VerificationPopup from '@/components/VerificationPopup';
 import WalletConnect from '@/components/WalletConnect';
 import { useTranslations } from 'next-intl';
@@ -86,15 +87,10 @@ export default function Home() {
                 <div className="text-center">
                   {/* Logo */}
                   <div className="mb-4">
-                    <img 
-                      src="/assets/logogr.jpeg" 
-                      alt="Copoazú Labs Logo" 
-                      className="w-20 h-20 rounded-xl mx-auto dark:hidden"
-                    />
-                    <img 
-                      src="/assets/logowh.jpeg" 
-                      alt="Copoazú Labs Logo" 
-                      className="w-20 h-20 rounded-xl mx-auto hidden dark:block"
+                    <Logo 
+                      width={80} 
+                      height={80} 
+                      className="rounded-xl mx-auto"
                     />
                   </div>
                   <h3 className="text-lg font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-1 transition-colors duration-200">
@@ -231,10 +227,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 text-center">
           {/* Logo */}
           <div className="mb-6">
-            <img 
-              src="/assets/logowh.jpeg" 
-              alt="Copoazú Labs Logo" 
-              className="w-16 h-16 rounded-xl mx-auto"
+            <Logo 
+              width={64} 
+              height={64} 
+              className="rounded-xl mx-auto"
             />
           </div>
           <h2 className="text-3xl font-bold mb-3">

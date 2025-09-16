@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useWriteContract, useWaitForTransactionReceipt } from 'wagmi';
+import { useWriteContract, useWaitForTransactionReceipt, useWalletClient } from 'wagmi';
 import { parseUnits, encodeFunctionData, erc20Abi } from 'viem';
 import { PAYMENT_CONFIG } from '@/config/web3';
 import { useWallet } from './useWallet';
@@ -16,10 +16,11 @@ export function usePayment() {
   const { hasEnoughCCOP, ccopBalanceRaw } = useWallet();
   const { addReferralToTransaction, submitReferralTransaction } = useDivvi();
   const { writeContract } = useWriteContract();
+  const { data: walletClient } = useWalletClient();
 
   // Watch for transaction confirmation
   const { isLoading: isConfirming, isSuccess: isConfirmed } = useWaitForTransactionReceipt({
-    hash: txHash as `0x${string}`,
+    hash: txHash ? (txHash.startsWith('0x') ? txHash : `0x${txHash}`) as `0x${string}` : undefined,
     query: {
       enabled: !!txHash,
     },
@@ -52,15 +53,15 @@ export function usePayment() {
       // Add Divvi referral tag to the transaction data
       const dataWithReferral = addReferralToTransaction(transferData);
 
-      // Execute the transfer using wagmi with referral tag
-      writeContract({
-        address: PAYMENT_CONFIG.token.address,
-        abi: erc20Abi,
-        functionName: 'transfer',
-        args: [PAYMENT_CONFIG.receiverAddress, amountInWei],
-        data: dataWithReferral,
-      }, {
-        onSuccess: async (hash) => {
+      // Use wallet client for custom transaction with referral data
+      if (walletClient) {
+        try {
+          const hash = await walletClient.sendTransaction({
+            to: PAYMENT_CONFIG.token.address as `0x${string}`,
+            data: dataWithReferral as `0x${string}`,
+            value: BigInt(0),
+          });
+          
           setTxHash(hash);
           setPaymentStatus('success');
           
@@ -71,11 +72,34 @@ export function usePayment() {
             console.error('Failed to submit referral to Divvi:', referralError);
             // Don't fail the payment if referral submission fails
           }
-        },
-        onError: (error) => {
+        } catch (error) {
           throw error;
         }
-      });
+      } else {
+        // Fallback to regular writeContract if wallet client not available
+        writeContract({
+          address: PAYMENT_CONFIG.token.address,
+          abi: erc20Abi,
+          functionName: 'transfer',
+          args: [PAYMENT_CONFIG.receiverAddress, amountInWei],
+        }, {
+          onSuccess: async (hash) => {
+            setTxHash(hash);
+            setPaymentStatus('success');
+            
+            // Submit referral to Divvi after successful transaction
+            try {
+              await submitReferralTransaction(hash);
+            } catch (referralError) {
+              console.error('Failed to submit referral to Divvi:', referralError);
+              // Don't fail the payment if referral submission fails
+            }
+          },
+          onError: (error) => {
+            throw error;
+          }
+        });
+      }
     } catch (error: any) {
       console.error('Payment error:', error);
       setPaymentStatus('error');

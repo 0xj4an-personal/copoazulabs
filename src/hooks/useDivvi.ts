@@ -30,8 +30,11 @@ export function useDivvi() {
     try {
       const chainId = await walletClient.getChainId();
       
+      // Ensure txHash is properly formatted as a hex string
+      const formattedTxHash = txHash.startsWith('0x') ? txHash : `0x${txHash}`;
+      
       await submitReferral({
-        txHash,
+        txHash: formattedTxHash as `0x${string}`,
         chainId,
       });
 

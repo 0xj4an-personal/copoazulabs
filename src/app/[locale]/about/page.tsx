@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { Users, Target, Heart, Eye, Zap, Shield, Globe } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import Logo from '@/components/Logo';
 
 export default function AboutPage() {
   const t = useTranslations('about');
@@ -23,15 +24,10 @@ export default function AboutPage() {
         <div className="text-center mb-16">
           {/* Logo */}
           <div className="mb-6">
-            <img 
-              src="/assets/logogr.jpeg" 
-              alt="Copoazú Labs Logo" 
-              className="w-20 h-20 rounded-xl mx-auto dark:hidden"
-            />
-            <img 
-              src="/assets/logowh.jpeg" 
-              alt="Copoazú Labs Logo" 
-              className="w-20 h-20 rounded-xl mx-auto hidden dark:block"
+            <Logo 
+              width={80} 
+              height={80} 
+              className="rounded-xl mx-auto"
             />
           </div>
           <h1 className="text-4xl font-bold text-[#1C1C1C] dark:text-[#F5F1E7] mb-3 transition-colors duration-200">

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Twitter, Instagram, Mail } from 'lucide-react';
+import Logo from './Logo';
 import { env } from '../../env.config';
 
 export default function Footer() {
@@ -22,9 +23,10 @@ export default function Footer() {
                 borderRadius: '8px',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                padding: '8px'
               }}>
-                <span style={{ color: '#FFFFFF', fontWeight: 'bold', fontSize: '1.25rem' }}>C</span>
+                <Logo width={24} height={24} />
               </div>
               <span style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>{env.APP_NAME}</span>
             </div>

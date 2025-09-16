@@ -99,21 +99,6 @@
     "priceHighToLow": "Price: High to Low",
     "highestRated": "Highest Rated",
     "productItems": {
-      "gamingCap": {
-        "name": "Gaming Cap",
-        "description": "High-performance gaming cap designed for esports enthusiasts. Features breathable mesh panels and moisture-wicking technology. Perfect for long gaming sessions, tournaments, or casual gaming meetups.",
-        "shortDescription": "Performance cap for gaming champions"
-      },
-      "gamingTShirt": {
-        "name": "Gaming T-Shirt",
-        "description": "Comfortable gaming t-shirt made from premium cotton blend. Features gaming-inspired graphics and comfortable fit for extended wear. Perfect for gaming events, LAN parties, or casual gaming lifestyle.",
-        "shortDescription": "Comfortable t-shirt for gaming culture"
-      },
-      "gamingHoodie": {
-        "name": "Gaming Hoodie",
-        "description": "Premium gaming hoodie with gamer-focused design elements. Features thumbhole cuffs, kangaroo pocket, and adjustable hood. Made from soft fleece blend perfect for streaming sessions or gaming marathons.",
-        "shortDescription": "Ultimate comfort hoodie for gamers"
-      },
       "refiCap": {
         "name": "ReFi Cap",
         "description": "Sustainable cap made from recycled materials supporting regenerative finance. Features eco-friendly construction and ReFi-themed design. Perfect for climate-conscious crypto enthusiasts.",
@@ -216,33 +201,28 @@
     "tryAdjustingFilters": "Try adjusting your search or filter criteria",
     "clearFilters": "Clear Filters",
     "collectionItems": {
-      "gamingCollection": {
-        "name": "Gaming Collection",
-        "description": "Dive into the world of blockchain gaming with this exclusive collection. Featuring designs inspired by play-to-earn games, NFT collectibles, and virtual worlds. Perfect for gamers who want to showcase their passion for Web3 gaming culture. From retro pixel art to futuristic gaming aesthetics, this collection bridges the gap between traditional and blockchain gaming.",
-        "shortDescription": "Gear up for the blockchain gaming revolution"
-      },
       "refiCollection": {
-        "name": "ReFi Collection",
+        "name": "ReFi",
         "description": "Celebrate Regenerative Finance with sustainable fashion that makes a positive impact. This collection focuses on environmental consciousness and social responsibility in the crypto space. Each piece represents the commitment to building a better future through regenerative practices, carbon credits, and sustainable blockchain solutions.",
         "shortDescription": "Sustainable fashion for a regenerative future"
       },
       "defiCollection": {
-        "name": "DeFi Collection",
+        "name": "DeFi",
         "description": "Embrace the decentralized finance revolution with cutting-edge designs inspired by liquidity pools, yield farming, and decentralized exchanges. This collection celebrates financial freedom and innovation in the crypto space. Perfect for DeFi enthusiasts who want to showcase their knowledge of protocols, AMMs, and yield strategies.",
         "shortDescription": "Decentralized fashion for decentralized finance"
       },
       "governanceCollection": {
-        "name": "Governance Collection",
+        "name": "Governance",
         "description": "Clothing that celebrates decentralized governance and community decision-making. This collection emphasizes transparency, collaboration, and collective intelligence in blockchain projects. Each piece reflects the democratic values of DAOs, governance tokens, and community-driven protocols. Perfect for governance participants and protocol contributors.",
         "shortDescription": "Fashion for decentralized governance"
       },
       "codingCollection": {
-        "name": "Coding Collection",
+        "name": "Coding",
         "description": "For developers, builders, and technical innovators in the Web3 space. This collection celebrates the art of coding with designs inspired by smart contracts, programming languages, and blockchain development. From Solidity to Rust, from debugging to deploying, this collection honors the builders who make Web3 possible.",
         "shortDescription": "Code your way into Web3 fashion"
       },
       "degenCollection": {
-        "name": "Degen Collection",
+        "name": "Degen",
         "description": "The ultimate collection for true crypto degenerates. Bold, edgy designs that capture the wild spirit of meme coins, high-risk trading, and the chaotic energy of crypto culture. This collection is for those who live on the edge, embrace volatility, and aren't afraid to go all-in on the next big thing in Web3.",
         "shortDescription": "For the true crypto degenerates"
       }
