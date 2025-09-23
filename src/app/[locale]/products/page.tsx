@@ -5,11 +5,13 @@ import { allCollections } from '@/data/collections';
 import ProductsClient from './ProductsClient';
 
 interface ProductsPageProps {
+  params: Promise<{ locale: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-export default async function ProductsPage({ searchParams }: ProductsPageProps) {
-  const t = await getTranslations('products');
+export default async function ProductsPage({ params, searchParams }: ProductsPageProps) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'products' });
 
   // Await searchParams in Next.js 15
   const resolvedSearchParams = await searchParams;
