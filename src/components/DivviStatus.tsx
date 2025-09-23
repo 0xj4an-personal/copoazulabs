@@ -26,15 +26,15 @@ export default function DivviStatus() {
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-3">
           {isDivviEnabled ? (
-            <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" />
+            <CheckCircle className="w-5 h-5 text-brand-primary dark:text-brand-light" />
           ) : (
             <AlertCircle className="w-5 h-5 text-yellow-600 dark:text-yellow-400" />
           )}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100">
+            <h3 className="text-sm font-semibold text-brand-dark dark:text-brand-background">
               {t('referralTracking')}
             </h3>
-            <p className="text-xs text-gray-600 dark:text-gray-400">
+            <p className="text-xs text-brand-neutral dark:text-brand-neutral">
               {isDivviEnabled 
                 ? t('earnRewards')
                 : t('settingUp')

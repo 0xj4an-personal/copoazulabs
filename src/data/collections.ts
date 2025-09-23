@@ -4,11 +4,6 @@ export interface Collection {
   descriptionKey: string; // Key for translation
   image: string;
   itemCount: number;
-  rating: number;
-  followers: number;
-  createdAt: string;
-  isFeatured?: boolean;
-  creator: string;
 }
 
 export const allCollections: Collection[] = [
@@ -16,63 +11,42 @@ export const allCollections: Collection[] = [
     id: '2',
     nameKey: 'refiCollection',
     descriptionKey: 'refiCollection',
-    image: '/assets/refi.jpeg',
-    itemCount: 1,
-    rating: 4.8,
-    followers: 1890,
-    createdAt: '2024-02-03',
-    isFeatured: true,
-    creator: 'Regenerative Finance'
+    image: '/assets/collections/refi.jpeg',
+    itemCount: 1
   },
   {
     id: '3',
     nameKey: 'defiCollection',
     descriptionKey: 'defiCollection',
-    image: '/assets/defi.jpeg',
-    itemCount: 1,
-    rating: 4.7,
-    followers: 2100,
-    createdAt: '2024-01-28',
-    creator: 'DeFi Protocol'
+    image: '/assets/collections/defi.jpeg',
+    itemCount: 1
   },
   {
     id: '4',
     nameKey: 'governanceCollection',
     descriptionKey: 'governanceCollection',
-    image: '/assets/governance.jpeg',
-    itemCount: 1,
-    rating: 4.6,
-    followers: 1560,
-    createdAt: '2024-02-10',
-    creator: 'Governance DAO'
+    image: '/assets/collections/governance.jpeg',
+    itemCount: 1
   },
   {
     id: '5',
     nameKey: 'codingCollection',
     descriptionKey: 'codingCollection',
-    image: '/assets/code.jpeg',
-    itemCount: 1,
-    rating: 4.8,
-    followers: 3200,
-    createdAt: '2024-02-15',
-    creator: 'Developer Guild'
+    image: '/assets/collections/code.jpeg',
+    itemCount: 1
   },
   {
     id: '6',
     nameKey: 'degenCollection',
     descriptionKey: 'degenCollection',
-    image: '/assets/degen.jpeg',
-    itemCount: 1,
-    rating: 4.5,
-    followers: 4200,
-    createdAt: '2024-02-20',
-    creator: 'Degen Army'
+    image: '/assets/collections/degen.jpeg',
+    itemCount: 1
   }
 ];
 
 // Helper functions to get specific collection subsets
 export const getFeaturedCollections = (): Collection[] => {
-  return allCollections.filter(collection => collection.isFeatured);
+  return allCollections; // Return all collections since we removed isFeatured
 };
 
 export const getCollectionById = (id: string): Collection | undefined => {
@@ -80,5 +54,5 @@ export const getCollectionById = (id: string): Collection | undefined => {
 };
 
 export const getCollectionsByCreator = (creator: string): Collection[] => {
-  return allCollections.filter(collection => collection.creator === creator);
+  return allCollections; // Return all collections since we removed creator
 };

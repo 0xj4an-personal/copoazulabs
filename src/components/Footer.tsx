@@ -6,7 +6,7 @@ import { envConfig } from '../../env.config';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#4B2E1E] dark:bg-gray-800 text-[#F5F1E7] transition-colors duration-200">
+    <footer className="bg-brand-dark dark:bg-gray-800 text-brand-background transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div style={{ 
           display: 'grid', 
@@ -121,17 +121,17 @@ export default function Footer() {
             <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '16px' }}>Quick Links</h3>
             <ul style={{ listStyle: 'none', padding: 0 }}>
               <li style={{ marginBottom: '8px' }}>
-                <Link href="/products" style={{ color: '#9A9A9A', textDecoration: 'none', transition: 'color 0.2s ease' }}>
+                <Link href="/products" style={{ color: 'brand-neutral', textDecoration: 'none', transition: 'color 0.2s ease' }}>
                   All Products
                 </Link>
               </li>
               <li style={{ marginBottom: '8px' }}>
-                <Link href="/collections" style={{ color: '#9A9A9A', textDecoration: 'none', transition: 'color 0.2s ease' }}>
+                <Link href="/collections" style={{ color: 'brand-neutral', textDecoration: 'none', transition: 'color 0.2s ease' }}>
                   Collections
                 </Link>
               </li>
               <li style={{ marginBottom: '8px' }}>
-                <Link href="/about" style={{ color: '#9A9A9A', textDecoration: 'none', transition: 'color 0.2s ease' }}>
+                <Link href="/about" style={{ color: 'brand-neutral', textDecoration: 'none', transition: 'color 0.2s ease' }}>
                   About Us
                 </Link>
               </li>
@@ -143,22 +143,22 @@ export default function Footer() {
             <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '16px' }}>Support</h3>
             <ul style={{ listStyle: 'none', padding: 0 }}>
               <li style={{ marginBottom: '8px' }}>
-                <Link href="/help" style={{ color: '#9A9A9A', textDecoration: 'none', transition: 'color 0.2s ease' }}>
+                <Link href="/help" style={{ color: 'brand-neutral', textDecoration: 'none', transition: 'color 0.2s ease' }}>
                   Help Center
                 </Link>
               </li>
               <li style={{ marginBottom: '8px' }}>
-                <Link href="/shipping" style={{ color: '#9A9A9A', textDecoration: 'none', transition: 'color 0.2s ease' }}>
+                <Link href="/shipping" style={{ color: 'brand-neutral', textDecoration: 'none', transition: 'color 0.2s ease' }}>
                   Shipping Info
                 </Link>
               </li>
               <li style={{ marginBottom: '8px' }}>
-                <Link href="/returns" style={{ color: '#9A9A9A', textDecoration: 'none', transition: 'color 0.2s ease' }}>
+                <Link href="/returns" style={{ color: 'brand-neutral', textDecoration: 'none', transition: 'color 0.2s ease' }}>
                   Returns
                 </Link>
               </li>
               <li style={{ marginBottom: '8px' }}>
-                <Link href="/size-guide" style={{ color: '#9A9A9A', textDecoration: 'none', transition: 'color 0.2s ease' }}>
+                <Link href="/size-guide" style={{ color: 'brand-neutral', textDecoration: 'none', transition: 'color 0.2s ease' }}>
                   Size Guide
                 </Link>
               </li>
@@ -168,7 +168,7 @@ export default function Footer() {
 
         {/* Bottom Section */}
         <div style={{ 
-          borderTop: '1px solid #9A9A9A', 
+          borderTop: '1px solid brand-neutral', 
           marginTop: '48px', 
           paddingTop: '24px',
           display: 'flex',
@@ -177,17 +177,17 @@ export default function Footer() {
           alignItems: 'center',
           textAlign: 'center'
         }}>
-          <p style={{ color: '#9A9A9A', margin: 0, fontSize: '0.875rem' }}>
+          <p style={{ color: 'brand-neutral', margin: 0, fontSize: '0.875rem' }}>
             © 2024 Copoazú Labs. All rights reserved.
           </p>
           <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', justifyContent: 'center' }}>
-            <Link href="/privacy" style={{ color: '#9A9A9A', textDecoration: 'none', fontSize: '0.875rem' }}>
+            <Link href="/privacy" style={{ color: 'brand-neutral', textDecoration: 'none', fontSize: '0.875rem' }}>
               Privacy Policy
             </Link>
-            <Link href="/terms" style={{ color: '#9A9A9A', textDecoration: 'none', fontSize: '0.875rem' }}>
+            <Link href="/terms" style={{ color: 'brand-neutral', textDecoration: 'none', fontSize: '0.875rem' }}>
               Terms of Service
             </Link>
-            <Link href="/cookies" style={{ color: '#9A9A9A', textDecoration: 'none', fontSize: '0.875rem' }}>
+            <Link href="/cookies" style={{ color: 'brand-neutral', textDecoration: 'none', fontSize: '0.875rem' }}>
               Cookie Policy
             </Link>
           </div>

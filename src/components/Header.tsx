@@ -99,7 +99,7 @@ export default function Header() {
             <div className="py-4">
               <Link 
                 href="/" 
-                className="block py-4 px-4 text-[#1C1C1C] dark:text-[#F5F1E7] no-underline text-base font-medium transition-colors duration-200 hover:text-[#3E7C4A] dark:hover:text-[#3E7C4A] hover:bg-gray-50 dark:hover:bg-gray-800 touch-manipulation"
+                className="block py-4 px-4 text-brand-dark dark:text-brand-background no-underline text-base font-medium transition-colors duration-200 hover:text-brand-primary dark:hover:text-brand-primary hover:bg-brand-background/50 dark:hover:bg-dark-surface/50 touch-manipulation"
                 onClick={() => setIsMenuOpen(false)}
                 style={{ minHeight: '44px' }}
               >
@@ -107,7 +107,7 @@ export default function Header() {
               </Link>
               <Link 
                 href="/products" 
-                className="block py-4 px-4 text-[#1C1C1C] dark:text-[#F5F1E7] no-underline text-base font-medium transition-colors duration-200 hover:text-[#3E7C4A] dark:hover:text-[#3E7C4A] hover:bg-gray-50 dark:hover:bg-gray-800 touch-manipulation"
+                className="block py-4 px-4 text-brand-dark dark:text-brand-background no-underline text-base font-medium transition-colors duration-200 hover:text-brand-primary dark:hover:text-brand-primary hover:bg-brand-background/50 dark:hover:bg-dark-surface/50 touch-manipulation"
                 onClick={() => setIsMenuOpen(false)}
                 style={{ minHeight: '44px' }}
               >
@@ -115,7 +115,7 @@ export default function Header() {
               </Link>
               <Link 
                 href="/collections" 
-                className="block py-4 px-4 text-[#1C1C1C] dark:text-[#F5F1E7] no-underline text-base font-medium transition-colors duration-200 hover:text-[#3E7C4A] dark:hover:text-[#3E7C4A] hover:bg-gray-50 dark:hover:bg-gray-800 touch-manipulation"
+                className="block py-4 px-4 text-brand-dark dark:text-brand-background no-underline text-base font-medium transition-colors duration-200 hover:text-brand-primary dark:hover:text-brand-primary hover:bg-brand-background/50 dark:hover:bg-dark-surface/50 touch-manipulation"
                 onClick={() => setIsMenuOpen(false)}
                 style={{ minHeight: '44px' }}
               >
@@ -123,7 +123,7 @@ export default function Header() {
               </Link>
               <Link 
                 href="/about" 
-                className="block py-4 px-4 text-[#1C1C1C] dark:text-[#F5F1E7] no-underline text-base font-medium transition-colors duration-200 hover:text-[#3E7C4A] dark:hover:text-[#3E7C4A] hover:bg-gray-50 dark:hover:bg-gray-800 touch-manipulation"
+                className="block py-4 px-4 text-brand-dark dark:text-brand-background no-underline text-base font-medium transition-colors duration-200 hover:text-brand-primary dark:hover:text-brand-primary hover:bg-brand-background/50 dark:hover:bg-dark-surface/50 touch-manipulation"
                 onClick={() => setIsMenuOpen(false)}
                 style={{ minHeight: '44px' }}
               >

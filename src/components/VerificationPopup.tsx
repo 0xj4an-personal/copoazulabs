@@ -89,10 +89,10 @@ export default function VerificationPopup({ isOpen, onClose, onVerificationCompl
             <>
               {/* Header */}
               <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-[#3E7C4A] rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-[brand-primary] rounded-full flex items-center justify-center mx-auto mb-4">
                   <Shield className="w-8 h-8 text-white" />
                 </div>
-                <h2 className="text-2xl font-bold text-[#1C1C1C] dark:text-[#F5F1E7] mb-2">
+                <h2 className="text-2xl font-bold text-[brand-dark] dark:text-[brand-background] mb-2">
                   {t('title')}
                 </h2>
                 <p className="text-gray-600 dark:text-gray-400">
@@ -103,15 +103,15 @@ export default function VerificationPopup({ isOpen, onClose, onVerificationCompl
               {/* Benefits */}
               <div className="space-y-3 mb-6">
                 <div className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-[#3E7C4A]" />
+                  <CheckCircle className="w-5 h-5 text-[brand-primary]" />
                   <span className="text-gray-700 dark:text-gray-300">{t('benefits.discount')}</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-[#3E7C4A]" />
+                  <CheckCircle className="w-5 h-5 text-[brand-primary]" />
                   <span className="text-gray-700 dark:text-gray-300">{t('benefits.secure')}</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-[#3E7C4A]" />
+                  <CheckCircle className="w-5 h-5 text-[brand-primary]" />
                   <span className="text-gray-700 dark:text-gray-300">{t('benefits.exclusive')}</span>
                 </div>
               </div>
@@ -120,7 +120,7 @@ export default function VerificationPopup({ isOpen, onClose, onVerificationCompl
               <div className="space-y-3">
                 <button
                   onClick={handleStartVerification}
-                  className="w-full py-3 px-6 bg-[#3E7C4A] text-white rounded-lg font-semibold hover:bg-[#2d5f3a] transition-colors"
+                  className="w-full py-3 px-6 bg-[brand-primary] text-white rounded-lg font-semibold hover:bg-[brand-accent] transition-colors"
                 >
                   {t('buttons.verify')}
                 </button>
@@ -141,17 +141,17 @@ export default function VerificationPopup({ isOpen, onClose, onVerificationCompl
 
           {step === 'verifying' && (
             <div className="text-center">
-              <div className="w-16 h-16 bg-[#3E7C4A] rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
+              <div className="w-16 h-16 bg-[brand-primary] rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
                 <Shield className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-2">
+              <h3 className="text-xl font-semibold text-[brand-dark] dark:text-[brand-background] mb-2">
                 {t('process.verifying')}
               </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-4">
                 {t('process.verifyingSubtitle')}
               </p>
               <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                <div className="bg-[#3E7C4A] h-2 rounded-full animate-pulse w-3/4"></div>
+                <div className="bg-[brand-primary] h-2 rounded-full animate-pulse w-3/4"></div>
               </div>
             </div>
           )}
@@ -161,7 +161,7 @@ export default function VerificationPopup({ isOpen, onClose, onVerificationCompl
               <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <CheckCircle className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-2">
+              <h3 className="text-xl font-semibold text-[brand-dark] dark:text-[brand-background] mb-2">
                 {t('process.success')}
               </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-6">
@@ -169,7 +169,7 @@ export default function VerificationPopup({ isOpen, onClose, onVerificationCompl
               </p>
               <button
                 onClick={handleClose}
-                className="w-full py-3 px-6 bg-[#3E7C4A] text-white rounded-lg font-semibold hover:bg-[#2d5f3a] transition-colors"
+                className="w-full py-3 px-6 bg-[brand-primary] text-white rounded-lg font-semibold hover:bg-[brand-accent] transition-colors"
               >
                 {t('buttons.startShopping')}
               </button>
@@ -181,7 +181,7 @@ export default function VerificationPopup({ isOpen, onClose, onVerificationCompl
               <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <AlertCircle className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-2">
+              <h3 className="text-xl font-semibold text-[brand-dark] dark:text-[brand-background] mb-2">
                 {t('process.error')}
               </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-6">
@@ -190,7 +190,7 @@ export default function VerificationPopup({ isOpen, onClose, onVerificationCompl
               <div className="space-y-3">
                 <button
                   onClick={handleStartVerification}
-                  className="w-full py-3 px-6 bg-[#3E7C4A] text-white rounded-lg font-semibold hover:bg-[#2d5f3a] transition-colors"
+                  className="w-full py-3 px-6 bg-[brand-primary] text-white rounded-lg font-semibold hover:bg-[brand-accent] transition-colors"
                 >
                   {t('buttons.tryAgain')}
                 </button>

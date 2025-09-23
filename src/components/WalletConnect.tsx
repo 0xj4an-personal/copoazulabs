@@ -81,7 +81,7 @@ export default function WalletConnect({ onConnect, onDisconnect }: WalletConnect
           className={`inline-flex items-center px-4 py-2 text-white font-medium rounded-lg border-none cursor-pointer transition-all duration-200 shadow-lg active:scale-95 touch-manipulation ${
             isConnecting
               ? 'bg-gray-400 cursor-not-allowed opacity-70'
-              : 'bg-green-600 hover:bg-green-700'
+              : 'bg-brand-primary hover:bg-brand-accent'
           }`}
           style={{ minWidth: '44px', minHeight: '44px' }}
         >
@@ -137,10 +137,10 @@ export default function WalletConnect({ onConnect, onDisconnect }: WalletConnect
               )}
             </div>
             <div className="mt-2 space-y-1">
-              <p className="text-xs text-gray-500 dark:text-gray-400 m-0">
+              <p className="text-xs text-brand-neutral dark:text-brand-neutral m-0">
                 CELO: {celoBalance}
               </p>
-              <p className="text-xs text-gray-500 dark:text-gray-400 m-0">
+              <p className="text-xs text-brand-neutral dark:text-brand-neutral m-0">
                 cCOP: {ccopBalance}
               </p>
             </div>

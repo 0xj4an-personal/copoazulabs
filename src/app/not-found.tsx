@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <div style={{
       minHeight: '100vh',
-      backgroundColor: '#F5F1E7',
+      backgroundColor: 'var(--brand-background)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -15,7 +15,7 @@ export default function NotFound() {
       <h1 style={{
         fontSize: '4rem',
         fontWeight: '800',
-        color: '#3E7C4A',
+        color: 'var(--brand-primary)',
         marginBottom: '16px'
       }}>
         404
@@ -23,14 +23,14 @@ export default function NotFound() {
       <h2 style={{
         fontSize: '2rem',
         fontWeight: '600',
-        color: '#1C1C1C',
+        color: 'var(--brand-dark)',
         marginBottom: '16px'
       }}>
         Page Not Found
       </h2>
       <p style={{
         fontSize: '1.125rem',
-        color: '#9A9A9A',
+        color: 'var(--brand-neutral)',
         marginBottom: '32px',
         maxWidth: '500px'
       }}>
@@ -39,7 +39,7 @@ export default function NotFound() {
       <Link href="/">
         <button style={{
           padding: '12px 24px',
-          backgroundColor: '#3E7C4A',
+          backgroundColor: 'var(--brand-primary)',
           color: '#FFFFFF',
           border: 'none',
           borderRadius: '8px',

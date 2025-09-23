@@ -43,7 +43,7 @@ export default function CryptoPayment({ amount, onPaymentComplete }: CryptoPayme
         <div style={{
           width: '60px',
           height: '60px',
-          backgroundColor: '#3E7C4A',
+          backgroundColor: 'brand-primary',
           borderRadius: '50%',
           display: 'flex',
           alignItems: 'center',
@@ -52,24 +52,24 @@ export default function CryptoPayment({ amount, onPaymentComplete }: CryptoPayme
         }}>
           <Coins style={{ width: '30px', height: '30px', color: '#FFFFFF' }} />
         </div>
-        <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#1C1C1C', marginBottom: '8px' }}>
+        <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: 'brand-dark', marginBottom: '8px' }}>
           Crypto Payment
         </h3>
-        <p style={{ color: '#9A9A9A', fontSize: '0.875rem' }}>
+        <p style={{ color: 'brand-neutral', fontSize: '0.875rem' }}>
           Pay with your preferred cryptocurrency
         </p>
       </div>
 
       <div style={{ marginBottom: '24px' }}>
         <div style={{
-          backgroundColor: '#F5F1E7',
+          backgroundColor: 'brand-background',
           padding: '16px',
           borderRadius: '8px',
           textAlign: 'center',
           marginBottom: '16px'
         }}>
-          <p style={{ fontSize: '0.875rem', color: '#9A9A9A', margin: '0 0 4px 0' }}>Total Amount</p>
-          <p style={{ fontSize: '1.5rem', fontWeight: '700', color: '#1C1C1C', margin: 0 }}>
+          <p style={{ fontSize: '0.875rem', color: 'brand-neutral', margin: '0 0 4px 0' }}>Total Amount</p>
+          <p style={{ fontSize: '1.5rem', fontWeight: '700', color: 'brand-dark', margin: 0 }}>
             ${amount}
           </p>
         </div>
@@ -85,8 +85,8 @@ export default function CryptoPayment({ amount, onPaymentComplete }: CryptoPayme
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 padding: '16px',
-                backgroundColor: selectedMethod === method.id ? '#F5F1E7' : '#FFFFFF',
-                border: `2px solid ${selectedMethod === method.id ? '#3E7C4A' : '#9A9A9A'}`,
+                backgroundColor: selectedMethod === method.id ? 'brand-background' : '#FFFFFF',
+                border: `2px solid ${selectedMethod === method.id ? 'brand-primary' : 'brand-neutral'}`,
                 borderRadius: '8px',
                 cursor: isProcessing ? 'not-allowed' : 'pointer',
                 transition: 'all 0.2s ease',
@@ -97,7 +97,7 @@ export default function CryptoPayment({ amount, onPaymentComplete }: CryptoPayme
                 <div style={{
                   width: '32px',
                   height: '32px',
-                  backgroundColor: '#3E7C4A',
+                  backgroundColor: 'brand-primary',
                   borderRadius: '6px',
                   display: 'flex',
                   alignItems: 'center',
@@ -106,24 +106,24 @@ export default function CryptoPayment({ amount, onPaymentComplete }: CryptoPayme
                   <Coins style={{ width: '16px', height: '16px', color: '#FFFFFF' }} />
                 </div>
                 <div>
-                  <p style={{ fontSize: '0.875rem', fontWeight: '500', color: '#1C1C1C', margin: 0 }}>
+                  <p style={{ fontSize: '0.875rem', fontWeight: '500', color: 'brand-dark', margin: 0 }}>
                     {method.name}
                   </p>
-                  <p style={{ fontSize: '0.75rem', color: '#9A9A9A', margin: 0 }}>
+                  <p style={{ fontSize: '0.75rem', color: 'brand-neutral', margin: 0 }}>
                     {(amount * method.rate).toFixed(6)} {method.symbol}
                   </p>
                 </div>
               </div>
               
               {selectedMethod === method.id && !isProcessing && (
-                <Check style={{ width: '20px', height: '20px', color: '#3E7C4A' }} />
+                <Check style={{ width: '20px', height: '20px', color: 'brand-primary' }} />
               )}
               
               {isProcessing && selectedMethod === method.id && (
                 <div style={{
                   width: '20px',
                   height: '20px',
-                  border: '2px solid #3E7C4A',
+                  border: '2px solid brand-primary',
                   borderTop: '2px solid transparent',
                   borderRadius: '50%',
                   animation: 'spin 1s linear infinite'
@@ -136,12 +136,12 @@ export default function CryptoPayment({ amount, onPaymentComplete }: CryptoPayme
 
       {isProcessing && (
         <div style={{
-          backgroundColor: '#F5F1E7',
+          backgroundColor: 'brand-background',
           padding: '16px',
           borderRadius: '8px',
           textAlign: 'center'
         }}>
-          <p style={{ fontSize: '0.875rem', color: '#1C1C1C', margin: 0 }}>
+          <p style={{ fontSize: '0.875rem', color: 'brand-dark', margin: 0 }}>
             Processing payment with {paymentMethods.find(m => m.id === selectedMethod)?.name}...
           </p>
         </div>

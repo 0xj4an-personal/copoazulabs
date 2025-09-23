@@ -106,7 +106,7 @@ export default function ThemeToggle() {
         backgroundColor: 'transparent',
         cursor: 'pointer',
         transition: 'all 0.2s ease',
-        color: isDark ? '#F5F1E7' : '#1C1C1C',
+        color: isDark ? 'var(--brand-background)' : 'var(--brand-dark)',
       }}
       className="hover:bg-gray-100 dark:hover:bg-gray-800 active:bg-gray-200 dark:active:bg-gray-700 touch-manipulation"
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}

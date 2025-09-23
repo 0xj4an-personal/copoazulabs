@@ -94,17 +94,17 @@ export default function ProductsClient({
   return (
     <>
       {/* Filters and Search */}
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg mb-8 transition-colors duration-200">
+      <div className="bg-brand-white dark:bg-dark-surface p-6 rounded-2xl shadow-lg mb-8 transition-colors duration-200">
         <div className="flex flex-col gap-4">
           {/* Search Bar */}
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400" size={20} />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-brand-neutral dark:text-brand-neutral" size={20} />
             <input
               type="text"
               placeholder={t('searchPlaceholder')}
               value={searchQuery}
               onChange={(e) => handleSearchChange(e.target.value)}
-              className="w-full py-3 pl-12 pr-4 border-2 border-gray-300 dark:border-gray-600 rounded-xl text-base bg-white dark:bg-gray-700 text-[#1C1C1C] dark:text-[#F5F1E7] placeholder-gray-500 dark:placeholder-gray-400 focus:border-[#3E7C4A] focus:outline-none transition-colors duration-200"
+              className="w-full py-3 pl-12 pr-4 border-2 border-brand-neutral dark:border-brand-neutral rounded-xl text-base bg-brand-white dark:bg-dark-surface text-brand-dark dark:text-brand-background placeholder-brand-neutral dark:placeholder-brand-neutral focus:border-brand-primary focus:outline-none transition-colors duration-200"
             />
           </div>
 
@@ -112,11 +112,11 @@ export default function ProductsClient({
           <div className="flex flex-wrap gap-4 items-center">
             {/* Collection Filter */}
             <div className="flex items-center gap-2">
-              <span className="text-gray-500 dark:text-gray-400 text-sm">{t('collections')}:</span>
+              <span className="text-brand-neutral dark:text-brand-neutral text-sm">{t('collections')}:</span>
               <select
                 value={selectedCollection}
                 onChange={(e) => handleCollectionChange(e.target.value)}
-                className="py-2 px-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-sm text-[#1C1C1C] dark:text-[#F5F1E7] focus:border-[#3E7C4A] focus:outline-none transition-colors duration-200"
+                className="py-2 px-3 border-2 border-brand-neutral dark:border-brand-neutral rounded-lg bg-brand-white dark:bg-dark-surface text-sm text-brand-dark dark:text-brand-background focus:border-brand-primary focus:outline-none transition-colors duration-200"
               >
                 <option value="">{t('allCollections')}</option>
                 {collections.map((collection) => (
@@ -129,11 +129,11 @@ export default function ProductsClient({
 
             {/* Category Filter */}
             <div className="flex items-center gap-2">
-              <span className="text-gray-500 dark:text-gray-400 text-sm">{t('category')}:</span>
+              <span className="text-brand-neutral dark:text-brand-neutral text-sm">{t('category')}:</span>
               <select
                 value={selectedCategory}
                 onChange={(e) => handleCategoryChange(e.target.value)}
-                className="py-2 px-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-sm text-[#1C1C1C] dark:text-[#F5F1E7] focus:border-[#3E7C4A] focus:outline-none transition-colors duration-200"
+                className="py-2 px-3 border-2 border-brand-neutral dark:border-brand-neutral rounded-lg bg-brand-white dark:bg-dark-surface text-sm text-brand-dark dark:text-brand-background focus:border-brand-primary focus:outline-none transition-colors duration-200"
               >
                 <option value="">{t('allCategories')}</option>
                 {categories.map((category) => (
@@ -146,11 +146,11 @@ export default function ProductsClient({
 
             {/* Sort Dropdown */}
             <div className="flex items-center gap-2">
-              <span className="text-gray-500 dark:text-gray-400 text-sm">{t('sortBy')}:</span>
+              <span className="text-brand-neutral dark:text-brand-neutral text-sm">{t('sortBy')}:</span>
               <select
                 value={sortBy}
                 onChange={(e) => handleSortChange(e.target.value)}
-                className="py-2 px-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-sm text-[#1C1C1C] dark:text-[#F5F1E7] focus:border-[#3E7C4A] focus:outline-none transition-colors duration-200"
+                className="py-2 px-3 border-2 border-brand-neutral dark:border-brand-neutral rounded-lg bg-brand-white dark:bg-dark-surface text-sm text-brand-dark dark:text-brand-background focus:border-brand-primary focus:outline-none transition-colors duration-200"
               >
                 <option value="newest">{t('newest')}</option>
                 <option value="price-low">{t('priceLowToHigh')}</option>
@@ -163,7 +163,7 @@ export default function ProductsClient({
             {(selectedCollection || selectedCategory || searchQuery) && (
               <button
                 onClick={clearFilters}
-                className="py-2 px-4 bg-gray-500 hover:bg-gray-600 text-white border-none rounded-lg cursor-pointer text-sm font-medium transition-all duration-200"
+                className="py-2 px-4 bg-brand-neutral hover:bg-brand-primary text-white border-none rounded-lg cursor-pointer text-sm font-medium transition-all duration-200"
               >
                 {t('clearFilters')}
               </button>
@@ -175,8 +175,8 @@ export default function ProductsClient({
                 onClick={() => setViewMode('grid')}
                 className={`p-2 border-2 rounded-lg cursor-pointer transition-all duration-200 ${
                   viewMode === 'grid' 
-                    ? 'border-[#3E7C4A] bg-[#3E7C4A] text-white' 
-                    : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-500 dark:text-gray-400'
+                    ? 'border-brand-primary bg-brand-primary text-white' 
+                    : 'border-brand-neutral dark:border-brand-neutral bg-brand-white dark:bg-dark-surface text-brand-neutral dark:text-brand-neutral'
                 }`}
               >
                 <Grid size={16} />
@@ -185,8 +185,8 @@ export default function ProductsClient({
                 onClick={() => setViewMode('list')}
                 className={`p-2 border-2 rounded-lg cursor-pointer transition-all duration-200 ${
                   viewMode === 'list' 
-                    ? 'border-[#3E7C4A] bg-[#3E7C4A] text-white' 
-                    : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-500 dark:text-gray-400'
+                    ? 'border-brand-primary bg-brand-primary text-white' 
+                    : 'border-brand-neutral dark:border-brand-neutral bg-brand-white dark:bg-dark-surface text-brand-neutral dark:text-brand-neutral'
                 }`}
               >
                 <List size={16} />
@@ -198,16 +198,16 @@ export default function ProductsClient({
 
       {/* Products Grid/List */}
       {filteredProducts.length === 0 ? (
-        <div className="bg-white dark:bg-gray-800 p-12 rounded-2xl text-center shadow-lg transition-colors duration-200">
-          <h3 className="text-xl font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-2 transition-colors duration-200">
+        <div className="bg-brand-white dark:bg-dark-surface p-12 rounded-2xl text-center shadow-lg transition-colors duration-200">
+          <h3 className="text-xl font-semibold text-brand-dark dark:text-brand-background mb-2 transition-colors duration-200">
             {t('noProductsFound')}
           </h3>
-          <p className="text-gray-600 dark:text-gray-400 mb-4 transition-colors duration-200">
+          <p className="text-brand-neutral dark:text-brand-neutral mb-4 transition-colors duration-200">
             {t('tryAdjustingFilters')}
           </p>
           <button
             onClick={clearFilters}
-            className="py-3 px-6 bg-[#3E7C4A] text-white border-none rounded-xl cursor-pointer text-sm font-semibold hover:bg-[#2d5f3a] transition-all duration-200"
+            className="py-3 px-6 bg-brand-primary text-white border-none rounded-xl cursor-pointer text-sm font-semibold hover:bg-brand-accent transition-all duration-200"
           >
             {t('clearFilters')}
           </button>
@@ -225,7 +225,7 @@ export default function ProductsClient({
       )}
 
       {/* Results Summary */}
-      <div className="text-center text-gray-600 dark:text-gray-400 transition-colors duration-200">
+      <div className="text-center text-brand-neutral dark:text-brand-neutral transition-colors duration-200">
         <p>
           {t('showingResults', { 
             count: filteredProducts.length,

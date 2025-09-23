@@ -42,18 +42,18 @@ const values = [
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-[#F5F1E7] dark:bg-gray-900">
+    <div className="min-h-screen bg-[var(--brand-background)] dark:bg-gray-900">
       {/* Hero Section */}
       <section style={{
         padding: '120px 0 80px',
-        background: 'linear-gradient(135deg, #F5F1E7 0%, #FFFFFF 50%, #F5F1E7 100%)',
+        background: 'linear-gradient(135deg, var(--brand-background) 0%, #FFFFFF 50%, var(--brand-background) 100%)',
         textAlign: 'center'
       }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 16px' }}>
           <h1 style={{
             fontSize: '3.5rem',
             fontWeight: '800',
-            color: '#1C1C1C',
+            color: 'var(--brand-dark)',
             marginBottom: '24px',
             lineHeight: '1.1'
           }}>
@@ -61,7 +61,7 @@ export default function About() {
           </h1>
           <p style={{
             fontSize: '1.25rem',
-            color: '#9A9A9A',
+            color: 'var(--brand-neutral)',
             maxWidth: '600px',
             margin: '0 auto',
             lineHeight: '1.6'
@@ -80,14 +80,14 @@ export default function About() {
               <h2 style={{
                 fontSize: '2.5rem',
                 fontWeight: '700',
-                color: '#1C1C1C',
+                color: 'var(--brand-dark)',
                 marginBottom: '24px'
               }}>
                 Our Mission
               </h2>
               <p style={{
                 fontSize: '1.125rem',
-                color: '#9A9A9A',
+                color: 'var(--brand-neutral)',
                 lineHeight: '1.6',
                 marginBottom: '24px'
               }}>
@@ -97,7 +97,7 @@ export default function About() {
               </p>
               <p style={{
                 fontSize: '1.125rem',
-                color: '#9A9A9A',
+                color: 'var(--brand-neutral)',
                 lineHeight: '1.6',
                 marginBottom: '32px'
               }}>
@@ -110,7 +110,7 @@ export default function About() {
                   display: 'inline-flex',
                   alignItems: 'center',
                   padding: '16px 32px',
-                  backgroundColor: '#3E7C4A',
+                  backgroundColor: 'var(--brand-primary)',
                   color: '#FFFFFF',
                   fontWeight: '600',
                   borderRadius: '12px',
@@ -127,7 +127,7 @@ export default function About() {
             <div style={{
               width: '100%',
               height: '400px',
-              backgroundColor: '#F5F1E7',
+              backgroundColor: 'var(--brand-background)',
               borderRadius: '24px',
               display: 'flex',
               alignItems: 'center',
@@ -135,8 +135,8 @@ export default function About() {
               backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233E7C4A' fill-opacity='0.1'%3E%3Cpath d='M40 40c0-22.091-17.909-40-40-40v80c22.091 0 40-17.909 40-40z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
             }}>
               <div style={{ textAlign: 'center' }}>
-                <Award style={{ width: '80px', height: '80px', color: '#3E7C4A', marginBottom: '16px' }} />
-                <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#1C1C1C' }}>
+                <Award style={{ width: '80px', height: '80px', color: 'var(--brand-primary)', marginBottom: '16px' }} />
+                <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: 'var(--brand-dark)' }}>
                   Innovation in Fashion
                 </h3>
               </div>
@@ -146,20 +146,20 @@ export default function About() {
       </section>
 
       {/* Values Section */}
-      <section style={{ padding: '80px 0', backgroundColor: '#F5F1E7' }}>
+      <section style={{ padding: '80px 0', backgroundColor: 'var(--brand-background)' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 16px' }}>
           <div style={{ textAlign: 'center', marginBottom: '64px' }}>
             <h2 style={{
               fontSize: '2.5rem',
               fontWeight: '700',
-              color: '#1C1C1C',
+              color: 'var(--brand-dark)',
               marginBottom: '16px'
             }}>
               Our Values
             </h2>
             <p style={{
               fontSize: '1.25rem',
-              color: '#9A9A9A',
+              color: 'var(--brand-neutral)',
               maxWidth: '600px',
               margin: '0 auto'
             }}>
@@ -180,7 +180,7 @@ export default function About() {
                 <div style={{
                   width: '80px',
                   height: '80px',
-                  backgroundColor: '#3E7C4A',
+                  backgroundColor: 'var(--brand-primary)',
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
@@ -192,13 +192,13 @@ export default function About() {
                 <h3 style={{
                   fontSize: '1.5rem',
                   fontWeight: '600',
-                  color: '#1C1C1C',
+                  color: 'var(--brand-dark)',
                   marginBottom: '16px'
                 }}>
                   {value.title}
                 </h3>
                 <p style={{
-                  color: '#9A9A9A',
+                  color: 'var(--brand-neutral)',
                   lineHeight: '1.6'
                 }}>
                   {value.description}
@@ -216,14 +216,14 @@ export default function About() {
             <h2 style={{
               fontSize: '2.5rem',
               fontWeight: '700',
-              color: '#1C1C1C',
+              color: 'var(--brand-dark)',
               marginBottom: '16px'
             }}>
               Meet Our Team
             </h2>
             <p style={{
               fontSize: '1.25rem',
-              color: '#9A9A9A',
+              color: 'var(--brand-neutral)',
               maxWidth: '600px',
               margin: '0 auto'
             }}>
@@ -234,7 +234,7 @@ export default function About() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px' }}>
             {teamMembers.map((member, index) => (
               <div key={index} style={{
-                backgroundColor: '#F5F1E7',
+                backgroundColor: 'var(--brand-background)',
                 padding: '32px',
                 borderRadius: '16px',
                 textAlign: 'center',
@@ -243,7 +243,7 @@ export default function About() {
                 <div style={{
                   width: '120px',
                   height: '120px',
-                  backgroundColor: '#3E7C4A',
+                  backgroundColor: 'var(--brand-primary)',
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
@@ -255,21 +255,21 @@ export default function About() {
                 <h3 style={{
                   fontSize: '1.25rem',
                   fontWeight: '600',
-                  color: '#1C1C1C',
+                  color: 'var(--brand-dark)',
                   marginBottom: '8px'
                 }}>
                   {member.name}
                 </h3>
                 <p style={{
                   fontSize: '1rem',
-                  color: '#3E7C4A',
+                  color: 'var(--brand-primary)',
                   fontWeight: '500',
                   marginBottom: '12px'
                 }}>
                   {member.role}
                 </p>
                 <p style={{
-                  color: '#9A9A9A',
+                  color: 'var(--brand-neutral)',
                   lineHeight: '1.6'
                 }}>
                   {member.description}
@@ -283,7 +283,7 @@ export default function About() {
       {/* CTA Section */}
       <section style={{
         padding: '80px 0',
-        background: 'linear-gradient(135deg, #3E7C4A 0%, #1C1C1C 100%)',
+        background: 'linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-dark) 100%)',
         color: '#FFFFFF',
         textAlign: 'center'
       }}>
@@ -297,7 +297,7 @@ export default function About() {
           </h2>
           <p style={{
             fontSize: '1.25rem',
-            color: '#F5F1E7',
+            color: 'var(--brand-background)',
             marginBottom: '32px',
             maxWidth: '600px',
             margin: '0 auto 32px'
@@ -310,8 +310,8 @@ export default function About() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 padding: '16px 32px',
-                backgroundColor: '#E6B450',
-                color: '#1C1C1C',
+                backgroundColor: 'var(--brand-purple)',
+                color: 'var(--brand-dark)',
                 fontWeight: '600',
                 borderRadius: '12px',
                 border: 'none',

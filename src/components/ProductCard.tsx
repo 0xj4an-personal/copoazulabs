@@ -74,12 +74,12 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
             const parent = target.parentElement;
             if (parent) {
               parent.innerHTML = `
-                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #F5F1E7 0%, #E5E5E5 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #9A9A9A; font-family: Arial, sans-serif;">
+                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--brand-background) 0%, #E5E5E5 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--brand-neutral); font-family: Arial, sans-serif;">
                   <div style="text-align: center;">
-                    <div style="width: 80px; height: 80px; background-color: #3E7C4A; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                    <div style="width: 80px; height: 80px; background-color: var(--brand-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
                       <span style="font-size: 1.5rem; font-weight: bold; color: #FFFFFF;">${t(`productItems.${product.nameKey}.name`).charAt(0)}</span>
                     </div>
-                    <p style="font-size: 0.875rem; color: #9A9A9A; margin: 0;">${t(`categories.${product.categoryKey}`)}</p>
+                    <p style="font-size: 0.875rem; color: var(--brand-neutral); margin: 0;">${t(`categories.${product.categoryKey}`)}</p>
                   </div>
                 </div>
               `;
@@ -193,10 +193,10 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
         {/* Add to Cart Button */}
         <button
           onClick={handleAddToCart}
-          className={`w-full py-2.5 px-3 border-none rounded-lg font-medium cursor-pointer transition-all duration-200 flex items-center justify-center gap-2 ${
+          className={`w-full py-3 px-4 border-none rounded-lg font-semibold cursor-pointer transition-all duration-200 flex items-center justify-center gap-2 shadow-md ${
             selectedSize
-              ? 'bg-brand-accent text-brand-white hover:bg-brand-primary hover:shadow-lg'
-              : 'bg-brand-neutral dark:bg-brand-neutral text-brand-neutral dark:text-brand-neutral cursor-not-allowed'
+              ? 'bg-brand-primary text-brand-white hover:bg-brand-accent hover:shadow-xl hover:scale-105'
+              : 'bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 cursor-not-allowed'
           }`}
           disabled={!selectedSize}
         >

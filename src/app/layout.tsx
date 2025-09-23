@@ -64,7 +64,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <meta name="theme-color" content="#3E7C4A" />
+        <meta name="theme-color" content="#3D7DD6" />
       </head>
       <body className="min-h-screen transition-colors duration-200">
         {children}
