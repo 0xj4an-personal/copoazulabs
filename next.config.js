@@ -29,12 +29,16 @@ const nextConfig = withNextIntl({
         net: false,
         tls: false,
         '@react-native-async-storage/async-storage': false,
+        critters: false,
+        'critters-webpack-plugin': false,
       };
 
       // Ignore React Native specific modules
       config.resolve.alias = {
         ...config.resolve.alias,
         '@react-native-async-storage/async-storage': false,
+        critters: false,
+        'critters-webpack-plugin': false,
       };
 
       // Bundle optimization for Web3 libraries
@@ -64,7 +68,12 @@ const nextConfig = withNextIntl({
     config.ignoreWarnings = [
       /Module not found: Can't resolve '@react-native-async-storage\/async-storage'/,
       /Critical dependency: the request of a dependency is an expression/,
+      /Can't resolve '@react-native-async-storage\/async-storage'/,
     ];
+
+    // Add module resolution for React Native modules
+    config.resolve.modules = ['node_modules'];
+    config.resolve.extensions = ['.js', '.jsx', '.ts', '.tsx', '.json'];
 
     return config;
   },
@@ -81,8 +90,9 @@ const nextConfig = withNextIntl({
   // Experimental features
   experimental: {
     scrollRestoration: true,
-    optimizeCss: true,
-    optimizeServerReact: true,
+    // Remove problematic CSS optimization for now
+    // optimizeCss: true,
+    // optimizeServerReact: true,
   },
 
   // Caching configuration
