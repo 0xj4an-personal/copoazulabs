@@ -7,7 +7,6 @@ export * from './web3';
 // Global type definitions
 declare global {
   interface Window {
-    ethereum?: any;
     gtag?: (...args: any[]) => void;
   }
 }
