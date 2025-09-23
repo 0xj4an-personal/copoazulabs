@@ -15,9 +15,11 @@ const VerificationContext = createContext<VerificationContextType | undefined>(u
 export function VerificationProvider({ children }: { children: React.ReactNode }) {
   const [isVerified, setIsVerified] = useState(false);
   const [verificationDate, setVerificationDate] = useState<string | null>(null);
+  const [isHydrated, setIsHydrated] = useState(false);
 
-  // Check verification status on mount
+  // Ensure hydration-safe behavior
   useEffect(() => {
+    setIsHydrated(true);
     checkVerificationStatus();
   }, []);
 
@@ -33,8 +35,8 @@ export function VerificationProvider({ children }: { children: React.ReactNode }
 
   const setVerified = (verified: boolean) => {
     setIsVerified(verified);
-    
-    if (verified && typeof window !== 'undefined') {
+
+    if (verified && isHydrated && typeof window !== 'undefined') {
       localStorage.setItem('selfVerified', 'true');
       localStorage.setItem('verificationDate', new Date().toISOString());
       setVerificationDate(new Date().toISOString());
@@ -44,8 +46,8 @@ export function VerificationProvider({ children }: { children: React.ReactNode }
   const clearVerification = () => {
     setIsVerified(false);
     setVerificationDate(null);
-    
-    if (typeof window !== 'undefined') {
+
+    if (isHydrated && typeof window !== 'undefined') {
       localStorage.removeItem('selfVerified');
       localStorage.removeItem('verificationDate');
     }

@@ -86,6 +86,7 @@ const nextConfig = withNextIntl({
 
   // Output configuration
   output: 'standalone',
+  outputFileTracingRoot: process.cwd(),
 
   // Experimental features
   experimental: {

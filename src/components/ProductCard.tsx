@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, useMemo, memo } from 'react';
+import { useState, useCallback, useMemo, memo, useEffect } from 'react';
 import { Heart, ShoppingCart, Eye, Shield } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useCart } from '@/contexts/CartContext';
@@ -19,18 +19,25 @@ const ProductCard = memo(function ProductCard({ product, onAddToCart, onToggleWi
   const [isLiked, setIsLiked] = useState(false);
   const [showActions, setShowActions] = useState(false);
   const [selectedSize, setSelectedSize] = useState<string>('');
+  const [isClient, setIsClient] = useState(false);
   const t = useTranslations('products');
   const tCollections = useTranslations('collections');
   const { addItem } = useCart();
   const { isVerified } = useVerification();
 
+  // Ensure hydration-safe behavior
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   // Memoized calculations
   const pricing = useMemo(() => {
     const discountPercentage = 10;
     const originalPrice = product.price;
-    const discountedPrice = isVerified ? Math.round(originalPrice * (1 - discountPercentage / 100)) : originalPrice;
+    // Only apply discount on client side to prevent hydration mismatch
+    const discountedPrice = (isClient && isVerified) ? Math.round(originalPrice * (1 - discountPercentage / 100)) : originalPrice;
     return { discountPercentage, originalPrice, discountedPrice };
-  }, [product.price, isVerified]);
+  }, [product.price, isVerified, isClient]);
 
   const collection = useMemo(() => getCollectionById(product.collectionId), [product.collectionId]);
 
@@ -150,17 +157,17 @@ const ProductCard = memo(function ProductCard({ product, onAddToCart, onToggleWi
           <span className="text-lg font-bold text-brand-dark dark:text-brand-background transition-colors duration-200">
             {pricing.discountedPrice.toLocaleString('es-CO')} cCOP
           </span>
-          {isVerified && (
+          {isClient && isVerified && (
             <span className="text-base text-brand-neutral dark:text-brand-neutral line-through transition-colors duration-200">
               {pricing.originalPrice.toLocaleString('es-CO')} cCOP
             </span>
           )}
-          {product.originalPrice && !isVerified && (
+          {product.originalPrice && (!isClient || !isVerified) && (
             <span className="text-base text-brand-neutral dark:text-brand-neutral line-through transition-colors duration-200">
               {product.originalPrice.toLocaleString('es-CO')} cCOP
             </span>
           )}
-          {isVerified && (
+          {isClient && isVerified && (
             <span className="text-xs bg-brand-light/20 dark:bg-brand-light/20 text-brand-primary dark:text-brand-light px-2 py-1 rounded-full font-medium">
               -{pricing.discountPercentage}%
             </span>

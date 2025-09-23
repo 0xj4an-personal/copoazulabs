@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
-import { Search, Filter, Grid, List } from 'lucide-react';
+import { Search, Grid, List } from 'lucide-react';
 import ProductCard from '@/components/ProductCard';
 import { Product } from '@/data/products';
 import { Collection } from '@/data/collections';
