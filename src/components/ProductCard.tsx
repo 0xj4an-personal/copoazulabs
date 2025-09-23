@@ -134,40 +134,40 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
           </span>
         </div>
         
-        <h3 className="text-base font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-2 leading-tight transition-colors duration-200">
+        <h3 className="text-base font-semibold text-brand-dark dark:text-brand-background mb-2 leading-tight transition-colors duration-200">
           {t(`productItems.${product.nameKey}.name`)}
         </h3>
 
         {/* Price */}
         <div className="flex items-center gap-2 mb-4">
-          <span className="text-lg font-bold text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">
+          <span className="text-lg font-bold text-brand-dark dark:text-brand-background transition-colors duration-200">
             {discountedPrice.toLocaleString('es-CO')} cCOP
           </span>
           {isVerified && (
-            <span className="text-base text-gray-500 dark:text-gray-400 line-through transition-colors duration-200">
+            <span className="text-base text-brand-neutral dark:text-brand-neutral line-through transition-colors duration-200">
               {originalPrice.toLocaleString('es-CO')} cCOP
             </span>
           )}
           {product.originalPrice && !isVerified && (
-            <span className="text-base text-gray-500 dark:text-gray-400 line-through transition-colors duration-200">
+            <span className="text-base text-brand-neutral dark:text-brand-neutral line-through transition-colors duration-200">
               {product.originalPrice.toLocaleString('es-CO')} cCOP
             </span>
           )}
           {isVerified && (
-            <span className="text-xs bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-300 px-2 py-1 rounded-full font-medium">
+            <span className="text-xs bg-brand-light/20 dark:bg-brand-light/20 text-brand-primary dark:text-brand-light px-2 py-1 rounded-full font-medium">
               -{discountPercentage}%
             </span>
           )}
         </div>
 
         {/* Product Description */}
-        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 leading-relaxed transition-colors duration-200">
+        <p className="text-sm text-brand-neutral dark:text-brand-neutral mb-4 leading-relaxed transition-colors duration-200">
           {t(`productItems.${product.nameKey}.description`)}
         </p>
 
         {/* Size Selector */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-[#1C1C1C] dark:text-[#F5F1E7] mb-2 transition-colors duration-200">
+          <label className="block text-sm font-medium text-brand-dark dark:text-brand-background mb-2 transition-colors duration-200">
             {t('sizes.size')}:
             {!selectedSize && (
               <span className="text-red-500 text-xs ml-2">* {t('sizes.selectSize')}</span>
@@ -180,8 +180,8 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
                 onClick={() => setSelectedSize(size)}
                 className={`px-4 py-2 text-sm font-medium border-2 rounded-lg transition-all duration-200 cursor-pointer transform hover:scale-105 active:scale-95 ${
                   selectedSize === size
-                    ? 'border-[#3E7C4A] bg-[#3E7C4A] text-white shadow-md'
-                    : 'border-gray-400 dark:border-gray-500 bg-white dark:bg-gray-700 text-[#1C1C1C] dark:text-[#F5F1E7] hover:border-[#3E7C4A] hover:bg-[#3E7C4A]/10 hover:shadow-sm'
+                    ? 'border-brand-primary bg-brand-primary text-brand-white shadow-md'
+                    : 'border-brand-neutral dark:border-brand-neutral bg-brand-white dark:bg-dark-surface text-brand-dark dark:text-brand-background hover:border-brand-primary hover:bg-brand-light/10 hover:shadow-sm'
                 }`}
               >
                 {t(`sizes.${size}`)}
@@ -195,8 +195,8 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
           onClick={handleAddToCart}
           className={`w-full py-2.5 px-3 border-none rounded-lg font-medium cursor-pointer transition-all duration-200 flex items-center justify-center gap-2 ${
             selectedSize
-              ? 'bg-[#3E7C4A] text-white hover:bg-[#2d5f3a] hover:shadow-lg'
-              : 'bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 cursor-not-allowed'
+              ? 'bg-brand-accent text-brand-white hover:bg-brand-primary hover:shadow-lg'
+              : 'bg-brand-neutral dark:bg-brand-neutral text-brand-neutral dark:text-brand-neutral cursor-not-allowed'
           }`}
           disabled={!selectedSize}
         >

@@ -19,7 +19,7 @@ export default function Footer() {
               <div style={{
                 width: '40px',
                 height: '40px',
-                backgroundColor: '#3E7C4A',
+                backgroundColor: '#3D7DD6',
                 borderRadius: '8px',
                 display: 'flex',
                 alignItems: 'center',
@@ -31,7 +31,7 @@ export default function Footer() {
               <span style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>{envConfig.app.name}</span>
             </div>
             <p style={{ 
-              color: '#9A9A9A', 
+              color: '#C6CED6', 
               marginBottom: '24px', 
               lineHeight: '1.6',
               maxWidth: '400px'
@@ -47,7 +47,7 @@ export default function Footer() {
                   justifyContent: 'center',
                   width: '40px',
                   height: '40px',
-                  backgroundColor: '#3E7C4A',
+                  backgroundColor: '#3D7DD6',
                   borderRadius: '8px',
                   color: '#FFFFFF',
                   textDecoration: 'none',
@@ -64,7 +64,7 @@ export default function Footer() {
                   justifyContent: 'center',
                   width: '40px',
                   height: '40px',
-                  backgroundColor: '#3E7C4A',
+                  backgroundColor: '#3D7DD6',
                   borderRadius: '8px',
                   color: '#FFFFFF',
                   textDecoration: 'none',
@@ -81,7 +81,7 @@ export default function Footer() {
                   justifyContent: 'center',
                   width: '40px',
                   height: '40px',
-                  backgroundColor: '#3E7C4A',
+                  backgroundColor: '#3D7DD6',
                   borderRadius: '8px',
                   color: '#FFFFFF',
                   textDecoration: 'none',
@@ -104,7 +104,7 @@ export default function Footer() {
                   justifyContent: 'center',
                   width: '40px',
                   height: '40px',
-                  backgroundColor: '#3E7C4A',
+                  backgroundColor: '#3D7DD6',
                   borderRadius: '8px',
                   color: '#FFFFFF',
                   textDecoration: 'none',

@@ -22,38 +22,38 @@ export default function Header() {
   const { isVerified, setVerified } = useVerification();
 
   return (
-    <header className="bg-white dark:bg-gray-900 shadow-lg sticky top-0 z-50 transition-colors duration-200">
+    <header className="bg-brand-white dark:bg-brand-dark shadow-lg sticky top-0 z-50 transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 no-underline">
             <Logo width={40} height={40} />
-            <span className="text-xl font-bold text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">{envConfig.app.name}</span>
+            <span className="text-xl font-bold text-brand-dark dark:text-brand-background transition-colors duration-200">{envConfig.app.name}</span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             <Link 
               href="/" 
-              className="text-[#1C1C1C] dark:text-[#F5F1E7] no-underline transition-colors duration-200 text-base font-medium hover:text-[#3E7C4A] dark:hover:text-[#3E7C4A]"
+              className="text-brand-dark dark:text-brand-background no-underline transition-colors duration-200 text-base font-medium hover:text-brand-primary dark:hover:text-brand-light"
             >
               {t('home')}
             </Link>
             <Link 
               href="/products" 
-              className="text-[#1C1C1C] dark:text-[#F5F1E7] no-underline transition-colors duration-200 text-base font-medium hover:text-[#3E7C4A] dark:hover:text-[#3E7C4A]"
+              className="text-brand-dark dark:text-brand-background no-underline transition-colors duration-200 text-base font-medium hover:text-brand-primary dark:hover:text-brand-light"
             >
               {t('products')}
             </Link>
             <Link 
               href="/collections" 
-              className="text-[#1C1C1C] dark:text-[#F5F1E7] no-underline transition-colors duration-200 text-base font-medium hover:text-[#3E7C4A] dark:hover:text-[#3E7C4A]"
+              className="text-brand-dark dark:text-brand-background no-underline transition-colors duration-200 text-base font-medium hover:text-brand-primary dark:hover:text-brand-light"
             >
               {t('collections')}
             </Link>
             <Link 
               href="/about" 
-              className="text-[#1C1C1C] dark:text-[#F5F1E7] no-underline transition-colors duration-200 text-base font-medium hover:text-[#3E7C4A] dark:hover:text-[#3E7C4A]"
+              className="text-brand-dark dark:text-brand-background no-underline transition-colors duration-200 text-base font-medium hover:text-brand-primary dark:hover:text-brand-light"
             >
               {t('about')}
             </Link>
@@ -81,13 +81,13 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="flex items-center p-2 bg-transparent border-none cursor-pointer rounded-lg transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-800 active:bg-gray-200 dark:active:bg-gray-700 md:hidden touch-manipulation"
+              className="flex items-center p-2 bg-transparent border-none cursor-pointer rounded-lg transition-colors duration-200 hover:bg-brand-light/20 dark:hover:bg-brand-neutral/20 active:bg-brand-light/30 dark:active:bg-brand-neutral/30 md:hidden touch-manipulation"
               style={{ minWidth: '44px', minHeight: '44px' }}
             >
               {isMenuOpen ? (
-                <X className="w-6 h-6 text-[#1C1C1C] dark:text-[#F5F1E7]" />
+                <X className="w-6 h-6 text-brand-dark dark:text-brand-background" />
               ) : (
-                <Menu className="w-6 h-6 text-[#1C1C1C] dark:text-[#F5F1E7]" />
+                <Menu className="w-6 h-6 text-brand-dark dark:text-brand-background" />
               )}
             </button>
           </div>
@@ -95,7 +95,7 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="block border-t border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 md:hidden">
+          <div className="block border-t border-brand-neutral dark:border-brand-neutral bg-brand-white dark:bg-brand-dark md:hidden">
             <div className="py-4">
               <Link 
                 href="/" 

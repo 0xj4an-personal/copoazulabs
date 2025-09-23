@@ -9,30 +9,30 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Copoazú Labs Brand Colors
+        // New Brand Colors
         brand: {
-          brown: '#4B2E1E',      // Cáscara Marrón - Primary brand color
-          cream: '#F5F1E7',      // Pulpa Crema - Light background
-          green: '#3E7C4A',      // Verde Selva - Nature green
-          yellow: '#E6B450',     // Amarillo Amazónico - Warm accent
-          pink: '#D88FA0',       // Rosa Fruto Tropical - Modern detail
-          black: '#1C1C1C',      // Negro Suave - Main text
-          gray: '#9A9A9A',       // Gris Ceniza - Secondary text
-          white: '#FFFFFF',      // Blanco - Clean spaces
+          primary: '#3D7DD6',      // Primary blue - Main brand color
+          light: '#B4E2F9',        // Light blue - Accent and highlights
+          background: '#F5F8FA',   // Light background - Page background
+          neutral: '#C6CED6',      // Neutral gray - Secondary elements
+          accent: '#1A49FF',       // Bright blue - Call-to-action elements
+          dark: '#1B1B2E',         // Dark navy - Text and dark elements
+          purple: '#A5A0E4',       // Purple accent - Special highlights
+          white: '#FFFFFF',        // Pure white - Clean spaces
         },
         // Dark mode variants
         dark: {
-          bg: '#0D1117',
-          surface: '#161B22',
-          border: '#30363D',
-          text: '#F0F6FC',
-          'text-secondary': '#8B949E',
+          bg: '#1B1B2E',           // Dark navy background
+          surface: '#2A2D3A',      // Slightly lighter surface
+          border: '#C6CED6',       // Neutral border
+          text: '#F5F8FA',         // Light text
+          'text-secondary': '#B4E2F9', // Secondary text
         },
         // Status colors
         success: '#22C55E',
         warning: '#F59E0B',
         error: '#EF4444',
-        info: '#3B82F6',
+        info: '#3D7DD6',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
