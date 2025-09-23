@@ -3,11 +3,6 @@
   "outputDirectory": ".next",
   "framework": "nextjs",
   "regions": ["iad1"],
-  "functions": {
-    "app/api/**/*.js": {
-      "runtime": "@vercel/node@3"
-    }
-  },
   "headers": [
     {
       "source": "/(.*)",
