@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { Search, Filter, Grid, List } from 'lucide-react';
@@ -34,38 +34,78 @@ export default function ProductsClient({
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [sortBy, setSortBy] = useState<string>('newest');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
-  const [filteredProducts, setFilteredProducts] = useState(initialProducts);
 
-  // Update products when initial props change
+  // Update state when initial props change
   useEffect(() => {
-    setFilteredProducts(initialProducts);
     setSelectedCollection(initialCollection);
     setSelectedCategory(initialCategory);
     setSearchQuery(initialSearch);
   }, [initialProducts, initialCollection, initialCategory, initialSearch]);
 
-  // Handle filter changes
-  const handleCollectionChange = (collectionId: string) => {
+  // Memoized filtered and sorted products
+  const processedProducts = useMemo(() => {
+    let filtered = initialProducts;
+
+    // Filter by search query
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter(product =>
+        product.name.toLowerCase().includes(query) ||
+        product.category.toLowerCase().includes(query) ||
+        product.collection.toLowerCase().includes(query)
+      );
+    }
+
+    // Filter by collection
+    if (selectedCollection) {
+      filtered = filtered.filter(product => product.collection === selectedCollection);
+    }
+
+    // Filter by category
+    if (selectedCategory) {
+      filtered = filtered.filter(product => product.category === selectedCategory);
+    }
+
+    // Sort products
+    const sorted = [...filtered].sort((a, b) => {
+      switch (sortBy) {
+        case 'price-low':
+          return a.price - b.price;
+        case 'price-high':
+          return b.price - a.price;
+        case 'rating':
+          return b.rating - a.rating;
+        case 'newest':
+        default:
+          return 0; // Keep original order for newest
+      }
+    });
+
+    return sorted;
+  }, [initialProducts, searchQuery, selectedCollection, selectedCategory, sortBy]);
+
+  // Optimized handlers with useCallback
+  const handleCollectionChange = useCallback((collectionId: string) => {
     setSelectedCollection(collectionId);
     // When changing collection, preserve other filters
     updateURL({ collection: collectionId });
-  };
+  }, []);
 
-  const handleCategoryChange = (category: string) => {
+  const handleCategoryChange = useCallback((category: string) => {
     setSelectedCategory(category);
     updateURL({ category });
-  };
+  }, []);
 
-  const handleSearchChange = (query: string) => {
+  const handleSearchChange = useCallback((query: string) => {
     setSearchQuery(query);
     updateURL({ search: query });
-  };
+  }, []);
 
-  const handleSortChange = (sort: string) => {
+  const handleSortChange = useCallback((sort: string) => {
     setSortBy(sort);
-  };
+  }, []);
 
-  const updateURL = (params: { collection?: string; category?: string; search?: string }) => {
+  const updateURL = useCallback((params: { collection?: string; category?: string; search?: string }) => {
     const searchParams = new URLSearchParams();
 
     // Preserve existing parameters and update only the specified ones
@@ -82,14 +122,14 @@ export default function ProductsClient({
       : '/products';
 
     router.push(newURL);
-  };
+  }, [selectedCollection, selectedCategory, searchQuery, router]);
 
-  const clearFilters = () => {
+  const clearFilters = useCallback(() => {
     setSelectedCollection('');
     setSelectedCategory('');
     setSearchQuery('');
     router.push('/products');
-  };
+  }, [router]);
 
   return (
     <>
@@ -197,7 +237,7 @@ export default function ProductsClient({
       </div>
 
       {/* Products Grid/List */}
-      {filteredProducts.length === 0 ? (
+      {processedProducts.length === 0 ? (
         <div className="bg-brand-white dark:bg-dark-surface p-12 rounded-2xl text-center shadow-lg transition-colors duration-200">
           <h3 className="text-xl font-semibold text-brand-dark dark:text-brand-background mb-2 transition-colors duration-200">
             {t('noProductsFound')}
@@ -218,7 +258,7 @@ export default function ProductsClient({
             ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
             : 'grid-cols-1'
         }`}>
-          {filteredProducts.map((product) => (
+          {processedProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
@@ -227,9 +267,9 @@ export default function ProductsClient({
       {/* Results Summary */}
       <div className="text-center text-brand-neutral dark:text-brand-neutral transition-colors duration-200">
         <p>
-          {t('showingResults', { 
-            count: filteredProducts.length,
-            total: filteredProducts.length 
+          {t('showingResults', {
+            count: processedProducts.length,
+            total: initialProducts.length
           })}
         </p>
       </div>

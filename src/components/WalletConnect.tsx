@@ -80,7 +80,7 @@ export default function WalletConnect({ onConnect, onDisconnect }: WalletConnect
           disabled={isConnecting}
           className={`inline-flex items-center px-4 py-2 text-white font-medium rounded-lg border-none cursor-pointer transition-all duration-200 shadow-lg active:scale-95 touch-manipulation ${
             isConnecting
-              ? 'bg-gray-400 cursor-not-allowed opacity-70'
+              ? 'bg-brand-neutral cursor-not-allowed opacity-70'
               : 'bg-brand-primary hover:bg-brand-accent'
           }`}
           style={{ minWidth: '44px', minHeight: '44px' }}
@@ -162,7 +162,7 @@ export default function WalletConnect({ onConnect, onDisconnect }: WalletConnect
             </button>
             <button
               onClick={handleDisconnect}
-              className="flex items-center w-full px-4 py-2 bg-transparent border-none cursor-pointer text-sm text-red-500 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors duration-200"
+              className="flex items-center w-full px-4 py-2 bg-transparent border-none cursor-pointer text-sm text-brand-purple dark:text-brand-purple hover:bg-brand-purple/10 dark:hover:bg-brand-purple/20 transition-colors duration-200"
             >
               {t('disconnect')}
             </button>

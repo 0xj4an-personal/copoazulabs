@@ -6,7 +6,7 @@ import { envConfig } from '../../env.config';
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-dark dark:bg-gray-800 text-brand-background transition-colors duration-200">
+    <footer className="bg-brand-dark dark:bg-brand-dark/80 text-brand-background transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div style={{ 
           display: 'grid', 

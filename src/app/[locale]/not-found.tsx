@@ -43,7 +43,7 @@ export default async function NotFound() {
         <button style={{
           padding: '12px 24px',
           backgroundColor: 'var(--brand-primary)',
-          color: '#FFFFFF',
+          color: 'var(--brand-white)',
           border: 'none',
           borderRadius: '8px',
           fontSize: '1rem',

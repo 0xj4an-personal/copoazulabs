@@ -113,7 +113,7 @@ export default function CartDrawer() {
                     {/* Remove Button */}
                     <button
                       onClick={() => removeItem(item.id)}
-                      className="p-1 hover:bg-red-50 dark:hover:bg-red-900/20 text-red-500 dark:text-red-400 rounded-full transition-colors"
+                      className="p-1 hover:bg-brand-purple/10 dark:hover:bg-brand-purple/20 text-brand-purple dark:text-brand-purple rounded-full transition-colors"
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
@@ -129,7 +129,7 @@ export default function CartDrawer() {
               {/* Total */}
               <div className="space-y-2">
                 {discountAmount > 0 && (
-                  <div className="flex justify-between items-center text-sm text-gray-600 dark:text-gray-400">
+                  <div className="flex justify-between items-center text-sm text-brand-neutral dark:text-brand-background">
                     <span>Subtotal:</span>
                     <span>{formatPrice(state.totalPrice)}</span>
                   </div>
@@ -150,7 +150,7 @@ export default function CartDrawer() {
               <div className="space-y-3">
                 <button
                   onClick={clearCart}
-                  className="w-full px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
+                  className="w-full px-4 py-2 text-sm text-brand-purple dark:text-brand-purple hover:text-brand-purple dark:hover:text-brand-purple hover:bg-brand-purple/10 dark:hover:bg-brand-purple/20 rounded-lg transition-colors"
                 >
                   {t('clearCart')}
                 </button>

@@ -43,7 +43,7 @@ export default function Logo({
     // Return a placeholder with the same dimensions during SSR
     return (
       <div 
-        className={`bg-gray-200 dark:bg-gray-700 rounded animate-pulse ${className}`}
+        className={`bg-brand-light/30 dark:bg-brand-dark/70 rounded animate-pulse ${className}`}
         style={{ width, height }}
       />
     );

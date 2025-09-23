@@ -42,7 +42,7 @@ const values = [
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-[var(--brand-background)] dark:bg-gray-900">
+    <div className="min-h-screen bg-[var(--brand-background)] dark:bg-brand-dark">
       {/* Hero Section */}
       <section style={{
         padding: '120px 0 80px',

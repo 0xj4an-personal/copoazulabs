@@ -164,7 +164,7 @@ export default function CollectionsPage() {
                       const parent = target.parentElement;
                       if (parent) {
                         parent.innerHTML = `
-                          <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--brand-background) 0%, #E5E5E5 100%); display: flex; align-items: center; justify-content: center; color: var(--brand-neutral); font-family: Arial, sans-serif;">
+                          <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--brand-background) 0%, var(--brand-neutral) 100%); display: flex; align-items: center; justify-content: center; color: var(--brand-neutral); font-family: Arial, sans-serif;">
                             <div style="text-align: center;">
                               <div style="font-size: 18px; margin-bottom: 8px;">Collection Image</div>
                               <div style="font-size: 14px;">Coming Soon</div>

@@ -85,7 +85,7 @@ export default function ThemeToggle() {
           backgroundColor: 'transparent',
           cursor: 'pointer',
         }}
-        className="hover:bg-gray-100 active:bg-gray-200 touch-manipulation"
+        className="hover:bg-brand-light/20 active:bg-brand-light/30 touch-manipulation"
       >
         <Moon style={{ width: '20px', height: '20px' }} />
       </button>
@@ -108,7 +108,7 @@ export default function ThemeToggle() {
         transition: 'all 0.2s ease',
         color: isDark ? 'var(--brand-background)' : 'var(--brand-dark)',
       }}
-      className="hover:bg-gray-100 dark:hover:bg-gray-800 active:bg-gray-200 dark:active:bg-gray-700 touch-manipulation"
+      className="hover:bg-brand-light/20 dark:hover:bg-brand-dark/80 active:bg-brand-light/30 dark:active:bg-brand-dark/70 touch-manipulation"
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
       title={`Current theme: ${isDark ? 'dark' : 'light'}`}
     >

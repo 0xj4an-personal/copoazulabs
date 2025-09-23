@@ -63,14 +63,14 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
 
         {/* Client Component for Interactive Features */}
         <Suspense fallback={
-          <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl shadow-lg mb-6 transition-colors duration-200">
+          <div className="bg-white dark:bg-brand-dark/80 p-5 rounded-2xl shadow-lg mb-6 transition-colors duration-200">
             <div className="animate-pulse">
-              <div className="h-4 bg-gray-300 dark:bg-gray-600 rounded w-1/4 mb-4"></div>
-              <div className="h-10 bg-gray-300 dark:bg-gray-600 rounded mb-4"></div>
+              <div className="h-4 bg-brand-light/30 dark:bg-brand-dark/70 rounded w-1/4 mb-4"></div>
+              <div className="h-10 bg-brand-light/30 dark:bg-brand-dark/70 rounded mb-4"></div>
               <div className="flex gap-4">
-                <div className="h-8 bg-gray-300 dark:bg-gray-600 rounded w-32"></div>
-                <div className="h-8 bg-gray-300 dark:bg-gray-600 rounded w-32"></div>
-                <div className="h-8 bg-gray-300 dark:bg-gray-600 rounded w-32"></div>
+                <div className="h-8 bg-brand-light/30 dark:bg-brand-dark/70 rounded w-32"></div>
+                <div className="h-8 bg-brand-light/30 dark:bg-brand-dark/70 rounded w-32"></div>
+                <div className="h-8 bg-brand-light/30 dark:bg-brand-dark/70 rounded w-32"></div>
               </div>
             </div>
           </div>

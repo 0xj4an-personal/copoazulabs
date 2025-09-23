@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback, useMemo, memo } from 'react';
 import { Heart, ShoppingCart, Eye, Shield } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useCart } from '@/contexts/CartContext';
@@ -14,7 +14,7 @@ interface ProductCardProps {
   onToggleWishlist?: (product: Product) => void;
 }
 
-export default function ProductCard({ product, onAddToCart, onToggleWishlist }: ProductCardProps) {
+const ProductCard = memo(function ProductCard({ product, onAddToCart, onToggleWishlist }: ProductCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   const [showActions, setShowActions] = useState(false);
@@ -24,17 +24,23 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
   const { addItem } = useCart();
   const { isVerified } = useVerification();
 
-  // Calculate pricing with discount
-  const discountPercentage = 10;
-  const originalPrice = product.price;
-  const discountedPrice = isVerified ? Math.round(originalPrice * (1 - discountPercentage / 100)) : originalPrice;
+  // Memoized calculations
+  const pricing = useMemo(() => {
+    const discountPercentage = 10;
+    const originalPrice = product.price;
+    const discountedPrice = isVerified ? Math.round(originalPrice * (1 - discountPercentage / 100)) : originalPrice;
+    return { discountPercentage, originalPrice, discountedPrice };
+  }, [product.price, isVerified]);
 
-  const handleAddToCart = () => {
+  const collection = useMemo(() => getCollectionById(product.collectionId), [product.collectionId]);
+
+  // Optimized handlers
+  const handleAddToCart = useCallback(() => {
     if (!selectedSize) return;
-    
+
     const productName = t(`productItems.${product.nameKey}.name`);
     const sizeName = t(`sizes.${selectedSize}`);
-    
+
     addItem({
       id: `${product.id}-${selectedSize}`,
       name: `${productName} (${sizeName})`,
@@ -43,19 +49,23 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
       image: product.image,
     });
     onAddToCart?.(product);
-  };
+  }, [selectedSize, product, t, addItem, onAddToCart]);
 
-  const handleToggleWishlist = () => {
+  const handleToggleWishlist = useCallback(() => {
     setIsLiked(!isLiked);
     onToggleWishlist?.(product);
-  };
+  }, [isLiked, onToggleWishlist, product]);
+
+  const handleMouseEnter = useCallback(() => setIsHovered(true), []);
+  const handleMouseLeave = useCallback(() => setIsHovered(false), []);
+  const toggleActions = useCallback(() => setShowActions(!showActions), [showActions]);
 
 
   return (
     <div
-      className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      className="relative bg-white dark:bg-brand-dark/80 rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       {/* Product Image */}
       <div style={{ position: 'relative', aspectRatio: '4/5', overflow: 'hidden' }}>
@@ -74,10 +84,10 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
             const parent = target.parentElement;
             if (parent) {
               parent.innerHTML = `
-                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--brand-background) 0%, #E5E5E5 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--brand-neutral); font-family: Arial, sans-serif;">
+                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--brand-background) 0%, var(--brand-neutral) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--brand-neutral); font-family: Arial, sans-serif;">
                   <div style="text-align: center;">
                     <div style="width: 80px; height: 80px; background-color: var(--brand-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-                      <span style="font-size: 1.5rem; font-weight: bold; color: #FFFFFF;">${t(`productItems.${product.nameKey}.name`).charAt(0)}</span>
+                      <span style="font-size: 1.5rem; font-weight: bold; color: var(--brand-white);">${t(`productItems.${product.nameKey}.name`).charAt(0)}</span>
                     </div>
                     <p style="font-size: 0.875rem; color: var(--brand-neutral); margin: 0;">${t(`categories.${product.categoryKey}`)}</p>
                   </div>
@@ -92,31 +102,31 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
           <div className="absolute top-3 right-3 flex flex-col gap-2">
             <button
               onClick={handleToggleWishlist}
-              className="w-10 h-10 bg-white dark:bg-gray-700 border-none rounded-full flex items-center justify-center cursor-pointer shadow-md transition-all duration-200 hover:scale-110 active:scale-95"
+              className="w-10 h-10 bg-white dark:bg-brand-dark/70 border-none rounded-full flex items-center justify-center cursor-pointer shadow-md transition-all duration-200 hover:scale-110 active:scale-95"
             >
               <Heart 
                 className={`w-5 h-5 ${
                   isLiked 
                     ? 'text-pink-400 fill-pink-400' 
-                    : 'text-gray-500 dark:text-gray-400'
+                    : 'text-brand-neutral dark:text-brand-background'
                 }`}
               />
             </button>
-            <button className="w-10 h-10 bg-white dark:bg-gray-700 border-none rounded-full flex items-center justify-center cursor-pointer shadow-md transition-all duration-200 hover:scale-110 active:scale-95">
-              <Eye className="w-5 h-5 text-gray-500 dark:text-gray-400" />
+            <button className="w-10 h-10 bg-white dark:bg-brand-dark/70 border-none rounded-full flex items-center justify-center cursor-pointer shadow-md transition-all duration-200 hover:scale-110 active:scale-95">
+              <Eye className="w-5 h-5 text-brand-neutral dark:text-brand-background" />
             </button>
           </div>
         )}
 
         {/* Mobile Action Toggle Button */}
         <button
-          onClick={() => setShowActions(!showActions)}
-          className="absolute top-3 right-3 w-10 h-10 bg-white dark:bg-gray-700 border-none rounded-full flex items-center justify-center cursor-pointer shadow-md transition-all duration-200 active:scale-95 md:hidden"
+          onClick={toggleActions}
+          className="absolute top-3 right-3 w-10 h-10 bg-white dark:bg-brand-dark/70 border-none rounded-full flex items-center justify-center cursor-pointer shadow-md transition-all duration-200 active:scale-95 md:hidden"
         >
           <div className="flex flex-col gap-1">
-            <div className="w-3 h-0.5 bg-gray-500 dark:bg-gray-400 rounded"></div>
-            <div className="w-3 h-0.5 bg-gray-500 dark:bg-gray-400 rounded"></div>
-            <div className="w-3 h-0.5 bg-gray-500 dark:bg-gray-400 rounded"></div>
+            <div className="w-3 h-0.5 bg-brand-neutral dark:bg-brand-background rounded"></div>
+            <div className="w-3 h-0.5 bg-brand-neutral dark:bg-brand-background rounded"></div>
+            <div className="w-3 h-0.5 bg-brand-neutral dark:bg-brand-background rounded"></div>
           </div>
         </button>
 
@@ -125,12 +135,9 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
       {/* Product Info */}
       <div className="p-4">
         <div className="mb-2 flex justify-between items-center">
-          <span className="text-sm text-gray-500 dark:text-gray-400">{t(`categories.${product.categoryKey}`)}</span>
-          <span className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-2 py-1 rounded-full">
-            {(() => {
-              const collection = getCollectionById(product.collectionId);
-              return collection ? tCollections(`collectionItems.${collection.nameKey}.name`) : 'Unknown Collection';
-            })()}
+          <span className="text-sm text-brand-neutral dark:text-brand-background">{t(`categories.${product.categoryKey}`)}</span>
+          <span className="text-xs bg-brand-light/20 dark:bg-brand-dark/70 text-brand-neutral dark:text-brand-background px-2 py-1 rounded-full">
+            {collection ? tCollections(`collectionItems.${collection.nameKey}.name`) : 'Unknown Collection'}
           </span>
         </div>
         
@@ -141,11 +148,11 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
         {/* Price */}
         <div className="flex items-center gap-2 mb-4">
           <span className="text-lg font-bold text-brand-dark dark:text-brand-background transition-colors duration-200">
-            {discountedPrice.toLocaleString('es-CO')} cCOP
+            {pricing.discountedPrice.toLocaleString('es-CO')} cCOP
           </span>
           {isVerified && (
             <span className="text-base text-brand-neutral dark:text-brand-neutral line-through transition-colors duration-200">
-              {originalPrice.toLocaleString('es-CO')} cCOP
+              {pricing.originalPrice.toLocaleString('es-CO')} cCOP
             </span>
           )}
           {product.originalPrice && !isVerified && (
@@ -155,7 +162,7 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
           )}
           {isVerified && (
             <span className="text-xs bg-brand-light/20 dark:bg-brand-light/20 text-brand-primary dark:text-brand-light px-2 py-1 rounded-full font-medium">
-              -{discountPercentage}%
+              -{pricing.discountPercentage}%
             </span>
           )}
         </div>
@@ -170,7 +177,7 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
           <label className="block text-sm font-medium text-brand-dark dark:text-brand-background mb-2 transition-colors duration-200">
             {t('sizes.size')}:
             {!selectedSize && (
-              <span className="text-red-500 text-xs ml-2">* {t('sizes.selectSize')}</span>
+              <span className="text-brand-purple text-xs ml-2">* {t('sizes.selectSize')}</span>
             )}
           </label>
           <div className="flex gap-2">
@@ -196,7 +203,7 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
           className={`w-full py-3 px-4 border-none rounded-lg font-semibold cursor-pointer transition-all duration-200 flex items-center justify-center gap-2 shadow-md ${
             selectedSize
               ? 'bg-brand-primary text-brand-white hover:bg-brand-accent hover:shadow-xl hover:scale-105'
-              : 'bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 cursor-not-allowed'
+              : 'bg-brand-neutral dark:bg-brand-neutral text-brand-neutral dark:text-brand-background cursor-not-allowed'
           }`}
           disabled={!selectedSize}
         >
@@ -206,4 +213,6 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
       </div>
     </div>
   );
-}
+});
+
+export default ProductCard;

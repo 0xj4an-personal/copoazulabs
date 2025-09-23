@@ -109,7 +109,7 @@ export default function CheckoutPage() {
             {/* Verification Section */}
             {!isVerified && (
               <div className="border-t border-brand-neutral dark:border-brand-neutral mt-6 pt-6 transition-colors duration-200">
-                <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-lg p-4 mb-4">
+                <div className="bg-gradient-to-r from-brand-primary/10 to-brand-accent/10 dark:from-brand-primary/20 dark:to-brand-accent/20 rounded-lg p-4 mb-4">
                   <h3 className="text-lg font-semibold text-brand-dark dark:text-brand-background mb-2">
                     {tVerification('checkout.title')}
                   </h3>
@@ -154,8 +154,8 @@ export default function CheckoutPage() {
             </h2>
 
             {paymentError && (
-              <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-3 mb-4">
-                <p className="text-red-600 dark:text-red-400 text-sm m-0">
+              <div className="bg-brand-purple/10 dark:bg-brand-purple/20 border border-brand-purple/30 dark:border-brand-purple/50 rounded-lg p-3 mb-4">
+                <p className="text-brand-purple dark:text-brand-purple text-sm m-0">
                   {paymentError}
                 </p>
               </div>

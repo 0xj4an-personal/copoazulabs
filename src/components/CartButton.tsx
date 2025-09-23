@@ -14,13 +14,13 @@ export default function CartButton({ style = {} }: CartButtonProps) {
   return (
     <button
       onClick={toggleCart}
-      className="relative flex items-center justify-center p-2 rounded-lg bg-transparent border-none cursor-pointer transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-800 active:bg-gray-200 dark:active:bg-gray-700 touch-manipulation"
+      className="relative flex items-center justify-center p-2 rounded-lg bg-transparent border-none cursor-pointer transition-colors duration-200 hover:bg-brand-light/20 dark:hover:bg-brand-neutral/20 active:bg-brand-light/30 dark:active:bg-brand-neutral/30 touch-manipulation"
       style={{ ...style, minWidth: '44px', minHeight: '44px' }}
       aria-label={`Shopping cart with ${state.totalItems} items`}
     >
-      <ShoppingCart className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+      <ShoppingCart className="w-5 h-5 text-brand-dark dark:text-brand-background" />
       {state.totalItems > 0 && (
-        <span className="absolute -top-1 -right-1 bg-green-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium min-w-[20px]">
+        <span className="absolute -top-1 -right-1 bg-brand-accent text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium min-w-[20px]">
           {state.totalItems > 99 ? '99+' : state.totalItems}
         </span>
       )}

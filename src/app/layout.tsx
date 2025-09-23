@@ -13,14 +13,18 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://copoazulabs.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://copoazushop.vercel.app'),
   alternates: {
     canonical: '/',
+    languages: {
+      'en': '/en',
+      'es': '/es',
+    },
   },
   openGraph: {
     title: "Copoazú Labs - Web3 Fashion & Merchandise",
     description: "Discover exclusive Web3 branded clothing and merchandise. Connect your wallet, shop with crypto, and join the decentralized fashion revolution.",
-    url: 'https://copoazulabs.com',
+    url: process.env.NEXT_PUBLIC_APP_URL || 'https://copoazushop.vercel.app',
     siteName: 'Copoazú Labs',
     images: [
       {
@@ -63,8 +67,17 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
         <meta name="theme-color" content="#3D7DD6" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
       <body className="min-h-screen transition-colors duration-200">
         {children}

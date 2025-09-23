@@ -1,56 +1,79 @@
 # 🛍️ Copoazú Shop - Web3 Fashion & Merchandise E-commerce
 
+[![Next.js](https://img.shields.io/badge/Next.js-15.5.2-black)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.6.0-blue)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4.0-38B2AC)](https://tailwindcss.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A cutting-edge, fully responsive e-commerce platform for Web3 branded clothing and merchandise. Built with Next.js 15, TypeScript, Tailwind CSS, and modern Web3 integrations, featuring crypto payments, wallet connectivity, and decentralized commerce features.
 
-## ✨ Features
+## ✨ Key Features
 
-- **🎨 Beautiful Design**: Custom Copoazú Labs color palette with modern UI/UX
-- **🔗 Web3 Integration**: Wallet connection and crypto payment with cCOP tokens
-- **📱 Responsive**: Mobile-first design that works on all devices
-- **🛍️ E-commerce**: Product catalog, search, filtering, and shopping cart
-- **⚡ Fast**: Built with Next.js 15 with server-side rendering and optimized performance
-- **🎯 TypeScript**: Full type safety and better developer experience
-- **🎨 Inline Styling**: Consistent styling using inline CSS for reliability
-- **🌐 Multi-page**: Complete website with Home, About, Products, and Collections pages
-- **🏷️ Collections System**: 6 themed collections (Gaming, ReFi, DeFi, Governance, Coding, Degen)
-- **🔄 Server-Side Filtering**: Instant product filtering without client-side delays
-- **🌙 Dark Mode**: Seamless theme switching with proper hydration handling
-- **🌍 Internationalization**: Multi-language support (English/Spanish)
+### 🎨 **Modern Design System**
+- **Custom Brand Palette**: Modern blue-based color scheme with cohesive design
+- **Responsive Design**: Mobile-first approach optimized for all devices
+- **Dark Mode**: Seamless theme switching with proper hydration handling
+- **Accessibility**: WCAG compliant with semantic HTML and ARIA support
 
-## 🎨 Color Palette
+### 🔗 **Web3 Integration**
+- **Wallet Connection**: MetaMask and Web3 wallet support via AppKit/Reown
+- **Crypto Payments**: Native cCOP token payments on Celo blockchain
+- **ENS Support**: Ethereum Name Service integration
+- **Decentralized Identity**: User ownership of data and transactions
 
-The design uses the exclusive Copoazú Labs color scheme:
+### 🛍️ **E-commerce Features**
+- **Product Catalog**: 18 Web3 merchandise items across 6 themed collections
+- **Smart Filtering**: Server-side filtering with instant results
+- **Shopping Cart**: Full cart functionality with persistent state
+- **Collection System**: Gaming, ReFi, DeFi, Governance, Coding, and Degen collections
+- **Search & Sort**: Advanced product discovery capabilities
+
+### 🌐 **Internationalization**
+- **Multi-language**: Complete English/Spanish support with next-intl
+- **Localized Routing**: URL structure adapts to user language (`/en/products`, `/es/productos`)
+- **Type-safe Translations**: Strongly typed translation keys
+- **SSR Translations**: Server-side rendering with proper hydration
+
+### ⚡ **Performance & Development**
+- **Next.js 15**: Latest App Router with React Server Components
+- **TypeScript**: Strict type checking with comprehensive type definitions
+- **Modern Bundling**: Optimized builds with code splitting
+- **Image Optimization**: WebP/AVIF support with Next.js Image component
+
+## 🎨 Brand Color Palette
+
+The design uses the modern Copoazú Labs color scheme:
 
 ### Primary Colors
-- **🍫 Cáscara Marrón**: `#4B2E1E` - Brand identity, strong and elegant
-- **🥥 Pulpa Crema**: `#F5F1E7` - Light background, clean base
-- **🌱 Verde Selva**: `#3E7C4A` - Natural green, vitality
+- **🔵 Primary Blue**: `#3D7DD6` - Main brand color, primary actions
+- **💧 Light Blue**: `#B4E2F9` - Accent and highlights
+- **🌊 Background Blue**: `#F5F8FA` - Light background, page base
 
 ### Secondary Colors
-- **🌼 Amarillo Amazónico**: `#E6B450` - Warm accent, energy
-- **🌸 Rosa Fruto Tropical**: `#D88FA0` - Modern detail, vibrant
+- **⚡ Bright Blue**: `#1A49FF` - Call-to-action elements
+- **🌌 Dark Navy**: `#1B1B2E` - Text and dark elements
+- **💜 Purple Accent**: `#A5A0E4` - Special highlights
 
 ### Neutral Colors
-- **🖤 Negro Suave**: `#1C1C1C` - Main text, strong contrasts
-- **🩶 Gris Ceniza**: `#9A9A9A` - Secondary text, borders
-- **🤍 Blanco**: `#FFFFFF` - Clean spaces, visual breathing room
+- **🩶 Neutral Gray**: `#C6CED6` - Secondary elements, borders
+- **🤍 Pure White**: `#FFFFFF` - Clean spaces, visual breathing room
 
-## 🚀 Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ 
-- npm, yarn, or pnpm
-- Git
+- **Node.js** 18+
+- **npm/yarn/pnpm** package manager
+- **Git** for version control
 
 ### Installation
 
-1. Clone the repository:
+1. **Clone the repository:**
 ```bash
 git clone https://github.com/0xj4an/copoazushop.git
 cd copoazushop
 ```
 
-2. Install dependencies:
+2. **Install dependencies:**
 ```bash
 npm install
 # or
@@ -59,7 +82,7 @@ yarn install
 pnpm install
 ```
 
-3. Run the development server:
+3. **Start development server:**
 ```bash
 npm run dev
 # or
@@ -68,264 +91,405 @@ yarn dev
 pnpm dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+4. **Open your browser:**
+Visit [http://localhost:3000](http://localhost:3000) to see the application.
 
-### Alternative Development Server
+### Alternative Development Options
 
-If you encounter issues with the default development server, try running without turbopack:
+If you encounter issues with the default development server:
 
 ```bash
+# Run without turbopack
 npx next dev --port 3000
+
+# Use different port
+npm run dev -- --port 3001
 ```
 
-### Troubleshooting
+## 📁 Project Architecture
 
-If you experience styling issues or build errors:
+```
+copoazushop/
+├── 📁 src/
+│   ├── 📁 app/                      # Next.js 15 App Router
+│   │   ├── 📁 [locale]/             # Internationalized routes
+│   │   │   ├── layout.tsx           # Locale layout with providers
+│   │   │   ├── page.tsx             # Homepage with hero & features
+│   │   │   ├── 📁 about/            # Company information
+│   │   │   ├── 📁 products/         # Product catalog & search
+│   │   │   ├── 📁 collections/      # Curated collections
+│   │   │   └── 📁 checkout/         # Payment & order processing
+│   │   ├── globals.css              # Global styles & CSS variables
+│   │   ├── layout.tsx               # Root layout & metadata
+│   │   └── page.tsx                 # Root redirect handler
+│   ├── 📁 components/               # Reusable UI components (17 files)
+│   │   ├── Header.tsx               # Navigation with mobile menu
+│   │   ├── Footer.tsx               # Site footer with links
+│   │   ├── ProductCard.tsx          # Product display component
+│   │   ├── CartButton.tsx           # Cart with item count
+│   │   ├── CartDrawer.tsx           # Slide-out cart interface
+│   │   ├── WalletConnect.tsx        # Web3 wallet integration
+│   │   ├── CryptoPayment.tsx        # Crypto payment interface
+│   │   ├── CeloPayment.tsx          # Celo-specific payment flow
+│   │   ├── ThemeToggle.tsx          # Dark/light mode switch
+│   │   ├── LanguageSwitcher.tsx     # Language selection
+│   │   ├── VerificationPopup.tsx    # Identity verification
+│   │   └── ...                      # Additional UI components
+│   ├── 📁 contexts/                 # React Context providers (4 files)
+│   │   ├── CartContext.tsx          # Shopping cart state management
+│   │   ├── ThemeContext.tsx         # Dark/light theme state
+│   │   ├── VerificationContext.tsx  # User verification state
+│   │   └── Web3Context.tsx          # Web3 wallet & blockchain state
+│   ├── 📁 hooks/                    # Custom React hooks (3 files)
+│   │   ├── useWallet.ts             # Wallet connection logic
+│   │   ├── usePayment.ts            # Payment processing logic
+│   │   └── useDivvi.ts              # Referral system integration
+│   ├── 📁 data/                     # Static data & configurations
+│   │   ├── products.ts              # Product catalog data
+│   │   ├── collections.ts           # Collection definitions
+│   │   └── ...                      # Additional data sources
+│   ├── 📁 i18n/                     # Internationalization setup
+│   │   └── config.ts                # Locale configuration
+│   ├── 📁 messages/                 # Translation files
+│   │   ├── en.json                  # English translations
+│   │   └── es.json                  # Spanish translations
+│   ├── 📁 config/                   # Configuration files
+│   │   └── web3.ts                  # Web3 & blockchain config
+│   └── 📁 types/                    # TypeScript type definitions
+│       ├── index.ts                 # Core type exports
+│       └── ...                      # Additional type definitions
+├── 📁 public/                       # Static assets
+│   ├── favicon.ico                  # Site favicon
+│   ├── logo.svg                     # Company logo
+│   └── assets/                      # Images, icons, etc.
+├── 📄 tailwind.config.js            # Tailwind CSS configuration
+├── 📄 next.config.js                # Next.js configuration
+├── 📄 tsconfig.json                 # TypeScript configuration
+├── 📄 eslint.config.js              # ESLint configuration
+├── 📄 package.json                  # Dependencies & scripts
+└── 📄 README.md                     # Project documentation
+```
 
-1. Clear the cache and reinstall dependencies:
+## 🛠️ Technology Stack
+
+### **Core Framework**
+- **[Next.js 15](https://nextjs.org/)** - React framework with App Router
+- **[React 18](https://reactjs.org/)** - UI library with concurrent features
+- **[TypeScript 5.6](https://www.typescriptlang.org/)** - Type-safe development
+
+### **Styling & UI**
+- **[Tailwind CSS 3.4](https://tailwindcss.com/)** - Utility-first CSS framework
+- **[Lucide React](https://lucide.dev/)** - Beautiful icon library
+- **[Inter Font](https://fonts.google.com/)** - Modern, readable typography
+
+### **Web3 & Blockchain**
+- **[@reown/appkit](https://github.com/WalletConnect/web3modal)** - Wallet connection interface
+- **[wagmi](https://wagmi.sh/)** - React hooks for Ethereum
+- **[viem](https://viem.sh/)** - TypeScript Ethereum client
+- **[ethers.js](https://ethers.org/)** - Ethereum JavaScript library
+- **[@celo/*](https://celo.org/)** - Celo blockchain integration
+
+### **State Management**
+- **React Context** - Built-in state management
+- **[@tanstack/react-query](https://tanstack.com/query)** - Server state management
+- **Custom Hooks** - Reusable stateful logic
+
+### **Internationalization**
+- **[next-intl](https://next-intl-docs.vercel.app/)** - Type-safe internationalization
+- **Locale Routing** - Automatic URL localization
+- **SSR Translations** - Server-side rendering support
+
+### **Development Tools**
+- **[ESLint](https://eslint.org/)** - Code linting
+- **[Prettier](https://prettier.io/)** - Code formatting (configured)
+- **[TypeScript](https://www.typescriptlang.org/)** - Static type checking
+
+## 🌐 Web3 Features Deep Dive
+
+### **Wallet Integration**
+```typescript
+// Example wallet connection
+import { useAccount, useConnect, useDisconnect } from 'wagmi';
+
+const { address, isConnected } = useAccount();
+const { connect, connectors } = useConnect();
+const { disconnect } = useDisconnect();
+```
+
+### **Crypto Payment Flow**
+1. **Wallet Connection** - Users connect their Web3 wallet
+2. **Token Balance Check** - Verify cCOP token balance
+3. **Transaction Approval** - Request user approval for payment
+4. **Blockchain Transaction** - Execute payment on Celo network
+5. **Confirmation** - Display transaction success with explorer link
+
+### **Supported Wallets**
+- MetaMask
+- WalletConnect compatible wallets
+- Coinbase Wallet
+- Trust Wallet
+- And more via AppKit/Reown integration
+
+## 🎯 Page Structure & Features
+
+### 🏠 **Homepage** (`/` → `/{locale}`)
+**Purpose**: Convert visitors into customers with compelling value proposition
+- **Hero Section**: Eye-catching banner with main call-to-action
+- **Featured Products**: Showcase of best-selling items
+- **Statistics**: Company metrics and social proof
+- **Features Showcase**: Key platform benefits
+- **Newsletter Signup**: Email collection for marketing
+
+### 🛍️ **Products** (`/{locale}/products`)
+**Purpose**: Comprehensive product discovery and browsing
+- **Product Grid**: Clean, responsive product card layout
+- **Advanced Search**: Real-time search with suggestions
+- **Smart Filtering**: Category, price, and attribute filters
+- **Sort Options**: Price, popularity, newest, rating
+- **Pagination**: Efficient large catalog navigation
+- **Quick Actions**: Add to cart, wishlist, quick view
+
+### 📚 **Collections** (`/{locale}/collections`)
+**Purpose**: Curated product experiences and themed browsing
+- **6 Themed Collections**:
+  - 🎮 **Gaming**: Esports and gaming culture merchandise
+  - 🌱 **ReFi**: Regenerative Finance themed items
+  - 💰 **DeFi**: Decentralized Finance community gear
+  - 🏛️ **Governance**: DAO and governance participation wear
+  - 💻 **Coding**: Developer and tech professional items
+  - 🚀 **Degen**: Bold and experimental crypto culture
+- **Collection Filtering**: Click to filter products by collection
+- **Visual Storytelling**: Rich imagery and descriptions
+
+### ℹ️ **About** (`/{locale}/about`)
+**Purpose**: Build trust and communicate company values
+- **Mission Statement**: Clear company purpose and vision
+- **Core Values**: Innovation, Community, Sustainability, Transparency
+- **Company Statistics**: Growth metrics and achievements
+- **Team Showcase**: Leadership and key team members
+- **Call-to-Action**: Join mission and connect with community
+
+### 🛒 **Checkout** (`/{locale}/checkout`)
+**Purpose**: Seamless payment experience with Web3 integration
+- **Order Summary**: Clear breakdown of items and pricing
+- **Payment Options**: Traditional and crypto payment methods
+- **Web3 Integration**: Native blockchain payment flow
+- **Order Confirmation**: Transaction success and tracking info
+
+## 🎨 Design System & Components
+
+### **Component Architecture**
+```typescript
+// Example component structure
+interface ProductCardProps {
+  product: Product;
+  onAddToCart: (product: Product) => void;
+  showQuickView?: boolean;
+  variant?: 'grid' | 'list';
+}
+
+const ProductCard: React.FC<ProductCardProps> = ({
+  product,
+  onAddToCart,
+  showQuickView = true,
+  variant = 'grid'
+}) => {
+  // Component implementation
+};
+```
+
+### **State Management Pattern**
+```typescript
+// Context + Custom Hooks pattern
+const CartContext = React.createContext<CartContextType | undefined>(undefined);
+
+export const useCart = () => {
+  const context = useContext(CartContext);
+  if (!context) {
+    throw new Error('useCart must be used within CartProvider');
+  }
+  return context;
+};
+```
+
+### **Styling Approach**
+- **CSS Variables**: Centralized color system
+- **Tailwind Classes**: Utility-first styling
+- **Responsive Design**: Mobile-first breakpoints
+- **Dark Mode**: Automatic theme detection and manual toggle
+
+## 🚀 Deployment & DevOps
+
+### **Vercel (Recommended)**
 ```bash
+# Deploy to Vercel
+npm i -g vercel
+vercel --prod
+```
+
+### **Build Optimization**
+```bash
+# Production build
+npm run build
+
+# Analyze bundle size
+npm run build:analyze
+
+# Start production server
+npm start
+```
+
+### **Environment Variables**
+```bash
+# .env.local
+NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_project_id
+NEXT_PUBLIC_CELO_RPC_URL=https://forno.celo.org
+NEXT_PUBLIC_DIVVI_API_KEY=your_divvi_key
+```
+
+### **Performance Optimization**
+- **Image Optimization**: WebP/AVIF with Next.js Image
+- **Code Splitting**: Automatic route-based splitting
+- **Font Optimization**: Google Fonts with display=swap
+- **Bundle Analysis**: Size monitoring and optimization
+
+## 🔧 Development Scripts
+
+```bash
+# Development
+npm run dev              # Start development server
+npm run dev:turbo        # Start with Turbopack (experimental)
+
+# Building
+npm run build            # Build for production
+npm run start            # Start production server
+
+# Code Quality
+npm run lint             # Run ESLint
+npm run lint:fix         # Fix ESLint issues
+npm run type-check       # TypeScript type checking
+
+# Utilities
+npm run clean            # Clean build artifacts
+npm run analyze          # Bundle size analysis
+```
+
+## 🧪 Testing & Quality Assurance
+
+### **Manual Testing Checklist**
+- [ ] **Responsive Design**: Test all breakpoints
+- [ ] **Cross-browser**: Chrome, Firefox, Safari, Edge
+- [ ] **Accessibility**: Screen reader compatibility
+- [ ] **Performance**: Lighthouse scores > 90
+- [ ] **Web3 Features**: Wallet connection and payments
+- [ ] **Internationalization**: Both language versions
+
+### **Code Quality Tools**
+```bash
+# Type checking
+npx tsc --noEmit
+
+# Linting
+npm run lint
+
+# Format code (if Prettier is configured)
+npm run format
+```
+
+## 🔧 Common Issues & Troubleshooting
+
+### **Hydration Errors**
+```bash
+# Clear Next.js cache
+rm -rf .next
+
+# Restart development server
+npm run dev
+```
+
+### **Styling Issues**
+```bash
+# Clear all caches
 rm -rf node_modules package-lock.json .next
 npm install
 npm run dev
 ```
 
-2. Check that all pages are accessible:
-- Homepage: [http://localhost:3000](http://localhost:3000)
-- Products: [http://localhost:3000/products](http://localhost:3000/products)
-- Collections: [http://localhost:3000/collections](http://localhost:3000/collections)
-- About: [http://localhost:3000/about](http://localhost:3000/about)
+### **Web3 Connection Problems**
+1. Ensure MetaMask is installed and unlocked
+2. Check wallet is connected to Celo network
+3. Verify sufficient cCOP token balance
+4. Clear browser cache and try again
 
-## 📁 Project Structure
-
-```
-copoazushop/
-├── src/
-│   ├── app/                    # Next.js App Router
-│   │   ├── globals.css        # Global styles and color variables
-│   │   ├── layout.tsx         # Root layout component
-│   │   ├── page.tsx           # Homepage
-│   │   ├── about/             # About page
-│   │   │   └── page.tsx       # About page component
-│   │   ├── products/          # Products page
-│   │   │   └── page.tsx       # Products page component
-│   │   └── collections/       # Collections page
-│   │       └── page.tsx       # Collections page component
-│   └── components/            # Reusable components
-│       ├── Header.tsx         # Navigation header with mobile menu
-│       ├── Footer.tsx         # Site footer with links
-│       ├── ProductCard.tsx    # Product display card
-│       ├── WalletConnect.tsx  # Web3 wallet connection
-│       └── CryptoPayment.tsx  # Crypto payment component
-├── public/                    # Static assets
-│   ├── favicon.ico           # Site favicon
-│   └── *.svg                 # SVG icons
-├── tailwind.config.js        # Tailwind CSS configuration
-├── next.config.ts           # Next.js configuration
-├── package.json             # Dependencies and scripts
-├── tsconfig.json            # TypeScript configuration
-└── README.md                # This file
-```
-
-## 🛠️ Technologies Used
-
-- **Framework**: Next.js 15 with App Router
-- **Language**: TypeScript 5.6+ with strict mode
-- **Styling**: Tailwind CSS 3.4+ with custom design system
-- **Icons**: Lucide React
-- **Font**: Inter (Google Fonts)
-- **Package Manager**: npm
-- **Development**: Hot reload with optimized builds
-- **Web3**: Celo blockchain integration with wagmi & viem
-- **Internationalization**: next-intl for multi-language support
-
-## 🌐 Web3 Features
-
-- **Wallet Connection**: Connect MetaMask and other Web3 wallets
-- **Crypto Payments**: Pay with cCOP on the Celo network
-- **Blockchain Security**: Secure transactions using blockchain technology
-- **Decentralized Identity**: User ownership of data and transactions
-
-## 🆕 Recent Updates
-
-### Collections & Product System
-- **6 Themed Collections**: Gaming, ReFi, DeFi, Governance, Coding, and Degen collections
-- **18 Products**: 3 products per collection (Cap, T-Shirt, Hoodie)
-- **Unique ID System**: Robust product and collection identification
-- **Server-Side Filtering**: Instant filtering without client-side delays
-- **Collection Navigation**: Click collections to filter products instantly
-
-### Technical Improvements
-- **Hydration Fixes**: Resolved React hydration errors with proper server/client rendering
-- **Theme System**: Enhanced dark/light mode with consistent rendering
-- **Layout Optimization**: Fixed HTML nesting issues and improved structure
-- **Performance**: Eliminated vendor chunk errors and cache conflicts
-- **Translation Updates**: Added missing translation keys for all UI elements
-
-## 📱 Responsive Design
-
-The application is fully responsive and optimized for:
-- 📱 Mobile devices (320px+)
-- 📱 Tablets (768px+)
-- 💻 Desktop (1024px+)
-- 🖥️ Large screens (1280px+)
-
-## 🎯 Key Pages
-
-### 🏠 Homepage (`/`)
-- Hero section with compelling call-to-action
-- Featured products showcase
-- Company statistics and social proof
-- Feature highlights (Lightning Fast, Secure & Private, Community Driven)
-- Call-to-action for wallet connection
-
-### 🛍️ Products (`/products`)
-- Complete product catalog with 8+ Web3 merchandise items
-- Advanced search and filtering capabilities
-- Category filtering (Hoodies, T-Shirts, Accessories, etc.)
-- Sort options (Newest, Price, Rating)
-- Grid and list view modes
-- Product cards with ratings, prices, and quick actions
-
-### 📚 Collections (`/collections`)
-- Curated product collections
-- Featured collections showcase
-- Collection filtering and browsing
-- Interactive collection cards
-- Create collection call-to-action
-
-### ℹ️ About (`/about`)
-- Company mission and vision
-- Core values (Innovation, Transparency, Community)
-- Team member profiles
-- Company statistics and goals
-- Join mission call-to-action
-
-## 🎨 Design System
-
-### Styling Approach
-The project uses **inline CSS styling** for maximum reliability and consistency:
-
-- **Inline Styles**: All components use React inline styles for guaranteed rendering
-- **Color Variables**: CSS custom properties defined in `globals.css`
-- **Responsive Design**: Mobile-first approach with flexible layouts
-- **Consistent Spacing**: Standardized padding, margins, and gaps
-- **Typography**: Inter font family with consistent sizing scale
-
-### Component Architecture
-- **Reusable Components**: Modular design with shared components
-- **TypeScript Interfaces**: Strong typing for all props and data structures
-- **State Management**: React hooks for local state management
-- **Event Handling**: Proper event handling for user interactions
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
-1. Push your code to GitHub
-2. Connect your repository to Vercel
-3. Deploy with one click
-4. Your site will be available at `https://your-project.vercel.app`
-
-### Build for Production
+### **Build Errors**
 ```bash
-npm run build
-npm start
-```
+# Check TypeScript errors
+npx tsc --noEmit
 
-### Other Platforms
-The app can be deployed to any platform that supports Next.js:
-- **Netlify**: Connect GitHub repo and deploy
-- **AWS Amplify**: Full-stack deployment with CI/CD
-- **Railway**: Simple deployment with automatic builds
-- **DigitalOcean App Platform**: Managed hosting solution
-
-## 🔧 Development Scripts
-
-```bash
-# Development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Start production server
-npm start
-
-# Lint code
+# Lint issues
 npm run lint
 
-# Type checking
-npx tsc --noEmit
+# Dependency conflicts
+npm ls
 ```
 
-## 🐛 Common Issues & Solutions
+## 📊 Project Status & Roadmap
 
-### Styling Not Loading
-If styles appear broken or not loading:
-1. Clear browser cache
-2. Restart development server
-3. Check console for CSS errors
-4. Verify inline styles are properly formatted
+### ✅ **Completed Features**
+- [x] **Core E-commerce**: Product catalog, search, filtering
+- [x] **Web3 Integration**: Wallet connection, crypto payments
+- [x] **Internationalization**: English/Spanish support
+- [x] **Responsive Design**: Mobile-first, all devices
+- [x] **Dark Mode**: Theme switching with persistence
+- [x] **Brand Identity**: Complete design system implementation
+- [x] **Collections System**: 6 themed collections with 18 products
+- [x] **Shopping Cart**: Full cart functionality
+- [x] **Performance**: Optimized builds and loading
 
-### Build Errors
-If you encounter build errors:
-1. Delete `node_modules` and `package-lock.json`
-2. Run `npm install` to reinstall dependencies
-3. Clear Next.js cache: `rm -rf .next`
-4. Try building again: `npm run build`
+### 🔄 **In Progress**
+- [ ] **Testing Suite**: Unit and integration tests
+- [ ] **Error Boundaries**: Robust error handling
+- [ ] **Analytics**: User behavior tracking
+- [ ] **SEO Optimization**: Schema markup and sitemaps
 
-### Port Already in Use
-If port 3000 is already in use:
-```bash
-npx next dev --port 3001
-# or
-npm run dev -- --port 3001
-```
-
-## 📊 Project Status
-
-✅ **Completed Features:**
-- [x] Homepage with hero section and featured products
-- [x] Products page with search and filtering
-- [x] Collections page with interactive browsing
-- [x] About page with company information
-- [x] Responsive design for all screen sizes
-- [x] Web3 wallet connection component
-- [x] Crypto payment integration
-- [x] Consistent Copoazú Labs branding
-- [x] Inline CSS styling for reliability
-
-🔄 **In Progress:**
-- [ ] Shopping cart functionality
-- [ ] User authentication system
-- [ ] Order management system
-- [ ] Payment processing integration
-
-📋 **Future Enhancements:**
-- [ ] Product reviews and ratings
-- [ ] Wishlist functionality
-- [ ] Newsletter subscription
-- [ ] Multi-language support
-- [ ] Advanced analytics
-- [ ] Mobile app development
+### 📋 **Future Enhancements**
+- [ ] **User Accounts**: Registration and profiles
+- [ ] **Order Management**: Order history and tracking
+- [ ] **Reviews & Ratings**: Product review system
+- [ ] **Wishlist**: Save items for later
+- [ ] **Advanced Search**: AI-powered product discovery
+- [ ] **Social Features**: Share products and collections
+- [ ] **Mobile App**: React Native implementation
+- [ ] **NFT Integration**: Limited edition NFT merchandise
 
 ## 🤝 Contributing
 
-We welcome contributions! Here's how you can help:
+We welcome contributions from the community! Here's how to get started:
 
-1. **Fork the repository**
-2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
-3. **Make your changes** following the existing code style
-4. **Test your changes** thoroughly
-5. **Commit your changes**: `git commit -m 'Add amazing feature'`
-6. **Push to the branch**: `git push origin feature/amazing-feature`
-7. **Open a Pull Request** with a clear description
+### **Development Workflow**
+1. **Fork** the repository
+2. **Clone** your fork locally
+3. **Create** a feature branch: `git checkout -b feature/amazing-feature`
+4. **Make** your changes following our coding standards
+5. **Test** your changes thoroughly
+6. **Commit** with clear messages: `git commit -m 'feat: add amazing feature'`
+7. **Push** to your fork: `git push origin feature/amazing-feature`
+8. **Create** a Pull Request with detailed description
 
-### Development Guidelines
-- Use TypeScript for all new components
-- Follow the existing inline CSS styling approach
-- Maintain the Copoazú Labs color palette
-- Write clear, descriptive commit messages
-- Test on multiple screen sizes
+### **Coding Standards**
+- **TypeScript**: All new code must be TypeScript
+- **Naming**: Use camelCase for variables, PascalCase for components
+- **Styling**: Follow Tailwind CSS patterns and brand colors
+- **Comments**: Document complex logic and business rules
+- **Testing**: Include tests for new features
+- **Accessibility**: Ensure WCAG 2.1 compliance
+
+### **Pull Request Guidelines**
+- **Description**: Clear explanation of changes and motivation
+- **Screenshots**: Visual changes must include before/after images
+- **Testing**: Describe how changes were tested
+- **Breaking Changes**: Clearly document any breaking changes
+- **Documentation**: Update README and code comments as needed
 
 ## 📄 License
 
@@ -333,24 +497,34 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- **Design Inspiration**: Modern Web3 and fashion brands
-- **Color Palette**: Inspired by tropical and natural elements
-- **Icons**: Provided by [Lucide](https://lucide.dev)
-- **Fonts**: [Google Fonts](https://fonts.google.com) - Inter font family
-- **Framework**: Built with [Next.js](https://nextjs.org)
-- **Icons**: [Lucide React](https://lucide.dev) icon library
+- **Design Inspiration**: Leading Web3 and fashion e-commerce platforms
+- **Community**: Celo ecosystem and Web3 development community
+- **Tools**: Amazing open-source projects that make this possible
+- **Contributors**: Everyone who has helped improve this project
 
-## 📞 Support
+## 📞 Support & Community
 
-If you encounter any issues or have questions:
+### **Get Help**
+- 📖 **Documentation**: This README and inline code comments
+- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/0xj4an/copoazushop/issues)
+- 💡 **Feature Requests**: [GitHub Discussions](https://github.com/0xj4an/copoazushop/discussions)
+- 📧 **Direct Contact**: [copoazulabs@gmail.com](mailto:copoazulabs@gmail.com)
 
-1. Check the [Common Issues & Solutions](#-common-issues--solutions) section
-2. Search existing [GitHub Issues](https://github.com/0xj4an/web3-clothing-page/issues)
-3. Create a new issue with detailed information
-4. Contact the development team
+### **Community Links**
+- 🌐 **Website**: [copoazulabs.com](https://copoazulabs.com)
+- 🐦 **Twitter**: [@copoazulabs](https://twitter.com/copoazulabs)
+- 📷 **Instagram**: [@copoazulabs](https://instagram.com/copoazulabs)
+- 💬 **Discord**: [Join our community](https://discord.gg/copoazulabs)
 
 ---
+
+<div align="center">
 
 **Built with ❤️ by [Copoazú Labs](https://github.com/0xj4an)**
 
 *Pioneering the future of fashion through Web3 technology*
+
+[![Follow @copoazulabs](https://img.shields.io/twitter/follow/copoazulabs?style=social)](https://twitter.com/copoazulabs)
+[![Star this repo](https://img.shields.io/github/stars/0xj4an/copoazushop?style=social)](https://github.com/0xj4an/copoazushop)
+
+</div>

@@ -129,20 +129,20 @@ export default function Header() {
               >
                 {t('about')}
               </Link>
-              <div className="pt-3 border-t border-gray-300 dark:border-gray-700 mt-3 flex flex-col gap-4 px-4">
+              <div className="pt-3 border-t border-brand-neutral mt-3 flex flex-col gap-4 px-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-600 dark:text-gray-400">Theme:</span>
+                  <span className="text-sm text-brand-neutral dark:text-brand-background">Theme:</span>
                   <ThemeToggle />
                 </div>
                 
                 {/* Mobile Actions */}
                 <div className="flex flex-col gap-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-600 dark:text-gray-400">Wallet:</span>
+                    <span className="text-sm text-brand-neutral dark:text-brand-background">Wallet:</span>
                     <WalletConnect />
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-600 dark:text-gray-400">Cart:</span>
+                    <span className="text-sm text-brand-neutral dark:text-brand-background">Cart:</span>
                     <CartButton />
                   </div>
                   {!isVerified && (

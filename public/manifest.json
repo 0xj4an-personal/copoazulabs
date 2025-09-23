@@ -1,0 +1,54 @@
+{
+  "name": "Copoazú Shop - Web3 Fashion & Merchandise",
+  "short_name": "Copoazú Shop",
+  "description": "Discover exclusive Web3 branded clothing and merchandise. Connect your wallet, shop with crypto, and join the decentralized fashion revolution.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F8FA",
+  "theme_color": "#3D7DD6",
+  "orientation": "portrait-primary",
+  "categories": ["shopping", "lifestyle", "fashion"],
+  "lang": "en",
+  "dir": "ltr",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Products",
+      "short_name": "Products",
+      "description": "Browse all products",
+      "url": "/products",
+      "icons": [
+        {
+          "src": "/icons/products-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Cart",
+      "short_name": "Cart",
+      "description": "View shopping cart",
+      "url": "/cart",
+      "icons": [
+        {
+          "src": "/icons/cart-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

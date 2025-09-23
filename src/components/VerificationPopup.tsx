@@ -74,14 +74,14 @@ export default function VerificationPopup({ isOpen, onClose, onVerificationCompl
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full mx-4 max-h-[90vh] overflow-y-auto">
+      <div className="relative bg-white dark:bg-brand-dark/80 rounded-2xl shadow-2xl max-w-md w-full mx-4 max-h-[90vh] overflow-y-auto">
         {/* Close Button */}
         <button
           onClick={handleClose}
-          className="absolute top-4 right-4 p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
+          className="absolute top-4 right-4 p-2 hover:bg-brand-light/20 dark:hover:bg-brand-dark/70 rounded-full transition-colors"
           aria-label="Close"
         >
-          <X className="w-5 h-5 text-gray-500" />
+          <X className="w-5 h-5 text-brand-neutral" />
         </button>
 
         <div className="p-8">
@@ -95,7 +95,7 @@ export default function VerificationPopup({ isOpen, onClose, onVerificationCompl
                 <h2 className="text-2xl font-bold text-[brand-dark] dark:text-[brand-background] mb-2">
                   {t('title')}
                 </h2>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-brand-neutral dark:text-brand-background">
                   {t('subtitle')}
                 </p>
               </div>
@@ -104,15 +104,15 @@ export default function VerificationPopup({ isOpen, onClose, onVerificationCompl
               <div className="space-y-3 mb-6">
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-[brand-primary]" />
-                  <span className="text-gray-700 dark:text-gray-300">{t('benefits.discount')}</span>
+                  <span className="text-brand-dark dark:text-brand-background">{t('benefits.discount')}</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-[brand-primary]" />
-                  <span className="text-gray-700 dark:text-gray-300">{t('benefits.secure')}</span>
+                  <span className="text-brand-dark dark:text-brand-background">{t('benefits.secure')}</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-[brand-primary]" />
-                  <span className="text-gray-700 dark:text-gray-300">{t('benefits.exclusive')}</span>
+                  <span className="text-brand-dark dark:text-brand-background">{t('benefits.exclusive')}</span>
                 </div>
               </div>
 
@@ -126,14 +126,14 @@ export default function VerificationPopup({ isOpen, onClose, onVerificationCompl
                 </button>
                 <button
                   onClick={handleClose}
-                  className="w-full py-3 px-6 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg font-semibold hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                  className="w-full py-3 px-6 bg-brand-light/20 dark:bg-brand-dark/70 text-brand-dark dark:text-brand-background rounded-lg font-semibold hover:bg-brand-light/30 dark:hover:bg-brand-dark/80 transition-colors"
                 >
                   {t('buttons.maybeLater')}
                 </button>
               </div>
 
               {/* Privacy Note */}
-              <p className="text-xs text-gray-500 dark:text-gray-400 text-center mt-4">
+              <p className="text-xs text-brand-neutral dark:text-brand-background text-center mt-4">
                 {t('privacy')}
               </p>
             </>
@@ -147,10 +147,10 @@ export default function VerificationPopup({ isOpen, onClose, onVerificationCompl
               <h3 className="text-xl font-semibold text-[brand-dark] dark:text-[brand-background] mb-2">
                 {t('process.verifying')}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-4">
+              <p className="text-brand-neutral dark:text-brand-background mb-4">
                 {t('process.verifyingSubtitle')}
               </p>
-              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div className="w-full bg-brand-light/30 dark:bg-brand-dark/70 rounded-full h-2">
                 <div className="bg-[brand-primary] h-2 rounded-full animate-pulse w-3/4"></div>
               </div>
             </div>
@@ -158,13 +158,13 @@ export default function VerificationPopup({ isOpen, onClose, onVerificationCompl
 
           {step === 'success' && (
             <div className="text-center">
-              <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-brand-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <CheckCircle className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-[brand-dark] dark:text-[brand-background] mb-2">
                 {t('process.success')}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-6">
+              <p className="text-brand-neutral dark:text-brand-background mb-6">
                 {t('process.successSubtitle')}
               </p>
               <button
@@ -178,13 +178,13 @@ export default function VerificationPopup({ isOpen, onClose, onVerificationCompl
 
           {step === 'error' && (
             <div className="text-center">
-              <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-brand-purple rounded-full flex items-center justify-center mx-auto mb-4">
                 <AlertCircle className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-[brand-dark] dark:text-[brand-background] mb-2">
                 {t('process.error')}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-6">
+              <p className="text-brand-neutral dark:text-brand-background mb-6">
                 {t('process.errorSubtitle')}
               </p>
               <div className="space-y-3">
@@ -196,7 +196,7 @@ export default function VerificationPopup({ isOpen, onClose, onVerificationCompl
                 </button>
                 <button
                   onClick={handleClose}
-                  className="w-full py-3 px-6 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg font-semibold hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                  className="w-full py-3 px-6 bg-brand-light/20 dark:bg-brand-dark/70 text-brand-dark dark:text-brand-background rounded-lg font-semibold hover:bg-brand-light/30 dark:hover:bg-brand-dark/80 transition-colors"
                 >
                   {t('buttons.continueWithout')}
                 </button>
