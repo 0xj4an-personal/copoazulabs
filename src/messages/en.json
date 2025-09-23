@@ -37,12 +37,6 @@
     "merchandise": "Web3 Merchandise",
     "tagline": "Shop with crypto, own with pride"
   },
-  "stats": {
-    "happyCustomers": "Happy Customers",
-    "productsSold": "Products Sold",
-    "countries": "Countries",
-    "yearsExperience": "Years Experience"
-  },
   "features": {
     "title": "Why Choose Copoazú Labs?",
     "subtitle": "Experience the future of fashion with cutting-edge Web3 technology",
@@ -216,12 +210,6 @@
     "team": {
       "title": "Meet Our Team",
       "subtitle": "The visionaries behind the Web3 fashion revolution"
-    },
-    "stats": {
-      "happyCustomers": "Happy Customers",
-      "productsSold": "Products Sold",
-      "countries": "Countries Served",
-      "yearsExperience": "Years of Experience"
     },
     "cta": {
       "title": "Ready to Join the Revolution?",
