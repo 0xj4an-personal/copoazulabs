@@ -30,17 +30,40 @@ const nextConfig = withNextIntl({
         tls: false,
         '@react-native-async-storage/async-storage': false,
       };
-      
+
       // Ignore React Native specific modules
       config.resolve.alias = {
         ...config.resolve.alias,
         '@react-native-async-storage/async-storage': false,
+      };
+
+      // Bundle optimization for Web3 libraries
+      config.optimization = {
+        ...config.optimization,
+        splitChunks: {
+          chunks: 'all',
+          cacheGroups: {
+            web3: {
+              test: /[\\/]node_modules[\\/](@celo|@reown|@tanstack|wagmi|viem|ethers)[\\/]/,
+              name: 'web3',
+              chunks: 'all',
+              priority: 20,
+            },
+            vendor: {
+              test: /[\\/]node_modules[\\/]/,
+              name: 'vendors',
+              chunks: 'all',
+              priority: 10,
+            },
+          },
+        },
       };
     }
 
     // Ignore warnings for React Native modules
     config.ignoreWarnings = [
       /Module not found: Can't resolve '@react-native-async-storage\/async-storage'/,
+      /Critical dependency: the request of a dependency is an expression/,
     ];
 
     return config;
@@ -58,14 +81,23 @@ const nextConfig = withNextIntl({
   // Experimental features
   experimental: {
     scrollRestoration: true,
+    optimizeCss: true,
+    optimizeServerReact: true,
   },
 
-  // Headers for security
+  // Caching configuration
+  onDemandEntries: {
+    maxInactiveAge: 25 * 1000,
+    pagesBufferLength: 2,
+  },
+
+  // Headers for security and performance
   async headers() {
     return [
       {
         source: '/(.*)',
         headers: [
+          // Security headers
           {
             key: 'X-Frame-Options',
             value: 'DENY',
@@ -77,6 +109,42 @@ const nextConfig = withNextIntl({
           {
             key: 'Referrer-Policy',
             value: 'origin-when-cross-origin',
+          },
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
+          },
+          // Performance headers
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/images/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/assets/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/_next/static/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
           },
         ],
       },
