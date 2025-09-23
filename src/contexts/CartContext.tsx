@@ -191,15 +191,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(cartReducer, initialState);
   const [isInitialized, setIsInitialized] = useState(false);
   
-  // Safely get verification status
-  let isVerified = false;
-  try {
-    const verificationContext = useVerification();
-    isVerified = verificationContext.isVerified;
-  } catch (error) {
-    // VerificationProvider not available, default to false
-    isVerified = false;
-  }
+  // Get verification status
+  const verificationContext = useVerification();
+  const isVerified = verificationContext?.isVerified || false;
 
   // Calculate computed values with discount
   const totals = calculateTotals(state.items, isVerified);
