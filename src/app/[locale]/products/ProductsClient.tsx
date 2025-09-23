@@ -49,21 +49,26 @@ export default function ProductsClient({
     // Filter by search query
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
-      filtered = filtered.filter(product =>
-        product.name.toLowerCase().includes(query) ||
-        product.category.toLowerCase().includes(query) ||
-        product.collection.toLowerCase().includes(query)
-      );
+      filtered = filtered.filter(product => {
+        const productName = t(`productItems.${product.nameKey}.name`).toLowerCase();
+        const categoryName = t(`categories.${product.categoryKey}`).toLowerCase();
+        const collectionName = collections.find(c => c.id === product.collectionId)?.nameKey;
+        const collectionTranslated = collectionName ? t(`collectionItems.${collectionName}.name`).toLowerCase() : '';
+        
+        return productName.includes(query) ||
+               categoryName.includes(query) ||
+               collectionTranslated.includes(query);
+      });
     }
 
     // Filter by collection
     if (selectedCollection) {
-      filtered = filtered.filter(product => product.collection === selectedCollection);
+      filtered = filtered.filter(product => product.collectionId === selectedCollection);
     }
 
     // Filter by category
     if (selectedCategory) {
-      filtered = filtered.filter(product => product.category === selectedCategory);
+      filtered = filtered.filter(product => product.categoryKey === selectedCategory);
     }
 
     // Sort products
@@ -73,8 +78,6 @@ export default function ProductsClient({
           return a.price - b.price;
         case 'price-high':
           return b.price - a.price;
-        case 'rating':
-          return b.rating - a.rating;
         case 'newest':
         default:
           return 0; // Keep original order for newest
@@ -195,7 +198,6 @@ export default function ProductsClient({
                 <option value="newest">{t('newest')}</option>
                 <option value="price-low">{t('priceLowToHigh')}</option>
                 <option value="price-high">{t('priceHighToLow')}</option>
-                <option value="rating">{t('highestRated')}</option>
               </select>
             </div>
 
