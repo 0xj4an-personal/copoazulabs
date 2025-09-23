@@ -96,7 +96,7 @@ export default function WalletConnect({ onConnect, onDisconnect }: WalletConnect
     <div className="relative">
       <button
         onClick={() => setShowDropdown(!showDropdown)}
-        className="inline-flex items-center px-4 py-2 bg-[#F5F1E7] dark:bg-gray-800 text-[#1C1C1C] dark:text-gray-100 font-medium rounded-lg border border-[#9A9A9A] dark:border-gray-600 cursor-pointer transition-all duration-200 active:scale-95 touch-manipulation"
+        className="inline-flex items-center px-4 py-2 bg-brand-background dark:bg-dark-surface text-brand-dark dark:text-brand-background font-medium rounded-lg border border-brand-neutral dark:border-brand-neutral cursor-pointer transition-all duration-200 active:scale-95 touch-manipulation"
         style={{ minWidth: '44px', minHeight: '44px' }}
       >
         <Wallet className="w-4 h-4 mr-2" />
@@ -105,21 +105,21 @@ export default function WalletConnect({ onConnect, onDisconnect }: WalletConnect
       </button>
 
       {showDropdown && (
-        <div className="absolute top-full right-0 mt-2 bg-white dark:bg-gray-900 border border-[#9A9A9A] dark:border-gray-600 rounded-lg shadow-lg min-w-[250px] z-50">
-          <div className="p-3 border-b border-[#9A9A9A] dark:border-gray-600">
-            <p className="text-sm text-[#9A9A9A] dark:text-gray-400 m-0">{t('connected')}</p>
+        <div className="absolute top-full right-0 mt-2 bg-brand-white dark:bg-brand-dark border border-brand-neutral dark:border-brand-neutral rounded-lg shadow-lg min-w-[250px] z-50">
+          <div className="p-3 border-b border-brand-neutral dark:border-brand-neutral">
+            <p className="text-sm text-brand-neutral dark:text-brand-neutral m-0">{t('connected')}</p>
             <div className="mt-1">
               {ensName ? (
                 <div>
                   <p 
-                    className="text-sm text-[#1C1C1C] dark:text-gray-100 m-0 font-medium cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    className="text-sm text-brand-dark dark:text-brand-background m-0 font-medium cursor-pointer hover:text-brand-primary dark:hover:text-brand-light transition-colors"
                     onClick={copyAddress}
                     title={`${t('clickToCopy')}: ${ensName}`}
                   >
                     {ensName}
                   </p>
                   <p 
-                    className="text-xs text-[#9A9A9A] dark:text-gray-400 m-0 font-mono cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    className="text-xs text-brand-neutral dark:text-brand-neutral m-0 font-mono cursor-pointer hover:text-brand-primary dark:hover:text-brand-light transition-colors"
                     onClick={copyAddress}
                     title={`${t('clickToCopy')}: ${address}`}
                   >
@@ -128,7 +128,7 @@ export default function WalletConnect({ onConnect, onDisconnect }: WalletConnect
                 </div>
               ) : (
                 <p 
-                  className="text-sm text-[#1C1C1C] dark:text-gray-100 m-0 font-mono cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="text-sm text-brand-dark dark:text-brand-background m-0 font-mono cursor-pointer hover:text-brand-primary dark:hover:text-brand-light transition-colors"
                   onClick={copyAddress}
                   title={`${t('clickToCopy')}: ${address}`}
                 >
@@ -148,14 +148,14 @@ export default function WalletConnect({ onConnect, onDisconnect }: WalletConnect
           <div className="py-2">
             <button
               onClick={copyAddress}
-              className="flex items-center w-full px-4 py-2 bg-transparent border-none cursor-pointer text-sm text-[#1C1C1C] dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
+              className="flex items-center w-full px-4 py-2 bg-transparent border-none cursor-pointer text-sm text-brand-dark dark:text-brand-background hover:bg-brand-light/20 dark:hover:bg-brand-neutral/20 transition-colors duration-200"
             >
               <Copy className="w-4 h-4 mr-2" />
               {t('copyAddress')}
             </button>
             <button
               onClick={openExplorer}
-              className="flex items-center w-full px-4 py-2 bg-transparent border-none cursor-pointer text-sm text-[#1C1C1C] dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
+              className="flex items-center w-full px-4 py-2 bg-transparent border-none cursor-pointer text-sm text-brand-dark dark:text-brand-background hover:bg-brand-light/20 dark:hover:bg-brand-neutral/20 transition-colors duration-200"
             >
               <ExternalLink className="w-4 h-4 mr-2" />
               {t('viewExplorer')}

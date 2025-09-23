@@ -86,7 +86,7 @@ export default function LanguageSwitcher() {
   if (!mounted) {
     return (
       <div className="relative inline-block">
-        <div className="flex items-center gap-2 px-3 py-2 bg-transparent border border-[#9A9A9A] dark:border-gray-600 rounded-lg text-sm text-[#1C1C1C] dark:text-gray-100 min-w-[120px] h-9">
+        <div className="flex items-center gap-2 px-3 py-2 bg-transparent border border-brand-neutral dark:border-brand-neutral rounded-lg text-sm text-brand-dark dark:text-brand-background min-w-[120px] h-9">
           <Globe className="w-4 h-4" />
           <span>{localeFlags[actualLanguage as keyof typeof localeFlags]}</span>
           <span>{localeNames[actualLanguage as keyof typeof localeNames]}</span>
@@ -99,7 +99,7 @@ export default function LanguageSwitcher() {
     <div className="relative inline-block">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 bg-transparent border border-[#9A9A9A] dark:border-gray-600 rounded-lg cursor-pointer transition-all duration-200 text-sm text-[#1C1C1C] dark:text-gray-100 hover:border-[#3E7C4A] hover:bg-[#F5F1E7] dark:hover:bg-gray-800"
+        className="flex items-center gap-2 px-3 py-2 bg-transparent border border-brand-neutral dark:border-brand-neutral rounded-lg cursor-pointer transition-all duration-200 text-sm text-brand-dark dark:text-brand-background hover:border-brand-primary hover:bg-brand-light/20 dark:hover:bg-brand-neutral/20"
       >
         <Globe className="w-4 h-4" />
         <span>{localeFlags[actualLanguage as keyof typeof localeFlags]}</span>
@@ -118,7 +118,7 @@ export default function LanguageSwitcher() {
           />
           
           {/* Dropdown */}
-          <div className="absolute top-full right-0 mt-1 bg-white dark:bg-gray-900 border border-[#9A9A9A] dark:border-gray-600 rounded-lg shadow-lg min-w-[160px] overflow-hidden z-20">
+          <div className="absolute top-full right-0 mt-1 bg-brand-white dark:bg-brand-dark border border-brand-neutral dark:border-brand-neutral rounded-lg shadow-lg min-w-[160px] overflow-hidden z-20">
             {locales.map((locale) => (
               <button
                 key={locale}
@@ -126,10 +126,10 @@ export default function LanguageSwitcher() {
                   switchLanguage(locale);
                   setIsOpen(false);
                 }}
-                className={`w-full flex items-center gap-3 px-4 py-3 border-none cursor-pointer transition-colors duration-200 text-sm text-[#1C1C1C] dark:text-gray-100 text-left ${
+                className={`w-full flex items-center gap-3 px-4 py-3 border-none cursor-pointer transition-colors duration-200 text-sm text-brand-dark dark:text-brand-background text-left ${
                   locale === actualLanguage 
-                    ? 'bg-[#F5F1E7] dark:bg-gray-800' 
-                    : 'bg-transparent hover:bg-[#F5F1E7] dark:hover:bg-gray-800'
+                    ? 'bg-brand-light/20 dark:bg-brand-neutral/20' 
+                    : 'bg-transparent hover:bg-brand-light/10 dark:hover:bg-brand-neutral/10'
                 }`}
               >
                 <span className="text-base">
@@ -137,7 +137,7 @@ export default function LanguageSwitcher() {
                 </span>
                 <span>{localeNames[locale as keyof typeof localeNames]}</span>
                 {locale === actualLanguage && (
-                  <span className="ml-auto text-[#3E7C4A] dark:text-green-400 font-medium">
+                  <span className="ml-auto text-brand-primary dark:text-brand-light font-medium">
                     ✓
                   </span>
                 )}
