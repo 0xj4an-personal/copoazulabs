@@ -62,7 +62,7 @@ export default function Home() {
               <h1 className="text-4xl font-extrabold leading-tight mb-4 bg-gradient-to-br from-brand-dark to-brand-primary dark:from-brand-background dark:to-brand-light bg-clip-text text-transparent">
                 {t('hero.title')}
               </h1>
-              <p className="text-base text-gray-600 dark:text-gray-400 mb-6 leading-relaxed max-w-lg">
+              <p className="text-base text-brand-neutral dark:text-brand-background mb-6 leading-relaxed max-w-lg">
                 {t('hero.subtitle')}
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
@@ -83,7 +83,7 @@ export default function Home() {
             
             {/* Right Visual */}
             <div className="flex-none w-72 max-w-72">
-              <div className="w-full h-64 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl flex items-center justify-center transition-colors duration-200">
+              <div className="w-full h-64 bg-white dark:bg-brand-dark/80 rounded-2xl shadow-2xl flex items-center justify-center transition-colors duration-200">
                 <div className="text-center">
                   {/* Logo */}
                   <div className="mb-4">
@@ -96,7 +96,7 @@ export default function Home() {
                   <h3 className="text-lg font-semibold text-brand-dark dark:text-brand-background mb-1 transition-colors duration-200">
                     Web3 Merchandise
                   </h3>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm transition-colors duration-200">
+                  <p className="text-brand-neutral dark:text-brand-background text-sm transition-colors duration-200">
                     Shop with crypto, own with pride
                   </p>
                 </div>
@@ -106,45 +106,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-white dark:bg-gray-900 transition-colors duration-200">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-extrabold text-brand-primary mb-2">
-                10K+
-              </div>
-              <div className="text-base text-gray-500 dark:text-gray-400 font-medium">
-                {t('stats.happyCustomers')}
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-extrabold text-brand-primary mb-2">
-                50K+
-              </div>
-              <div className="text-base text-gray-500 dark:text-gray-400 font-medium">
-                {t('stats.productsSold')}
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-extrabold text-brand-primary mb-2">
-                25+
-              </div>
-              <div className="text-base text-gray-500 dark:text-gray-400 font-medium">
-                {t('stats.countries')}
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-extrabold text-brand-primary mb-2">
-                3+
-              </div>
-              <div className="text-base text-gray-500 dark:text-gray-400 font-medium">
-                {t('stats.yearsExperience')}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Features Section */}
       <section className="py-16 bg-brand-background dark:bg-brand-dark transition-colors duration-200">
@@ -153,42 +114,42 @@ export default function Home() {
             <h2 className="text-3xl font-bold text-brand-dark dark:text-brand-background mb-3 transition-colors duration-200">
               {t('features.title')}
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto transition-colors duration-200">
+            <p className="text-lg text-brand-neutral dark:text-brand-background max-w-2xl mx-auto transition-colors duration-200">
               {t('features.subtitle')}
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg text-center transition-all duration-300 hover:transform hover:scale-105">
+            <div className="bg-white dark:bg-brand-dark/80 p-6 rounded-2xl shadow-lg text-center transition-all duration-300 hover:transform hover:scale-105">
               <div className="w-16 h-16 bg-brand-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <Zap className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-brand-dark dark:text-brand-background mb-3 transition-colors duration-200">
                 {t('features.lightningFast.title')}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-200">
+              <p className="text-brand-neutral dark:text-brand-background leading-relaxed transition-colors duration-200">
                 {t('features.lightningFast.description')}
               </p>
             </div>
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg text-center transition-all duration-300 hover:transform hover:scale-105">
+            <div className="bg-white dark:bg-brand-dark/80 p-6 rounded-2xl shadow-lg text-center transition-all duration-300 hover:transform hover:scale-105">
               <div className="w-16 h-16 bg-brand-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <Shield className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-brand-dark dark:text-brand-background mb-3 transition-colors duration-200">
                 {t('features.securePrivate.title')}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-200">
+              <p className="text-brand-neutral dark:text-brand-background leading-relaxed transition-colors duration-200">
                 {t('features.securePrivate.description')}
               </p>
             </div>
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg text-center transition-all duration-300 hover:transform hover:scale-105">
+            <div className="bg-white dark:bg-brand-dark/80 p-6 rounded-2xl shadow-lg text-center transition-all duration-300 hover:transform hover:scale-105">
               <div className="w-16 h-16 bg-brand-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-brand-dark dark:text-brand-background mb-3 transition-colors duration-200">
                 {t('features.communityDriven.title')}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-200">
+              <p className="text-brand-neutral dark:text-brand-background leading-relaxed transition-colors duration-200">
                 {t('features.communityDriven.description')}
               </p>
             </div>
@@ -197,13 +158,13 @@ export default function Home() {
       </section>
 
       {/* Featured Products Section */}
-      <section className="py-16 bg-white dark:bg-gray-900 transition-colors duration-200">
+      <section className="py-16 bg-white dark:bg-brand-dark transition-colors duration-200">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-brand-dark dark:text-brand-background mb-3 transition-colors duration-200">
               {t('products.featuredTitle')}
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-6 transition-colors duration-200">
+            <p className="text-lg text-brand-neutral dark:text-brand-background max-w-2xl mx-auto mb-6 transition-colors duration-200">
               {t('products.featuredSubtitle')}
             </p>
             <Link href="/products">
