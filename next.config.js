@@ -30,7 +30,18 @@ const nextConfig = withNextIntl({
         tls: false,
         '@react-native-async-storage/async-storage': false,
       };
+      
+      // Ignore React Native specific modules
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        '@react-native-async-storage/async-storage': false,
+      };
     }
+
+    // Ignore warnings for React Native modules
+    config.ignoreWarnings = [
+      /Module not found: Can't resolve '@react-native-async-storage\/async-storage'/,
+    ];
 
     return config;
   },
