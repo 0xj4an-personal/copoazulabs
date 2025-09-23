@@ -10,12 +10,6 @@ export default function AboutPage() {
   const router = useRouter();
 
 
-  const stats = [
-    { number: '10K+', label: t('stats.happyCustomers') },
-    { number: '50K+', label: t('stats.productsSold') },
-    { number: '25+', label: t('stats.countries') },
-    { number: '3+', label: t('stats.yearsExperience') }
-  ];
 
   return (
     <div className="min-h-screen bg-[#F5F8FA] dark:bg-[#1B1B2E] py-8 px-4 transition-colors duration-200">
@@ -36,20 +30,6 @@ export default function AboutPage() {
           <p className="text-lg text-brand-neutral dark:text-brand-background mb-10 max-w-2xl mx-auto transition-colors duration-200">
             {t('subtitle')}
           </p>
-          
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl font-bold text-[#3D7DD6] mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-base text-brand-neutral dark:text-brand-background transition-colors duration-200">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* Mission Section */}
