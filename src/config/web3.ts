@@ -2,7 +2,7 @@
 import { createStorage, cookieStorage, http } from '@wagmi/core'
 import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
 import { celo } from 'viem/chains'
-import { env } from '../../env.config'
+import { envConfig } from '../../env.config'
 
 // Celo network configuration optimized for Colombia
 const celoMainnet = {
@@ -24,7 +24,7 @@ const celoMainnet = {
 }
 
 // Project ID - This should be set in environment variables
-export const projectId = env.WALLET_CONNECT_PROJECT_ID || 'demo-project-id'
+export const projectId = envConfig.blockchain.walletConnectProjectId || 'demo-project-id'
 
 if (!projectId) {
   throw new Error('Project ID is not defined')
@@ -58,8 +58,8 @@ export const config = wagmiAdapter.wagmiConfig
 export const metadata = {
   name: 'Copoazú Labs',
   description: 'Web3 Fashion & Merchandise Marketplace - Colombian Crypto Fashion',
-  url: env.APP_URL,
-  icons: [`${env.APP_URL}/favicon.ico`]
+  url: envConfig.app.url,
+  icons: [`${envConfig.app.url}/favicon.ico`]
 }
 
 // Export configuration types

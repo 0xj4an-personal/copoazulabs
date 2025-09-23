@@ -12,7 +12,7 @@ import VerificationButton from './VerificationButton';
 import VerificationPopup from './VerificationPopup';
 import Logo from './Logo';
 import { useVerification } from '@/contexts/VerificationContext';
-import { env } from '../../env.config';
+import { envConfig } from '../../env.config';
 import { useTranslations } from 'next-intl';
 
 export default function Header() {
@@ -28,7 +28,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 no-underline">
             <Logo width={40} height={40} />
-            <span className="text-xl font-bold text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">{env.APP_NAME}</span>
+            <span className="text-xl font-bold text-[#1C1C1C] dark:text-[#F5F1E7] transition-colors duration-200">{envConfig.app.name}</span>
           </Link>
 
           {/* Desktop Navigation */}

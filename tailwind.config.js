@@ -9,22 +9,58 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'cascara-marron': '#4B2E1E',
-        'pulpa-crema': '#F5F1E7',
-        'verde-selva': '#3E7C4A',
-        'amarillo-amazonico': '#E6B450',
-        'rosa-tropical': '#D88FA0',
-        'negro-suave': '#1C1C1C',
-        'gris-ceniza': '#9A9A9A',
-        'blanco': '#FFFFFF',
+        // Copoazú Labs Brand Colors
+        brand: {
+          brown: '#4B2E1E',      // Cáscara Marrón - Primary brand color
+          cream: '#F5F1E7',      // Pulpa Crema - Light background
+          green: '#3E7C4A',      // Verde Selva - Nature green
+          yellow: '#E6B450',     // Amarillo Amazónico - Warm accent
+          pink: '#D88FA0',       // Rosa Fruto Tropical - Modern detail
+          black: '#1C1C1C',      // Negro Suave - Main text
+          gray: '#9A9A9A',       // Gris Ceniza - Secondary text
+          white: '#FFFFFF',      // Blanco - Clean spaces
+        },
+        // Dark mode variants
+        dark: {
+          bg: '#0D1117',
+          surface: '#161B22',
+          border: '#30363D',
+          text: '#F0F6FC',
+          'text-secondary': '#8B949E',
+        },
+        // Status colors
+        success: '#22C55E',
+        warning: '#F59E0B',
+        error: '#EF4444',
+        info: '#3B82F6',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'Monaco', 'Consolas', 'monospace'],
+      },
+      fontSize: {
+        'xs': ['0.75rem', { lineHeight: '1rem' }],
+        'sm': ['0.875rem', { lineHeight: '1.25rem' }],
+        'base': ['1rem', { lineHeight: '1.5rem' }],
+        'lg': ['1.125rem', { lineHeight: '1.75rem' }],
+        'xl': ['1.25rem', { lineHeight: '1.75rem' }],
+        '2xl': ['1.5rem', { lineHeight: '2rem' }],
+        '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
+        '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
+        '5xl': ['3rem', { lineHeight: '1' }],
+        '6xl': ['3.75rem', { lineHeight: '1' }],
+      },
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem',
+        '128': '32rem',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
-        'slide-up': 'slideUp 0.5s ease-out',
+        'slide-up': 'slideUp 0.3s ease-out',
+        'slide-down': 'slideDown 0.3s ease-out',
         'bounce-slow': 'bounce 2s infinite',
+        'pulse-slow': 'pulse 3s infinite',
       },
       keyframes: {
         fadeIn: {
@@ -32,11 +68,29 @@ module.exports = {
           '100%': { opacity: '1' },
         },
         slideUp: {
-          '0%': { transform: 'translateY(20px)', opacity: '0' },
+          '0%': { transform: 'translateY(10px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        slideDown: {
+          '0%': { transform: 'translateY(-10px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
       },
+      boxShadow: {
+        'soft': '0 2px 15px 0 rgba(0, 0, 0, 0.1)',
+        'medium': '0 4px 25px 0 rgba(0, 0, 0, 0.15)',
+        'hard': '0 10px 40px 0 rgba(0, 0, 0, 0.2)',
+      },
+      borderRadius: {
+        'xl': '0.75rem',
+        '2xl': '1rem',
+        '3xl': '1.5rem',
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio'),
+  ],
 }

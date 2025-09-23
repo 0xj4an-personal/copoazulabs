@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Coins, ArrowRight, Check } from 'lucide-react';
-import { getCeloConfig } from '../../env.config';
+import { blockchainConfig } from '../../env.config';
 
 interface CryptoPaymentProps {
   amount: number;
@@ -13,7 +13,7 @@ export default function CryptoPayment({ amount, onPaymentComplete }: CryptoPayme
   const [selectedMethod, setSelectedMethod] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
 
-  const celoConfig = getCeloConfig();
+  const celoConfig = blockchainConfig;
   
   const paymentMethods = [
     { id: 'ccop', name: 'cCOP', symbol: 'cCOP', rate: 1, network: 'Celo' },

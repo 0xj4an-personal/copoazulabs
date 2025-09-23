@@ -1,0 +1,407 @@
+{
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "retry": "Reintentar",
+    "close": "Cerrar",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "save": "Guardar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "sort": "Ordenar",
+    "view": "Ver",
+    "share": "Compartir",
+    "copy": "Copiar",
+    "copied": "¡Copiado!"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "products": "Productos",
+    "collections": "Colecciones",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "cart": "Carrito",
+    "account": "Cuenta",
+    "login": "Iniciar Sesión",
+    "logout": "Cerrar Sesión",
+    "signup": "Registrarse"
+  },
+  "hero": {
+    "title": "Revolución de la Moda Web3",
+    "subtitle": "Descubre ropa y mercancía exclusiva con marca Web3. Conecta tu billetera, compra con cripto y únete a la revolución de la moda descentralizada.",
+    "shopNow": "Comprar Ahora",
+    "exploreCollections": "Explorar Colecciones",
+    "merchandise": "Mercancía Web3",
+    "tagline": "Compra con cripto, posee con orgullo"
+  },
+  "stats": {
+    "happyCustomers": "Clientes Felices",
+    "productsSold": "Productos Vendidos",
+    "countries": "Países",
+    "yearsExperience": "Años de Experiencia"
+  },
+  "features": {
+    "title": "¿Por qué elegir Copoazú Labs?",
+    "subtitle": "Experimenta el futuro de la moda con tecnología Web3 de vanguardia",
+    "lightningFast": {
+      "title": "Súper Rápido",
+      "description": "Transacciones instantáneas con tecnología blockchain"
+    },
+    "securePrivate": {
+      "title": "Seguro y Privado",
+      "description": "Tus datos se mantienen seguros con seguridad descentralizada"
+    },
+    "communityDriven": {
+      "title": "Impulsado por la Comunidad",
+      "description": "Únete a miles de entusiastas de Web3 en todo el mundo"
+    }
+  },
+  "products": {
+    "title": "Nuestros Productos",
+    "subtitle": "Explora nuestra colección exclusiva de ropa y accesorios de marca Web3",
+    "featuredTitle": "Productos Destacados",
+    "featuredSubtitle": "Descubre nuestra mercancía Web3 más popular",
+    "comingSoon": "Próximamente",
+    "underDevelopment": "Nuestra página de productos está en desarrollo. ¡Mantente atento para increíbles mercancías Web3!",
+    "viewAll": "Ver Todos los Productos",
+    "price": "Precio",
+    "originalPrice": "Precio Original",
+    "rating": "Calificación",
+    "addToCart": "Agregar al Carrito",
+    "quickView": "Vista Rápida",
+    "new": "Nuevo",
+    "bestseller": "Más Vendido",
+    "moreComingSoon": "Más Productos Próximamente",
+    "moreProductsDescription": "Estamos agregando constantemente nueva mercancía Web3 a nuestra colección. ¡Mantente atento para más productos increíbles!",
+    "searchPlaceholder": "Buscar productos...",
+    "sale": "Oferta",
+    "outOfStock": "Agotado",
+    "inStock": "Disponible",
+    "category": "Categoría",
+    "tags": "Etiquetas",
+    "description": "Descripción",
+    "specifications": "Especificaciones",
+    "reviews": "Reseñas",
+    "relatedProducts": "Productos Relacionados",
+    "collections": "Colecciones",
+    "allCollections": "Todas las Colecciones",
+    "allCategories": "Todas las Categorías",
+    "clearFilters": "Limpiar Filtros",
+    "noProductsFound": "No se encontraron productos",
+    "tryAdjustingFilters": "Intenta ajustar tu búsqueda o criterios de filtro",
+    "showingResults": "Mostrando {count} de {total} productos",
+    "sortBy": "Ordenar Por",
+    "newest": "Más Recientes",
+    "priceLowToHigh": "Precio: Menor a Mayor",
+    "priceHighToLow": "Precio: Mayor a Menor",
+    "highestRated": "Mejor Valorados",
+    "productItems": {
+      "refiCap": {
+        "name": "Gorra ReFi",
+        "description": "Gorra sostenible hecha de materiales reciclados que apoya las finanzas regenerativas. Incluye construcción ecológica y diseño temático ReFi. Perfecta para entusiastas de cripto conscientes del clima.",
+        "shortDescription": "Gorra sostenible para defensores ReFi"
+      },
+      "refiTShirt": {
+        "name": "Camiseta ReFi",
+        "description": "Camiseta de algodón orgánico que celebra las finanzas regenerativas. Hecha de materiales sostenibles con conciencia ambiental en mente. Incluye gráficos ReFi y ajuste cómodo para uso diario.",
+        "shortDescription": "Camiseta ecológica para comunidad ReFi"
+      },
+      "refiHoodie": {
+        "name": "Sudadera ReFi",
+        "description": "Sudadera sostenible que apoya el movimiento de finanzas regenerativas. Hecha de algodón orgánico con elementos reciclados. Incluye marca ReFi y ajuste cómodo para individuos conscientes del clima.",
+        "shortDescription": "Sudadera sostenible para seguidores ReFi"
+      },
+      "defiCap": {
+        "name": "Gorra DeFi",
+        "description": "Gorra premium que celebra las finanzas descentralizadas. Incluye elementos de diseño inspirados en DeFi y materiales de alta calidad. Perfecta para entusiastas DeFi y contribuidores de protocolos.",
+        "shortDescription": "Gorra elegante para pioneros DeFi"
+      },
+      "defiTShirt": {
+        "name": "Camiseta DeFi",
+        "description": "Camiseta técnica para entusiastas DeFi y usuarios de protocolos. Incluye gráficos temáticos DeFi y mezcla cómoda de algodón. Perfecta para conferencias DeFi, reuniones o estilo de vida DeFi casual.",
+        "shortDescription": "Camiseta técnica para comunidad DeFi"
+      },
+      "defiHoodie": {
+        "name": "Sudadera DeFi",
+        "description": "Sudadera premium que celebra la revolución DeFi. Incluye diseño inspirado en DeFi, mezcla cómoda de vellón y bolsillos prácticos. Ideal para desarrolladores DeFi y contribuidores de protocolos.",
+        "shortDescription": "Sudadera premium para constructores DeFi"
+      },
+      "governanceCap": {
+        "name": "Gorra Gobernanza",
+        "description": "Gorra profesional para participantes de gobernanza y miembros DAO. Incluye diseño limpio y materiales de alta calidad. Perfecta para reuniones de gobernanza y eventos DAO.",
+        "shortDescription": "Gorra profesional para gobernanza"
+      },
+      "governanceTShirt": {
+        "name": "Camiseta Gobernanza",
+        "description": "Camiseta limpia que celebra la gobernanza descentralizada. Incluye elementos temáticos de gobernanza y ajuste cómodo. Perfecta para miembros DAO y participantes de gobernanza.",
+        "shortDescription": "Camiseta limpia para gobernanza DAO"
+      },
+      "governanceHoodie": {
+        "name": "Sudadera Gobernanza",
+        "description": "Sudadera cómoda para entusiastas de gobernanza y contribuidores DAO. Incluye diseño inspirado en gobernanza y materiales premium. Perfecta para sesiones largas de gobernanza y eventos DAO.",
+        "shortDescription": "Sudadera cómoda para miembros DAO"
+      },
+      "codingCap": {
+        "name": "Gorra Coding",
+        "description": "Gorra enfocada en desarrolladores con elementos de diseño inspirados en programación. Incluye materiales transpirables y ajuste cómodo. Perfecta para sesiones de programación, hackathones o reuniones de desarrolladores.",
+        "shortDescription": "Gorra para desarrolladores en sesiones de código"
+      },
+      "codingTShirt": {
+        "name": "Camiseta Coding",
+        "description": "Camiseta técnica para desarrolladores y entusiastas de programación. Incluye gráficos inspirados en código y mezcla cómoda de algodón. Perfecta para maratones de programación, hackathones o conferencias técnicas.",
+        "shortDescription": "Camiseta técnica para desarrolladores"
+      },
+      "codingHoodie": {
+        "name": "Sudadera Coding",
+        "description": "Sudadera de máxima comodidad para desarrolladores y entusiastas de programación. Incluye diseño temático de código, puños con orificios para pulgares y vellón premium. Perfecta para sesiones largas de programación y reuniones de desarrolladores.",
+        "shortDescription": "Sudadera de máxima comodidad para programadores"
+      },
+      "degenCap": {
+        "name": "Gorra Degen",
+        "description": "Gorra audaz para verdaderos degenerados crypto. Incluye elementos de diseño atrevidos y construcción de alta calidad. Perfecta para traders de alto riesgo y entusiastas de meme coins.",
+        "shortDescription": "Gorra audaz para degenerados crypto"
+      },
+      "degenTShirt": {
+        "name": "Camiseta Degen",
+        "description": "Camiseta atrevida que celebra el lado salvaje de la cultura crypto. Incluye gráficos audaces y ajuste cómodo. Perfecta para traders degen y entusiastas de meme coins.",
+        "shortDescription": "Camiseta atrevida para cultura degen"
+      },
+      "degenHoodie": {
+        "name": "Sudadera Degen",
+        "description": "Sudadera audaz para degenerados crypto y traders de alto riesgo. Incluye diseño atrevido, vellón cómodo y bolsillos prácticos. Perfecta para sesiones de trading degen y eventos de meme coins.",
+        "shortDescription": "Sudadera audaz para traders degen"
+      }
+    },
+    "categories": {
+      "cap": "Gorras",
+      "tshirt": "Camisetas",
+      "hoodie": "Sudaderas con Capucha"
+    }
+  },
+  "collections": {
+    "title": "Colecciones",
+    "subtitle": "Descubre colecciones curadas de mercancía Web3 de los mejores creadores",
+    "comingSoon": "Próximamente",
+    "underDevelopment": "Nuestra página de colecciones está en desarrollo. ¡Mantente atento para colecciones curadas de mercancía Web3!",
+    "searchPlaceholder": "Buscar colecciones...",
+    "sortBy": "Ordenar Por",
+    "newest": "Más Recientes",
+    "mostPopular": "Más Populares",
+    "highestRated": "Mejor Calificadas",
+    "mostItems": "Más Elementos",
+    "featuredOnly": "Solo Destacadas",
+    "viewCollection": "Ver Colección",
+    "createdBy": "Creado por",
+    "items": "elementos",
+    "followers": "seguidores",
+    "noCollectionsFound": "No se encontraron colecciones",
+    "tryAdjustingFilters": "Intenta ajustar tu búsqueda o criterios de filtro",
+    "clearFilters": "Limpiar Filtros",
+    "collectionItems": {
+      "refiCollection": {
+        "name": "ReFi",
+        "description": "Celebra las Finanzas Regenerativas con moda sostenible que genera un impacto positivo. Esta colección se enfoca en la conciencia ambiental y la responsabilidad social en el espacio crypto. Cada pieza representa el compromiso de construir un futuro mejor a través de prácticas regenerativas, créditos de carbono y soluciones blockchain sostenibles.",
+        "shortDescription": "Moda sostenible para un futuro regenerativo"
+      },
+      "defiCollection": {
+        "name": "DeFi",
+        "description": "Abraza la revolución de las finanzas descentralizadas con diseños de vanguardia inspirados en pools de liquidez, yield farming y exchanges descentralizados. Esta colección celebra la libertad financiera y la innovación en el espacio crypto. Perfecta para entusiastas de DeFi que quieren mostrar su conocimiento de protocolos, AMMs y estrategias de yield.",
+        "shortDescription": "Moda descentralizada para finanzas descentralizadas"
+      },
+      "governanceCollection": {
+        "name": "Gobernanza",
+        "description": "Ropa que celebra la gobernanza descentralizada y la toma de decisiones comunitaria. Esta colección enfatiza la transparencia, colaboración e inteligencia colectiva en proyectos blockchain. Cada pieza refleja los valores democráticos de los DAOs, tokens de gobernanza y protocolos impulsados por la comunidad. Perfecta para participantes en gobernanza y contribuidores de protocolos.",
+        "shortDescription": "Moda para gobernanza descentralizada"
+      },
+      "codingCollection": {
+        "name": "Coding",
+        "description": "Para desarrolladores, constructores e innovadores técnicos en el espacio Web3. Esta colección celebra el arte de programar con diseños inspirados en smart contracts, lenguajes de programación y desarrollo blockchain. Desde Solidity hasta Rust, desde debugging hasta deployment, esta colección honra a los constructores que hacen posible Web3.",
+        "shortDescription": "Programa tu camino hacia la moda Web3"
+      },
+      "degenCollection": {
+        "name": "Degen",
+        "description": "La colección definitiva para los verdaderos degenerados crypto. Diseños audaces y atrevidos que capturan el espíritu salvaje de los meme coins, trading de alto riesgo y la energía caótica de la cultura crypto. Esta colección es para aquellos que viven al límite, abrazan la volatilidad y no tienen miedo de apostar todo en la próxima gran cosa en Web3.",
+        "shortDescription": "Para los verdaderos degenerados crypto"
+      }
+    }
+  },
+  "about": {
+    "title": "Acerca de Copoazú Labs",
+    "subtitle": "Liderando la revolución de la moda Web3 con tecnología blockchain innovadora y prácticas sostenibles",
+    "comingSoon": "Próximamente",
+    "underDevelopment": "Nuestra página acerca de está en desarrollo. ¡Pronto aprenderás más sobre Copoazú Labs y nuestra misión!",
+    "mission": {
+      "title": "Nuestra Misión",
+      "description": "Conectar la moda tradicional con el futuro descentralizado, creando mercancía exclusiva que empodere a la comunidad Web3. Creemos en democratizar la moda a través de la tecnología blockchain mientras mantenemos los más altos estándares de sostenibilidad y calidad."
+    },
+    "values": {
+      "title": "Nuestros Valores",
+      "innovation": {
+        "title": "Innovación",
+        "description": "Empujando límites con tecnología blockchain de vanguardia y prácticas de moda sostenibles que establecen nuevos estándares de la industria."
+      },
+      "community": {
+        "title": "Comunidad",
+        "description": "Construyendo una red global de entusiastas Web3 que comparten nuestra visión de moda descentralizada e inclusiva."
+      },
+      "sustainability": {
+        "title": "Sostenibilidad",
+        "description": "Comprometidos con prácticas ecológicas y éticas en toda nuestra cadena de suministro, desde el diseño hasta la entrega."
+      },
+      "transparency": {
+        "title": "Transparencia",
+        "description": "Abiertos y honestos en todas nuestras operaciones, proporcionando visibilidad completa de nuestros procesos e impacto."
+      }
+    },
+    "team": {
+      "title": "Conoce a Nuestro Equipo",
+      "subtitle": "Los visionarios detrás de la revolución de la moda Web3"
+    },
+    "stats": {
+      "happyCustomers": "Clientes Felices",
+      "productsSold": "Productos Vendidos",
+      "countries": "Países Servidos",
+      "yearsExperience": "Años de Experiencia"
+    },
+    "cta": {
+      "title": "¿Listo para Unirte a la Revolución?",
+      "subtitle": "Conecta tu billetera y comienza a comprar con cripto hoy",
+      "startShopping": "Comenzar a Comprar",
+      "learnMore": "Saber Más"
+    }
+  },
+  "wallet": {
+    "connect": "Conectar Billetera",
+    "connecting": "Conectando...",
+    "connected": "Conectado",
+    "disconnect": "Desconectar",
+    "copyAddress": "Copiar Dirección",
+    "viewExplorer": "Ver en Celoscan",
+    "switchToCelo": "Cambiar a Celo",
+    "network": "Red",
+    "balance": "Saldo",
+    "switchNetwork": "Cambiar Red",
+    "wrongNetwork": "Red Incorrecta",
+    "pleaseSwitch": "Por favor cambia a la red correcta para continuar",
+    "clickToCopy": "Haz clic para copiar"
+  },
+  "divvi": {
+    "referralTracking": "Seguimiento de Referidos Divvi",
+    "earnRewards": "Gana recompensas por tus transacciones",
+    "settingUp": "Configurando seguimiento de referidos...",
+    "viewOnCeloscan": "Ver en Celoscan"
+  },
+  "payment": {
+    "title": "Métodos de Pago",
+    "cryptoPayment": "Pago con Cripto",
+    "traditionalPayment": "Pago Tradicional",
+    "selectMethod": "Seleccionar Método de Pago",
+    "amount": "Cantidad",
+    "currency": "Moneda",
+    "rate": "Tasa",
+    "network": "Red",
+    "processing": "Procesando...",
+    "success": "Pago Exitoso",
+    "failed": "Pago Fallido",
+    "confirmPayment": "Confirmar Pago"
+  },
+  "footer": {
+    "description": "Liderando la revolución de la moda Web3 con mercancía exclusiva y tecnología blockchain.",
+    "quickLinks": "Enlaces Rápidos",
+    "support": "Soporte",
+    "legal": "Legal",
+    "privacyPolicy": "Política de Privacidad",
+    "termsOfService": "Términos de Servicio",
+    "shippingInfo": "Información de Envío",
+    "returns": "Devoluciones y Cambios",
+    "contactUs": "Contáctanos",
+    "followUs": "Síguenos",
+    "newsletter": "Boletín",
+    "subscribe": "Suscribirse",
+    "emailPlaceholder": "Ingresa tu email",
+    "copyright": "© 2024 Copoazú Labs. Todos los derechos reservados."
+  },
+  "verification": {
+    "title": "¡Obtén 10% de Descuento!",
+    "subtitle": "Verifica tu identidad con Self y disfruta de descuentos exclusivos en todos nuestros productos.",
+    "benefits": {
+      "discount": "10% de descuento en todos los productos",
+      "secure": "Verificación rápida y segura",
+      "exclusive": "Acceso a ofertas exclusivas"
+    },
+    "buttons": {
+      "verify": "Verificar con Self",
+      "maybeLater": "Tal vez más tarde",
+      "startShopping": "¡Genial! Comenzar a comprar",
+      "tryAgain": "Intentar de nuevo",
+      "continueWithout": "Continuar sin verificación"
+    },
+    "process": {
+      "verifying": "Verificando tu identidad...",
+      "verifyingSubtitle": "Esto solo tomará unos segundos. Por favor, mantén tu dispositivo estable.",
+      "success": "¡Verificación Exitosa!",
+      "successSubtitle": "Tu identidad ha sido verificada. Ya puedes disfrutar del 10% de descuento en todos nuestros productos.",
+      "error": "Verificación Fallida",
+      "errorSubtitle": "No pudimos verificar tu identidad en este momento. Por favor, inténtalo de nuevo."
+    },
+    "privacy": "Tu información está protegida y solo se usa para la verificación.",
+    "status": {
+      "verified": "Verificado con Self",
+      "discountActive": "10% descuento activo"
+    },
+    "checkout": {
+      "title": "💰 ¡Ahorra 10% con Self!",
+      "subtitle": "Verifica tu identidad con Self y obtén un descuento del 10% en tu pedido.",
+      "verifyButton": "Verificar con Self - ¡Obtén 10% de descuento!"
+    }
+  },
+  "cta": {
+    "title": "¿Listo para Unirte a la Revolución?",
+    "subtitle": "Conecta tu billetera y comienza a comprar con cripto hoy",
+    "startShopping": "Comenzar a Comprar",
+    "learnMore": "Saber Más"
+  },
+  "notFound": {
+    "title": "Página No Encontrada",
+    "description": "La página que buscas no existe o ha sido movida.",
+    "goHome": "Ir al Inicio"
+  },
+  "cart": {
+    "title": "Carrito de Compras",
+    "empty": "Tu carrito está vacío",
+    "emptyDescription": "Agrega algunos productos para comenzar",
+    "continueShopping": "Continuar Comprando",
+    "total": "Total",
+    "clearCart": "Vaciar Carrito",
+    "checkout": "Proceder al Pago",
+    "addToCart": "Agregar al Carrito",
+    "removeItem": "Eliminar Producto",
+    "updateQuantity": "Actualizar Cantidad",
+    "itemAdded": "Producto agregado al carrito",
+    "itemRemoved": "Producto eliminado del carrito"
+  },
+       "checkout": {
+         "title": "Finalizar Compra",
+         "emptyCart": "Tu carrito está vacío",
+         "emptyCartDescription": "Necesitas agregar productos al carrito antes de finalizar la compra",
+         "continueShopping": "Continuar Comprando",
+         "backToProducts": "Volver a Productos",
+         "orderSummary": "Resumen del Pedido",
+         "quantity": "Cantidad",
+         "total": "Total",
+         "paymentMethods": "Pago",
+        "cryptoPayment": "cCOP en Red Celo",
+        "cryptoPaymentDescription": "Pagar con tokens cCOP en la red Celo",
+         "completeOrder": "Completar Pedido",
+         "celoNetwork": "Red Celo",
+         "coopToken": "cCOP (Peso Colombiano Celo)",
+         "walletAddress": "Dirección de Billetera",
+         "processingPayment": "Procesando pago...",
+         "paymentSuccessful": "¡Pago exitoso!",
+         "paymentFailed": "Pago fallido",
+         "viewOnExplorer": "Ver en Celoscan"
+       }
+}

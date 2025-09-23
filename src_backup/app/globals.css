@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Copoazú Labs Color Palette */
+:root {
+  --cascara-marron: #4B2E1E;
+  --pulpa-crema: #F5F1E7;
+  --verde-selva: #3E7C4A;
+  --amarillo-amazonico: #E6B450;
+  --rosa-tropical: #D88FA0;
+  --negro-suave: #1C1C1C;
+  --gris-ceniza: #9A9A9A;
+  --blanco: #FFFFFF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  background-color: var(--pulpa-crema);
+  color: var(--negro-suave);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+.dark body {
+  background-color: var(--negro-suave);
+  color: var(--pulpa-crema);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--pulpa-crema);
+  transition: background-color 0.2s ease;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--negro-suave);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--verde-selva);
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cascara-marron);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--gris-ceniza);
+}
+
+/* Selection Styling */
+::selection {
+  background-color: var(--amarillo-amazonico);
+  color: var(--negro-suave);
+}
+
+/* Focus Styling */
+:focus {
+  outline: 2px solid var(--verde-selva);
+  outline-offset: 2px;
+}
+
+/* Button Transitions */
+button {
+  transition: all 0.2s ease;
+}
+
+/* Link Transitions */
+a {
+  transition: color 0.2s ease;
+}
+
+/* Card Hover Effects */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile-specific improvements */
+.touch-manipulation {
+  touch-action: manipulation;
+}
+
+/* Better mobile button interactions */
+@media (hover: none) and (pointer: coarse) {
+  .hover\\:scale-110:hover {
+    transform: none;
+  }
+  
+  .hover\\:shadow-xl:hover {
+    box-shadow: inherit;
+  }
+  
+  .hover\\:bg-gray-100:hover,
+  .hover\\:bg-gray-800:hover {
+    background-color: inherit;
+  }
+}
+
+/* Mobile tap feedback */
+button:active,
+a:active {
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+/* AppKit Modal Font Override - Target Shadow DOM */
+/* Use deep selectors to penetrate Shadow DOM */
+w3m-modal,
+w3m-modal *,
+[data-w3m-modal],
+[data-w3m-modal] *,
+.w3m-modal,
+.w3m-modal *,
+w3m-connect-button,
+w3m-connect-button *,
+w3m-account-button,
+w3m-account-button *,
+w3m-network-button,
+w3m-network-button *,
+[data-w3m-connect-button],
+[data-w3m-connect-button] *,
+[data-w3m-account-button],
+[data-w3m-account-button] *,
+[data-w3m-network-button],
+[data-w3m-network-button] * {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+}
+
+/* Deep selectors for Shadow DOM penetration */
+w3m-modal::part(*),
+w3m-modal *::part(*),
+[data-w3m-modal]::part(*),
+[data-w3m-modal] *::part(*) {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+}
+
+/* Target specific AppKit components with deep selectors */
+w3m-modal wui-text,
+w3m-modal wui-text *,
+w3m-modal wui-button,
+w3m-modal wui-button *,
+w3m-modal wui-input,
+w3m-modal wui-input *,
+w3m-modal wui-flex,
+w3m-modal wui-flex *,
+w3m-modal wui-list-wallet,
+w3m-modal wui-list-wallet *,
+w3m-modal wui-card,
+w3m-modal wui-card * {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+}
+
+/* Specific AppKit component font overrides */
+w3m-modal h1,
+w3m-modal h2,
+w3m-modal h3,
+w3m-modal h4,
+w3m-modal h5,
+w3m-modal h6,
+w3m-modal p,
+w3m-modal span,
+w3m-modal div,
+w3m-modal button,
+w3m-modal input,
+w3m-modal label,
+[data-w3m-modal] h1,
+[data-w3m-modal] h2,
+[data-w3m-modal] h3,
+[data-w3m-modal] h4,
+[data-w3m-modal] h5,
+[data-w3m-modal] h6,
+[data-w3m-modal] p,
+[data-w3m-modal] span,
+[data-w3m-modal] div,
+[data-w3m-modal] button,
+[data-w3m-modal] input,
+[data-w3m-modal] label,
+.w3m-modal h1,
+.w3m-modal h2,
+.w3m-modal h3,
+.w3m-modal h4,
+.w3m-modal h5,
+.w3m-modal h6,
+.w3m-modal p,
+.w3m-modal span,
+.w3m-modal div,
+.w3m-modal button,
+.w3m-modal input,
+.w3m-modal label {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+}
+
+/* AppKit button styling to match site theme */
+w3m-modal button,
+[data-w3m-modal] button,
+.w3m-modal button {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-weight: 500 !important;
+}
+
+/* AppKit text elements */
+w3m-modal .w3m-text,
+[data-w3m-modal] .w3m-text,
+.w3m-modal .w3m-text {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+}
+
+/* Additional AppKit selectors for newer versions */
+w3m-connect-button,
+w3m-connect-button *,
+w3m-account-button,
+w3m-account-button *,
+w3m-network-button,
+w3m-network-button *,
+[data-w3m-connect-button],
+[data-w3m-connect-button] *,
+[data-w3m-account-button],
+[data-w3m-account-button] *,
+[data-w3m-network-button],
+[data-w3m-network-button] * {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+}
+
+/* AppKit modal content */
+w3m-modal-content,
+[data-w3m-modal-content],
+.w3m-modal-content,
+w3m-modal-content *,
+[data-w3m-modal-content] *,
+.w3m-modal-content * {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+}
+
+/* Dark mode overrides for AppKit modal */
+.dark w3m-modal,
+.dark w3m-modal *,
+.dark [data-w3m-modal],
+.dark [data-w3m-modal] *,
+.dark .w3m-modal,
+.dark .w3m-modal * {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+}
+
+/* Force AppKit to respect dark mode */
+.dark w3m-modal {
+  --w3m-color-fg-1: #F5F1E7 !important;
+  --w3m-color-fg-2: #9A9A9A !important;
+  --w3m-color-fg-3: #9A9A9A !important;
+  --w3m-color-bg-1: #1C1C1C !important;
+  --w3m-color-bg-2: #2A2A2A !important;
+  --w3m-color-bg-3: #3A3A3A !important;
+  --w3m-color-overlay: rgba(0, 0, 0, 0.8) !important;
+  --w3m-color-success: #3E7C4A !important;
+  --w3m-color-error: #D88FA0 !important;
+  --w3m-color-inverse: #1C1C1C !important;
+}
+
+/* Additional AppKit dark mode selectors */
+.dark w3m-connect-button,
+.dark w3m-account-button,
+.dark w3m-network-button,
+.dark [data-w3m-connect-button],
+.dark [data-w3m-account-button],
+.dark [data-w3m-network-button] {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+}
+
+/* Global CSS custom properties for AppKit */
+:root {
+  --w3m-font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --w3m-font-size-master: 14px;
+  --w3m-border-radius-master: 8px;
+  --w3m-accent: #3E7C4A;
+}
+
+/* AppKit modal styling - Let the theme variables handle most styling */
+w3m-modal {
+  --w3m-font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --w3m-accent: #3E7C4A;
+  --w3m-border-radius-master: 8px;
+}

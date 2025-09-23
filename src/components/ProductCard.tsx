@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Heart, ShoppingCart, Star, Eye, Shield } from 'lucide-react';
+import { Heart, ShoppingCart, Eye, Shield } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useCart } from '@/contexts/CartContext';
 import { useVerification } from '@/contexts/VerificationContext';
@@ -18,6 +18,7 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
   const [isHovered, setIsHovered] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   const [showActions, setShowActions] = useState(false);
+  const [selectedSize, setSelectedSize] = useState<string>('');
   const t = useTranslations('products');
   const tCollections = useTranslations('collections');
   const { addItem } = useCart();
@@ -29,9 +30,14 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
   const discountedPrice = isVerified ? Math.round(originalPrice * (1 - discountPercentage / 100)) : originalPrice;
 
   const handleAddToCart = () => {
+    if (!selectedSize) return;
+    
+    const productName = t(`productItems.${product.nameKey}.name`);
+    const sizeName = t(`sizes.${selectedSize}`);
+    
     addItem({
-      id: product.id,
-      name: t(`productItems.${product.nameKey}.name`),
+      id: `${product.id}-${selectedSize}`,
+      name: `${productName} (${sizeName})`,
       price: product.price,
       originalPrice: product.originalPrice,
       image: product.image,
@@ -44,19 +50,6 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
     onToggleWishlist?.(product);
   };
 
-  const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <Star
-        key={i}
-        style={{
-          width: '14px',
-          height: '14px',
-          fill: i < rating ? '#E6B450' : 'transparent',
-          color: i < rating ? '#E6B450' : '#9A9A9A'
-        }}
-      />
-    ));
-  };
 
   return (
     <div
@@ -127,19 +120,6 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
           </div>
         </button>
 
-        {/* Badges */}
-        <div className="absolute top-3 left-3 flex flex-col gap-2">
-          {product.isNew && (
-            <span className="bg-[#3E7C4A] text-white px-2 py-1 rounded-xl text-xs font-medium">
-              {t('new')}
-            </span>
-          )}
-          {product.isBestSeller && (
-            <span className="bg-[#E6B450] text-[#1C1C1C] dark:text-[#1C1C1C] px-2 py-1 rounded-xl text-xs font-medium">
-              {t('bestseller')}
-            </span>
-          )}
-        </div>
       </div>
 
       {/* Product Info */}
@@ -157,16 +137,6 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
         <h3 className="text-base font-semibold text-[#1C1C1C] dark:text-[#F5F1E7] mb-2 leading-tight transition-colors duration-200">
           {t(`productItems.${product.nameKey}.name`)}
         </h3>
-
-        {/* Rating */}
-        <div className="flex items-center gap-2 mb-3">
-          <div className="flex gap-0.5">
-            {renderStars(product.rating)}
-          </div>
-          <span className="text-sm text-gray-500 dark:text-gray-400">
-            ({product.reviewCount})
-          </span>
-        </div>
 
         {/* Price */}
         <div className="flex items-center gap-2 mb-4">
@@ -192,16 +162,46 @@ export default function ProductCard({ product, onAddToCart, onToggleWishlist }: 
 
         {/* Product Description */}
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 leading-relaxed transition-colors duration-200">
-          {t(`productItems.${product.nameKey}.shortDescription`)}
+          {t(`productItems.${product.nameKey}.description`)}
         </p>
+
+        {/* Size Selector */}
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-[#1C1C1C] dark:text-[#F5F1E7] mb-2 transition-colors duration-200">
+            {t('sizes.size')}:
+            {!selectedSize && (
+              <span className="text-red-500 text-xs ml-2">* {t('sizes.selectSize')}</span>
+            )}
+          </label>
+          <div className="flex gap-2">
+            {product.availableSizes.map((size) => (
+              <button
+                key={size}
+                onClick={() => setSelectedSize(size)}
+                className={`px-4 py-2 text-sm font-medium border-2 rounded-lg transition-all duration-200 cursor-pointer transform hover:scale-105 active:scale-95 ${
+                  selectedSize === size
+                    ? 'border-[#3E7C4A] bg-[#3E7C4A] text-white shadow-md'
+                    : 'border-gray-400 dark:border-gray-500 bg-white dark:bg-gray-700 text-[#1C1C1C] dark:text-[#F5F1E7] hover:border-[#3E7C4A] hover:bg-[#3E7C4A]/10 hover:shadow-sm'
+                }`}
+              >
+                {t(`sizes.${size}`)}
+              </button>
+            ))}
+          </div>
+        </div>
 
         {/* Add to Cart Button */}
         <button
           onClick={handleAddToCart}
-          className="w-full py-2.5 px-3 bg-[#3E7C4A] text-white border-none rounded-lg font-medium cursor-pointer transition-all duration-200 flex items-center justify-center gap-2 hover:bg-[#2d5f3a] hover:shadow-lg"
+          className={`w-full py-2.5 px-3 border-none rounded-lg font-medium cursor-pointer transition-all duration-200 flex items-center justify-center gap-2 ${
+            selectedSize
+              ? 'bg-[#3E7C4A] text-white hover:bg-[#2d5f3a] hover:shadow-lg'
+              : 'bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 cursor-not-allowed'
+          }`}
+          disabled={!selectedSize}
         >
           <ShoppingCart className="w-4 h-4" />
-          {t('addToCart')}
+          {selectedSize ? t('addToCart') : t('sizes.selectSize')}
         </button>
       </div>
     </div>

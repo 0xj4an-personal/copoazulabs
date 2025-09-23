@@ -3,200 +3,77 @@ export interface Product {
   nameKey: string; // Key for translation
   price: number;
   originalPrice?: number;
-  rating: number;
-  reviewCount: number;
   image: string;
   categoryKey: string; // Key for translation (cap, tshirt, hoodie)
   collectionId: string; // ID of the collection
-  isNew?: boolean;
-  isBestSeller?: boolean;
+  availableSizes: string[]; // Available sizes (S, M, L)
 }
 
 export const allProducts: Product[] = [
   // ReFi Collection
   {
     id: '1',
-    nameKey: 'refiCap',
-    price: 112000,
-    rating: 4.7,
-    reviewCount: 67,
-    image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&h=500&fit=crop&crop=center',
-    categoryKey: 'cap',
-    collectionId: '2',
-    isBestSeller: true
-  },
-  {
-    id: '2',
-    nameKey: 'refiTShirt',
-    price: 140000,
-    rating: 4.8,
-    reviewCount: 156,
-    image: 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400&h=500&fit=crop&crop=center',
-    categoryKey: 'tshirt',
-    collectionId: '2',
-    isNew: true
-  },
-  {
-    id: '3',
     nameKey: 'refiHoodie',
-    price: 280000,
-    originalPrice: 360000,
-    rating: 4.9,
-    reviewCount: 167,
-    image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=500&fit=crop&crop=center',
+    price: 320000,
+    originalPrice: 400000,
+    image: '/assets/products/hoodie-refi.jpeg',
     categoryKey: 'hoodie',
     collectionId: '2',
-    isNew: true
+    availableSizes: ['S', 'M', 'L']
   },
 
   // DeFi Collection
   {
-    id: '4',
-    nameKey: 'defiCap',
-    price: 108000,
-    rating: 4.6,
-    reviewCount: 98,
-    image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&h=500&fit=crop&crop=center',
-    categoryKey: 'cap',
-    collectionId: '3',
-    isNew: true
-  },
-  {
-    id: '5',
-    nameKey: 'defiTShirt',
-    price: 132000,
-    rating: 4.7,
-    reviewCount: 142,
-    image: 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400&h=500&fit=crop&crop=center',
-    categoryKey: 'tshirt',
-    collectionId: '3',
-    isNew: true
-  },
-  {
-    id: '6',
+    id: '2',
     nameKey: 'defiHoodie',
-    price: 340000,
-    originalPrice: 420000,
-    rating: 4.8,
-    reviewCount: 189,
-    image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=500&fit=crop&crop=center',
+    price: 350000,
+    originalPrice: 450000,
+    image: '/assets/products/hoodie-defi.jpeg',
     categoryKey: 'hoodie',
     collectionId: '3',
-    isBestSeller: true
+    availableSizes: ['S', 'M', 'L']
   },
 
   // Governance Collection
   {
-    id: '7',
-    nameKey: 'governanceCap',
-    price: 104000,
-    rating: 4.5,
-    reviewCount: 76,
-    image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&h=500&fit=crop&crop=center',
-    categoryKey: 'cap',
-    collectionId: '4',
-    isBestSeller: true
-  },
-  {
-    id: '8',
-    nameKey: 'governanceTShirt',
-    price: 128000,
-    rating: 4.6,
-    reviewCount: 134,
-    image: 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400&h=500&fit=crop&crop=center',
-    categoryKey: 'tshirt',
-    collectionId: '4',
-    isNew: true
-  },
-  {
-    id: '9',
+    id: '3',
     nameKey: 'governanceHoodie',
-    price: 300000,
-    originalPrice: 380000,
-    rating: 4.7,
-    reviewCount: 145,
-    image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=500&fit=crop&crop=center',
+    price: 330000,
+    originalPrice: 410000,
+    image: '/assets/products/hoodie-governance.jpeg',
     categoryKey: 'hoodie',
     collectionId: '4',
-    isNew: true
+    availableSizes: ['S', 'M', 'L']
   },
 
   // Coding Collection
   {
-    id: '10',
-    nameKey: 'codingCap',
-    price: 116000,
-    rating: 4.9,
-    reviewCount: 198,
-    image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&h=500&fit=crop&crop=center',
-    categoryKey: 'cap',
-    collectionId: '5',
-    isNew: true
-  },
-  {
-    id: '11',
-    nameKey: 'codingTShirt',
-    price: 136000,
-    rating: 4.8,
-    reviewCount: 167,
-    image: 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400&h=500&fit=crop&crop=center',
-    categoryKey: 'tshirt',
-    collectionId: '5',
-    isBestSeller: true
-  },
-  {
-    id: '12',
+    id: '4',
     nameKey: 'codingHoodie',
-    price: 360000,
-    originalPrice: 440000,
-    rating: 4.9,
-    reviewCount: 234,
-    image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=500&fit=crop&crop=center',
+    price: 370000,
+    originalPrice: 460000,
+    image: '/assets/products/hoodie-code.jpeg',
     categoryKey: 'hoodie',
     collectionId: '5',
-    isBestSeller: true
+    availableSizes: ['S', 'M', 'L']
   },
 
   // Degen Collection
   {
-    id: '13',
-    nameKey: 'degenCap',
-    price: 96000,
-    rating: 4.4,
-    reviewCount: 89,
-    image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&h=500&fit=crop&crop=center',
-    categoryKey: 'cap',
-    collectionId: '6',
-    isNew: true
-  },
-  {
-    id: '14',
-    nameKey: 'degenTShirt',
-    price: 124000,
-    rating: 4.5,
-    reviewCount: 112,
-    image: 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400&h=500&fit=crop&crop=center',
-    categoryKey: 'tshirt',
-    collectionId: '6',
-    isNew: true
-  },
-  {
-    id: '15',
+    id: '5',
     nameKey: 'degenHoodie',
-    price: 280000,
-    originalPrice: 360000,
-    rating: 4.6,
-    reviewCount: 156,
-    image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=500&fit=crop&crop=center',
+    price: 310000,
+    originalPrice: 390000,
+    image: '/assets/products/hoodie-degen.jpeg',
     categoryKey: 'hoodie',
     collectionId: '6',
-    isBestSeller: true
+    availableSizes: ['S', 'M', 'L']
   }
 ];
 
 // Helper functions to get specific product subsets
 export const getFeaturedProducts = (): Product[] => {
-  return allProducts.filter(product => product.isBestSeller || product.isNew).slice(0, 6);
+  return allProducts.slice(0, 6);
 };
 
 export const getProductsByCategory = (categoryKey: string): Product[] => {

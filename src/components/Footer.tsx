@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Twitter, Instagram, Mail } from 'lucide-react';
 import Logo from './Logo';
-import { env } from '../../env.config';
+import { envConfig } from '../../env.config';
 
 export default function Footer() {
   return (
@@ -28,7 +28,7 @@ export default function Footer() {
               }}>
                 <Logo width={24} height={24} />
               </div>
-              <span style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>{env.APP_NAME}</span>
+              <span style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>{envConfig.app.name}</span>
             </div>
             <p style={{ 
               color: '#9A9A9A', 
@@ -36,7 +36,7 @@ export default function Footer() {
               lineHeight: '1.6',
               maxWidth: '400px'
             }}>
-              {env.APP_DESCRIPTION}
+              {envConfig.app.description}
             </p>
             <div style={{ display: 'flex', gap: '16px' }}>
               <a 
@@ -57,7 +57,7 @@ export default function Footer() {
                 <Instagram style={{ width: '20px', height: '20px' }} />
               </a>
               <a 
-                href={env.TWITTER_URL} 
+                href="https://twitter.com/copoazulabs"
                 style={{ 
                   display: 'flex', 
                   alignItems: 'center', 

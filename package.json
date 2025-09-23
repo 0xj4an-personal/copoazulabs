@@ -1,12 +1,23 @@
 {
-  "name": "web3-clothing-page",
+  "name": "copoazushop",
   "version": "0.1.0",
   "private": true,
+  "description": "Copoazú Labs - Web3 Fashion & Merchandise E-commerce Platform",
+  "keywords": [
+    "web3",
+    "fashion",
+    "ecommerce",
+    "blockchain",
+    "celo",
+    "nextjs"
+  ],
+  "author": "Copoazú Labs",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@celo/connect": "^7.0.0",
@@ -21,7 +32,6 @@
     "ethers": "^6.15.0",
     "lucide-react": "^0.263.1",
     "next": "15.5.2",
-    "next-intl": "^4.3.8",
     "pino-pretty": "^13.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -31,14 +41,22 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.35.0",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.18",
     "@types/node": "^20.14.0",
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.21",
+    "cssnano": "^7.1.1",
     "eslint": "^8.57.0",
     "eslint-config-next": "15.5.2",
+    "next-intl": "^4.3.9",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.4.0",
-    "typescript": "^5.5.0"
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

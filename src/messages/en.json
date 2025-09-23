@@ -99,86 +99,43 @@
     "priceHighToLow": "Price: High to Low",
     "highestRated": "Highest Rated",
     "productItems": {
-      "refiCap": {
-        "name": "ReFi Cap",
-        "description": "Sustainable cap made from recycled materials supporting regenerative finance. Features eco-friendly construction and ReFi-themed design. Perfect for climate-conscious crypto enthusiasts.",
-        "shortDescription": "Sustainable cap for ReFi advocates"
-      },
-      "refiTShirt": {
-        "name": "ReFi T-Shirt",
-        "description": "Organic cotton t-shirt celebrating regenerative finance. Made from sustainable materials with environmental consciousness in mind. Features ReFi graphics and comfortable fit for everyday wear.",
-        "shortDescription": "Eco-friendly t-shirt for ReFi community"
-      },
       "refiHoodie": {
-        "name": "ReFi Hoodie",
-        "description": "Sustainable hoodie supporting regenerative finance movement. Made from organic cotton with recycled elements. Features ReFi branding and comfortable fit for climate-conscious individuals.",
-        "shortDescription": "Sustainable hoodie for ReFi supporters"
-      },
-      "defiCap": {
-        "name": "DeFi Cap",
-        "description": "Premium cap celebrating decentralized finance. Features DeFi-inspired design elements and high-quality materials. Perfect for DeFi enthusiasts and protocol contributors.",
-        "shortDescription": "Stylish cap for DeFi pioneers"
-      },
-      "defiTShirt": {
-        "name": "DeFi T-Shirt",
-        "description": "Technical t-shirt for DeFi enthusiasts and protocol users. Features DeFi-themed graphics and comfortable cotton blend. Perfect for DeFi conferences, meetups, or casual DeFi lifestyle.",
-        "shortDescription": "Technical t-shirt for DeFi community"
+        "name": "🌱 ReFi Hoodie",
+        "description": "Inspired by regeneration and connection with nature. Made from premium national brushed cotton, providing softness and durability, accompanied by a design that fuses trees, water and tokens. Available in sizes S, M and L, it's a unisex hoodie that represents those who go beyond sustainability.",
+        "shortDescription": "Regenerative hoodie for nature lovers"
       },
       "defiHoodie": {
-        "name": "DeFi Hoodie",
-        "description": "Premium hoodie celebrating the DeFi revolution. Features DeFi-inspired design, comfortable fleece blend, and practical pockets. Ideal for DeFi developers and protocol contributors.",
-        "shortDescription": "Premium hoodie for DeFi builders"
-      },
-      "governanceCap": {
-        "name": "Governance Cap",
-        "description": "Professional cap for governance participants and DAO members. Features clean design and high-quality materials. Perfect for governance meetings and DAO events.",
-        "shortDescription": "Professional cap for governance"
-      },
-      "governanceTShirt": {
-        "name": "Governance T-Shirt",
-        "description": "Clean t-shirt celebrating decentralized governance. Features governance-themed elements and comfortable fit. Perfect for DAO members and governance participants.",
-        "shortDescription": "Clean t-shirt for DAO governance"
+        "name": "🔓 DeFi Hoodie",
+        "description": "Financial freedom also dresses up. This high-quality national brushed cotton hoodie combines style and comfort, with a design that celebrates decentralization and security in Web3. Unisex, available in S, M and L, ideal for those who believe in a financial system without barriers.",
+        "shortDescription": "Freedom hoodie for DeFi believers"
       },
       "governanceHoodie": {
-        "name": "Governance Hoodie",
-        "description": "Comfortable hoodie for governance enthusiasts and DAO contributors. Features governance-inspired design and premium materials. Perfect for long governance sessions and DAO events.",
-        "shortDescription": "Comfortable hoodie for DAO members"
-      },
-      "codingCap": {
-        "name": "Coding Cap",
-        "description": "Developer-focused cap with coding-inspired design elements. Features breathable materials and comfortable fit. Perfect for coding sessions, hackathons, or developer meetups.",
-        "shortDescription": "Developer cap for coding sessions"
-      },
-      "codingTShirt": {
-        "name": "Coding T-Shirt",
-        "description": "Technical t-shirt for developers and coding enthusiasts. Features code-inspired graphics and comfortable cotton blend. Perfect for coding marathons, hackathons, or tech conferences.",
-        "shortDescription": "Technical t-shirt for developers"
+        "name": "🏛️ Governance Hoodie",
+        "description": "The voice of the community now also dresses up. Made from premium national brushed cotton, this hoodie is comfortable, resistant and elegant in its retro pixel design about participation and digital voting. Unisex, available in S, M and L, perfect for leaders and dreamers of the decentralized future.",
+        "shortDescription": "Leadership hoodie for governance"
       },
       "codingHoodie": {
-        "name": "Coding Hoodie",
-        "description": "Ultimate comfort hoodie for developers and coding enthusiasts. Features code-themed design, thumbhole cuffs, and premium fleece. Perfect for long coding sessions and developer meetups.",
-        "shortDescription": "Ultimate comfort hoodie for coders"
-      },
-      "degenCap": {
-        "name": "Degen Cap",
-        "description": "Bold cap for true crypto degenerates. Features edgy design elements and high-quality construction. Perfect for high-risk traders and meme coin enthusiasts.",
-        "shortDescription": "Bold cap for crypto degenerates"
-      },
-      "degenTShirt": {
-        "name": "Degen T-Shirt",
-        "description": "Edgy t-shirt celebrating the wild side of crypto culture. Features bold graphics and comfortable fit. Perfect for degen traders and meme coin enthusiasts.",
-        "shortDescription": "Edgy t-shirt for degen culture"
+        "name": "🖥️ Code Hoodie",
+        "description": "For those who build the future in every line of code. Made from national brushed cotton, soft, warm and durable. Its retro pixel design honors the essence of devs and builders. Available in sizes S, M and L, unisex and perfect to accompany those long innovation sessions.",
+        "shortDescription": "Developer hoodie for builders"
       },
       "degenHoodie": {
-        "name": "Degen Hoodie",
-        "description": "Bold hoodie for crypto degenerates and high-risk traders. Features edgy design, comfortable fleece, and practical pockets. Perfect for degen trading sessions and meme coin events.",
-        "shortDescription": "Bold hoodie for degen traders"
+        "name": "🌌 Degen Hoodie",
+        "description": "The hoodie of true degens. Made from the highest quality national brushed cotton, it offers premium comfort and a design that captures the irreverent vibe of the crypto space. Available in sizes S, M and L, it's a unisex hoodie for those who live intensely every movement in Web3.",
+        "shortDescription": "Degen hoodie for true crypto rebels"
       }
     },
     "categories": {
       "cap": "Caps",
       "tshirt": "T-Shirts",
       "hoodie": "Hoodies"
+    },
+    "sizes": {
+      "S": "Small",
+      "M": "Medium", 
+      "L": "Large",
+      "selectSize": "Select Size",
+      "size": "Size"
     }
   },
   "collections": {
@@ -202,29 +159,29 @@
     "clearFilters": "Clear Filters",
     "collectionItems": {
       "refiCollection": {
-        "name": "ReFi",
-        "description": "Celebrate Regenerative Finance with sustainable fashion that makes a positive impact. This collection focuses on environmental consciousness and social responsibility in the crypto space. Each piece represents the commitment to building a better future through regenerative practices, carbon credits, and sustainable blockchain solutions.",
-        "shortDescription": "Sustainable fashion for a regenerative future"
+        "name": "🌱 ReFi Collection",
+        "description": "Beyond sustainability, there is regeneration. The ReFi Collection reflects the union between nature and blockchain, with designs that orbit between trees, water and tokens. It is a reminder that Web3 not only transforms economies, it also regenerates territories and communities.",
+        "shortDescription": "Regeneration of territories and communities"
       },
       "defiCollection": {
-        "name": "DeFi",
-        "description": "Embrace the decentralized finance revolution with cutting-edge designs inspired by liquidity pools, yield farming, and decentralized exchanges. This collection celebrates financial freedom and innovation in the crypto space. Perfect for DeFi enthusiasts who want to showcase their knowledge of protocols, AMMs, and yield strategies.",
-        "shortDescription": "Decentralized fashion for decentralized finance"
+        "name": "🔓 DeFi Collection",
+        "description": "Financial freedom has never looked so good. The DeFi Collection combines security, liquidity and decentralization icons with a retro-futuristic style. Each hoodie transmits the power of a system without intermediaries, where finances are truly in the hands of the community.",
+        "shortDescription": "Financial freedom without intermediaries"
       },
       "governanceCollection": {
-        "name": "Governance",
-        "description": "Clothing that celebrates decentralized governance and community decision-making. This collection emphasizes transparency, collaboration, and collective intelligence in blockchain projects. Each piece reflects the democratic values of DAOs, governance tokens, and community-driven protocols. Perfect for governance participants and protocol contributors.",
-        "shortDescription": "Fashion for decentralized governance"
+        "name": "🏛️ Governance Collection",
+        "description": "The future is collaborative. The Governance Collection represents collective decision-making and the power of DAOs. Inspired by digital voting, transparency and active participation, this line celebrates true decentralized democracy with a minimalist and impactful style.",
+        "shortDescription": "True decentralized democracy"
       },
       "codingCollection": {
-        "name": "Coding",
-        "description": "For developers, builders, and technical innovators in the Web3 space. This collection celebrates the art of coding with designs inspired by smart contracts, programming languages, and blockchain development. From Solidity to Rust, from debugging to deploying, this collection honors the builders who make Web3 possible.",
-        "shortDescription": "Code your way into Web3 fashion"
+        "name": "🖥️ Code Collection",
+        "description": "A tribute to those who build the future line by line. The Code Collection is inspired by the language of programming, with symbols, graphics and details that honor the magic that happens behind every protocol. Ideal for devs, builders and hackers who carry code in their skin.",
+        "shortDescription": "Magic of code and protocols"
       },
       "degenCollection": {
-        "name": "Degen",
-        "description": "The ultimate collection for true crypto degenerates. Bold, edgy designs that capture the wild spirit of meme coins, high-risk trading, and the chaotic energy of crypto culture. This collection is for those who live on the edge, embrace volatility, and aren't afraid to go all-in on the next big thing in Web3.",
-        "shortDescription": "For the true crypto degenerates"
+        "name": "🌌 Degen Collection",
+        "description": "For those who live on the edge of the crypto space. The Degen Collection captures the energy of trading, the adrenaline of market movements and the passion for calculated risk. Bold pixel art designs that reflect the essence of Web3 culture: irreverent, fun and always ready for the next move.",
+        "shortDescription": "Irreverent and ready for the next move"
       }
     }
   },

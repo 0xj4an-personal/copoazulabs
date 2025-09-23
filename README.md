@@ -1,6 +1,6 @@
-# 🌿 Copoazú Labs - Web3 Fashion & Merchandise
+# 🛍️ Copoazú Shop - Web3 Fashion & Merchandise E-commerce
 
-A modern, responsive e-commerce platform for Web3 branded clothing and merchandise. Built with Next.js 15, TypeScript, and inline CSS styling, featuring crypto payments and wallet integration.
+A cutting-edge, fully responsive e-commerce platform for Web3 branded clothing and merchandise. Built with Next.js 15, TypeScript, Tailwind CSS, and modern Web3 integrations, featuring crypto payments, wallet connectivity, and decentralized commerce features.
 
 ## ✨ Features
 
@@ -46,8 +46,8 @@ The design uses the exclusive Copoazú Labs color scheme:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/0xj4an/web3-clothing-page.git
-cd web3-clothing-page
+git clone https://github.com/0xj4an/copoazushop.git
+cd copoazushop
 ```
 
 2. Install dependencies:
@@ -98,7 +98,7 @@ npm run dev
 ## 📁 Project Structure
 
 ```
-web3-clothing-page/
+copoazushop/
 ├── src/
 │   ├── app/                    # Next.js App Router
 │   │   ├── globals.css        # Global styles and color variables
@@ -129,12 +129,14 @@ web3-clothing-page/
 ## 🛠️ Technologies Used
 
 - **Framework**: Next.js 15 with App Router
-- **Language**: TypeScript
-- **Styling**: Inline CSS + Tailwind CSS (for configuration)
+- **Language**: TypeScript 5.6+ with strict mode
+- **Styling**: Tailwind CSS 3.4+ with custom design system
 - **Icons**: Lucide React
 - **Font**: Inter (Google Fonts)
 - **Package Manager**: npm
-- **Development**: Hot reload with Next.js dev server
+- **Development**: Hot reload with optimized builds
+- **Web3**: Celo blockchain integration with wagmi & viem
+- **Internationalization**: next-intl for multi-language support
 
 ## 🌐 Web3 Features
 
