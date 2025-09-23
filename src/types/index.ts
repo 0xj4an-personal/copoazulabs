@@ -26,7 +26,6 @@ declare global {
       SENTRY_DSN?: string;
       SENTRY_ORG?: string;
       SENTRY_PROJECT?: string;
-      NODE_ENV: 'development' | 'production' | 'test';
     }
   }
 }
