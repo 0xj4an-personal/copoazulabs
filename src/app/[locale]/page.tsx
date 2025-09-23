@@ -19,9 +19,17 @@ export default function Home() {
   const t = useTranslations();
   const { isVerified, setVerified } = useVerification();
   const [showVerificationPopup, setShowVerificationPopup] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  // Detect client-side rendering
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // Show verification popup after 3 seconds if user is not verified
   useEffect(() => {
+    if (!isClient) return;
+    
     const timer = setTimeout(() => {
       if (!isVerified && typeof window !== 'undefined') {
         const hasSeenPopup = localStorage.getItem('hasSeenVerificationPopup');
@@ -32,7 +40,7 @@ export default function Home() {
     }, 3000);
 
     return () => clearTimeout(timer);
-  }, [isVerified]);
+  }, [isVerified, isClient]);
 
   const handleVerificationComplete = (verified: boolean) => {
     setVerified(verified);
@@ -156,6 +164,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+    
 
       {/* Featured Products Section */}
       <section className="py-16 bg-white dark:bg-brand-dark transition-colors duration-200">
@@ -217,11 +226,13 @@ export default function Home() {
       </section>
 
       {/* Verification Popup */}
-      <VerificationPopup
-        isOpen={showVerificationPopup}
-        onClose={handleClosePopup}
-        onVerificationComplete={handleVerificationComplete}
-      />
+      {isClient && (
+        <VerificationPopup
+          isOpen={showVerificationPopup}
+          onClose={handleClosePopup}
+          onVerificationComplete={handleVerificationComplete}
+        />
+      )}
     </div>
   );
 }
