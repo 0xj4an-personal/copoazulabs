@@ -4,8 +4,8 @@ import { useCallback } from 'react';
 import { getReferralTag, submitReferral } from '@divvi/referral-sdk';
 import { useAccount, useWalletClient } from 'wagmi';
 
-// Divvi consumer address for Copoazú Labs
-const DIVVI_CONSUMER_ADDRESS = '0x32b3fC1212D336c0F46DE9961B0599b92b79eEf0';
+// Divvi consumer address from environment variable
+const DIVVI_CONSUMER_ADDRESS = process.env.NEXT_PUBLIC_DIVVI_CONSUMER_ADDRESS || '0x32b3fC1212D336c0F46DE9961B0599b92b79eEf0';
 
 export function useDivvi() {
   const { address } = useAccount();

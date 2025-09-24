@@ -28,6 +28,7 @@ interface EnvConfig {
   // Third-party Services
   services: {
     divvi: {
+      consumerAddress: string;
       apiKey: string;
       projectId: string;
       secretKey?: string;
@@ -94,14 +95,14 @@ export const envConfig: EnvConfig = {
   },
 
   blockchain: {
-    network: (getEnvVar('NEXT_PUBLIC_CELO_NETWORK', 'alfajores') as EnvConfig['blockchain']['network']),
+    network: (getEnvVar('NEXT_PUBLIC_CELO_NETWORK', 'mainnet') as EnvConfig['blockchain']['network']),
     rpcUrl: getEnvVar(
       'NEXT_PUBLIC_CELO_RPC_URL',
-      'https://alfajores-forno.celo-testnet.org'
+      'https://rpc.celocolombia.org'
     ),
     explorerUrl: getEnvVar(
       'NEXT_PUBLIC_CELO_EXPLORER_URL',
-      'https://explorer.celo.org/alfajores'
+      'https://explorer.celo.org'
     ),
     walletConnectProjectId: getEnvVar('NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID', ''),
     contracts: {
@@ -115,6 +116,7 @@ export const envConfig: EnvConfig = {
 
   services: {
     divvi: {
+      consumerAddress: getEnvVar('NEXT_PUBLIC_DIVVI_CONSUMER_ADDRESS', '0x32b3fC1212D336c0F46DE9961B0599b92b79eEf0'),
       apiKey: getEnvVar('NEXT_PUBLIC_DIVVI_API_KEY', ''),
       projectId: getEnvVar('NEXT_PUBLIC_DIVVI_PROJECT_ID', ''),
       secretKey: getEnvVar('DIVVI_SECRET_KEY'),
