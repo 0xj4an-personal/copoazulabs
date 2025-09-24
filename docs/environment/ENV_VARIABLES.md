@@ -38,13 +38,8 @@ This document describes all environment variables used in the Copoazú Labs Web3
 
 #### Celo Network Details:
 - **Mainnet Chain ID**: 42220
-- **Testnet Chain ID**: 11142220 (Celo Sepolia)
 - **Mainnet RPC URL**: https://rpc.celocolombia.org
-- **Testnet RPC URL**: https://sepolia-forno.celo-testnet.org
 - **Mainnet Explorer**: https://explorer.celo.org
-- **Testnet Explorer**: https://sepolia-blockscout.celo-testnet.org
-
-**Note**: Celo Sepolia is the current developer testnet built on Ethereum Sepolia, perfect for new projects. See [official documentation](https://docs.celo.org/network/celo-sepolia).
 
 ### API Configuration
 | Variable | Description | Default | Required |
@@ -99,11 +94,11 @@ NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=your_wallet_connect_project_id
 NODE_ENV=production
 ```
 
-### For Development (Celo Sepolia Testnet):
+### For Development (Celo Mainnet):
 ```bash
 NEXT_PUBLIC_APP_URL=http://localhost:3000
-NEXT_PUBLIC_CHAIN_ID=11142220
-NEXT_PUBLIC_RPC_URL=https://sepolia-forno.celo-testnet.org
+NEXT_PUBLIC_CHAIN_ID=42220
+NEXT_PUBLIC_RPC_URL=https://rpc.celocolombia.org
 NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=your_wallet_connect_project_id
 NODE_ENV=development
 ```

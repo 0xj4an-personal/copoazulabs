@@ -9,9 +9,9 @@ Divvi is a referral tracking system that allows users to earn rewards for their 
 ## Integration Details
 
 ### Consumer Address
-- **Address**: `0x32b3fC1212D336c0F46DE9961B0599b92b79eEf0`
+- **Address**: `your_divvi_consumer_address` (configured via environment variable)
 - **Network**: Celo Mainnet
-- **Explorer**: [View on Celoscan](https://celoscan.io/address/0x32b3fC1212D336c0F46DE9961B0599b92b79eEf0)
+- **Explorer**: [View on Celoscan](https://celoscan.io/address/your_divvi_consumer_address)
 
 ### How It Works
 

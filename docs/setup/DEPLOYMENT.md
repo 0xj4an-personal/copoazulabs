@@ -293,7 +293,7 @@ NEXT_PUBLIC_CELO_RPC_URL=https://forno.celo.org
 NEXT_PUBLIC_CELO_EXPLORER_URL=https://celoscan.io
 
 # Application Configuration
-NEXT_PUBLIC_APP_URL=https://copoazushop.vercel.app
+NEXT_PUBLIC_APP_URL=https://your-app.vercel.app
 NEXT_PUBLIC_SITE_NAME="Copoazú Shop"
 
 # Analytics (Optional)

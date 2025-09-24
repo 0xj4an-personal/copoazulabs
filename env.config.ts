@@ -15,7 +15,7 @@ interface EnvConfig {
 
   // Blockchain Configuration
   blockchain: {
-    network: 'alfajores' | 'mainnet';
+    network: 'mainnet';
     rpcUrl: string;
     explorerUrl: string;
     walletConnectProjectId: string;
@@ -116,7 +116,7 @@ export const envConfig: EnvConfig = {
 
   services: {
     divvi: {
-      consumerAddress: getEnvVar('NEXT_PUBLIC_DIVVI_CONSUMER_ADDRESS', '0x32b3fC1212D336c0F46DE9961B0599b92b79eEf0'),
+      consumerAddress: getEnvVar('NEXT_PUBLIC_DIVVI_CONSUMER_ADDRESS', ''),
       apiKey: getEnvVar('NEXT_PUBLIC_DIVVI_API_KEY', ''),
       projectId: getEnvVar('NEXT_PUBLIC_DIVVI_PROJECT_ID', ''),
       secretKey: getEnvVar('DIVVI_SECRET_KEY'),

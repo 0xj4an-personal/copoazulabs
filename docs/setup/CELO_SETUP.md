@@ -1,6 +1,6 @@
 # 🌾 Celo Network Configuration
 
-This document provides specific setup instructions for deploying Copoazú Labs on the Celo network. This project is built from scratch using the latest Celo Sepolia testnet.
+This document provides specific setup instructions for deploying Copoazú Labs on the Celo network. This project is configured for Celo Mainnet production.
 
 ## 🔧 Network Configuration
 
@@ -10,12 +10,12 @@ This document provides specific setup instructions for deploying Copoazú Labs o
 - **Explorer**: https://explorer.celo.org
 - **Native Currency**: CELO
 
-### Celo Sepolia Testnet (Development)
-- **Chain ID**: 11142220
-- **RPC URL**: https://sepolia-forno.celo-testnet.org
-- **Explorer**: https://sepolia-blockscout.celo-testnet.org
+### Celo Mainnet (Production)
+- **Chain ID**: 42220
+- **RPC URL**: https://rpc.celocolombia.org
+- **Explorer**: https://explorer.celo.org
 - **Native Currency**: CELO
-- **Foundation**: Built on Ethereum Sepolia
+- **Foundation**: Celo Mainnet
 
 ## 💰 Supported Tokens
 
@@ -33,9 +33,9 @@ Create a `.env.local` file with the following configuration:
 NEXT_PUBLIC_APP_NAME="Copoazú Labs"
 NEXT_PUBLIC_APP_URL="http://localhost:3000"
 
-# Celo Sepolia Testnet (Official Chain ID: 11142220)
-NEXT_PUBLIC_CHAIN_ID="11142220"
-NEXT_PUBLIC_RPC_URL="https://sepolia-forno.celo-testnet.org"
+# Celo Mainnet (Official Chain ID: 42220)
+NEXT_PUBLIC_CHAIN_ID="42220"
+NEXT_PUBLIC_RPC_URL="https://rpc.celocolombia.org"
 
 # WalletConnect
 NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID="your_project_id"
@@ -70,8 +70,8 @@ NODE_ENV="production"
 1. Copy environment variables to `.env.local`
 2. Install dependencies: `npm install`
 3. Start development server: `npm run dev`
-4. Connect wallet to Celo Sepolia testnet (Chain ID: 11142220)
-5. Get testnet tokens from faucet
+4. Connect wallet to Celo Mainnet (Chain ID: 42220)
+5. Ensure you have CELO tokens for transactions
 
 ### 2. Vercel Deployment
 1. Set environment variables in Vercel dashboard
@@ -82,7 +82,7 @@ NODE_ENV="production"
 Users need to:
 1. Install MetaMask or Celo-compatible wallet
 2. Add Celo network to their wallet
-3. Get testnet tokens from faucet (for testing)
+3. Ensure you have CELO tokens for transactions
 
 ## 🌐 Adding Celo Network to MetaMask
 
@@ -99,25 +99,24 @@ Users can manually add Celo network:
 - Currency Symbol: CELO
 - Block Explorer: https://explorer.celo.org
 
-**Celo Sepolia:**
-- Network Name: Celo Sepolia
-- RPC URL: https://sepolia-forno.celo-testnet.org
-- Chain ID: 11142220
+**Celo Mainnet:**
+- Network Name: Celo Mainnet
+- RPC URL: https://rpc.celocolombia.org
+- Chain ID: 42220
 - Currency Symbol: CELO
-- Block Explorer: https://sepolia-blockscout.celo-testnet.org
+- Block Explorer: https://explorer.celo.org
 
-## 💧 Getting Testnet Tokens
+## 💰 Getting CELO Tokens
 
-For Celo Sepolia testnet:
-1. Visit the [Celo Sepolia Faucet](https://faucet.celo.org/)
-2. Connect your wallet
-3. Request testnet CELO and stablecoins
-4. Use tokens for testing payments
+For Celo Mainnet:
+1. Purchase CELO from exchanges like Coinbase, Binance, or KuCoin
+2. Transfer CELO to your wallet
+3. Use CELO for transactions and payments
 
 ## 🔍 Testing Payment Flow
 
-1. Connect wallet to Celo Sepolia
-2. Ensure you have testnet tokens
+1. Connect wallet to Celo Mainnet
+2. Ensure you have CELO tokens
 3. Navigate to products page
 4. Add items to cart
 5. Test crypto payment with cCOP
@@ -140,7 +139,6 @@ npm install -g @celo/celo-cli
 
 ### Celo Explorer
 - Mainnet: https://explorer.celo.org
-- Sepolia: https://sepolia-blockscout.celo-testnet.org
 
 ### Celo Docs
 - Official Documentation: https://docs.celo.org

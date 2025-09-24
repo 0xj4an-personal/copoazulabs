@@ -8,7 +8,7 @@ export const APP_CONFIG = {
   description: 'Web3 Fashion & Merchandise E-commerce Platform',
   version: '1.0.0',
   author: 'Copoazú Labs',
-  url: process.env.NEXT_PUBLIC_APP_URL || 'https://copoazushop.vercel.app',
+  url: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
   supportEmail: 'copoazulabs@gmail.com',
 } as const;
 

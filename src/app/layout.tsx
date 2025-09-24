@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://copoazushop.vercel.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'),
   alternates: {
     canonical: '/',
     languages: {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Copoazú Labs - Web3 Fashion & Merchandise",
     description: "Discover exclusive Web3 branded clothing and merchandise. Connect your wallet, shop with crypto, and join the decentralized fashion revolution.",
-    url: process.env.NEXT_PUBLIC_APP_URL || 'https://copoazushop.vercel.app',
+    url: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
     siteName: 'Copoazú Labs',
     images: [
       {
