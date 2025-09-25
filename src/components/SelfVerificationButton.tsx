@@ -56,10 +56,7 @@ export const SelfVerificationButton: React.FC<SelfVerificationButtonProps> = ({
         userIdType: 'hex',
         userDefinedData: `Verifica tu identidad para obtener un descuento!'`,
         disclosures: {
-          excludedCountries: [
-            "ARE","ARG","AUT","AUS","BGR","BHR","BEN","BRA","BLZ","CAN","CHE","CMR","CHN","CZE","DEU","ESP","EUU","FIN","FRA","GBR","HUN","IDN","IRL","IRQ","IRN","ISL","ITA","JPN","KOR","LUX","MAR","MDA","MNG","MEX","MYS","NOR","NPL","NZL","PAN","QAT","ROU","RWA","SWE","SGP","SVK","THA","TKM","TZA","UKR","USA","UZB","VNM",
-            "AND","ATG","ALB","ARM","AZE","BIH","BRB","BGD","BEL","BHS","BWA","BLR","CIV","CHL","CRI","CYP","DNK","DMA","DZA","ECU","EST","GEO","GHA","GMB","GRC","HRV","ISR","IND","JAM","KEN","KNA","PRK","XKX","KWT","KAZ","LBN","LIE","LTU","LVA","MCO","MNE","MKD","MLT","MDV","NLD","OMN","PER","PHL","POL","PSE","PRT","PRY","SRB","RUS","SAU","SYC","SVN","SMR","SEN","SYR","TJK","TLS","TUR","TWN","UGA","URY","VAT","VCT","VEN","ZWE"
-          ],
+          excludedCountries: [],
           nationality: true,
         }
       }).build()
