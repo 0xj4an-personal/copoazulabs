@@ -7,6 +7,19 @@ import { useAccount, useWalletClient } from 'wagmi';
 // Divvi consumer address from environment variable
 const DIVVI_CONSUMER_ADDRESS = process.env.NEXT_PUBLIC_DIVVI_CONSUMER_ADDRESS || '';
 
+// Helper function to validate and format address
+const getValidConsumerAddress = (): `0x${string}` => {
+  if (!DIVVI_CONSUMER_ADDRESS) {
+    throw new Error('NEXT_PUBLIC_DIVVI_CONSUMER_ADDRESS environment variable is not set');
+  }
+  
+  if (!DIVVI_CONSUMER_ADDRESS.startsWith('0x')) {
+    throw new Error('Invalid Divvi consumer address format');
+  }
+  
+  return DIVVI_CONSUMER_ADDRESS as `0x${string}`;
+};
+
 export function useDivvi() {
   const { address } = useAccount();
   const { data: walletClient } = useWalletClient();
@@ -16,9 +29,11 @@ export function useDivvi() {
       throw new Error('No wallet connected');
     }
 
+    const consumerAddress = getValidConsumerAddress();
+
     return getReferralTag({
       user: address,
-      consumer: DIVVI_CONSUMER_ADDRESS,
+      consumer: consumerAddress,
     });
   }, [address]);
 
@@ -61,5 +76,6 @@ export function useDivvi() {
     submitReferralTransaction,
     addReferralToTransaction,
     consumerAddress: DIVVI_CONSUMER_ADDRESS,
+    getValidConsumerAddress,
   };
 }
