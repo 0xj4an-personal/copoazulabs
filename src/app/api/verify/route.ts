@@ -10,7 +10,11 @@ import {
 // 1. DEFINE YOUR VERIFICATION REQUIREMENTS
 //    This object MUST EXACTLY MATCH your frontend's `disclosures` object.
 const verification_config = {
-    excludedCountries: []
+    excludedCountries: [
+      "AE","AR","AT","AU","BG","BH","BJ","BR","BZ","CA","CH","CM","CN","CZ","DE","ES","EU","FI","FR","GB","HU","ID","IE","IQ","IR","IS","IT","JP","KR","LU","MA","MD","MN","MX","MY","NO","NP","NZ","PA","QA","RO","RW","SE","SG","SK","TH","TM","TZ","UA","US","UZ","VN",
+      "AD","AG","AL","AM","AZ","BA","BB","BD","BE","BS","BW","BY","CI","CL","CR","CY","DK","DM","DZ","EC","EE","GE","GH","GM","GR","HR","IL","IN","JM","KE","KN","KP","KS","KW","KZ","LB","LI","LT","LV","MC","ME","MK","MT","MV","NL","OM","PE","PH","PL","PS","PT","PY","RS","RU","SA","SC","SI","SM","SN","SY","TJ","TL","TR","TW","UG","UY","VA","VC","VE","ZW",
+      "UN","ZZ" // special territories / test codes
+    ]
 };
 
 // 2. CREATE THE CONFIGURATION STORE

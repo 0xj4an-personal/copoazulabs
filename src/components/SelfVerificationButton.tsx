@@ -57,8 +57,9 @@ export const SelfVerificationButton: React.FC<SelfVerificationButtonProps> = ({
         userDefinedData: `Verifica tu identidad para obtener un descuento!'`,
         disclosures: {
           excludedCountries: [
-            "ARE","ARG","AUT","AUS","BGR","BHR","BEN","BRA","BLZ","CAN","CHE","CMR","CHN","CZE","ESP","FIN","FRA","GBR","HUN","IDN","IRL","IRQ","IRN","ISL","ITA","JPN","KOR","LUX","MAR","MDA","MNG","MEX","MYS","NOR","NPL","NZL","PAN","QAT","ROU","RWA","SWE","SGP","SVK","THA","TKM","TZA","UKR","USA","UZB","VNM",
-            "AND","ATG","ALB","ARM","AZE","BIH","BRB","BGD","BEL","BHS","BWA","BLR","CIV","CHL","CRI","CYP","DNK","DMA","DZA","ECU","EST","GEO","GHA","GMB","GRC","HRV","ISR","IND","JAM","KEN","KNA","PRK","XKX","KWT","KAZ","LBN","LIE","LTU","LVA","MCO","MNE","MKD","MLT","MDV","NLD","OMN","PER","PHL","POL","PSE","PRT","PRY","SRB","RUS","SAU","SYC","SVN","SMR","SEN","SYR","TJK","TLS","TUR","TWN","UGA","URY","VAT","VCT","VEN","ZWE"
+            "AE","AR","AT","AU","BG","BH","BJ","BR","BZ","CA","CH","CM","CN","CZ","DE","ES","EU","FI","FR","GB","HU","ID","IE","IQ","IR","IS","IT","JP","KR","LU","MA","MD","MN","MX","MY","NO","NP","NZ","PA","QA","RO","RW","SE","SG","SK","TH","TM","TZ","UA","US","UZ","VN",
+            "AD","AG","AL","AM","AZ","BA","BB","BD","BE","BS","BW","BY","CI","CL","CR","CY","DK","DM","DZ","EC","EE","GE","GH","GM","GR","HR","IL","IN","JM","KE","KN","KP","KS","KW","KZ","LB","LI","LT","LV","MC","ME","MK","MT","MV","NL","OM","PE","PH","PL","PS","PT","PY","RS","RU","SA","SC","SI","SM","SN","SY","TJ","TL","TR","TW","UG","UY","VA","VC","VE","ZW",
+            "UN","ZZ" // special territories / test codes
           ],
           nationality: true,
         }
