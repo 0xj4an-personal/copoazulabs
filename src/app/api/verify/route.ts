@@ -10,7 +10,8 @@ import {
 // 1. DEFINE YOUR VERIFICATION REQUIREMENTS
 //    This object MUST EXACTLY MATCH your frontend's `disclosures` object.
 const verification_config = {
-    excludedCountries: []
+    excludedCountries: [],
+    includedCountries: ['CO']
 };
 
 // 2. CREATE THE CONFIGURATION STORE

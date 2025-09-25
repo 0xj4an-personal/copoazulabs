@@ -54,9 +54,9 @@ export const SelfVerificationButton: React.FC<SelfVerificationButtonProps> = ({
         userId: userId,
         endpointType: 'https',
         userIdType: 'hex',
-        userDefinedData: `Welcome to ${process.env.NEXT_PUBLIC_APP_NAME || 'Copoazú Shop'}!`,
+        userDefinedData: `Verifica tu identidad para obtener un descuento'}!`,
         disclosures: {
-          excludedCountries: []
+          excludedCountries: [],
         }
       }).build()
 
