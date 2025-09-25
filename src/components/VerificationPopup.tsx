@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { X, Shield, CheckCircle, AlertCircle } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { SelfVerificationButton } from './SelfVerificationButton';
 
 interface VerificationPopupProps {
   isOpen: boolean;
@@ -36,32 +37,15 @@ export default function VerificationPopup({ isOpen, onClose, onVerificationCompl
     };
   }, [isOpen, onClose]);
 
-  const handleStartVerification = async () => {
-    setStep('verifying');
-    
-    try {
-      // Simulate Self verification process
-      await new Promise(resolve => setTimeout(resolve, 3000));
-      
-      // For demo purposes, we'll simulate a successful verification
-      // In production, this would integrate with Self's API
-      const isSuccess = Math.random() > 0.1; // 90% success rate for demo
-      
-      if (isSuccess) {
-        setStep('success');
-        setIsVerified(true);
-        onVerificationComplete(true);
-        
-        // Store verification status in localStorage
-        localStorage.setItem('selfVerified', 'true');
-        localStorage.setItem('verificationDate', new Date().toISOString());
-      } else {
-        setStep('error');
-      }
-    } catch (error) {
-      console.error('Verification error:', error);
-      setStep('error');
-    }
+  const handleVerificationSuccess = () => {
+    setStep('success');
+    setIsVerified(true);
+    onVerificationComplete(true);
+    // Note: localStorage is handled by SelfVerificationButton
+  };
+
+  const handleVerificationError = () => {
+    setStep('error');
   };
 
   const handleClose = () => {
@@ -118,12 +102,11 @@ export default function VerificationPopup({ isOpen, onClose, onVerificationCompl
 
               {/* Action Buttons */}
               <div className="space-y-3">
-                <button
-                  onClick={handleStartVerification}
-                  className="w-full py-3 px-6 bg-[brand-primary] text-white rounded-lg font-semibold hover:bg-[brand-accent] transition-colors"
-                >
-                  {t('buttons.verify')}
-                </button>
+                <div className="flex justify-center">
+                  <SelfVerificationButton
+                    onVerificationSuccess={handleVerificationSuccess}
+                  />
+                </div>
                 <button
                   onClick={handleClose}
                   className="w-full py-3 px-6 bg-brand-light/20 dark:bg-brand-dark/70 text-brand-dark dark:text-brand-background rounded-lg font-semibold hover:bg-brand-light/30 dark:hover:bg-brand-dark/80 transition-colors"
@@ -139,22 +122,6 @@ export default function VerificationPopup({ isOpen, onClose, onVerificationCompl
             </>
           )}
 
-          {step === 'verifying' && (
-            <div className="text-center">
-              <div className="w-16 h-16 bg-[brand-primary] rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
-                <Shield className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-[brand-dark] dark:text-[brand-background] mb-2">
-                {t('process.verifying')}
-              </h3>
-              <p className="text-brand-neutral dark:text-brand-background mb-4">
-                {t('process.verifyingSubtitle')}
-              </p>
-              <div className="w-full bg-brand-light/30 dark:bg-brand-dark/70 rounded-full h-2">
-                <div className="bg-[brand-primary] h-2 rounded-full animate-pulse w-3/4"></div>
-              </div>
-            </div>
-          )}
 
           {step === 'success' && (
             <div className="text-center">
@@ -188,12 +155,11 @@ export default function VerificationPopup({ isOpen, onClose, onVerificationCompl
                 {t('process.errorSubtitle')}
               </p>
               <div className="space-y-3">
-                <button
-                  onClick={handleStartVerification}
-                  className="w-full py-3 px-6 bg-[brand-primary] text-white rounded-lg font-semibold hover:bg-[brand-accent] transition-colors"
-                >
-                  {t('buttons.tryAgain')}
-                </button>
+                <div className="flex justify-center">
+                  <SelfVerificationButton
+                    onVerificationSuccess={handleVerificationSuccess}
+                  />
+                </div>
                 <button
                   onClick={handleClose}
                   className="w-full py-3 px-6 bg-brand-light/20 dark:bg-brand-dark/70 text-brand-dark dark:text-brand-background rounded-lg font-semibold hover:bg-brand-light/30 dark:hover:bg-brand-dark/80 transition-colors"
