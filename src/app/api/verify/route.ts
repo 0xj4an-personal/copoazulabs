@@ -10,8 +10,7 @@ import {
 // 1. DEFINE YOUR VERIFICATION REQUIREMENTS
 //    This object MUST EXACTLY MATCH your frontend's `disclosures` object.
 const verification_config = {
-    excludedCountries: [],
-    includedCountries: ['CO']
+    excludedCountries: []
 };
 
 // 2. CREATE THE CONFIGURATION STORE
@@ -71,7 +70,37 @@ export async function POST(req: NextRequest) {
 
     // Check if verification was successful
     if (result.isValidDetails.isValid) {
-      console.log("✅ Verification successful!");
+      console.log("✅ Cryptographic verification successful!");
+
+      // Additional validation: Check if person is from Colombia
+      const issuingState = result.discloseOutput?.issuingState;
+      const nationality = result.discloseOutput?.nationality;
+
+      console.log(`🏛️ Document issued by: ${issuingState}`);
+      console.log(`🌍 Person's nationality: ${nationality}`);
+
+      // Check if either the document was issued by Colombia OR the person has Colombian nationality
+      const isFromColombia = issuingState !== 'CO' || nationality !== 'CO';
+
+      if (!isFromColombia) {
+        console.warn("⚠️ Verification failed: Person is not from Colombia");
+        console.warn(`   - Issuing State: ${issuingState}`);
+        console.warn(`   - Nationality: ${nationality}`);
+
+        return NextResponse.json({
+          status: "error",
+          result: false,
+          message: "Verification is only available for Colombian residents",
+          details: {
+            reason: "country_restriction",
+            issuingState: issuingState,
+            nationality: nationality,
+            required: "Colombian document or nationality"
+          },
+        }, { status: 403 }); // Use 403 for forbidden access
+      }
+
+      console.log("✅ Colombia validation passed!");
       return NextResponse.json({
         status: "success",
         result: true,
