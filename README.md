@@ -16,20 +16,20 @@ copoazushop/
 ├── 📄 README.md                    # This file - Project overview
 ├── 📁 docs/                        # 📚 Complete Documentation
 │   ├── 📄 README.md               # Documentation navigation
-│   ├── 📄 COMPONENTS.md           # Component documentation
-│   ├── 📄 CONTRIBUTING.md         # Contributing guidelines
+│   ├── 📄 components.md           # Component documentation
+│   ├── 📄 contributing.md         # Contributing guidelines
 │   ├── 📁 environment/            # 🔧 Environment & Configuration
-│   │   ├── 📄 ENV_SETUP.md        # Environment setup guide
-│   │   ├── 📄 ENV_VARIABLES.md    # Complete variables reference
+│   │   ├── 📄 env-setup.md        # Environment setup guide
+│   │   ├── 📄 env-variables.md    # Complete variables reference
 │   │   ├── 📄 production.env.example    # Production variables
 │   │   ├── 📄 development.env.example  # Development variables
 │   │   └── 📄 template.env.example      # Variables template
 │   ├── 📁 setup/                  # ⚙️ Project Setup
-│   │   ├── 📄 CELO_SETUP.md       # Celo blockchain setup
-│   │   ├── 📄 DEPLOYMENT.md       # Deployment guide
-│   │   └── 📄 I18N_SETUP.md       # Internationalization setup
+│   │   ├── 📄 celo-setup.md       # Celo blockchain setup
+│   │   ├── 📄 deployment.md       # Deployment guide
+│   │   └── 📄 i18n-setup.md       # Internationalization setup
 │   └── 📁 integration/            # 🔗 Third-party Integrations
-│       └── 📄 DIVVI_INTEGRATION.md # Divvi referral system
+│       └── 📄 divvi-integration.md # Divvi referral system
 ├── 📁 src/                        # 💻 Source Code
 │   ├── 📁 app/                    # Next.js App Router
 │   │   ├── 📁 [locale]/           # Internationalized routes
@@ -138,7 +138,7 @@ npm run dev
 
 #### Environment Setup
 1. **Copy environment template**: `docs/environment/development.env.example` → `.env.local`
-2. **Configure variables**: See `docs/environment/ENV_SETUP.md`
+2. **Configure variables**: See `docs/environment/env-setup.md`
 3. **Get CELO tokens**: Purchase from exchanges or use faucet
 4. **Connect wallet**: Add Celo Mainnet to your wallet
 
@@ -168,7 +168,7 @@ npm run dev
 
 #### Configuración del Entorno
 1. **Copiar plantilla**: `docs/environment/development.env.example` → `.env.local`
-2. **Configurar variables**: Ver `docs/environment/ENV_SETUP.md`
+2. **Configurar variables**: Ver `docs/environment/env-setup.md`
 3. **Obtener tokens CELO**: Comprar en exchanges o usar faucet
 4. **Conectar wallet**: Agregar Celo Mainnet a tu wallet
 
@@ -181,22 +181,22 @@ npm run dev
 | Topic | Location | Description |
 |-------|----------|-------------|
 | **Environment Setup** | `docs/environment/` | Complete environment variables guide |
-| **Celo Configuration** | `docs/setup/CELO_SETUP.md` | Celo blockchain setup |
-| **Deployment** | `docs/setup/DEPLOYMENT.md` | Production deployment guide |
-| **Components** | `docs/COMPONENTS.md` | Component documentation |
-| **Divvi Integration** | `docs/integration/DIVVI_INTEGRATION.md` | Referral system setup |
-| **Contributing** | `docs/CONTRIBUTING.md` | How to contribute |
+| **Celo Configuration** | `docs/setup/celo-setup.md` | Celo blockchain setup |
+| **Deployment** | `docs/setup/deployment.md` | Production deployment guide |
+| **Components** | `docs/components.md` | Component documentation |
+| **Divvi Integration** | `docs/integration/divvi-integration.md` | Referral system setup |
+| **Contributing** | `docs/contributing.md` | How to contribute |
 
 ### Español
 
 | Tema | Ubicación | Descripción |
 |------|-----------|-------------|
 | **Configuración de Entorno** | `docs/environment/` | Guía completa de variables de entorno |
-| **Configuración de Celo** | `docs/setup/CELO_SETUP.md` | Configuración de blockchain Celo |
-| **Despliegue** | `docs/setup/DEPLOYMENT.md` | Guía de despliegue en producción |
-| **Componentes** | `docs/COMPONENTS.md` | Documentación de componentes |
-| **Integración Divvi** | `docs/integration/DIVVI_INTEGRATION.md` | Configuración del sistema de referidos |
-| **Contribuir** | `docs/CONTRIBUTING.md` | Cómo contribuir |
+| **Configuración de Celo** | `docs/setup/celo-setup.md` | Configuración de blockchain Celo |
+| **Despliegue** | `docs/setup/deployment.md` | Guía de despliegue en producción |
+| **Componentes** | `docs/components.md` | Documentación de componentes |
+| **Integración Divvi** | `docs/integration/divvi-integration.md` | Configuración del sistema de referidos |
+| **Contribuir** | `docs/contributing.md` | Cómo contribuir |
 
 ---
 
@@ -234,7 +234,7 @@ npm run test         # Run tests
 ```
 
 ### Environment Variables
-See `docs/environment/ENV_SETUP.md` for complete setup guide.
+See `docs/environment/env-setup.md` for complete setup guide.
 
 **Required Variables:**
 - `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID`
@@ -251,15 +251,15 @@ See `docs/environment/ENV_SETUP.md` for complete setup guide.
 3. Deploy automatically on push to main branch
 
 ### Manual Deployment
-See `docs/setup/DEPLOYMENT.md` for detailed instructions.
+See `docs/setup/deployment.md` for detailed instructions.
 
 ---
 
 ## 🤝 Contributing / Contribuir
 
-We welcome contributions! Please see `docs/CONTRIBUTING.md` for guidelines.
+We welcome contributions! Please see `docs/contributing.md` for guidelines.
 
-¡Las contribuciones son bienvenidas! Por favor consulta `docs/CONTRIBUTING.md` para las pautas.
+¡Las contribuciones son bienvenidas! Por favor consulta `docs/contributing.md` para las pautas.
 
 ---
 
