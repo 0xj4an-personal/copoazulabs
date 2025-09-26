@@ -40,6 +40,8 @@ export const SelfVerificationButton: React.FC<SelfVerificationButtonProps> = ({
 
   useEffect(() => {
     if (!showQR || !userId) return
+    const allCountriesExceptColombia = Object.values(countries).filter(countryCode => countryCode !== countries.COLOMBIA);
+    console.log('🚀 allCountriesExceptColombia:', allCountriesExceptColombia)
 
     console.log('🚀 Initializing SelfApp for verification...')
     setIsLoading(true)
@@ -56,7 +58,7 @@ export const SelfVerificationButton: React.FC<SelfVerificationButtonProps> = ({
         userIdType: 'hex',
         userDefinedData: 'Verifícate para obtener un descuento 🤑',
         disclosures: {
-          excludedCountries: Object.values(countries).filter(countryCode => countryCode !== countries.COLOMBIA),
+          excludedCountries: allCountriesExceptColombia,
           // Colombia (countries.COLOMBIA) is NOT in the excluded list, so it's allowed
         }
       }).build()
