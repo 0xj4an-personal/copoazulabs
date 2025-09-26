@@ -11,7 +11,38 @@ import {
 // 1. DEFINE YOUR VERIFICATION REQUIREMENTS
 //    This object MUST EXACTLY MATCH your frontend's `disclosures` object.
 const verification_config = {
-    excludedCountries: [countries.COLOMBIA],
+    excludedCountries: [
+      // Excluir todos los países excepto Colombia
+      countries.UNITED_STATES, countries.CANADA, countries.MEXICO, countries.UNITED_KINGDOM,
+      countries.GERMANY, countries.FRANCE, countries.SPAIN, countries.ITALY,
+      countries.JAPAN, countries.CHINA, countries.AUSTRALIA, countries.BRAZIL,
+      countries.ARGENTINA, countries.CHILE, countries.PERU, countries.VENEZUELA,
+      countries.ECUADOR, countries.BOLIVIA, countries.URUGUAY, countries.PARAGUAY,
+      countries.RUSSIA, countries.INDIA, countries.INDONESIA, countries.THAILAND,
+      countries.VIET_NAM, countries.PHILIPPINES, countries.SOUTH_KOREA, countries.TAIWAN,
+      countries.SINGAPORE, countries.MALAYSIA, countries.NETHERLANDS, countries.BELGIUM,
+      countries.SWITZERLAND, countries.AUSTRIA, countries.SWEDEN, countries.NORWAY,
+      countries.DENMARK, countries.FINLAND, countries.POLAND, countries.CZECH_REPUBLIC,
+      countries.HUNGARY, countries.ROMANIA, countries.BULGARIA, countries.CROATIA,
+      countries.SLOVENIA, countries.SLOVAKIA, countries.ESTONIA, countries.LATVIA,
+      countries.LITHUANIA, countries.PORTUGAL, countries.GREECE, countries.TURKEY,
+      countries.ISRAEL, countries.SAUDI_ARABIA, countries.UNITED_ARAB_EMIRATES, countries.QATAR,
+      countries.KUWAIT, countries.BAHRAIN, countries.OMAN, countries.JORDAN,
+      countries.LEBANON, countries.EGYPT, countries.SOUTH_AFRICA, countries.NIGERIA,
+      countries.KENYA, countries.GHANA, countries.MOROCCO, countries.TUNISIA,
+      countries.ALGERIA, countries.ETHIOPIA, countries.UGANDA, countries.TANZANIA,
+      countries.ANDORRA, countries.ANTIGUA_AND_BARBUDA, countries.ALBANIA, countries.ARMENIA,
+      countries.AZERBAIJAN, countries.BOSNIA_AND_HERZEGOVINA, countries.BARBADOS, countries.BANGLADESH,
+      countries.BELARUS, countries.IVORY_COAST, countries.COSTA_RICA, countries.CYPRUS,
+      countries.DOMINICA, countries.ECUADOR, countries.GEORGIA, countries.GAMBIA,
+      countries.SAINT_KITTS_AND_NEVIS, countries.NORTH_KOREA, countries.KAZAKHSTAN,
+      countries.LIECHTENSTEIN, countries.MONACO, countries.MONTENEGRO, countries.NORTH_MACEDONIA,
+      countries.MALTA, countries.MALDIVES, countries.PALESTINE, countries.SERBIA,
+      countries.SEYCHELLES, countries.SAN_MARINO, countries.SENEGAL, countries.SYRIAN_ARAB_REPUBLIC,
+      countries.TAJIKISTAN, countries.TIMOR_LESTE, countries.VATICAN_CITY,
+      countries.SAINT_VINCENT_AND_THE_GRENADINES, countries.ZIMBABWE
+      // Colombia (countries.COLOMBIA) NO está en la lista, por lo que está permitida
+    ],
 };
 
 // 2. CREATE THE CONFIGURATION STORE
