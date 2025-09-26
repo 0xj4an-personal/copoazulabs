@@ -54,7 +54,7 @@ export const SelfVerificationButton: React.FC<SelfVerificationButtonProps> = ({
         userId: userId,
         endpointType: 'https',
         userIdType: 'hex',
-        userDefinedData: `Verifica tu identidad para obtener un descuento'}!`,
+        userDefinedData: 'Verifica tu identidad para obtener un descuento',
         disclosures: {
           excludedCountries: [],
         }
