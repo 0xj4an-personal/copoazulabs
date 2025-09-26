@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { getUniversalLink } from '@selfxyz/core'
+import { getUniversalLink, countries } from '@selfxyz/core'
 import { SelfQRcodeWrapper, SelfAppBuilder, type SelfApp } from '@selfxyz/qrcode'
 import { ethers } from 'ethers'
 import { useTranslations } from 'next-intl'
@@ -56,7 +56,7 @@ export const SelfVerificationButton: React.FC<SelfVerificationButtonProps> = ({
         userIdType: 'hex',
         userDefinedData: 'Verifícate para obtener un descuento 🤑',
         disclosures: {
-          excludedCountries: [],
+          excludedCountries: [countries.COLOMBIA],
         }
       }).build()
 
