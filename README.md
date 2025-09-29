@@ -237,7 +237,7 @@ npm run test         # Run tests
 See `docs/environment/env-setup.md` for complete setup guide.
 
 **Required Variables:**
-- `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID`
+- `NEXT_PUBLIC_REOWN_PROJECT_ID`
 - `NEXT_PUBLIC_CELO_RPC_URL`
 - `NEXT_PUBLIC_DIVVI_CONSUMER_ADDRESS`
 

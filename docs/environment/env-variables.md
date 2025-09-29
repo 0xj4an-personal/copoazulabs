@@ -11,7 +11,7 @@ This document describes all environment variables used in the Copoazú Labs Web3
 
 2. **Fill in your actual values:**
    - Replace `YOUR_INFURA_KEY` with your Infura project ID
-   - Replace `YOUR_WALLET_CONNECT_PROJECT_ID` with your WalletConnect project ID
+   - Replace `YOUR_REOWN_PROJECT_ID` with your Reown project ID
    - Update social media URLs with your actual links
 
 3. **Restart your development server:**
@@ -34,7 +34,7 @@ This document describes all environment variables used in the Copoazú Labs Web3
 |----------|-------------|---------|----------|
 | `NEXT_PUBLIC_CHAIN_ID` | Blockchain chain ID | "42220" (Celo Mainnet) | No |
 | `NEXT_PUBLIC_RPC_URL` | RPC endpoint URL | "https://rpc.celocolombia.org" | Yes |
-| `NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID` | WalletConnect project ID | "" | Yes |
+| `NEXT_PUBLIC_REOWN_PROJECT_ID` | Reown project ID | "" | Yes |
 
 #### Celo Network Details:
 - **Mainnet Chain ID**: 42220
@@ -52,6 +52,14 @@ This document describes all environment variables used in the Copoazú Labs Web3
 |----------|-------------|---------|----------|
 | `NEXT_PUBLIC_PAYMENT_PROVIDER` | Payment provider | "stripe" | No |
 | `NEXT_PUBLIC_CRYPTO_PAYMENTS_ENABLED` | Enable crypto payments | "true" | No |
+
+### Self Verification (Optional)
+| Variable | Description | Default | Required |
+|----------|-------------|---------|----------|
+| `NEXT_PUBLIC_SELF_APP_ID` | Self application ID | "" | No |
+| `NEXT_PUBLIC_SELF_SCOPE` | Self verification scope | "copoazu-prod" | No |
+| `NEXT_PUBLIC_SELF_ENDPOINT` | Self verification endpoint | "https://your-app.vercel.app/api/verify" | No |
+| `SELF_SECRET_KEY` | Self secret key (server-side only) | "" | No |
 
 ### Analytics (Optional)
 | Variable | Description | Default | Required |
@@ -90,8 +98,17 @@ When deploying to Vercel, add these environment variables in your Vercel dashboa
 NEXT_PUBLIC_APP_URL=https://your-app.vercel.app
 NEXT_PUBLIC_CHAIN_ID=42220
 NEXT_PUBLIC_RPC_URL=https://rpc.celocolombia.org
-NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=your_wallet_connect_project_id
+NEXT_PUBLIC_REOWN_PROJECT_ID=your_reown_project_id
+NEXT_PUBLIC_DIVVI_CONSUMER_ADDRESS=your_divvi_consumer_address
 NODE_ENV=production
+```
+
+### Optional for Production (Self Verification):
+```bash
+NEXT_PUBLIC_SELF_APP_ID=your_self_app_id
+NEXT_PUBLIC_SELF_SCOPE=copoazu-prod
+NEXT_PUBLIC_SELF_ENDPOINT=https://your-app.vercel.app/api/verify
+SELF_SECRET_KEY=your_self_secret_key
 ```
 
 ### For Development (Celo Mainnet):
@@ -99,8 +116,17 @@ NODE_ENV=production
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 NEXT_PUBLIC_CHAIN_ID=42220
 NEXT_PUBLIC_RPC_URL=https://rpc.celocolombia.org
-NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=your_wallet_connect_project_id
+NEXT_PUBLIC_REOWN_PROJECT_ID=your_reown_project_id
+NEXT_PUBLIC_DIVVI_CONSUMER_ADDRESS=your_divvi_consumer_address
 NODE_ENV=development
+```
+
+### Optional for Development (Self Verification):
+```bash
+NEXT_PUBLIC_SELF_APP_ID=your_self_app_id
+NEXT_PUBLIC_SELF_SCOPE=copoazu-prod
+NEXT_PUBLIC_SELF_ENDPOINT=http://localhost:3000/api/verify
+SELF_SECRET_KEY=your_self_secret_key
 ```
 
 ## 🔒 Security Notes
@@ -113,19 +139,26 @@ NODE_ENV=development
 ## 📝 Usage in Code
 
 ```typescript
-import { env } from './env.config';
+import { servicesConfig } from './env.config';
 
 // Use environment variables
-const appName = env.APP_NAME;
-const isDevelopment = env.IS_DEVELOPMENT;
-const apiUrl = env.API_BASE_URL;
+const appName = servicesConfig.app.name;
+const isDevelopment = servicesConfig.app.environment === 'development';
+const selfScope = servicesConfig.self.scope;
+const selfEndpoint = servicesConfig.self.endpoint;
 
-// Feature flags
-if (env.ENABLE_WEB3) {
-  // Enable Web3 features
+// Self verification
+if (servicesConfig.self.appId) {
+  // Initialize Self verification
+  const app = new SelfAppBuilder({
+    scope: servicesConfig.self.scope,
+    endpoint: servicesConfig.self.endpoint,
+    // ... other config
+  }).build();
 }
 
-if (env.ENABLE_DEBUG) {
+// Feature flags
+if (servicesConfig.app.environment === 'development') {
   console.log('Debug mode enabled');
 }
 ```

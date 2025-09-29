@@ -76,8 +76,8 @@ export const WEB3_CONFIG = {
       decimals: 18,
     },
   },
-  walletConnect: {
-    projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID,
+  reown: {
+    projectId: process.env.NEXT_PUBLIC_REOWN_PROJECT_ID,
   },
 } as const;
 
@@ -219,7 +219,7 @@ export const EXTERNAL_LINKS = {
 
 // Feature Flags
 export const FEATURES = {
-  walletConnect: true,
+  reown: true,
   darkMode: true,
   internationalization: true,
   analytics: true,

@@ -86,7 +86,7 @@ export function sanitizeHtml(html: string): string {
  */
 export function validateEnvironmentVariables(): { isValid: boolean; missing: string[] } {
   const required = [
-    'NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID',
+    'NEXT_PUBLIC_REOWN_PROJECT_ID',
     'NEXT_PUBLIC_CELO_RPC_URL',
     'NEXT_PUBLIC_APP_URL'
   ];

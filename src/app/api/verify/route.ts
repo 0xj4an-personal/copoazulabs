@@ -6,12 +6,13 @@ import {
   AllIds,
   DefaultConfigStore,
 } from '@selfxyz/core';
+import { servicesConfig } from '../../../../env.config';
 
 // 1. DEFINE YOUR VERIFICATION REQUIREMENTS
 //    This object MUST EXACTLY MATCH your frontend's `disclosures` object.
 const verification_config = {
     excludedCountries: [],
-    includedCountries: ['CO']
+
 };
 
 // 2. CREATE THE CONFIGURATION STORE
@@ -72,6 +73,14 @@ export async function POST(req: NextRequest) {
     // Check if verification was successful
     if (result.isValidDetails.isValid) {
       console.log("✅ Verification successful!");
+      
+      // Log nationality if available
+      if (result.discloseOutput?.nationality) {
+        console.log("🌍 Nationality revealed:", result.discloseOutput.nationality);
+      }
+      
+      console.log("📋 Full credential subject data:", result.discloseOutput);
+      
       return NextResponse.json({
         status: "success",
         result: true,

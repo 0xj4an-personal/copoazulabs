@@ -18,7 +18,7 @@ interface EnvConfig {
     network: 'mainnet';
     rpcUrl: string;
     explorerUrl: string;
-    walletConnectProjectId: string;
+    reownProjectId: string;
     contracts: {
       ccopToken: string;
       paymentContract: string;
@@ -34,7 +34,8 @@ interface EnvConfig {
       secretKey?: string;
     };
     self: {
-      appId: string;
+      scope: string;
+      endpoint: string;
       secretKey?: string;
     };
     analytics: {
@@ -104,7 +105,7 @@ export const envConfig: EnvConfig = {
       'NEXT_PUBLIC_CELO_EXPLORER_URL',
       'https://explorer.celo.org'
     ),
-    walletConnectProjectId: getEnvVar('NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID', ''),
+    reownProjectId: getEnvVar('NEXT_PUBLIC_REOWN_PROJECT_ID', ''),
     contracts: {
       ccopToken: getEnvVar(
         'NEXT_PUBLIC_CCOP_TOKEN_ADDRESS',
@@ -122,7 +123,8 @@ export const envConfig: EnvConfig = {
       secretKey: getEnvVar('DIVVI_SECRET_KEY'),
     },
     self: {
-      appId: getEnvVar('NEXT_PUBLIC_SELF_APP_ID', ''),
+      scope: getEnvVar('NEXT_PUBLIC_SELF_SCOPE', 'copoazu-prod'),
+      endpoint: getEnvVar('NEXT_PUBLIC_SELF_ENDPOINT', 'https://copoazushop.vercel.app/api/verify'),
       secretKey: getEnvVar('SELF_SECRET_KEY'),
     },
     analytics: {
@@ -162,17 +164,14 @@ export function validateEnvConfig(): boolean {
   const errors: string[] = [];
 
   // Check required blockchain configuration
-  if (!envConfig.blockchain.walletConnectProjectId && envConfig.app.environment === 'production') {
-    errors.push('NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID is required for production');
+  if (!envConfig.blockchain.reownProjectId && envConfig.app.environment === 'production') {
+    errors.push('NEXT_PUBLIC_REOWN_PROJECT_ID is required for production');
   }
 
   // Check required service configurations for production
   if (envConfig.app.environment === 'production') {
     if (!envConfig.services.divvi.apiKey) {
       errors.push('NEXT_PUBLIC_DIVVI_API_KEY is required for production');
-    }
-    if (!envConfig.services.self.appId) {
-      errors.push('NEXT_PUBLIC_SELF_APP_ID is required for production');
     }
   }
 

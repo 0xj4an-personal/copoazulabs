@@ -275,7 +275,7 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
-      - NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=${WALLETCONNECT_PROJECT_ID}
+      - NEXT_PUBLIC_REOWN_PROJECT_ID=${REOWN_PROJECT_ID}
     restart: unless-stopped
 ```
 
@@ -288,7 +288,7 @@ services:
 # .env.production (production)
 
 # Web3 Configuration
-NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_project_id
+NEXT_PUBLIC_REOWN_PROJECT_ID=your_project_id
 NEXT_PUBLIC_CELO_RPC_URL=https://forno.celo.org
 NEXT_PUBLIC_CELO_EXPLORER_URL=https://celoscan.io
 
@@ -333,7 +333,7 @@ NEXT_PUBLIC_DIVVI_API_KEY=your_divvi_key
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
-      NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID: string;
+      NEXT_PUBLIC_REOWN_PROJECT_ID: string;
       NEXT_PUBLIC_CELO_RPC_URL: string;
       NEXT_PUBLIC_APP_URL: string;
       SENTRY_DSN?: string;
@@ -561,7 +561,7 @@ module.exports = {
    ```typescript
    // Validate environment variables
    const requiredEnvVars = [
-     'NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID',
+     'NEXT_PUBLIC_REOWN_PROJECT_ID',
      'NEXT_PUBLIC_CELO_RPC_URL'
    ];
 
@@ -644,7 +644,7 @@ module.exports = {
    ```bash
    # Check if variables are accessible
    console.log('Environment variables:', {
-     walletConnect: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID,
+     reown: process.env.NEXT_PUBLIC_REOWN_PROJECT_ID,
      celoRpc: process.env.NEXT_PUBLIC_CELO_RPC_URL
    });
    ```

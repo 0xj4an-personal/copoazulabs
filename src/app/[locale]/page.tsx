@@ -18,6 +18,20 @@ const featuredProducts = getFeaturedProducts();
 export default function Home() {
   const t = useTranslations();
   const { isVerified, setVerified } = useVerification();
+
+  // TEMPORARY: Log environment variables for debugging
+  useEffect(() => {
+    console.log('🔧 Environment Variables Debug:', {
+      NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+      NEXT_PUBLIC_REOWN_PROJECT_ID: process.env.NEXT_PUBLIC_REOWN_PROJECT_ID,
+      NEXT_PUBLIC_CELO_RPC_URL: process.env.NEXT_PUBLIC_CELO_RPC_URL,
+      NEXT_PUBLIC_CELO_EXPLORER_URL: process.env.NEXT_PUBLIC_CELO_EXPLORER_URL,
+      NEXT_PUBLIC_DIVVI_CONSUMER_ADDRESS: process.env.NEXT_PUBLIC_DIVVI_CONSUMER_ADDRESS,
+      NEXT_PUBLIC_SELF_SCOPE: process.env.NEXT_PUBLIC_SELF_SCOPE,
+      NEXT_PUBLIC_SELF_ENDPOINT: process.env.NEXT_PUBLIC_SELF_ENDPOINT,
+      NODE_ENV: process.env.NODE_ENV,
+    });
+  }, []);
   const [showVerificationPopup, setShowVerificationPopup] = useState(false);
   const [isClient, setIsClient] = useState(false);
 

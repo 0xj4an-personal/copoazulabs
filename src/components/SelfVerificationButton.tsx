@@ -7,10 +7,11 @@ import { ethers } from 'ethers'
 import { useTranslations } from 'next-intl'
 import { Shield, CheckCircle, Loader2, Copy, Check } from 'lucide-react'
 import { useAccount } from 'wagmi'
+import { servicesConfig } from '../../env.config'
 
 interface SelfVerificationButtonProps {
   compact?: boolean
-  onVerificationSuccess?: () => void
+  onVerificationSuccess?: (nationality?: string) => void
 }
 
 export const SelfVerificationButton: React.FC<SelfVerificationButtonProps> = ({
@@ -23,6 +24,7 @@ export const SelfVerificationButton: React.FC<SelfVerificationButtonProps> = ({
   const [isLoading, setIsLoading] = useState(false)
   const [showQR, setShowQR] = useState(false)
   const [linkCopied, setLinkCopied] = useState(false)
+  const [userNationality, setUserNationality] = useState<string | null>(null)
   const t = useTranslations('verification')
   const tCommon = useTranslations('common')
   const { address } = useAccount()
@@ -33,8 +35,10 @@ export const SelfVerificationButton: React.FC<SelfVerificationButtonProps> = ({
   useEffect(() => {
     // Check if already verified
     const verified = localStorage.getItem('isSelfVerified')
+    const nationality = localStorage.getItem('userNationality')
     if (verified === 'true') {
       setIsVerified(true)
+      setUserNationality(nationality)
     }
   }, [])
 
@@ -57,6 +61,7 @@ export const SelfVerificationButton: React.FC<SelfVerificationButtonProps> = ({
         userDefinedData: 'Verifícate para obtener un descuento 🤑',
         disclosures: {
           excludedCountries: [],
+          nationality: true,
         }
       }).build()
 
@@ -70,18 +75,38 @@ export const SelfVerificationButton: React.FC<SelfVerificationButtonProps> = ({
       setIsLoading(false)
     } catch (error) {
       console.error('❌ Failed to initialize Self app:', error)
+      console.error('❌ Error details:', {
+        message: error instanceof Error ? error.message : String(error),
+        stack: error instanceof Error ? error.stack : undefined,
+        name: error instanceof Error ? error.name : 'Unknown'
+      })
       setIsLoading(false)
     }
   }, [showQR, userId])
 
-  const handleSuccessfulVerification = () => {
+  const handleSuccessfulVerification = (verificationData?: any) => {
     console.log('✅ Verification successful!')
+    console.log('📋 Verification data received:', verificationData)
+    
+    // Extract nationality from verification data
+    let nationality = null
+    if (verificationData?.credentialSubject?.nationality) {
+      nationality = verificationData.credentialSubject.nationality
+      console.log('🌍 Nationality revealed:', nationality)
+    }
+    
+    // Store verification status and nationality
     localStorage.setItem('isSelfVerified', 'true')
+    if (nationality) {
+      localStorage.setItem('userNationality', nationality)
+      setUserNationality(nationality)
+    }
+    
     setIsVerified(true)
     setShowQR(false)
 
     if (onVerificationSuccess) {
-      onVerificationSuccess()
+      onVerificationSuccess(nationality)
     }
   }
 
@@ -107,19 +132,30 @@ export const SelfVerificationButton: React.FC<SelfVerificationButtonProps> = ({
 
   // If already verified, show verified status
   if (isVerified) {
+    
     if (compact) {
       return (
         <div className="flex items-center gap-2 bg-green-50 text-green-700 px-3 py-1.5 rounded-lg border border-green-200">
           <CheckCircle className="w-4 h-4" />
-          <span className="text-sm font-medium">{t('status.verified')}</span>
+          <div className="flex flex-col">
+            <span className="text-sm font-medium">{t('status.verified')}</span>
+            {userNationality && (
+              <span className="text-xs text-green-600">Nationality: {userNationality}</span>
+            )}
+          </div>
         </div>
       )
     }
 
     return (
-      <div className="flex items-center justify-center gap-2 bg-green-50 text-green-700 px-4 py-3 rounded-xl border border-green-200">
-        <CheckCircle className="w-5 h-5" />
-        <span className="font-medium">{t('status.verified')}</span>
+      <div className="flex flex-col items-center gap-2 bg-green-50 text-green-700 px-4 py-3 rounded-xl border border-green-200">
+        <div className="flex items-center gap-2">
+          <CheckCircle className="w-5 h-5" />
+          <span className="font-medium">{t('status.verified')}</span>
+        </div>
+        {userNationality && (
+          <span className="text-sm text-green-600">🌍 Nationality: {userNationality}</span>
+        )}
       </div>
     )
   }
@@ -149,7 +185,11 @@ export const SelfVerificationButton: React.FC<SelfVerificationButtonProps> = ({
               <div className="bg-white p-4 rounded-xl border-2 border-gray-200">
                 <SelfQRcodeWrapper
                   selfApp={selfApp}
-                  onSuccess={handleSuccessfulVerification}
+                  onSuccess={(verificationData) => {
+                    console.log('🎉 Self verification success callback triggered')
+                    console.log('📊 Raw verification data:', verificationData)
+                    handleSuccessfulVerification(verificationData)
+                  }}
                   onError={(error) => {
                     console.error('❌ QR Code Error:', error)
                   }}

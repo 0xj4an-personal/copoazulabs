@@ -15,7 +15,7 @@ declare global {
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
-      NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID: string;
+      NEXT_PUBLIC_REOWN_PROJECT_ID: string;
       NEXT_PUBLIC_CELO_RPC_URL: string;
       NEXT_PUBLIC_CELO_EXPLORER_URL: string;
       NEXT_PUBLIC_APP_URL: string;
