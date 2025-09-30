@@ -48,6 +48,34 @@ export const SelfVerificationButton: React.FC<SelfVerificationButtonProps> = ({
     console.log('🚀 Initializing SelfApp for verification...')
     setIsLoading(true)
 
+    // Monitor for proof_verified status in console logs
+    const originalConsoleLog = console.log
+    console.log = (...args) => {
+      originalConsoleLog(...args)
+      
+      // Check if any of the logged messages contain 'proof_verified'
+      const message = args.join(' ')
+      if (message.includes('proof_verified') && !message.includes('🎉')) {
+        console.log('🎉 Proof verified detected in console logs!')
+        setTimeout(() => {
+          handleSuccessfulVerification()
+        }, 1000) // Small delay to ensure the verification process completes
+      }
+    }
+
+    // Add global listener for WebSocket events
+    const handleWebSocketMessage = (event: any) => {
+      console.log('🔍 WebSocket event detected:', event)
+      if (event.detail?.status === 'proof_verified') {
+        console.log('🎉 Proof verified detected via WebSocket!')
+        handleSuccessfulVerification()
+      }
+    }
+
+    // Listen for custom events that might be emitted by the Self SDK
+    window.addEventListener('self-verification-success', handleWebSocketMessage)
+    document.addEventListener('self-verification-success', handleWebSocketMessage)
+
     try {
       const app = new SelfAppBuilder({
         version: 2,
@@ -81,6 +109,13 @@ export const SelfVerificationButton: React.FC<SelfVerificationButtonProps> = ({
         name: error instanceof Error ? error.name : 'Unknown'
       })
       setIsLoading(false)
+    }
+
+    // Cleanup listeners and restore console.log
+    return () => {
+      console.log = originalConsoleLog
+      window.removeEventListener('self-verification-success', handleWebSocketMessage)
+      document.removeEventListener('self-verification-success', handleWebSocketMessage)
     }
   }, [showQR, userId])
 
@@ -182,6 +217,7 @@ export const SelfVerificationButton: React.FC<SelfVerificationButtonProps> = ({
                   selfApp={selfApp}
                   onSuccess={() => {
                     console.log('🎉 Self verification success callback triggered')
+                    console.log('✅ Verification successful!')
                     handleSuccessfulVerification()
                   }}
                   onError={(error) => {
