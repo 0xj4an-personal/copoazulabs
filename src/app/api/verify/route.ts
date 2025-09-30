@@ -18,24 +18,32 @@ declare global {
   }> | undefined;
 }
 
+// V2 Configuration: Use AllIds for all document types (recommended for most cases)
+const allowedIds = AllIds;
+
+// Option 2: Define specific allowed document types (commented out - not available in current package)
+// const allowedIds = new Map();
+// allowedIds.set(AttestationId.E_PASSPORT, true);  // Accept passports
+// allowedIds.set(AttestationId.EU_ID_CARD, true);  // Accept EU ID cards
+
 // V2 Configuration Store (using V1 package with V2 pattern)
+// Note: IConfigStorage not available in current package, using DefaultConfigStore instead
 const verification_config = {
   excludedCountries: []
+  // minimumAge: 18,     // Not needed for nationality-only verification
+  // ofac: true          // Not needed for nationality-only verification
 };
 
 const configStore = new DefaultConfigStore(verification_config);
-
-// V2 Configuration: Use AllIds for all document types (recommended for most cases)
-const allowedIds = AllIds;
 
 // Initialize V2 verifier (using V1 package with V2 pattern)
 const selfBackendVerifier = new SelfBackendVerifier(
   process.env.NEXT_PUBLIC_SELF_SCOPE || "copoazu-prod",
   process.env.NEXT_PUBLIC_SELF_ENDPOINT || "https://copoazushop.vercel.app/api/verify",
-  false, // mockPassport → true = testnet, realPassport → false = mainnet
-  allowedIds, // V2: allowed attestation IDs map
-  configStore,
-  "hex" // V1: user identifier type (hex for wallet addresses)
+  false,                        // mock mode
+  allowedIds,                   // NEW: allowed document types
+  configStore,                  // NEW: config storage (DefaultConfigStore instead of IConfigStorage)
+  "hex"                         // user ID type (hex for wallet addresses, UUID not available in current package)
 );
 
 console.log(`🔧 Initializing verifier with SCOPE: ${process.env.NEXT_PUBLIC_SELF_SCOPE}`);
