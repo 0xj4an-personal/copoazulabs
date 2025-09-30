@@ -8,6 +8,7 @@ import { useTranslations } from 'next-intl'
 import { Shield, CheckCircle, Loader2, Copy, Check } from 'lucide-react'
 import { useAccount } from 'wagmi'
 import { servicesConfig } from '../../env.config'
+import { useVerification } from '@/contexts/VerificationContext'
 
 interface SelfVerificationButtonProps {
   compact?: boolean
@@ -20,7 +21,6 @@ export const SelfVerificationButton: React.FC<SelfVerificationButtonProps> = ({
 }) => {
   const [selfApp, setSelfApp] = useState<SelfApp | null>(null)
   const [universalLink, setUniversalLink] = useState('')
-  const [isVerified, setIsVerified] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [showQR, setShowQR] = useState(false)
   const [linkCopied, setLinkCopied] = useState(false)
@@ -28,16 +28,15 @@ export const SelfVerificationButton: React.FC<SelfVerificationButtonProps> = ({
   const t = useTranslations('verification')
   const tCommon = useTranslations('common')
   const { address } = useAccount()
+  const { isVerified, setVerified } = useVerification()
 
   // Use connected wallet address or fallback to zero address
   const userId = address || ethers.ZeroAddress
 
   useEffect(() => {
-    // Check if already verified
-    const verified = localStorage.getItem('isSelfVerified')
+    // Check if already verified and load nationality
     const nationality = localStorage.getItem('userNationality')
-    if (verified === 'true') {
-      setIsVerified(true)
+    if (nationality) {
       setUserNationality(nationality)
     }
   }, [])
@@ -48,33 +47,9 @@ export const SelfVerificationButton: React.FC<SelfVerificationButtonProps> = ({
     console.log('🚀 Initializing SelfApp for verification...')
     setIsLoading(true)
 
-    // Monitor for proof_verified status in console logs
-    const originalConsoleLog = console.log
-    console.log = (...args) => {
-      originalConsoleLog(...args)
-      
-      // Check if any of the logged messages contain 'proof_verified'
-      const message = args.join(' ')
-      if (message.includes('proof_verified') && !message.includes('🎉')) {
-        console.log('🎉 Proof verified detected in console logs!')
-        setTimeout(() => {
-          handleSuccessfulVerification()
-        }, 1000) // Small delay to ensure the verification process completes
-      }
-    }
+    // Remove automatic monitoring - only use proper Self SDK callbacks
 
-    // Add global listener for WebSocket events
-    const handleWebSocketMessage = (event: any) => {
-      console.log('🔍 WebSocket event detected:', event)
-      if (event.detail?.status === 'proof_verified') {
-        console.log('🎉 Proof verified detected via WebSocket!')
-        handleSuccessfulVerification()
-      }
-    }
-
-    // Listen for custom events that might be emitted by the Self SDK
-    window.addEventListener('self-verification-success', handleWebSocketMessage)
-    document.addEventListener('self-verification-success', handleWebSocketMessage)
+    // Only rely on Self SDK's onSuccess callback
 
     try {
       const app = new SelfAppBuilder({
@@ -111,34 +86,34 @@ export const SelfVerificationButton: React.FC<SelfVerificationButtonProps> = ({
       setIsLoading(false)
     }
 
-    // Cleanup listeners and restore console.log
+    // Cleanup
     return () => {
-      console.log = originalConsoleLog
-      window.removeEventListener('self-verification-success', handleWebSocketMessage)
-      document.removeEventListener('self-verification-success', handleWebSocketMessage)
+      // No cleanup needed since we removed the monitoring
     }
   }, [showQR, userId])
 
   const handleSuccessfulVerification = () => {
     console.log('✅ Verification successful!')
+    console.log('🎯 handleSuccessfulVerification called!')
     
     // For now, we'll set a placeholder nationality since the SelfQRcodeWrapper
     // doesn't pass verification data directly. The actual nationality will be
     // logged on the backend and can be retrieved from there if needed.
     const nationality = 'Verified' // Placeholder - actual nationality comes from backend logs
     
-    // Store verification status
-    localStorage.setItem('isSelfVerified', 'true')
+    // Store nationality and update verification status using VerificationContext
     localStorage.setItem('userNationality', nationality)
     setUserNationality(nationality)
-    
-    setIsVerified(true)
+    setVerified(true) // This will update the header message
     setShowQR(false)
+
+    console.log('🎉 Verification state updated!', { isVerified: true, nationality })
 
     if (onVerificationSuccess) {
       onVerificationSuccess(nationality)
     }
   }
+
 
   const handleVerifyClick = () => {
     if (!address) {
@@ -225,6 +200,7 @@ export const SelfVerificationButton: React.FC<SelfVerificationButtonProps> = ({
                   }}
                 />
               </div>
+
 
               {universalLink && (
                 <div className="mt-4 w-full">
