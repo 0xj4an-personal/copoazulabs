@@ -84,23 +84,18 @@ export const SelfVerificationButton: React.FC<SelfVerificationButtonProps> = ({
     }
   }, [showQR, userId])
 
-  const handleSuccessfulVerification = (verificationData?: any) => {
+  const handleSuccessfulVerification = () => {
     console.log('✅ Verification successful!')
-    console.log('📋 Verification data received:', verificationData)
     
-    // Extract nationality from verification data
-    let nationality = null
-    if (verificationData?.credentialSubject?.nationality) {
-      nationality = verificationData.credentialSubject.nationality
-      console.log('🌍 Nationality revealed:', nationality)
-    }
+    // For now, we'll set a placeholder nationality since the SelfQRcodeWrapper
+    // doesn't pass verification data directly. The actual nationality will be
+    // logged on the backend and can be retrieved from there if needed.
+    const nationality = 'Verified' // Placeholder - actual nationality comes from backend logs
     
-    // Store verification status and nationality
+    // Store verification status
     localStorage.setItem('isSelfVerified', 'true')
-    if (nationality) {
-      localStorage.setItem('userNationality', nationality)
-      setUserNationality(nationality)
-    }
+    localStorage.setItem('userNationality', nationality)
+    setUserNationality(nationality)
     
     setIsVerified(true)
     setShowQR(false)
@@ -185,10 +180,9 @@ export const SelfVerificationButton: React.FC<SelfVerificationButtonProps> = ({
               <div className="bg-white p-4 rounded-xl border-2 border-gray-200">
                 <SelfQRcodeWrapper
                   selfApp={selfApp}
-                  onSuccess={(verificationData) => {
+                  onSuccess={() => {
                     console.log('🎉 Self verification success callback triggered')
-                    console.log('📊 Raw verification data:', verificationData)
-                    handleSuccessfulVerification(verificationData)
+                    handleSuccessfulVerification()
                   }}
                   onError={(error) => {
                     console.error('❌ QR Code Error:', error)
