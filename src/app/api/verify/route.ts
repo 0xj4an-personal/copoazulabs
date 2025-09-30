@@ -18,21 +18,24 @@ declare global {
   }> | undefined;
 }
 
-// V1 Configuration Store (compatible with current package)
+// V2 Configuration Store (using V1 package with V2 pattern)
 const verification_config = {
   excludedCountries: []
 };
 
 const configStore = new DefaultConfigStore(verification_config);
 
-// Initialize V1 verifier (compatible with current package)
+// V2 Configuration: Use AllIds for all document types (recommended for most cases)
+const allowedIds = AllIds;
+
+// Initialize V2 verifier (using V1 package with V2 pattern)
 const selfBackendVerifier = new SelfBackendVerifier(
   process.env.NEXT_PUBLIC_SELF_SCOPE || "copoazu-prod",
   process.env.NEXT_PUBLIC_SELF_ENDPOINT || "https://copoazushop.vercel.app/api/verify",
-  false, // true = mock for testing
-  AllIds,
+  false, // mockPassport → true = testnet, realPassport → false = mainnet
+  allowedIds, // V2: allowed attestation IDs map
   configStore,
-  "hex"
+  "hex" // V1: user identifier type (hex for wallet addresses)
 );
 
 console.log(`🔧 Initializing verifier with SCOPE: ${process.env.NEXT_PUBLIC_SELF_SCOPE}`);
@@ -51,7 +54,7 @@ export async function POST(req: NextRequest) {
     console.error("❌ Failed to parse request body as JSON:", error);
     return NextResponse.json({ message: "Invalid JSON in request body" }, { status: 400 });
   }
-  // Extract data from the request (V1 format)
+  // Extract data from the request (V1 format - current package limitation)
   const { attestationId, proof, publicSignals, userContextData } = requestBody;
 
   // Verify all required fields are present
@@ -62,7 +65,7 @@ export async function POST(req: NextRequest) {
     }, { status: 400 });
   }
 
-  // Verify the proof using V1 method
+  // Verify the proof using V1 method (current package limitation)
   try {
     console.log("⏳ Calling selfBackendVerifier.verify() with V1 format...");
     console.log("📋 AttestationId:", attestationId);
@@ -71,7 +74,7 @@ export async function POST(req: NextRequest) {
     const result = await selfBackendVerifier.verify(
       attestationId,      // Document type (1 for passport, 2 for EU ID)
       proof,
-      publicSignals,      // V1 uses publicSignals
+      publicSignals,      // V1 uses publicSignals (current package limitation)
       userContextData     // Hex-encoded context data
     );
 
