@@ -8,17 +8,24 @@ import {
 } from '@selfxyz/core';
 import { servicesConfig } from '../../../../env.config';
 
-// 1. DEFINE YOUR VERIFICATION REQUIREMENTS
-//    This object MUST EXACTLY MATCH your frontend's `disclosures` object.
-const verification_config = {
-    excludedCountries: [],
+// Type declaration for global verification results
+declare global {
+  var verificationResults: Map<string, {
+    userId: string;
+    nationality: string | null;
+    timestamp: string;
+    credentialSubject: any;
+  }> | undefined;
+}
 
+// V1 Configuration Store (compatible with current package)
+const verification_config = {
+  excludedCountries: []
 };
 
-// 2. CREATE THE CONFIGURATION STORE
 const configStore = new DefaultConfigStore(verification_config);
 
-// 3. INITIALIZE THE VERIFIER
+// Initialize V1 verifier (compatible with current package)
 const selfBackendVerifier = new SelfBackendVerifier(
   process.env.NEXT_PUBLIC_SELF_SCOPE || "copoazu-prod",
   process.env.NEXT_PUBLIC_SELF_ENDPOINT || "https://copoazushop.vercel.app/api/verify",
@@ -44,8 +51,7 @@ export async function POST(req: NextRequest) {
     console.error("❌ Failed to parse request body as JSON:", error);
     return NextResponse.json({ message: "Invalid JSON in request body" }, { status: 400 });
   }
-  // Extract data from the request
-  // Extract data from the request
+  // Extract data from the request (V1 format)
   const { attestationId, proof, publicSignals, userContextData } = requestBody;
 
   // Verify all required fields are present
@@ -56,14 +62,17 @@ export async function POST(req: NextRequest) {
     }, { status: 400 });
   }
 
-  // Verify the proof
+  // Verify the proof using V1 method
   try {
-    console.log("⏳ Calling selfBackendVerifier.verify()...");
+    console.log("⏳ Calling selfBackendVerifier.verify() with V1 format...");
+    console.log("📋 AttestationId:", attestationId);
+    console.log("📋 UserContextData:", userContextData);
+    
     const result = await selfBackendVerifier.verify(
-      attestationId,
+      attestationId,      // Document type (1 for passport, 2 for EU ID)
       proof,
-      publicSignals,
-      userContextData
+      publicSignals,      // V1 uses publicSignals
+      userContextData     // Hex-encoded context data
     );
 
     // DEBUGGING: Log the ENTIRE result object from the verifier.
@@ -81,9 +90,30 @@ export async function POST(req: NextRequest) {
       
       console.log("📋 Full credential subject data:", result.discloseOutput);
       
+      // Store verification result with user context for retrieval
+      const verificationResult = {
+        userId: userContextData?.userId || 'unknown',
+        nationality: result.discloseOutput?.nationality || null,
+        timestamp: new Date().toISOString(),
+        credentialSubject: result.discloseOutput
+      };
+      
+      console.log('💾 Storing verification result:', verificationResult);
+      console.log('🌍 Nationality being stored:', verificationResult.nationality);
+      
+      // In a real implementation, you would store this in a database
+      // For now, we'll store it in memory (this will be lost on server restart)
+      if (!global.verificationResults) {
+        global.verificationResults = new Map();
+        console.log('🗄️ Created new verificationResults Map');
+      }
+      global.verificationResults.set(verificationResult.userId, verificationResult);
+      console.log('✅ Stored verification result for userId:', verificationResult.userId);
+      
       return NextResponse.json({
         status: "success",
         result: true,
+        nationality: result.discloseOutput?.nationality || null,
         credentialSubject: result.discloseOutput,
       });
     } else {
@@ -97,9 +127,19 @@ export async function POST(req: NextRequest) {
         details: result.isValidDetails,
       }, { status: 400 }); // Use 400 for a bad request (invalid proof) instead of 500
     }
- } catch (error: unknown) { // Changed 'any' to 'unknown'
+ } catch (error: unknown) {
     // DEBUGGING: Log the full error object for a complete stack trace
     console.error('💥 An unexpected error occurred during verification:', error);
+
+    // Handle V2 configuration mismatch errors as per migration guide
+    if (error instanceof Error && error.name === 'ConfigMismatchError') {
+      console.error('❌ Configuration mismatch error:', error);
+      return NextResponse.json({
+        status: "error",
+        message: "Configuration mismatch",
+        issues: (error as any).issues, // V2 provides detailed issues
+      }, { status: 400 });
+    }
 
     // Type-safe way to get the error message
     const message = error instanceof Error ? error.message : "An unknown error occurred.";

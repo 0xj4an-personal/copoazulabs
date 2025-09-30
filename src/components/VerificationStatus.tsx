@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { Shield, CheckCircle, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useVerification } from '@/contexts/VerificationContext';
@@ -7,6 +8,15 @@ import { useVerification } from '@/contexts/VerificationContext';
 export default function VerificationStatus() {
   const t = useTranslations('verification');
   const { isVerified, verificationDate, clearVerification } = useVerification();
+  const [userNationality, setUserNationality] = React.useState<string | null>(null);
+
+  // Load nationality from localStorage
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const nationality = localStorage.getItem('userNationality');
+      setUserNationality(nationality);
+    }
+  }, []);
 
   if (!isVerified) {
     return null;
@@ -29,6 +39,11 @@ export default function VerificationStatus() {
       <div className="flex flex-col">
         <span className="text-xs font-semibold text-brand-dark dark:text-brand-background">
           {t('status.verified')}
+          {userNationality && (
+            <span className="ml-1 text-brand-primary dark:text-brand-light">
+              • 🌍 {userNationality}
+            </span>
+          )}
         </span>
         <span className="text-xs text-brand-primary dark:text-brand-light">
           {t('status.discountActive')}
