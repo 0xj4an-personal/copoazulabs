@@ -1,11 +1,7 @@
 // File: app/api/verify/route.ts
 
 import { NextResponse, type NextRequest } from "next/server";
-import {
-  SelfBackendVerifier,
-  AllIds,
-  DefaultConfigStore,
-} from '@selfxyz/core';
+import {SelfBackendVerifier, AllIds, DefaultConfigStore} from '@selfxyz/core';
 import { servicesConfig } from '../../../../env.config';
 
 // Type declaration for global verification results
@@ -63,13 +59,15 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: "Invalid JSON in request body" }, { status: 400 });
   }
   // Extract data from the request (V1 format - current package limitation)
-  const { attestationId, proof, publicSignals, userContextData } = requestBody;
+  // Support both pubSignals and publicSignals for compatibility
+  const { attestationId, proof, publicSignals, pubSignals, userContextData } = requestBody;
+  const signals = publicSignals || pubSignals;
 
   // Verify all required fields are present
-  if (!proof || !publicSignals || !attestationId || !userContextData) {
+  if (!proof || !signals || !attestationId || !userContextData) {
     console.error("❌ Missing required fields in request.");
     return NextResponse.json({
-      message: "Proof, publicSignals, attestationId and userContextData are required",
+      message: "Proof, publicSignals/pubSignals, attestationId and userContextData are required",
     }, { status: 400 });
   }
 
@@ -82,13 +80,16 @@ export async function POST(req: NextRequest) {
     const result = await selfBackendVerifier.verify(
       attestationId,      // Document type (1 for passport, 2 for EU ID)
       proof,
-      publicSignals,      // V1 uses publicSignals (current package limitation)
+      signals,            // Support both publicSignals and pubSignals
       userContextData     // Hex-encoded context data
     );
 
     // DEBUGGING: Log the ENTIRE result object from the verifier.
     // This object contains valuable details on why verification might have failed.
     console.log("🔍 Verification result object:", JSON.stringify(result, null, 2));
+
+    // Extract nationality from discloseOutput (as shown in Self docs)
+    const nationality = result.discloseOutput?.nationality;
 
     // Check if verification was successful
     if (result.isValidDetails.isValid) {
@@ -124,7 +125,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({
         status: "success",
         result: true,
-        nationality: result.discloseOutput?.nationality || null,
+        nationality, // Use the extracted nationality variable
         credentialSubject: result.discloseOutput,
       });
     } else {
