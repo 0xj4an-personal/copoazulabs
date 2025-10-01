@@ -96,8 +96,11 @@ export async function POST(req: NextRequest) {
       console.log("✅ Verification successful!");
       
       // Log nationality if available
-      if (result.discloseOutput?.nationality) {
-        console.log("🌍 Nationality revealed:", result.discloseOutput.nationality);
+      if (nationality) {
+        console.log("🌍 Nationality revealed:", nationality);
+        console.log(`🎉 SUCCESS: User verified with nationality: ${nationality}`);
+      } else {
+        console.log("⚠️ Verification successful but no nationality disclosed");
       }
       
       console.log("📋 Full credential subject data:", result.discloseOutput);
@@ -105,7 +108,7 @@ export async function POST(req: NextRequest) {
       // Store verification result with user context for retrieval
       const verificationResult = {
         userId: userContextData?.userId || 'unknown',
-        nationality: result.discloseOutput?.nationality || null,
+        nationality: nationality || null,
         timestamp: new Date().toISOString(),
         credentialSubject: result.discloseOutput
       };
